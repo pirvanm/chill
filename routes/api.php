@@ -1,0 +1,106 @@
+<?php
+
+use Illuminate\Http\Request;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::get('/videos', 'VideoController@getAllVideos');
+
+Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
+
+Route::get('/latest-videos-jazzy', 'VideoController@getLatestVideosJazzy');
+
+Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
+
+Route::get('/latest-videos-ambient', 'VideoController@getLastestVideosAmbient');
+
+
+Route::get('/videos-lofi', 'VideoController@getVideosLofi');
+Route::get('/latest-videos-lofi', 'VideoController@getLatestVideosLofi');
+
+
+Route::get('/videos-regional', 'VideoController@getVideosRegional');
+Route::get('/videos-chillstep', 'VideoController@getVideosChillStep');
+
+Route::get('/latest-videos-chillstep', 'VideoController@getLatestChillStep');
+
+
+Route::get('/videos-chillout', 'VideoController@getVideosChillOut');
+
+Route::get('/latest-videos-chillout', 'VideoController@getLatestChillOut');
+
+Route::get('videos-down', 'VideoController@getDown');
+
+Route::get('videos-trap', 'VideoController@getTrap');
+
+Route::get('videos-world', 'VideoController@getWorld');
+
+Route::get('videos-lounge', 'VideoController@getLounge');
+
+Route::get('videos-classical', 'VideoController@getClassical');
+
+
+Route::get('videos-classic', 'VideoController@getClassic');
+
+Route::get('/channels', 'ChannelController@getChannels');
+
+Route::get('/watch/{videoId}', 'VideoController@getVideo');
+
+Route::get('/watch-chillhop/{videoId}', 'VideoController@getVideoChillHop');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::post('/add-video', 'VideoController@addVideo');
+});
+
+Route::group(['prefix' => 'suggest'], function () {
+    Route::post('/add-video', 'VideoController@addVideoQuest');
+});
+
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::post('/update-video', 'VideoController@updateVideo');
+});
+
+//Route::get('/contact', 'VideoController@getVideos');
+
+//Route::get('/donate', 'VideoController@getVideos');
+
+Route::post('auth/login', 'Auth\LoginController@login');
+
+Route::get('me', 'Auth\MeController@getMe')->middleware('auth:api');
+
+Route::post('auth/logout', 'Auth\LogoutController@logout');
+
+Route::post('/register', 'Auth\RegisterController@postRegister');
+
+Route::post('/search', 'SearchController@searchVideo');
+
+Route::get('/categories', 'CategoryController@getCategories');
+
+Route::post('/category', 'CategoryController@postCategory');
+
+Route::get('/subcategories-with-category/{id}', 'SubCategoryController@getSubCategoryWithCategory');
+
+Route::post('/subcategory', 'SubCategoryController@postSubCategory');
+
+Route::get('/playlists', 'PlaylistController@getPublicPlaylist');
+
+Route::get('/playlists/{slug}', 'PlaylistController@getPlaylistbySlug');
+
+Route::post('/playlists', 'PlaylistController@createPublicPlaylist');
+
+Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');

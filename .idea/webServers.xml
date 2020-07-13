@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a19a45db-d756-4a61-81b0-4c2998efe070" name="chillwhisper" url="http://185.104.181.100">
+        <fileTransfer host="185.104.181.100" port="22" privateKey="C:\Users\LevelCoding\Downloads\final.pem" rootFolder="/home/ubuntu/website/" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
