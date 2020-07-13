@@ -4,18 +4,22 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+User , Search and User Navigate Experience
 
-### How do I get set up? ###
+### How do I get develop here? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* 1.0 navigation zone
+* 1.1.player playlist
+* 1.2 player category
+* 1.3 search a video by title,tags
+* 1.4 register,login for user
+* 1.5 playlist category , subcategory
+* 1.6 duration of video
+* 1.7 collect all video from a channel
+* 1.8 responsive design
+* 1.9 refactor video controller
+
+
 
 ### Contribution guidelines ###
 
