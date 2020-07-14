@@ -109,6 +109,8 @@
                         <i class="fas fa-forward"></i>
                     </button>
                     <div class="float-right">
+                    <!--
+                    Just for Moderator
                         <b-dropdown id="dropdown-1" text="Add to playlist" class="m-md-2">
                             <b-dropdown-item @click="createNewPlaylist">Create new Playlist</b-dropdown-item>
                             <b-dropdown-item
@@ -117,6 +119,7 @@
                                     :key="index"
                             >{{ playlist.name }}</b-dropdown-item>
                         </b-dropdown>
+                        -->
                     </div>
                     <social-sharing
                             :url="url"
