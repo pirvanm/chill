@@ -40,7 +40,11 @@ export default {
     /*
      ** Global CSS
      */
-    css: ["./assets/styles/app.scss"],
+    css: [
+    "./assets/styles/app.scss",
+    '~/assets/styles/app.css'
+
+    ],
     /*
      ** Plugins to load before mounting the App
      */
@@ -60,7 +64,7 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
-        '@nuxtjs/ngrok',
+  //      '@nuxtjs/ngrok',
         // Doc: https://bootstrap-vue.js.org/docs/
         "bootstrap-vue/nuxt",
         // Doc: https://axios.nuxtjs.org/usage
