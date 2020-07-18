@@ -1,47 +1,13 @@
 <template>
-    <div class="video-container-insert">
-        <b-nav>
-            <!--<nuxt-link to="localhost:3000">Home page</nuxt-link>
-      -->
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">Home</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">Ambient</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">ChillStep</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">ChillOut</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">ChillHop</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000">Home</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="http://localhost:3000/Search">Search</a>
-                </li>
-            </ul>
-
-            <!--<a href="http://localhost:3000">II</a>-->
-        </b-nav>
+  <div class="row">
+  <div class="col-md-2"><SideBar/>
+  </div>
+  <div class="col-md-9">
         <h1>Video Insert Zone</h1>
+        <p>Let K.i.s.s(Keep it stupid simple),just copy youtube link in form,chouse category and subcategory and click on save.
+        </p>
+        <p>
+    P.S any summision it's moderate in this moment. 
         <form @submit.prevent="save">
             <div class="form-group">
                 <label>Insert Video Id</label>
@@ -113,14 +79,16 @@
 
             <button type="submit" class="btn btn-success">Save</button>
         </form>
-    </div>
+    </div>    </div>
 </template>
 
 <script>
 import Multiselect from "vue-multiselect";
+import SideBar from '@/components/SideS'
 export default {
     components: {
-        Multiselect
+        Multiselect,
+        SideBar
     },
   //  middleware: ["auth"],
     layout: "MenuAdmin",
@@ -212,9 +180,9 @@ export default {
 
 <style>
 .video-container-insert {
-    margin-left: 5%;
+  
     margin-top: 0%;
-    margin-right: 5%;
+  
 }
 .category {
     margin-top: 20px;
