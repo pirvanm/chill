@@ -24,27 +24,39 @@ Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
 Route::get('/latest-videos-jazzy', 'VideoController@getLatestVideosJazzy');
 
 Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
+Route::get('/videos-ambient-meditate', 'VideoController@getVideosAmbientMeditate');
 
 Route::get('/latest-videos-ambient', 'VideoController@getLastestVideosAmbient');
 
 
 Route::get('/videos-lofi', 'VideoController@getVideosLofi');
 Route::get('/latest-videos-lofi', 'VideoController@getLatestVideosLofi');
-
+Route::get('/videos-lofi-house', 'VideoController@getVideosLofiHouse');
 
 Route::get('/videos-regional', 'VideoController@getVideosRegional');
+Route::get('/videos-regional-spanish', 'VideoController@getVideosRegionalSpanish');
+Route::get('/videos-regional-italy', 'VideoController@getVideosRegionalItaly');
+Route::get('/videos-regional-japan', 'VideoController@getVideosRegionalJapan');
+Route::get('/videos-regional-indian', 'VideoController@getVideosRegionalIndian');
+Route::get('/videos-regional-france', 'VideoController@getVideosRegionalFrance');
+Route::get('/videos-regional-chinese', 'VideoController@getVideosRegionalChinese');
+Route::get('/videos-regional-arabic', 'VideoController@getVideosRegionalArabic');
+Route::get('/videos-regional-african', 'VideoController@getVideoRegionalAfrican');
+
 Route::get('/videos-chillstep', 'VideoController@getVideosChillStep');
 
 Route::get('/latest-videos-chillstep', 'VideoController@getLatestChillStep');
 
 
 Route::get('/videos-chillout', 'VideoController@getVideosChillOut');
+Route::get('/videos-chillout-gaming', 'VideoController@getVideosChillOutGaming');
 
 Route::get('/latest-videos-chillout', 'VideoController@getLatestChillOut');
 
 Route::get('videos-down', 'VideoController@getDown');
 
 Route::get('videos-trap', 'VideoController@getTrap');
+Route::get('videos-techno', 'VideoController@getTechno');
 
 Route::get('videos-world', 'VideoController@getWorld');
 
