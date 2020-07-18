@@ -54,23 +54,16 @@ Route::get('/videos-chillout-gaming', 'VideoController@getVideosChillOutGaming')
 Route::get('/latest-videos-chillout', 'VideoController@getLatestChillOut');
 
 Route::get('videos-down', 'VideoController@getDown');
-
 Route::get('videos-trap', 'VideoController@getTrap');
 Route::get('videos-techno', 'VideoController@getTechno');
-
 Route::get('videos-world', 'VideoController@getWorld');
-
 Route::get('videos-lounge', 'VideoController@getLounge');
-
 Route::get('videos-classical', 'VideoController@getClassical');
-
-
 Route::get('videos-classic', 'VideoController@getClassic');
 
 Route::get('/channels', 'ChannelController@getChannels');
 
 Route::get('/watch/{videoId}', 'VideoController@getVideo');
-
 Route::get('/watch-chillhop/{videoId}', 'VideoController@getVideoChillHop');
 
 Route::group(['prefix' => 'admin'], function () {
@@ -102,17 +95,11 @@ Route::post('/register', 'Auth\RegisterController@postRegister');
 Route::post('/search', 'SearchController@searchVideo');
 
 Route::get('/categories', 'CategoryController@getCategories');
-
 Route::post('/category', 'CategoryController@postCategory');
-
 Route::get('/subcategories-with-category/{id}', 'SubCategoryController@getSubCategoryWithCategory');
-
 Route::post('/subcategory', 'SubCategoryController@postSubCategory');
 
 Route::get('/playlists', 'PlaylistController@getPublicPlaylist');
-
 Route::get('/playlists/{slug}', 'PlaylistController@getPlaylistbySlug');
-
 Route::post('/playlists', 'PlaylistController@createPublicPlaylist');
-
 Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
