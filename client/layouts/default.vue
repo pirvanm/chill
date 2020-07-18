@@ -22,7 +22,5 @@ export default {
 };
 </script>
 <style>
-/* .homepage-video {
-   display:none;
- } */
+
 </style>
