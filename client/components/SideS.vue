@@ -4,7 +4,8 @@
         <a href="/" css="logo">
                     <i class="fas fa-headphones"></i>
                     <span class="logo ">Chill Whispers</span>
-                </a>
+                </a>   
+                 <br/>
                 <ul class="list-home">
                     <li>
                         <i class="fas fa-home"></i>  <a href="/">Home </a>
@@ -48,6 +49,8 @@
                     <li>
                         <a href="/videos/lounge">Lounge </a>
                     </li>
+<br/>
+
 
                     <li>
                         <a class="title-menu" href="/videos/regional">Regional </a>
@@ -82,9 +85,7 @@
                         <a href="/videos/regional-spanish">Spanish </a>
                     </li>
 
-                       <li>
-                        <a href="/videos/regional">Arabic </a>
-                    </li>
+               <br/>
 
                     <li>
                         <a href="/videos/trap">Trap </a>
