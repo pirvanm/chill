@@ -6,17 +6,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 -->
 
-
-
-
-    <div class="row content">
-            <SideBar/>
-
+    <div class="row">
+<div class="col-md-3"><SideBar/>
+</div>
             <div class="col-md-9">
                 <div class="row">
-
-
-
                     <div class="col-md-3">
                         <div class="column  ">
                             <p> Most Popolar Song of Ambiental Gehnre</p>
@@ -174,7 +168,7 @@
 </template>
 
 <script>
-  import SideBar from '@/components/SideBar'
+  import SideBar from '@/components/SideS'
     export default {
         components: {
             SideBar

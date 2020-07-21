@@ -50,7 +50,40 @@
                     </li>
 
                     <li>
-                        <a href="/videos/regional">Regional </a>
+                        <a class="title-menu" href="/videos/regional">Regional </a>
+                    </li>
+
+                    <li>
+                        <a href="/videos/regional-arabic">Arabic </a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional-chinese">Chinese </a>
+                    </li>
+
+
+                       <li>
+                        <a href="/videos/regional-france">France </a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional-indian">Indian </a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional-italy">Italy </a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional-japan">Japan</a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional-spanish">Spanish </a>
+                    </li>
+
+                       <li>
+                        <a href="/videos/regional">Arabic </a>
                     </li>
 
                     <li>
