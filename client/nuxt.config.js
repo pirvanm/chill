@@ -1,10 +1,9 @@
 require("dotenv").config();
 
-import axios from 'axios';
+import axios from "axios";
 export default {
-
     generate: {
-       /* routes () {
+        /* routes () {
             return axios.get('https://chillwhispers.com/')
                 .then((res) => {
                     return res.data.map((user) => {
@@ -20,31 +19,29 @@ export default {
     head: {
         meta: [
             { charset: "utf-8" },
-            { name: "viewport", content: "width=device-width, initial-scale=1" }
+            {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1",
+            },
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
             {
                 rel: "stylesheet",
                 href:
-                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
-            }
-        ]
+                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css",
+            },
+        ],
     },
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: "#fff" ,background: "black"},
-
+    loading: { color: "#fff", background: "black" },
 
     /*
      ** Global CSS
      */
-    css: [
-    "./assets/styles/app.scss",
-    '~/assets/styles/app.css'
-
-    ],
+    css: ["./assets/styles/app.scss", "~/assets/styles/app.css"],
     /*
      ** Plugins to load before mounting the App
      */
@@ -52,34 +49,35 @@ export default {
         { src: "~/plugins/youtube", ssr: true },
         { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
-        { src: "~/plugins/notifications", ssr: false }
+        { src: "~/plugins/notifications", ssr: false },
         // { src: "~/plugins/multiselect", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }
     ],
     /*
      ** Nuxt.js dev-modules
      */
-    buildModules: ["@nuxtjs/dotenv"],
+    buildModules: ["@nuxtjs/dotenv", "@nuxtjs/google-analytics"],
+
+    googleAnalytics: {
+        id: "UA-158769291-1",
+    },
     /*
      ** Nuxt.js modules
      */
     modules: [
-  //      '@nuxtjs/ngrok',
+        //      '@nuxtjs/ngrok',
         // Doc: https://bootstrap-vue.js.org/docs/
         "bootstrap-vue/nuxt",
         // Doc: https://axios.nuxtjs.org/usage
         "@nuxtjs/axios",
-      //  "@nuxtjs/auth",
+        //  "@nuxtjs/auth",
         "@nuxtjs/pwa",
-        ['@nuxtjs/google-analytics', {
-             id: 'UA-158769291-1'
-         }
-         ],
+
         "@nuxtjs/sitemap",
         "nuxt-fontawesome",
-       /* '~/plugins/algolia'*/
+        /* '~/plugins/algolia'*/
     ],
-/*    auth: {
+    /*    auth: {
         strategies: {
             local: {
                 endpoints: {
@@ -101,7 +99,7 @@ export default {
             home: "/"
         }
     },*/
-/*
+    /*
     sitemap: {
         hostname: 'https://chillwhispers.com',
         lastmod: '2017-06-30',
@@ -165,29 +163,26 @@ export default {
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: process.env.BASE_URL
+        baseURL: process.env.BASE_URL,
     },
     /*
      ** Build configuration
      */
     build: {
-        transpile: [
-          'vue-instantsearch',
-          'instantsearch.js/es'
-        ],
+        transpile: ["vue-instantsearch", "instantsearch.js/es"],
         postcss: {
             plugins: {
-                tailwindcss: "./tailwind.config.js"
-            }
+                tailwindcss: "./tailwind.config.js",
+            },
         },
         extractCSS: true,
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(config, ctx) {},
     },
     server: {
         port: process.env.SERVER_PORT, // default: 3000
-        host: process.env.SERVER_IP // default: localhost,
-    }
+        host: process.env.SERVER_IP, // default: localhost,
+    },
 };
