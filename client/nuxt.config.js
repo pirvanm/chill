@@ -47,7 +47,7 @@ export default {
      */
     plugins: [
         { src: "~/plugins/youtube", ssr: true },
-        { src: "~/plugins/analytics", ssr: false },
+        // { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
         { src: "~/plugins/notifications", ssr: false }
         // { src: "~/plugins/multiselect", ssr: false }
