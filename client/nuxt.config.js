@@ -21,17 +21,17 @@ export default {
             { charset: "utf-8" },
             {
                 name: "viewport",
-                content: "width=device-width, initial-scale=1",
-            },
+                content: "width=device-width, initial-scale=1"
+            }
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
             {
                 rel: "stylesheet",
                 href:
-                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css",
-            },
-        ],
+                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
+            }
+        ]
     },
     /*
      ** Customize the progress-bar color
@@ -49,7 +49,7 @@ export default {
         { src: "~/plugins/youtube", ssr: true },
         { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
-        { src: "~/plugins/notifications", ssr: false },
+        { src: "~/plugins/notifications", ssr: false }
         // { src: "~/plugins/multiselect", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }
     ],
@@ -59,7 +59,7 @@ export default {
     buildModules: ["@nuxtjs/dotenv", "@nuxtjs/google-analytics"],
 
     googleAnalytics: {
-        id: "UA-158769291-1",
+        id: "UA-133292357-1"
     },
     /*
      ** Nuxt.js modules
@@ -74,7 +74,7 @@ export default {
         "@nuxtjs/pwa",
 
         "@nuxtjs/sitemap",
-        "nuxt-fontawesome",
+        "nuxt-fontawesome"
         /* '~/plugins/algolia'*/
     ],
     /*    auth: {
@@ -163,7 +163,7 @@ export default {
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: process.env.BASE_URL,
+        baseURL: process.env.BASE_URL
     },
     /*
      ** Build configuration
@@ -172,17 +172,17 @@ export default {
         transpile: ["vue-instantsearch", "instantsearch.js/es"],
         postcss: {
             plugins: {
-                tailwindcss: "./tailwind.config.js",
-            },
+                tailwindcss: "./tailwind.config.js"
+            }
         },
         extractCSS: true,
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {},
+        extend(config, ctx) {}
     },
     server: {
         port: process.env.SERVER_PORT, // default: 3000
-        host: process.env.SERVER_IP, // default: localhost,
-    },
+        host: process.env.SERVER_IP // default: localhost,
+    }
 };
