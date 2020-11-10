@@ -1,0 +1,106 @@
+    .vertical-menu
+    {
+        margin-left:2%;
+    }
+    .list-home {
+        margin-top:20px;
+    }
+    .list-videos {
+        margin-top:10px;
+    }
+    .list-helpfull
+    {
+        margin-top:10px;
+    }
+
+    .list-videos:first-child{
+        font-weight: bold;
+        font-size:16px;
+    }
+
+    .list-helpfull:first-child
+    {
+        font-weight: bold;
+        font-size:16px;
+    }
+    .logo {
+        background: linear-gradient(315deg, orange 5%, purple 30%, black 69%);
+        font-size: 20px;
+        font-weight: bold;
+        color: aliceblue;
+         padding: 10px; 
+        margin-bottom: 28px;
+        margin-top: 53px;
+        border-radius: 8px;
+        margin-left: -29px;
+    }
+    .content {
+        margin-top:30px;
+    }
+    .column p
+    {
+        color: grey;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        margin-top: 10px;
+        padding-top: 6px;
+        padding-bottom: 5px;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
+
+.main-logo
+{
+padding: 7px;
+margin-bottom: 0;
+margin-top: 0;
+margin-left: 9px;
+    }
+
+.b-sidebar
+ {
+width: 270px;
+}
+
+
+ul.nav a
+    {
+        font-size:15px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .card {
+        margin-bottom: 50px;
+        min-height: 200px;
+        height: 365px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }
+    .video-grid{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 2%;
+    }
+
+    .bg-info {
+        background-color: #1034a6!important;
+    }
+
+    .navbar-dark .navbar-brand {
+        color: #fd5e53;
+    }
+
+    .rigth-link{
+        margin-right: 40px;
+    }

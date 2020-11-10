@@ -1,91 +1,20 @@
 <template>
-    <div class="container video-section">
-        <div class="row">
-            <div class="offset-col-md-1 col-md-1 vertical-menu">
-                <a href="/" css="logo">
-                    <i class="fas fa-headphones"></i>
-                    Chill Whispelars
-                </a>
-                <ul class="list-home">
-                    <li>
-                        <i class="fas fa-home"></i> Home
-                    </li>
-                </ul>
+    <div>
 
-                <ul class="list-videos">
-                    <li>
-                        <a href="/videos">
-                            <i class="fa fa-music"></i> Latest Videos
-                        </a>
-                    </li>
+       <!-- NavBar -->
+       <div class="row container-navbar">
 
-                    <li>
-                        <a href="/videos/ambiental">Ambiental Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/chillhop">ChillHop Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/chillout">ChillOut Videos</a>
-                    </li>
+       </div>
+        <!-- Container -->
+    <div class="row container-general-video">
+    
+         <!-- Left Side Bar -->
+<SideBar/>
 
-                    <li>
-                        <a href="/videos/chillstep">Chillstep Videos</a>
-                    </li>
+          <!-- Video Container -->
+          <div class="col-md-6">
 
-                    <li>
-                        <a href="/videos/classic">Classic Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/classical">Classical Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/downtempo">Downtempo Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/lofi">Lofi Videos</a>
-                    </li>
-                    <li>
-                        <a href="/videos/lounge">Lounge Videos</a>
-                    </li>
-
-                    <li>
-                        <a href="/videos/regional">Regional Videos</a>
-                    </li>
-
-                    <li>
-                        <a href="/videos/trap">Trap Videos</a>
-                    </li>
-
-                    <li>
-                        <a href="/videos/world">World Videos</a>
-                    </li>
-                </ul>
-
-                <ul class="list-helpfull">
-                    <li>HelpFull</li>
-
-                    <li>Contact</li>
-                    <li>Suport</li>
-                    <li>Suggestion</li>
-                </ul>
-
-                <ul class="social-list">
-                    <h1>Follow Us!</h1>
-                    <li>
-                        <a href="https://twitter.com/chill_whisper">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/Chill-Whisper-317341858891377/?modal=admin_todo_tour">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <youtube
+  <youtube
                         ref="youtube"
                         width="100%"
                         height="450px"
@@ -94,78 +23,14 @@
                         @playing="playing"
                         @ended="endVideo"
                 ></youtube>
-                <br />
-                <div class="container-video">
-                    <a class="btn btn-danger" @click="play">
-                        <i class="fas fa-play"></i>
-                    </a>
-                    <a class="btn" @click="pause">
-                        <i class="fas fa-pause"></i>
-                    </a>
-                    <!--
-                              <button class="btn " @click="lastVideo"><i class="fas fa-backward"></i></button>
-                    -->
-                    <button class="btn" @click="nextVideo">
-                        <i class="fas fa-forward"></i>
-                    </button>
-                    <div class="float-right">
-                        <b-dropdown id="dropdown-1" text="Add to playlist" class="m-md-2">
-                            <b-dropdown-item @click="createNewPlaylist">Create new Playlist</b-dropdown-item>
-                            <b-dropdown-item
-                                    @click="AddVideoToPlayList(playlist.slug)"
-                                    v-for="(playlist, index) in playlists"
-                                    :key="index"
-                            >{{ playlist.name }}</b-dropdown-item>
-                        </b-dropdown>
-                    </div>
-                    <social-sharing
-                            :url="url"
-                            :title="vid.title"
-                            description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                            quote="Vue is a progressive framework for building user interfaces."
-                            hashtags="vuejs,javascript,framework"
-                            twitter-user="vuejs"
-                            inline-template
-                    >
-                        <div>
-                            <network network="facebook">
-                                <i class="fa fa-facebook"></i> Facebook
-                            </network>
-                            <network network="twitter">
-                                <i class="fa fa-twitter"></i> Twitter
-                            </network>
-                        </div>
-                    </social-sharing>
 
-                    <div class="float-right">
-                        <social-sharing
-                                :url="url"
-                                :title="vid.title"
-                                description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                                quote="Vue is a progressive framework for building user interfaces."
-                                hashtags="vuejs,javascript,framework"
-                                twitter-user="vuejs"
-                                inline-template
-                        >
-                            <div>
-                                <network network="facebook">
-                                    <i class="fa fa-facebook"></i> Facebook
-                                </network>
-                                <network network="twitter">
-                                    <i class="fa fa-twitter"></i> Twitter
-                                </network>
-                            </div>
-                        </social-sharing>
-                    </div>
-                    <br />
-
-                    <h3>{{ vid.title }}</h3>
+     <h3>{{ vid.title }}</h3>
 
                     <div class="video-desc" v-html="vid.description"></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h1>
+          </div>
+           <!-- Next Video -->
+                     <div class="col-md-4">
+<h1>
                     Next Song Are comming :
                     <br />
                     <br />
@@ -180,32 +45,17 @@
                         </div>
                     </a>
                 </div>
-                <b-modal id="create-playlist" title="Create Play list" hide-footer>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input
-                                type="text"
-                                id="name"
-                                class="form-control"
-                                placeholder="name"
-                                v-model="form.name"
-                        />
-                        <!-- <small id="helpId" class="text-muted">Help text</small> -->
-                    </div>
-                    <b-button @click="savePlaylist" class="btn-success" :disabled="this.busy">Save</b-button>
-                    <b-button
-                            @click="this.$bvModal.hide(`create-playlist`);"
-                            class="float-right btn-danger"
-                    >Cancle</b-button>
-                    <!-- <button>Submit</button> -->
-                </b-modal>
-            </div>
-        </div>
+          </div>
+    </div>
     </div>
 </template>
 
 <script>
+  import SideBar from '@/components/SideBar'
     export default {
+        components: {
+            SideBar
+        },
         async asyncData({ $axios, params }) {
             let { video, videos } = await $axios.$get(`/watch/${params.id}`);
             return { vid: video, vids: videos.data };
@@ -414,106 +264,5 @@
     };
 </script>
 <style>
-    .video-section {
-        margin-top: 20px;
-    }
-    iframe {
-        width: 100%;
-        height: 600px;
-    }
 
-    a.logo {
-        text-align: center;
-        background-color: black;
-        font-size: 17px;
-        font-weight: bold;
-        color: white;
-        padding: 5px;
-        margin-bottom: 23px;
-        margin-top: 53px;
-        border-radius: 8px;
-        margin-left: -23px;
-    }
-    .list-home {
-        margin-top: 10px;
-    }
-
-    .container-video {
-        margin-left: 10%;
-    }
-    .video-desc {
-        margin-top: 2%;
-        margin-right: 10%;
-        margin-bottom: 2%;
-    }
-    .border-primary {
-        margin-top: 10px;
-    }
-    @media (min-width: 1600px) {
-        .container {
-            max-width: 100%;
-        }
-    }
-
-    .sidebar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-        color: #f1f1f1;
-    }
-
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-    .openbtn {
-        font-size: 20px;
-        cursor: pointer;
-        background-color: #111;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-    }
-
-    .openbtn:hover {
-        background-color: #444;
-    }
-
-    #main {
-        transition: margin-left 0.5s;
-        padding: 16px;
-    }
-
-    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-    @media screen and (max-height: 450px) {
-        .sidebar {
-            padding-top: 15px;
-        }
-        .sidebar a {
-            font-size: 18px;
-        }
-    }
 </style>

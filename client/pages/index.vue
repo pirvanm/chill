@@ -6,96 +6,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 -->
 
-
-
-
-    <div class="row content">
-            <div class="offset-col-md-1 col-md-1 vertical-menu">
-
-                <span> Chill Whispers</span>
-                <ul class="list-home">
-                    <li>
-                        <i class="fas  fa-home"></i>  Home
-                    </li>
-
-                </ul>
-                <ul>
-                    <li class="list-videos">
-                        <i class="fa fa-music"></i>   Videos
-                    </li>
-                    <li>
-                        Ambiental Videos
-                    </li>
-                    <li>
-                        ChillHop Videos
-                    </li>
-                    <li>
-                        ChillOut Videos
-                    </li>
-
-                    <li>
-                        Chillstep Videos
-                    </li>
-
-                    <li>
-                        Classic Videos
-                    </li>
-                    <li>
-                        Classical Videos
-                    </li>
-                    <li>
-                        Downtempo Videos
-                    </li>
-                    <li>
-                        Lofi Videos
-                    </li>
-                    <li>
-                        Lounge  Videos
-                    </li>
-
-                    <li>
-                        Regional Videos
-                    </li>
-
-                    <li>
-                        Trap Videos
-                    </li>
-
-                    <li>
-                        World Videos
-                    </li>
-
-                </ul>
-
-                <ul class="list-helpfull">
-                    <li>
-                        HelpFull
-                    </li>
-
-
-                    <li>
-                        Contact
-                    </li>
-                    <li>
-                        Suport
-                    </li>
-                    <li>
-                        Suggestion
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>Follow Us!</li>
-                    <li> <i class="fab fa-twitter"></i>  <i class="fab fa-facebook-square"></i> </li>
-
-                </ul>
-            </div>
-
-            <div class="col-md-10">
+    <div class="row">
+<div class="col-md-3"><SideBar/>
+</div>
+            <div class="col-md-9">
                 <div class="row">
-
-
-
                     <div class="col-md-3">
                         <div class="column  ">
                             <p> Most Popolar Song of Ambiental Gehnre</p>
@@ -252,57 +167,13 @@
 
 </template>
 
-<style>
-    .vertical-menu
-    {
-        margin-left:2%;
-    }
-    .list-home {
-        margin-top:20px;
-    }
-    .list-videos {
-        margin-top:10px;
-    }
-    .list-helpfull
-    {
-        margin-top:10px;
-    }
+<script>
+  import SideBar from '@/components/SideS'
+    export default {
+        components: {
+            SideBar
+        }
+        }
 
-    .list-videos:first-child{
-        font-weight: bold;
-        font-size:16px;
-    }
+        </script>
 
-    .list-helpfull:first-child
-    {
-        font-weight: bold;
-        font-size:16px;
-    }
-    span {
-        background: linear-gradient(315deg, orange 5%, purple 30%, black 69%);
-        font-size: 20px;
-        font-weight: bold;
-        color: aliceblue;
-        /* padding: 7px; */
-        margin-bottom: 28px;
-        margin-top: 53px;
-        border-radius: 8px;
-        margin-left: -29px;
-    }
-    .content {
-        margin-top:30px;
-    }
-    .column p
-    {
-        color: grey;
-        font-size: 18px;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        margin-top: 10px;
-        padding-top: 6px;
-        padding-bottom: 5px;
-        text-align: center;
-        background-color: aliceblue;
-    }
-</style>
