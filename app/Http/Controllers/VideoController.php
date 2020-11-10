@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\ConditionalWatch;
 use App\Http\Resources\VideoResource;
 use App\Models\Category;
 use App\Models\Channel;
+
 use App\Models\Tag;
 use App\Models\Video as Video;
 use Illuminate\Http\Request;
@@ -239,11 +240,41 @@ class VideoController extends Controller
             $channel->save();
         }
 
+        $yduration = $video->contentDetails->duration;
+        if ($yduration) {
+            preg_match_all('/(\d+)/', $yduration, $parts);
+
+            // Put in zeros if we have less than 3 numbers.
+            if (count($parts[0]) == 1) {
+                array_unshift($parts[0], "0", "0");
+            } elseif (count($parts[0]) == 2) {
+                array_unshift($parts[0], "0");
+            }
+
+            $sec_init = $parts[0][2];
+            $seconds = $sec_init % 60;
+            $seconds_overflow = floor($sec_init / 60);
+
+            $min_init = $parts[0][1] + $seconds_overflow;
+            $minutes = ($min_init) % 60;
+            $minutes_overflow = floor(($min_init) / 60);
+
+            $hours = $parts[0][0] + $minutes_overflow;
+
+            if ($hours != 0)
+                $duration = $hours . ':' . $minutes . ':' . $seconds;
+            else
+                $duration = '00' . ':'  . $minutes . ':' . $seconds;
+        } else {
+            $duration = '00:00:00';
+        }
+
         /* Insert a new video in Db */
         $v = new Video;
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
+        $v->duration = $duration;
         //$v->duration = $video->contentDetails->duration;
         $v->description = $video->snippet->description;
         // dd($video);
