@@ -9,7 +9,7 @@
     <div class="row">
 <div class="col-md-3"><SideBar/>
 </div>
-            <div class="col-md-9">
+    <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="column  ">
@@ -168,12 +168,11 @@
 </template>
 
 <script>
-  import SideBar from '@/components/SideS'
-    export default {
-        components: {
-            SideBar
-        }
-        }
-
-        </script>
+import SideBar from "@/components/SideS";
+export default {
+  components: {
+    SideBar,
+  },
+};
+</script>
 

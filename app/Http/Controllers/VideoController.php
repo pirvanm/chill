@@ -7,7 +7,6 @@ use App\Http\Controllers\Traits\ConditionalWatch;
 use App\Http\Resources\VideoResource;
 use App\Models\Category;
 use App\Models\Channel;
-
 use App\Models\Tag;
 use App\Models\Video as Video;
 use Illuminate\Http\Request;
@@ -206,6 +205,7 @@ class VideoController extends Controller
     public function addVideo(Request $request)
     {
 
+        dd('nooo');
         $videoId = Youtube::parseVidFromURL($request->video);
         $video = Video::where('videoId', $videoId)->first();
         $videoId = Youtube::parseVidFromURL($request->video);
@@ -218,7 +218,7 @@ class VideoController extends Controller
             /* Validation if a video exist */
             return response()->json(['errors' => [
                 'video' => [
-                    'This video already in our database'
+                    'This video already in our Shit'
                 ]
             ]], 422);
         }
@@ -271,11 +271,12 @@ class VideoController extends Controller
 
         /* Insert a new video in Db */
         $v = new Video;
+       return 'no';
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
-        $v->duration = $duration;
         //$v->duration = $video->contentDetails->duration;
+        $v->duration =99999999;
         $v->description = $video->snippet->description;
         // dd($video);
         $v->thumbnail = $video->snippet->thumbnails->medium->url;
@@ -335,7 +336,7 @@ class VideoController extends Controller
             /* Validation if a video exist */
             return response()->json(['errors' => [
                 'video' => [
-                    'This video already in our database'
+                    'asdsd'
                 ]
             ]], 422);
         }

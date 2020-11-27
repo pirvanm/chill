@@ -28,8 +28,7 @@ export default {
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
             {
                 rel: "stylesheet",
-                href:
-                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
+                href: "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
             }
         ]
     },
@@ -74,7 +73,9 @@ export default {
         "@nuxtjs/pwa",
 
         "@nuxtjs/sitemap",
-        "nuxt-fontawesome"
+        "nuxt-fontawesome",
+        "@nuxtjs/axios",
+        "@nuxtjs/proxy"
         /* '~/plugins/algolia'*/
     ],
     /*    auth: {
@@ -163,8 +164,13 @@ export default {
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: process.env.BASE_URL
+        baseURL: process.env.BASE_URL,
+        proxy: false
     },
+
+    // proxy: {
+    //     '/api/': { target: process.env.BASE_URL, pathRewrite: { '^/api/': '' } }
+    // }
     /*
      ** Build configuration
      */
