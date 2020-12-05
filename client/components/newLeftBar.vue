@@ -52,41 +52,49 @@
       <li><a href="/playlists/20" class=""> Trap</a></li>
     </ul>
 
-    <h2>Videos</h2>
+    <h2><a href="/videos/all" class=""> Videos</a></h2>
     <ul>
-      <li>Chillout</li>
-      <li>ChillHop</li>
-      <li>Ambiental</li>
-      <li>Chillstep</li>
-      <li>Classic</li>
-      <li>Classical</li>
-      <li>Downtempo</li>
+      <li><a href="/videos/chillout" class=""> Chillout</a></li>
+      <li><a href="/videos/chillhop" class=""> ChillHop</a></li>
+      <li><a href="/videos/ambiental" class=""> Ambiental</a></li>
+      <li><a href="/videos/chillstep" class=""> Chillstep</a></li>
+      <li><a href="/videos/classic" class="">Classic </a></li>
+      <li><a href="/videos/classical" class=""> Classical</a>Classical</li>
+      <li><a href="/videos/downtempo" class=""> Downtempo</a>Downtempo</li>
 
       <li>
         <ul>
-          <h2>Lofi</h2>
+          <h2>
+            <a href="/videos/lofi" class=""> Lofi</a>
+          </h2>
 
-          <li>Hip Hop</li>
-          <li>House</li>
+          <li><a href="/videos/lofi-hiphop" class=""> Hip Hop</a></li>
+          <li><a href="/videos/lofi-house" class=""> House</a></li>
         </ul>
       </li>
 
-      <li>Lounge</li>
+      <li><a href="/videos/Lounge" class="">Lounge </a></li>
       <li>
         <ul>
-          <h1>Regional</h1>
-          <li>African</li>
-          <li>Arabic</li>
-          <li>Chinese</li>
-          <li>France</li>
-          <li>Indian</li>
-          <li>Italy</li>
-          <li>Japan</li>
-          <li>Spanish</li>
+          <h1>
+            <a href="/videos/regional" class="">Regional </a>
+          </h1>
+          <li>
+            <a href="/videos/regional-african" class="">African </a>African
+          </li>
+          <li><a href="/videos/regional-arabic" class="">Arabic </a>Arabic</li>
+          <li>
+            <a href="/videos/regional-chinese" class="">Chinese </a> Chinese
+          </li>
+          <li><a href="/videos/regional-france" class="">France </a> France</li>
+          <li><a href="/videos/regional-indian" class="">Indian </a> Indian</li>
+          <li><a href="/videos/regional-italy" class="">Italy </a>Italy</li>
+          <li><a href="/videos/regional-japan" class="">Japan </a></li>
+          <li><a href="/videos/regional-spanish" class="">Spanish </a></li>
         </ul>
       </li>
-      <li>Techno</li>
-      <li>Trap</li>
+      <li><a href="/videos/Techno" class="">Techno </a></li>
+      <li><a href="/videos/Trap" class="">Trap </a></li>
     </ul>
 
     <div class="footer">
