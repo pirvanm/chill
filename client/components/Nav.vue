@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="container-fluid-md col-6 col-md-2 logo">Aici e un logo</div>
-    <div class="container-fluid col-6 dropdown">
+    <!-- <div class="container-fluid col-6 dropdown">
       <button
         type="button"
         class="btn btn-primary dropdown-toggle"
@@ -14,7 +14,7 @@
         <a class="dropdown-item" href="#">Link 2</a>
         <a class="dropdown-item" href="#">Link 3</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

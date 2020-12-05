@@ -319,6 +319,8 @@ export default {
   left: 0;
   /* background-color: #111; */
   overflow-x: hidden;
+  padding-top: 140px;
+  padding-bottom: 20px;
 }
 a {
   color: #8422a6;

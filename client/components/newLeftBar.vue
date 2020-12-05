@@ -80,15 +80,15 @@
             <a href="/videos/regional" class="">Regional </a>
           </h1>
           <li>
-            <a href="/videos/regional-african" class="">African </a>African
+            <a href="/videos/regional-african" class="">African </a>
           </li>
-          <li><a href="/videos/regional-arabic" class="">Arabic </a>Arabic</li>
+          <li><a href="/videos/regional-arabic" class="">Arabic </a></li>
           <li>
-            <a href="/videos/regional-chinese" class="">Chinese </a> Chinese
+            <a href="/videos/regional-chinese" class="">Chinese </a>
           </li>
-          <li><a href="/videos/regional-france" class="">France </a> France</li>
-          <li><a href="/videos/regional-indian" class="">Indian </a> Indian</li>
-          <li><a href="/videos/regional-italy" class="">Italy </a>Italy</li>
+          <li><a href="/videos/regional-france" class="">France </a></li>
+          <li><a href="/videos/regional-indian" class="">Indian </a></li>
+          <li><a href="/videos/regional-italy" class="">Italy </a></li>
           <li><a href="/videos/regional-japan" class="">Japan </a></li>
           <li><a href="/videos/regional-spanish" class="">Spanish </a></li>
         </ul>
