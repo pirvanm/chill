@@ -2,26 +2,54 @@
   <div>
     <ul>
       <i class="fas fa-bars"></i>
-      <li>Home</li>
-      <li>All Videos</li>
-      <li>All Playlists</li>
-      <li>Add a Video!</li>
+      <li>
+        <a href="/" class=""> Home </a>
+      </li>
+      <li>
+        <a href="/videos/all" class=""> All Videos </a>
+      </li>
+      <li>
+        <a href="/playlists" class="">All Playlists </a>
+      </li>
+      <a href="/suggest" class="">Add a video </a>
     </ul>
 
     <h2>Playlists</h2>
     <ul>
-      <li>Chillout</li>
-      <li>ChillHop</li>
-      <li>Ambiental</li>
-      <li>Chillstep</li>
-      <li>Classic</li>
-      <li>Classical</li>
-      <li>Downtempo</li>
-      <li>Lofi</li>
-      <li>Lounge</li>
-      <li>Regional</li>
-      <li>Techno</li>
-      <li>Trap</li>
+      <li>
+        <a href="/playlists/4" class=""> Chillout </a>
+      </li>
+      <li>
+        <a href="/playlists/3" class=""> ChillHop </a>
+      </li>
+      <li>
+        <a href="/playlists/3" class=""> Ambiental </a>
+      </li>
+      <li>
+        <a href="/playlists/6" class=""> Chillstep </a>
+      </li>
+      <li>
+        <a href="/playlists/7" class=""> Classic </a>
+      </li>
+      <li>
+        <a href="/playlists/8" class=""> Classical </a>
+      </li>
+      <li>
+        <a href="/playlists/9" class=""> Downtempo </a>
+      </li>
+      <li>
+        <a href="/playlists/10" class=""> Lofi </a>
+      </li>
+      <li>
+        <a href="/playlists/13" class=""> Lounge </a>
+      </li>
+      <li>
+        <a href="/playlists/14" class=""> Regional </a>
+      </li>
+      <li>
+        <a href="/playlists/19" class=""> Techno </a>
+      </li>
+      <li><a href="/playlists/20" class=""> Trap</a></li>
     </ul>
 
     <h2>Videos</h2>
@@ -99,5 +127,8 @@ h2 {
 
   color: white;
   text-align: center;
+}
+li a {
+  color: #8422a6;
 }
 </style>

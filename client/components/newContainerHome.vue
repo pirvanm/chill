@@ -312,4 +312,7 @@ export default {
   border-top-right-radius: 50px;
   opacity: 0.8;
 }
+a {
+  color: #8422a6;
+}
 </style>
