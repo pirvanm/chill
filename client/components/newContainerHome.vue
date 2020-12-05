@@ -311,6 +311,14 @@ export default {
   color: #8422a6;
   border-top-right-radius: 50px;
   opacity: 0.8;
+  height: 100%;
+  /* width: 160px; */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* background-color: #111; */
+  overflow-x: hidden;
 }
 a {
   color: #8422a6;
