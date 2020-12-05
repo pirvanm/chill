@@ -206,6 +206,7 @@ export default {
       this.player.pauseVideo();
     },
     endVideo() {
+      console.log(indexid);
       this.$router.push(`/watch/${this.vids[0].videoId}`);
       this.player.playVideo();
     },
