@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="footer">
+    <!-- <ul class="footer">
       <li>
         <a href=""> Ceva 1 </a>
       </li>
@@ -18,7 +18,7 @@
       </li>
 
       <li>Ceva 5</li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
