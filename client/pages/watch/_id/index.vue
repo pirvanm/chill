@@ -32,7 +32,7 @@
                 </h1>
 
                 <div class="card" v-for="v in vids" :key="v.id">
-                    <a :href="`/watch/${vid.videoId}`" class="text-dark">
+                    <a :href="`/watch/${v.videoId}`" class="text-dark">
                         <img class="card-img-top" :src="v.thumbnail" alt />
                         <div class="card-body">
                             <h4 class="card-title">{{ v.title }}</h4>
