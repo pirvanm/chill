@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="container-fluid-md col-6 col-md-2 logo">Aici e un logo</div>
+    <div class="container-fluid-md col-6 col-md-2 logo">Chill Whispers</div>
     <!-- <div class="container-fluid col-6 dropdown">
       <button
         type="button"

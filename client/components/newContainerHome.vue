@@ -310,16 +310,17 @@ export default {
   height: 100%;
   color: #8422a6;
   border-top-right-radius: 50px;
-  opacity: 0.8;
+  opacity: 0.4;
   height: 100%;
   /* width: 160px; */
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: 110px;
   left: 0;
   /* background-color: #111; */
   overflow-x: hidden;
-  padding-top: 140px;
+  /* padding-top: 140px; */
+  margin-left: 35px;
   padding-bottom: 20px;
 }
 a {
