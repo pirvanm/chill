@@ -12,6 +12,12 @@ import newLeftBar from "@/components/newLeftBar";
 import newContainerWatch from "@/components/newContainerWatch";
 import newFooter from "@/components/newFooter";
 export default {
+  created () {
+  },
+  data () {
+    return {
+    }
+  },
   components: {
     Nav,
     newLeftBar,
