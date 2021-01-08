@@ -20,7 +20,7 @@ class CreateVideosTable extends Migration
             $table->text('description');
             $table->string('thumbnail');
             $table->dateTime('publishedAt');
-
+            $table->time('duration', 0)->nullable();
             $table->unsignedBigInteger('channel_id')->nullable();
             $table->foreign('channel_id')->on('channels')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('views');

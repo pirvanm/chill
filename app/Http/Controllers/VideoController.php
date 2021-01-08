@@ -205,6 +205,7 @@ class VideoController extends Controller
     public function addVideo(Request $request)
     {
 
+        dd('nooo');
         $videoId = Youtube::parseVidFromURL($request->video);
         $video = Video::where('videoId', $videoId)->first();
         $videoId = Youtube::parseVidFromURL($request->video);
@@ -217,7 +218,7 @@ class VideoController extends Controller
             /* Validation if a video exist */
             return response()->json(['errors' => [
                 'video' => [
-                    'This video already in our database'
+                    'This video already in our Shit'
                 ]
             ]], 422);
         }
@@ -239,12 +240,43 @@ class VideoController extends Controller
             $channel->save();
         }
 
+        $yduration = $video->contentDetails->duration;
+        if ($yduration) {
+            preg_match_all('/(\d+)/', $yduration, $parts);
+
+            // Put in zeros if we have less than 3 numbers.
+            if (count($parts[0]) == 1) {
+                array_unshift($parts[0], "0", "0");
+            } elseif (count($parts[0]) == 2) {
+                array_unshift($parts[0], "0");
+            }
+
+            $sec_init = $parts[0][2];
+            $seconds = $sec_init % 60;
+            $seconds_overflow = floor($sec_init / 60);
+
+            $min_init = $parts[0][1] + $seconds_overflow;
+            $minutes = ($min_init) % 60;
+            $minutes_overflow = floor(($min_init) / 60);
+
+            $hours = $parts[0][0] + $minutes_overflow;
+
+            if ($hours != 0)
+                $duration = $hours . ':' . $minutes . ':' . $seconds;
+            else
+                $duration = '00' . ':'  . $minutes . ':' . $seconds;
+        } else {
+            $duration = '00:00:00';
+        }
+
         /* Insert a new video in Db */
         $v = new Video;
+       return 'no';
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
         //$v->duration = $video->contentDetails->duration;
+        $v->duration =99999999;
         $v->description = $video->snippet->description;
         // dd($video);
         $v->thumbnail = $video->snippet->thumbnails->medium->url;
@@ -304,7 +336,7 @@ class VideoController extends Controller
             /* Validation if a video exist */
             return response()->json(['errors' => [
                 'video' => [
-                    'This video already in our database'
+                    'asdsd'
                 ]
             ]], 422);
         }

@@ -2,20 +2,26 @@
   <div class="c container-fluid">
     <Nav />
 
-    <newContainerHome />
+    <newContainerWatch />
     <newFooter />
   </div>
 </template>
 <script>
 import Nav from "@/components/Nav";
 import newLeftBar from "@/components/newLeftBar";
-import newContainerHome from "@/components/newContainerHome";
+import newContainerWatch from "@/components/newContainerWatch";
 import newFooter from "@/components/newFooter";
 export default {
+  created () {
+  },
+  data () {
+    return {
+    }
+  },
   components: {
     Nav,
     newLeftBar,
-    newContainerHome,
+    newContainerWatch,
     newFooter,
   },
 };
