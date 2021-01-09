@@ -192,7 +192,8 @@ export default {
                 modestbranding: 1,
                 showinfo: 0
             },
-            url: ""
+            url: "",
+            videoPlay: null
         };
     },
 
@@ -209,7 +210,14 @@ export default {
         },
         endVideo() {
             // console.log(indexid);
-            this.$router.push(`/watch/${this.vids[0].videoId}`);
+            if (!this.videoPlay) {
+                this.videoPlay = 0;
+            } else {
+                this.videoPlay++;
+            }
+            this.vid.videoId = this.vids[this.videoPlay].videoId;
+
+            // this.$router.push(`/watch/${this.vids[0].videoId}`);
             this.player.playVideo();
         },
 
