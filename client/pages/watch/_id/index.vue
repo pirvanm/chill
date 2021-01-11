@@ -210,7 +210,7 @@ export default {
         },
         endVideo() {
             // console.log(indexid);
-            if (!this.videoPlay) {
+            if (this.videoPlay == null) {
                 this.videoPlay = 0;
             } else {
                 this.videoPlay++;
