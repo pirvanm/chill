@@ -1,24 +1,6 @@
 <template>
   <div>
-    <!-- <ul class="footer">
-      <li>
-        <a href=""> Ceva 1 </a>
-      </li>
-
-      <li>
-        <a href=""> Ceva 2 </a>
-      </li>
-
-      <li>
-        <a href=""> Ceva 3 </a>
-      </li>
-
-      <li>
-        <a href=""> Ceva 4 </a>
-      </li>
-
-      <li>Ceva 5</li>
-    </ul> -->
+ 
   </div>
 </template>
 
