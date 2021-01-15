@@ -205,7 +205,6 @@ class VideoController extends Controller
     public function addVideo(Request $request)
     {
 
-        dd('nooo');
         $videoId = Youtube::parseVidFromURL($request->video);
         $video = Video::where('videoId', $videoId)->first();
         $videoId = Youtube::parseVidFromURL($request->video);
@@ -271,12 +270,12 @@ class VideoController extends Controller
 
         /* Insert a new video in Db */
         $v = new Video;
-       return 'no';
+        return 'no';
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
         //$v->duration = $video->contentDetails->duration;
-        $v->duration =99999999;
+        $v->duration = 99999999;
         $v->description = $video->snippet->description;
         // dd($video);
         $v->thumbnail = $video->snippet->thumbnails->medium->url;
