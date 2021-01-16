@@ -94,13 +94,13 @@ beforeDestroy() {
 
        if (!(e.keyCode === 17 && e.ctrlKey)) {
         console.log('stopp');
-         window.location.href = 'https://chillwhispers.com/playlists/14'
+         window.location.href = 'https://chillwhispers.com/playlists/19'
         //return;
       }
 
         if (!(e.keyCode === 84 && e.ctrlKey)) {
         console.log('stopp');
-         window.location.href = 'https://chillwhispers.com/playlists/14'
+         window.location.href = 'https://chillwhispers.com/playlists/20'
         //return;
       }
 
