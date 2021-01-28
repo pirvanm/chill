@@ -1,6 +1,8 @@
 <template>
   <div class="row">
-    <div class="container-fluid-md col-6 col-md-2 logo">Chill Whispers</div>
+    <div class="container-fluid-md col-6 col-md-2 ">
+      <img src="~assets/logo.svg" class="l">
+    </div>
     <!-- <div class="container-fluid col-6 dropdown">
       <button
         type="button"

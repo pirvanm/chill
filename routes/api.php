@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::get('/videos', 'VideoController@getAllVideos');
 
@@ -103,3 +103,8 @@ Route::get('/playlists', 'PlaylistController@getPublicPlaylist');
 Route::get('/playlists/{slug}', 'PlaylistController@getPlaylistbySlug');
 Route::post('/playlists', 'PlaylistController@createPublicPlaylist');
 Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
