@@ -270,7 +270,7 @@ class VideoController extends Controller
 
         /* Insert a new video in Db */
         $v = new Video;
-        return 'no';
+
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;

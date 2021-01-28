@@ -17,6 +17,7 @@
                     :player-vars="playerVars"
                     @playing="playing"
                     @ended="endVideo"
+                    @cued="errorVideo"
                 ></youtube>
 
                 <h3>{{ vid.title }}</h3>
@@ -32,7 +33,7 @@
                 </h1>
 
                 <div class="card" v-for="v in vids" :key="v.id">
-                    <a :href="`/watch/${v.videoId}`" class="text-dark">
+                    <nuxt-link :to="`/watch/${v.videoId}`" class="text-dark">
                         <img class="card-img-top" :src="v.thumbnail" alt />
                         <div class="card-body">
                             <h4 class="card-title">{{ v.title }}</h4>
@@ -42,7 +43,7 @@
               >
               </p> -->
                         </div>
-                    </a>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -199,6 +200,9 @@ export default {
 
     methods: {
         // autoplay: 1,
+        errorVideo() {
+            console.log("error");
+        },
         playing() {
             console.log("o/ we are watching!!!");
         },

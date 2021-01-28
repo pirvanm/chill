@@ -1,47 +1,53 @@
 <template>
     <div class="video-container-insert">
         <b-nav>
-            <!--<nuxt-link to="localhost:3000">Home page</nuxt-link>
-      -->
             <ul>
                 <li>
-                    <a href="http://localhost:3000">Home</a>
+                    <nuxt-link to="http://localhost:3000">Home</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000">Ambient</a>
+                    <nuxt-link to="http://localhost:3000">Ambient</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000">ChillStep</a>
+                    <nuxt-link to="http://localhost:3000">ChillStep</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000">ChillOut</a>
+                    <nuxt-link to="/">ChillOut</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000">ChillHop</a>
+                    <nuxt-link to="/">ChillHop</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000">Home</a>
+                    <nuxt-link to="/">Home</nuxt-link>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="http://localhost:3000/Search">Search</a>
+                    <nuxt-link to="/Search">Search</nuxt-link>
                 </li>
             </ul>
 
-            <!--<a href="http://localhost:3000">II</a>-->
+            <!--<nuxt-link to="http://localhost:3000">II</nuxt-link>-->
         </b-nav>
         <h1>Video Insert Zone</h1>
+        <youtube
+            ref="youtube"
+            width="100%"
+            height="450px"
+            :video-id="videoId"
+            :player-vars="playerVars"
+            @playing="playing"
+        ></youtube>
         <form @submit.prevent="save">
             <div class="form-group">
                 <label>Insert Video Id</label>
@@ -51,6 +57,7 @@
                     placeholder="https://www.youtube.com/watch?v=qFkNATtc3mc"
                     required
                     v-model="form.video"
+                    @change="getVideoId"
                 />
                 <span class="text-danger" v-if="errors.video">{{
                     errors.video[0]
@@ -58,55 +65,51 @@
 
                 <div class="row">
                     <div class="col-md-6">
-
-                            <label>Select or Create Category</label>
-                            <multiselect
-                                v-model="form.category"
-                                deselect-label="Can't remove this value"
-                                track-by="name"
-                                label="name"
-                                placeholder="Select one"
-                                :options="categories"
-                                :searchable="true"
-                                :allow-empty="false"
-                                :taggable="true"
-                                @tag="addCategory"
-                                @select="getSubCategoryWithCategory"
+                        <label>Select or Create Category</label>
+                        <multiselect
+                            v-model="form.category"
+                            deselect-label="Can't remove this value"
+                            track-by="category_name"
+                            label="category_name"
+                            placeholder="Select one"
+                            :options="categories"
+                            :searchable="true"
+                            :allow-empty="false"
+                            :taggable="true"
+                            @tag="addCategory"
+                            @select="getSubCategoryWithCategory"
+                        >
+                            <template
+                                slot="singleLabel"
+                                slot-scope="{ option }"
                             >
-                                <template
-                                    slot="singleLabel"
-                                    slot-scope="{ option }"
-                                >
-                                    <strong>{{ option.name }}</strong>
-                                </template>
-                            </multiselect>
-
+                                <strong>{{ option.category_name }}</strong>
+                            </template>
+                        </multiselect>
                     </div>
 
                     <div class="col-md-6">
-
-                            <label>Select or Create Subcategory</label>
-                            <multiselect
-                                v-model="form.subcategories"
-                                deselect-label="Can't remove this value"
-                                track-by="name"
-                                label="name"
-                                :multiple="true"
-                                placeholder="Select one"
-                                :options="subcategories"
-                                :searchable="true"
-                                :allow-empty="false"
-                                :taggable="true"
-                                @tag="addSubCategory"
+                        <label>Select or Create Subcategory</label>
+                        <multiselect
+                            v-model="form.subcategories"
+                            deselect-label="Can't remove this value"
+                            track-by="name"
+                            label="name"
+                            :multiple="true"
+                            placeholder="Select one"
+                            :options="subcategories"
+                            :searchable="true"
+                            :allow-empty="false"
+                            :taggable="true"
+                            @tag="addSubCategory"
+                        >
+                            <template
+                                slot="singleLabel"
+                                slot-scope="{ option }"
                             >
-                                <template
-                                    slot="singleLabel"
-                                    slot-scope="{ option }"
-                                >
-                                    <strong>{{ option.name }}</strong>
-                                </template>
-                            </multiselect>
-
+                                <strong>{{ option.name }}</strong>
+                            </template>
+                        </multiselect>
                     </div>
                 </div>
             </div>
@@ -122,10 +125,15 @@ export default {
     components: {
         Multiselect
     },
-  //  middleware: ["auth"],
+    //  middleware: ["auth"],
     layout: "MenuAdmin",
     data() {
         return {
+            playerVars: {
+                autoplay: 1,
+                modestbranding: 1,
+                showinfo: 0
+            },
             errors: [],
             categories: [],
             subcategories: [],
@@ -133,13 +141,26 @@ export default {
                 video: "",
                 category: null,
                 subcategories: []
-            }
+            },
+            videoId: ""
         };
     },
     mounted() {
         this.getCategories();
     },
+
     methods: {
+        playing() {
+            console.log("playing");
+        },
+        getVideoId() {
+            var regExp = /^https?\:\/\/(?:www\.youtube(?:\-nocookie)?\.com\/|m\.youtube\.com\/|youtube\.com\/)?(?:ytscreeningroom\?vi?=|youtu\.be\/|vi?\/|user\/.+\/u\/\w{1,2}\/|embed\/|watch\?(?:.*\&)?vi?=|\&vi?=|\?(?:.*\&)?vi?=)([^#\&\?\n\/<>"']*)/i;
+            var match = this.form.video.match(regExp);
+
+            // return (match && match[1].length==11)? match[1] : false;
+            // console.log(match && match[1].length == 11 ? match[1] : false);
+            this.videoId = match && match[1].length == 11 ? match[1] : false;
+        },
         save() {
             this.errors = [];
             this.$axios
@@ -154,7 +175,7 @@ export default {
                         });
                     }
                     this.form.video = "";
-                    this.form.category = '';
+                    this.form.category = "";
                     this.form.subcategories = [];
                 })
                 .catch(error => {
