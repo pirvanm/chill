@@ -274,8 +274,8 @@ class VideoController extends Controller
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
-        //$v->duration = $video->contentDetails->duration;
-        $v->duration = 99999999;
+        $v->duration = $video->contentDetails->duration;
+        //  $v->duration = 99999999;
         $v->description = $video->snippet->description;
         // dd($video);
         $v->thumbnail = $video->snippet->thumbnails->medium->url;
