@@ -270,7 +270,6 @@ class VideoController extends Controller
 
         /* Insert a new video in Db */
         $v = new Video;
-
         $v->videoId = $videoId;
         $v->title = $video->snippet->title;
         $v->views = $video->statistics->viewCount;
@@ -282,7 +281,7 @@ class VideoController extends Controller
         $videoDate = date('Y-m-d h:i:s', strtotime($video->snippet->publishedAt));
         $v->publishedAt = $videoDate;
         $v->channel_id = $channel->id;
-        $v->category_id = 1;
+        $v->category_id = $request->category['id'];
         //  $v->subcategories =2;
 
         /* Save Duration of Video*/

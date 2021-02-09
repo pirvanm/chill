@@ -28,7 +28,8 @@ export default {
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
             {
                 rel: "stylesheet",
-                href: "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
+                href:
+                    "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
             }
         ]
     },
@@ -188,7 +189,7 @@ export default {
         extend(config, ctx) {}
     },
     server: {
-        port: process.env.SERVER_PORT, // default: 3000
-        host: process.env.SERVER_IP // default: localhost,
+        port: process.env.SERVER_PORT || 3000, // default: 3000
+        host: process.env.SERVER_IP || "localhost" // default: localhost,
     }
 };
