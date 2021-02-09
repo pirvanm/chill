@@ -32,7 +32,7 @@ class Video extends Model
 
     public function category()
     {
-    return $this->belongsto(Category::class);
+        return $this->belongsto(Category::class);
     }
 
 
@@ -57,7 +57,7 @@ class Video extends Model
 
     public function subcategories()
     {
-        return $this->belongsToMany(Video::class, 'sub_category_video', 'video_id', 'sub_category_id');
+        return $this->belongsToMany(Video::class, 'sub_category_video', 'video_id', 'sub_category_id')->withTimestamps();
     }
 
     public function playlists()
