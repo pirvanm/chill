@@ -68,6 +68,8 @@ Route::get('/watch-chillhop/{videoId}', 'VideoController@getVideoChillHop');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::post('/add-video', 'VideoController@addVideo');
+
+    Route::post('/add-channel-videos', 'ChannelController@addChannelVideos');
 });
 
 Route::group(['prefix' => 'suggest'], function () {
