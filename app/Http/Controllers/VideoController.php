@@ -18,6 +18,11 @@ class VideoController extends Controller
 
     use ConditionalWatch;
 
+    public function details()
+    {
+        dd('add me');
+    }
+
     public function videoTest()
     {
 
