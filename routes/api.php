@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 
-Route::post('/details', 'VideoController@details');
+Route::get('/details', 'VideoController@details');
 Route::get('/videos', 'VideoController@getAllVideos');
 
 Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
