@@ -62,125 +62,6 @@ export default {
         let { video, videos } = await $axios.$get(`/watch/${params.id}`);
         return { vid: video, vids: videos.data };
     },
-    // head() {
-    //     return {
-    //         title: this.vid.title,
-    //         meta: [
-    //             { charset: "utf-8" },
-    //             {
-    //                 hid: "viewport",
-    //                 name: "viewport",
-    //                 content: "width=device-width, initial-scale=1"
-    //             },
-    //             /* Twitter Meta */
-    //             {
-    //                 hid: "twitter:card",
-    //                 name: "twitter:card",
-    //                 content: "Cryptocurrency Compare Tool | 2amigOS"
-    //             },
-    //             { hid: "twitter:site", name: "twitter:site", content: "@youtube" },
-    //             {
-    //                 hid: "twitter:url",
-    //                 name: "twitter:url",
-    //                 content: "https://www.youtube.com/watch?v=" + this.vid.videoId
-    //             },
-    //             {
-    //                 hid: "twitter:creator",
-    //                 name: "twitter:creator",
-    //                 content: "@2amtech"
-    //             },
-    //             {
-    //                 hid: "twitter:title",
-    //                 name: "twitter:title",
-    //                 content: this.vid.title
-    //             },
-    //             {
-    //                 hid: "twitter:description",
-    //                 name: "twitter:description",
-    //                 content: this.vid.description
-    //             },
-
-    //             {
-    //                 hid: "twitter:image",
-    //                 name: "twitter:image",
-    //                 content: this.vid.thumbnail
-    //             },
-    //             {
-    //                 hid: "twitter:app:name:iphone",
-    //                 name: "twitter:app:name:iphone",
-    //                 content: "YouTube"
-    //             },
-    //             {
-    //                 hid: "twitter:app:id:iphone",
-    //                 name: "twitter:app:id:iphone",
-    //                 content: 544007664
-    //             },
-    //             {
-    //                 hid: "twitter:app:name:ipad",
-    //                 name: "twitter:app:name:ipad",
-    //                 content: "Youtube"
-    //             },
-    //             {
-    //                 hid: "twitter:app:id:ipad",
-    //                 name: "twitter:app:id:ipad",
-    //                 content: 544007664
-    //             },
-
-    //             {
-    //                 hid: "twitter:app:url:iphone",
-    //                 name: "twitter:app:url:iphone",
-    //                 content: "vnd.youtube://www.youtube.com/watch?v=" + this.vid.videoId
-    //             },
-    //             {
-    //                 hid: "twitter:app:url:ipad",
-    //                 name: "twitter:app:url:ipad",
-    //                 content: "vnd.youtube://www.youtube.com/watch?v=" + this.vid.videoId
-    //             },
-    //             {
-    //                 hid: "twitter:app:name:googleplay",
-    //                 name: "twitter:app:name:googleplay",
-    //                 content: "Youtube"
-    //             },
-    //             {
-    //                 hid: "twitter:app:name:googleplay",
-    //                 name: "twitter:app:name:googleplay",
-    //                 content: "com.google.android.youtube"
-    //             },
-    //             {
-    //                 hid: "twitter:app:url:googleplay",
-    //                 name: "twitter:app:url:googleplay",
-    //                 content: "https://www.youtube.com/watch?v=" + this.vid.videoId
-    //             },
-    //             {
-    //                 hid: "twitter:player",
-    //                 name: "twitter:player",
-    //                 content: "https://www.youtube.com/watch?v=" + this.vid.videoId
-    //             },
-    //             {
-    //                 hid: "twitter:player:width",
-    //                 name: "twitter:player:width",
-    //                 content: "1280"
-    //             },
-    //             {
-    //                 hid: "twitter:player:height",
-    //                 name: "twitter:player:height",
-    //                 content: "720"
-    //             },
-
-    //             {
-    //                 hid: "og:image",
-    //                 property: "og:image",
-    //                 content: "/crypto-ticker-snapshot.png"
-    //             },
-    //             {
-    //                 hid: "og:site_name",
-    //                 name: "og:site_name",
-    //                 content: "2amigOS Crypto Ticker"
-    //             },
-    //             { hid: "og:title", name: "og:title", content: "Crypto Ticker" }
-    //         ]
-    //     };
-    // },
     data() {
         return {
             busy: false,
@@ -193,10 +74,122 @@ export default {
                 modestbranding: 1,
                 showinfo: 0
             },
-            url: ""
+            url: "",
+            vid: {}
+        };
+    },
+    head() {
+        return {
+            title: this.vid.title,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    content: this.vid.description.substring(0, 300)
+                },
+                {
+                    hid: "keywords",
+                    name: "keywords",
+                    content:
+                        "chillwhispers, video, calm music, music, music video,"
+                },
+                {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: "Chillwhispers music videos"
+                },
+                {
+                    hid: "og:type",
+                    name: "og:type",
+                    content: "music"
+                },
+                {
+                    hid: "og:url",
+                    name: "og:url",
+                    content: "https://chillwhispers.com"
+                },
+                {
+                    hid: "og:image",
+                    name: "og:image",
+                    content: this.vid.thumbnail
+                },
+                {
+                    hid: "og:site_name",
+                    name: "og:site_name",
+                    content: "chillwhispers"
+                },
+                {
+                    hid: "og:description",
+                    name: "og:description",
+                    content: this.vid.description.substring(0, 300)
+                },
+                {
+                    hid: "twitter:card",
+                    name: "twitter:card",
+                    content: this.vid.title
+                },
+                {
+                    hid: "twitter:url",
+                    name: "twitter:url",
+                    content: `https://chillwhispers.com/watch/${this.vid.videoId}`
+                },
+                {
+                    hid: "twitter:creator",
+                    name: "twitter:creator",
+                    content: "@2amtech"
+                },
+                {
+                    hid: "twitter:title",
+                    name: "twitter:title",
+                    content: this.vid.title
+                },
+                {
+                    hid: "twitter:description",
+                    name: "twitter:description",
+                    content: this.vid.description.substring(0, 300)
+                },
+
+                {
+                    hid: "twitter:image",
+                    name: "twitter:image",
+                    content: this.vid.thumbnail
+                },
+
+                {
+                    hid: "twitter:app:url:iphone",
+                    name: "twitter:app:url:iphone",
+                    content: `https://www.youtube.com/embed/${this.vid.videoId}`
+                },
+                {
+                    hid: "twitter:app:url:ipad",
+                    name: "twitter:app:url:ipad",
+                    content: `https://www.youtube.com/embed/${this.vid.videoId}`
+                },
+
+                {
+                    hid: "twitter:app:url:googleplay",
+                    name: "twitter:app:url:googleplay",
+                    content: `https://www.youtube.com/embed/${this.vid.videoId}`
+                },
+                {
+                    hid: "twitter:player",
+                    name: "twitter:player",
+                    content: `https://www.youtube.com/embed/${this.vid.videoId}`
+                }
+            ]
         };
     },
 
+    computed: {
+        player() {
+            return this.$refs.youtube.player;
+        }
+    },
+    mounted() {
+        this.getPlaylist();
+        this.url = window.location.href;
+        // console.log(window.location.href);
+    },
     methods: {
         // autoplay: 1,
         errorVideo() {
@@ -265,16 +258,6 @@ export default {
                     console.log(response);
                 });
         }
-    },
-    computed: {
-        player() {
-            return this.$refs.youtube.player;
-        }
-    },
-    mounted() {
-        this.getPlaylist();
-        this.url = window.location.href;
-        // console.log(window.location.href);
     }
 };
 </script>

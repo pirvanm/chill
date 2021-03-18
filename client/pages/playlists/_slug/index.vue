@@ -57,6 +57,127 @@ export default {
         let vid = await $axios.$get(`/playlists/${params.slug}`);
         return { videos: vid.data };
     },
+    head() {
+        return {
+            title: this.videos[this.play].title,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+                {
+                    hid: "keywords",
+                    name: "keywords",
+                    content:
+                        "chillwhispers, video, calm music, music, music video,"
+                },
+                {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: "Chillwhispers music videos"
+                },
+                {
+                    hid: "og:type",
+                    name: "og:type",
+                    content: "music"
+                },
+                {
+                    hid: "og:url",
+                    name: "og:url",
+                    content: "https://chillwhispers.com"
+                },
+                {
+                    hid: "og:image",
+                    name: "og:image",
+                    content: this.videos[this.play].thumbnail
+                },
+                {
+                    hid: "og:site_name",
+                    name: "og:site_name",
+                    content: "chillwhispers"
+                },
+                {
+                    hid: "og:description",
+                    name: "og:description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+                {
+                    hid: "twitter:card",
+                    name: "twitter:card",
+                    content: this.videos[this.play].title
+                },
+                {
+                    hid: "twitter:url",
+                    name: "twitter:url",
+                    content: `https://chillwhispers.com/watch/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:creator",
+                    name: "twitter:creator",
+                    content: "@2amtech"
+                },
+                {
+                    hid: "twitter:title",
+                    name: "twitter:title",
+                    content: this.videos[this.play].title
+                },
+                {
+                    hid: "twitter:description",
+                    name: "twitter:description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+
+                {
+                    hid: "twitter:image",
+                    name: "twitter:image",
+                    content: this.videos[this.play].thumbnail
+                },
+
+                {
+                    hid: "twitter:app:url:iphone",
+                    name: "twitter:app:url:iphone",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:app:url:ipad",
+                    name: "twitter:app:url:ipad",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+
+                {
+                    hid: "twitter:app:url:googleplay",
+                    name: "twitter:app:url:googleplay",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:player",
+                    name: "twitter:player",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                }
+            ]
+        };
+    },
+
     data() {
         return {
             playlist: this.$route.params.slug,
