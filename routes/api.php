@@ -16,7 +16,13 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+<<<<<<< HEAD
 Route::get('/', 'VideoController@getAllVideos');
+=======
+
+
+Route::get('/details', 'VideoController@details');
+>>>>>>> c8e57f63b983eeda4fc4ffdfdf1a29bfb39a0f65
 Route::get('/videos', 'VideoController@getAllVideos');
 
 Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
@@ -69,6 +75,8 @@ Route::get('/watch-chillhop/{videoId}', 'VideoController@getVideoChillHop');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::post('/add-video', 'VideoController@addVideo');
+
+    Route::post('/add-channel-videos', 'ChannelController@addChannelVideos');
 });
 
 Route::group(['prefix' => 'suggest'], function () {

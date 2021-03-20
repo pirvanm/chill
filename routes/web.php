@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::post('/details', 'VideoController@details');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -63,10 +66,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
-Route::post('/ad' ,'VideoController@addVideo');
+Route::post('/ad', 'VideoController@addVideo');
 Route::post('/sendCat/', 'VideoController@getCat');
 Route::get('/getCat/', 'VideoController@getCat');
 
 //Route::post('/add-emails', 'VideoController@emails');
-
-

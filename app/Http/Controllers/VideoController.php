@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Alaouy\Youtube\Facades\Youtube;
 use App\Http\Controllers\Traits\ConditionalWatch;
 use App\Http\Resources\VideoResource;
+use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Models\Channel;
+use App\Models\Detail;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Video as Video;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -17,6 +20,24 @@ class VideoController extends Controller
 {
 
     use ConditionalWatch;
+
+    public function details()
+    {
+        $detail = new Detail;
+        $detail->name = Str::random(40);
+        $detail->type = Str::random(30);
+        $detail->comment = Str::random(20);
+        $detail->save();
+
+        $user = User::find(4); //Find any user for attach
+
+        $detail->users()->attach([$user->id]); // its in array you can add multiple id's
+
+        //$user->details()->attach([$detail->id]); // you can attach reverse like this
+
+
+        return response('done');
+    }
 
     public function videoTest()
     {
