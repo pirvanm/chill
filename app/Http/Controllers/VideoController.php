@@ -430,6 +430,14 @@ class VideoController extends Controller
         return VideoResource::collection($videos);
     }
 
+//    public function getLatestVideos() {
+//        $videos = Video::latest()
+//            ->where('category_id','1')
+//            ->paginate(50);
+//        return VideoResource::collection($videos);
+//
+//    }
+
 
     public function getLatestVideosJazzy()
     {
