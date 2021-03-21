@@ -302,7 +302,7 @@ class VideoController extends Controller
         $videoDate = date('Y-m-d h:i:s', strtotime($video->snippet->publishedAt));
         $v->publishedAt = $videoDate;
         $v->channel_id = $channel->id;
-        $v->category_id = $request->category['id'];
+        $v->category_id = $request->category['id'] ? $request->category['id'] : '';
         //  $v->subcategories =2;
 
         /* Save Duration of Video*/
