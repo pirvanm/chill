@@ -12,6 +12,7 @@ use App\Models\Detail;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video as Video;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -289,6 +290,34 @@ class VideoController extends Controller
             $duration = '00:00:00';
         }
 
+        $str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $duration);
+
+        sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
+
+        $time_seconds = $hours * 3600 + $minutes * 60 + $seconds;
+
+        $durationType = 0;
+
+        if ($time_seconds < 360) {
+            $durationType = 1;
+        }
+
+        if ($time_seconds > 360 && $time_seconds < 900) {
+            $durationType = 2;
+        }
+
+        if ($time_seconds > 900 && $time_seconds < 3000) {
+            $durationType = 3;
+        }
+
+        if ($time_seconds > 3000 && $time_seconds < 7200) {
+            $durationType = 4;
+        }
+
+        if ($time_seconds > 7200) {
+            $durationType = 5;
+        }
+
         /* Insert a new video in Db */
         $v = new Video;
         $v->videoId = $videoId;
@@ -303,6 +332,7 @@ class VideoController extends Controller
         $v->publishedAt = $videoDate;
         $v->channel_id = $channel->id;
         $v->category_id = $request->category['id'] ? $request->category['id'] : '';
+        $v->type_duration = $durationType;
         //  $v->subcategories =2;
 
         /* Save Duration of Video*/
