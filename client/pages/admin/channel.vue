@@ -20,6 +20,52 @@
                 <span class="text-danger" v-if="errors.channel">{{
                     errors.channel[0]
                 }}</span>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select or Create Category</label>
+                        <multiselect
+                            v-model="form.category"
+                            deselect-label="Can't remove this value"
+                            track-by="category_name"
+                            label="category_name"
+                            placeholder="Select one"
+                            :options="categories"
+                            :searchable="true"
+                            :allow-empty="false"
+                            @select="getSubCategoryWithCategory"
+                        >
+                            <template
+                                slot="singleLabel"
+                                slot-scope="{ option }"
+                            >
+                                <strong>{{ option.category_name }}</strong>
+                            </template>
+                        </multiselect>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Select or Create Subcategory</label>
+                        <multiselect
+                            v-model="form.subcategories"
+                            deselect-label="Can't remove this value"
+                            track-by="name"
+                            label="name"
+                            :multiple="true"
+                            placeholder="Select one"
+                            :options="subcategories"
+                            :searchable="true"
+                            :allow-empty="false"
+                        >
+                            <template
+                                slot="singleLabel"
+                                slot-scope="{ option }"
+                            >
+                                <strong>{{ option.name }}</strong>
+                            </template>
+                        </multiselect>
+                    </div>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-success" :disabled="busy">
@@ -31,19 +77,30 @@
 </template>
 
 <script>
+import Multiselect from "vue-multiselect";
 export default {
     //  middleware: ["auth"],
+    components: {
+        Multiselect
+    },
     layout: "MenuAdmin",
     data() {
         return {
             errors: [],
             busy: false,
             form: {
-                channel: ""
+                channel: "",
+                category: null,
+                subcategories: []
             },
             pageInfo: {},
-            page: 0
+            page: 0,
+            categories: [],
+            subcategories: []
         };
+    },
+    mounted() {
+        this.getCategories();
     },
 
     methods: {
@@ -53,6 +110,8 @@ export default {
             this.$axios
                 .post("/admin/add-channel-videos", {
                     channel: this.form.channel,
+                    category: this.form.category,
+                    subcategories: this.form.subcategories,
                     token: this.pageInfo ? this.pageInfo.nextPageToken : null
                 })
                 .then(response => {
@@ -77,6 +136,19 @@ export default {
                     this.errors = error.response.data.errors;
                     this.busy = false;
                 });
+        },
+
+        getSubCategoryWithCategory(event) {
+            this.$axios
+                .get(`/subcategories-with-category/${event.id}`)
+                .then(response => {
+                    this.subcategories = response.data.subcategories;
+                });
+        },
+        getCategories() {
+            this.$axios.get("categories").then(response => {
+                this.categories = response.data.categories;
+            });
         }
     }
 };
