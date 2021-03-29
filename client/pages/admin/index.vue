@@ -1,58 +1,88 @@
 <template>
-    <div class="video-container-insert">
-        <b-nav>
-            <ul>
-                <li>
-                    <nuxt-link to="http://localhost:3000">Home</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="http://localhost:3000">Ambient</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="http://localhost:3000">ChillStep</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="/">ChillOut</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="/">ChillHop</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="/">Home</nuxt-link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <nuxt-link to="/Search">Search</nuxt-link>
-                </li>
-            </ul>
+<!--    <div class="video-container-insert">-->
+<!--        <b-nav>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="http://localhost:3000">Home</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="http://localhost:3000">Ambient</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="http://localhost:3000">ChillStep</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="/">ChillOut</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="/">ChillHop</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="/">Home</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <nuxt-link to="/Search">Search</nuxt-link>-->
+<!--                </li>-->
+<!--            </ul>-->
 
-            <!--<nuxt-link to="http://localhost:3000">II</nuxt-link>-->
-        </b-nav>
+<!--            &lt;!&ndash;<nuxt-link to="http://localhost:3000">II</nuxt-link>&ndash;&gt;-->
+<!--        </b-nav>-->
+
+<!--    </div>-->
+
+    <div id="tabs" class="container">
+
+        <div class="tabs">
+            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">France</a>
+            <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">Spain</a>
+            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">Germany           </a>
+            <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">Italy</a>
+        </div>
+
+
+        <div class="content">
+            <div v-if="activetab ==='1'" class="tabcontent">
+<!--            <Videos/>-->
+            </div>
+            <div v-if="activetab ==='2'" class="tabcontent">
+                Channel
+            </div>
+            <div v-if="activetab ==='3'" class="tabcontent">
+
+            </div>
+            <div v-if="activetab ==='4'" class="tabcontent">
+
+            </div>
+        </div>
 
     </div>
 </template>
 
 <script>
 import Multiselect from "vue-multiselect";
+// import Videos from 'videos';
 export default {
     components: {
-        Multiselect
+        Multiselect,
+       
     },
     //  middleware: ["auth"],
     layout: "MenuAdmin",
     data() {
         return {
+            activetab: '1' ,
             playerVars: {
                 autoplay: 1,
                 modestbranding: 1,

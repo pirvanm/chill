@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Detail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/User_details.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_26_045653_create_details_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssl/chill.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssl/chill.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/super" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/chill2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chill2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChannelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChannelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/channel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/channel.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/videos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/videos.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/playlists/_slug/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/playlists/_slug/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,6 +362,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/laragon/proj/www/chill2/client/pages/index.vue" />
@@ -522,7 +507,9 @@
       <workItem from="1591253196806" duration="348000" />
       <workItem from="1591263072897" duration="1895000" />
       <workItem from="1612944445243" duration="3387000" />
-      <workItem from="1616263472469" duration="226000" />
+      <workItem from="1616263472469" duration="1399000" />
+      <workItem from="1616834318848" duration="759000" />
+      <workItem from="1617038668748" duration="2469000" />
     </task>
     <servers />
   </component>
@@ -645,8 +632,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/admin/index.vue</url>
-          <line>47</line>
-          <properties lambdaOrdinal="-1" />
+          <line>75</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
