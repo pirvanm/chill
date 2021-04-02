@@ -44,7 +44,7 @@
                     style="cursor:pointer"
                     v-for="v in vids"
                     :key="v.id"
-                    @click.prevent="gotoWatch(v)"
+                    @click.prevent="gotoWatch(v.videoId)"
                 >
                     <img class="card-img-top" :src="v.thumbnail" alt />
                     <div class="card-body">
@@ -196,6 +196,20 @@ export default {
     computed: {
         player() {
             return this.$refs.youtube.player;
+        },
+        query() {
+            return this.$route.query.v;
+        }
+    },
+    watch: {
+        query: {
+            // This will let Vue know to look inside the array
+            deep: true,
+
+            // We have to move our method to a handler field
+            handler() {
+                this.gotoWatch(this.$route.query.v);
+            }
         }
     },
     mounted() {
@@ -218,12 +232,6 @@ export default {
             this.player.pauseVideo();
         },
         endVideo() {
-            // console.log(indexid);
-            // if (this.videoPlay == null) {
-            //     this.videoPlay = 0;
-            // } else {
-            //     this.videoPlay++;
-            // }
             this.vid = this.vids[0];
 
             this.$router.push(`/watch?v=${this.vid.videoId}`);
@@ -272,9 +280,9 @@ export default {
                 });
         },
         gotoWatch(v) {
-            this.vid = v;
-            this.$router.push(`/watch?v=${v.videoId}`);
-            this.$axios.get(`/watch/${v.videoId}`).then(response => {
+            this.$router.push(`/watch?v=${v}`);
+            this.$axios.get(`/watch/${v}`).then(response => {
+                this.vid = response.data.video;
                 this.vids = response.data.videos;
             });
         }
