@@ -25,6 +25,9 @@ class VideoResource extends JsonResource
             'published_at' => $this->publishedAt->diffForHumans(),
             'created_at' => $this->created_at->format('d M Y'),
             'channel' => new ChannelForVideoResource($this->channel),
+            'tags' => TagResource::collection($this->tags),
+            'category' => $this->category,
+            'subcategories' => $this->subcategories
         ];
     }
 }

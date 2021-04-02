@@ -9,6 +9,13 @@
 
             <!-- Video Container -->
             <div class="offset-md-2 col-md-6">
+                <span
+                    class="badge badge-secondary"
+                    v-for="tag in vid.tags"
+                    :key="tag.id"
+                    >{{ tag.name }}</span
+                >
+                <br />
                 <youtube
                     ref="youtube"
                     width="100%"
@@ -60,7 +67,7 @@ export default {
     },
     async asyncData({ $axios, params }) {
         let { video, videos } = await $axios.$get(`/watch/${params.id}`);
-        return { vid: video, vids: videos.data };
+        return { vid: video, vids: videos };
     },
     data() {
         return {
