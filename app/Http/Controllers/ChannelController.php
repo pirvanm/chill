@@ -91,6 +91,34 @@ class ChannelController extends Controller
                         $duration = '00:00:00';
                     }
 
+                    $str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $duration);
+
+                    sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
+
+                    $time_seconds = $hours * 3600 + $minutes * 60 + $seconds;
+
+                    $durationType = 0;
+
+                    if ($time_seconds < 360) {
+                        $durationType = 1;
+                    }
+
+                    if ($time_seconds > 360 && $time_seconds < 900) {
+                        $durationType = 2;
+                    }
+
+                    if ($time_seconds > 900 && $time_seconds < 3000) {
+                        $durationType = 3;
+                    }
+
+                    if ($time_seconds > 3000 && $time_seconds < 7200) {
+                        $durationType = 4;
+                    }
+
+                    if ($time_seconds > 7200) {
+                        $durationType = 5;
+                    }
+
                     /* Insert a new video in Db */
                     $v = new Video;
                     $v->videoId = $videoId;
@@ -102,7 +130,8 @@ class ChannelController extends Controller
                     $videoDate = date('Y-m-d h:i:s', strtotime($video->snippet->publishedAt));
                     $v->publishedAt = $videoDate;
                     $v->channel_id = $newChannel->id;
-
+                    $v->category_id = $request->category['id'] ? $request->category['id'] : '';
+                    $v->type_duration = $durationType;
                     $v->save();
 
                     if (isset($video->snippet->tags)) {
@@ -116,6 +145,13 @@ class ChannelController extends Controller
 
                             $t->videos()->attach($v->id);
                         }
+                    }
+
+                    $subcategories = $request->subcategories;
+
+
+                    foreach ($subcategories as  $subcategory) {
+                        $v->subcategories()->attach($subcategory['id']);
                     }
                 }
             }

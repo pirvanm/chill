@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+//librarie externa folosita dupa github.com
 use Alaouy\Youtube\Facades\Youtube;
-use App\Http\Controllers\Traits\ConditionalWatch;
-use App\Http\Resources\VideoResource;
+//use App\Http\Controllers\Traits\ConditionalWatch;
+// librarie din laravel
 use Illuminate\Support\Str;
+//Clase din laravel
+use App\Http\Resources\VideoResource;
+//Modele care sunt mutate in folderul
+// models ,definit de nou
 use App\Models\Category;
 use App\Models\Channel;
 use App\Models\Detail;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video as Video;
+//o clasa externa pentru "prelucrarea" datelor
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -289,6 +296,34 @@ class VideoController extends Controller
             $duration = '00:00:00';
         }
 
+        $str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $duration);
+
+        sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
+
+        $time_seconds = $hours * 3600 + $minutes * 60 + $seconds;
+
+        $durationType = 0;
+
+        if ($time_seconds < 360) {
+            $durationType = 1;
+        }
+
+        if ($time_seconds > 360 && $time_seconds < 900) {
+            $durationType = 2;
+        }
+
+        if ($time_seconds > 900 && $time_seconds < 3000) {
+            $durationType = 3;
+        }
+
+        if ($time_seconds > 3000 && $time_seconds < 7200) {
+            $durationType = 4;
+        }
+
+        if ($time_seconds > 7200) {
+            $durationType = 5;
+        }
+
         /* Insert a new video in Db */
         $v = new Video;
         $v->videoId = $videoId;
@@ -302,7 +337,8 @@ class VideoController extends Controller
         $videoDate = date('Y-m-d h:i:s', strtotime($video->snippet->publishedAt));
         $v->publishedAt = $videoDate;
         $v->channel_id = $channel->id;
-        $v->category_id = $request->category['id'];
+        $v->category_id = $request->category['id'] ? $request->category['id'] : '';
+        $v->type_duration = $durationType;
         //  $v->subcategories =2;
 
         /* Save Duration of Video*/
@@ -447,7 +483,18 @@ class VideoController extends Controller
 
     public function getVideosJazzy()
     {
-        $videos = Video::latest()->where('category_id', '1')->paginate(500);
+        // latest() metoda i-a ultimele rezultate in ordine
+        //descendenta
+
+        //similar cu limit din mysql
+        $videos = Video::latest()
+            //i-amti toate videclipturile unde categoria
+            // este egala cu 1
+            ->where('category_id', '1')
+            //paginate () asemanator cu get doar ca
+                // spunem cate rezultate sa ia
+            ->paginate(500);
+
         return VideoResource::collection($videos);
     }
 
