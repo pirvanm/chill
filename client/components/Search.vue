@@ -17,7 +17,8 @@ export default {
     data() {
         return {
             search: "",
-            data: []
+            data: [],
+            timeOut: null
         };
     },
     // watch: {
@@ -31,14 +32,20 @@ export default {
                 if (input.length < 1) {
                     return resolve([]);
                 }
-                this.$axios
-                    .post("/search-elastic", {
-                        search: input
-                    })
-                    .then(response => {
-                        resolve(response.data.videos);
-                        console.log(response.data);
-                    });
+                if (this.timeOut) {
+                    clearTimeout(this.timeOut);
+                }
+                this.timeOut = setTimeout(() => {
+                    this.$axios
+                        .post("/search-elastic", {
+                            search: input
+                        })
+                        .then(response => {
+                            resolve(response.data.videos);
+                            console.log(response.data);
+                        });
+                }, 200);
+
                 // fetch(`${process.env.baseUrl}search-elastic`)
                 //     .then(response => response.json())
                 //     .then(data => {

@@ -113,4 +113,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/search-elastic', 'SearchController@searchWithElastic');
+Route::post('/search-elastic', 'SearchController@searchWithElastic')->middleware('throttle:9999999,1');
