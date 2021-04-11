@@ -112,3 +112,5 @@ Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/search-elastic', 'SearchController@searchWithElastic');

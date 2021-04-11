@@ -2,6 +2,9 @@ require("dotenv").config();
 
 import axios from "axios";
 export default {
+    env: {
+        baseUrl: process.env.BASE_URL || "http://localhost:3000"
+    },
     generate: {
         /* routes () {
             return axios.get('https://chillwhispers.com/')
@@ -49,6 +52,7 @@ export default {
         { src: "~/plugins/youtube", ssr: true },
         // { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
+        { src: "~/plugins/autocomplete", ssr: false },
         { src: "~/plugins/notifications", ssr: false }
         // { src: "~/plugins/multiselect", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }

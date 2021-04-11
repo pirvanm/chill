@@ -13,4 +13,13 @@ class SearchController extends Controller
 
         return response()->json(['videos' => $videos]);
     }
+
+    public function searchWithElastic(Request $request)
+    {
+        $videos = Video::search($request->search)->get();
+
+        return response()->json([
+            'videos' => $videos
+        ]);
+    }
 }

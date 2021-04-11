@@ -14,7 +14,10 @@
         </div> -->
 
                     <div class="col-md-12">
-                        Most Popular Song from Each Category
+                        <search />
+                        <h1 style="color:white;">
+                            Most Popular Song from Each Category
+                        </h1>
                     </div>
                     <!-- Parent Div -->
 
@@ -333,10 +336,12 @@
 </template>
 <script>
 import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
 
 export default {
     components: {
-        newLeftBar
+        newLeftBar,
+        search
     }
 };
 </script>

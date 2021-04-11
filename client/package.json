@@ -24,6 +24,7 @@
     "@nuxtjs/pwa": "^3.2.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "@trevoreyre/autocomplete-vue": "^2.2.0",
     "algoliasearch": "^3.35.1",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.18.1",

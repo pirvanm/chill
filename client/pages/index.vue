@@ -1,7 +1,6 @@
 <template>
     <div class="c container-fluid">
         <Nav />
-
         <newContainerHome />
         <newFooter />
     </div>
@@ -64,13 +63,13 @@ export default {
             }
         ]
     },
-    mounted() {
-        document.addEventListener("keydown", this.move);
-    },
+    // mounted() {
+    //     document.addEventListener("keydown", this.move);
+    // },
 
-    beforeDestroy() {
-        document.removeEventListener("keydown", this.move);
-    },
+    // beforeDestroy() {
+    //     document.removeEventListener("keydown", this.move);
+    // },
 
     methods: {
         move(e) {
