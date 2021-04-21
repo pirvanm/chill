@@ -41,7 +41,7 @@ export default {
                             search: input
                         })
                         .then(response => {
-                            resolve(response.data.videos);
+                            resolve(response.data.data);
                             console.log(response.data);
                         });
                 }, 200);

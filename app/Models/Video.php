@@ -8,7 +8,7 @@ use Laravel\Scout\Searchable;
 
 class Video extends Model
 {
-    use Searchable;
+    // use Searchable;
 
     /**
      * The attributes that should be mutated to dates.
