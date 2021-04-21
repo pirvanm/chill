@@ -13,8 +13,11 @@
                     class="badge badge-secondary"
                     v-for="tag in vid.tags"
                     :key="tag.id"
-                    >{{ tag.name }}</span
                 >
+                    <nuxt-link :to="`/tag?id=${tag.id}`">
+                        {{ tag.name }}
+                    </nuxt-link>
+                </span>
                 <br />
                 <youtube
                     ref="youtube"

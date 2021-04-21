@@ -115,6 +115,8 @@ Route::get('/', function () {
 
 Route::post('/search-elastic', 'SearchController@searchWithElastic')->middleware('throttle:9999999,1');
 
+Route::post('/tag', 'TagController@getTagVideos');
+
 //Auth
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('auth')->group(function () {
