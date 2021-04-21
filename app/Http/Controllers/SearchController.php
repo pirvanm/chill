@@ -17,11 +17,11 @@ class SearchController extends Controller
 
     public function searchWithElastic(Request $request)
     {
-        $videos = Video::where('title', 'LIKE', '%' . $request->search . '%')->paginate(10);
+        $videos = Video::whereLike('title', $request->search)->whereLike('description', $request->search)->paginate(10);
 
         return VideoResource::collection($videos);
-        return response()->json([
-            'videos' => $videos
-        ]);
+        // return response()->json([
+        //     'videos' => $videos
+        // ]);
     }
 }
