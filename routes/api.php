@@ -114,3 +114,10 @@ Route::get('/', function () {
 });
 
 Route::post('/search-elastic', 'SearchController@searchWithElastic')->middleware('throttle:9999999,1');
+
+//Auth
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::get('/user', 'Auth\MeController@getMe');
+    });
+});

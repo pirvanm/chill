@@ -1,7 +1,8 @@
 <template>
     <div class="c container-fluid">
-        <Nav />
+        <!-- <Nav /> -->
         <newContainerHome />
+
         <newFooter />
     </div>
 </template>

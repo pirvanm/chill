@@ -75,36 +75,47 @@ export default {
         // Doc: https://axios.nuxtjs.org/usage
         "@nuxtjs/axios",
         //  "@nuxtjs/auth",
+        "@nuxtjs/auth-next",
+
         "@nuxtjs/pwa",
 
         "@nuxtjs/sitemap",
         "nuxt-fontawesome",
-        "@nuxtjs/axios",
         "@nuxtjs/proxy"
         /* '~/plugins/algolia'*/
     ],
-    /*    auth: {
+
+    auth: {
         strategies: {
             local: {
+                token: {
+                    property: "token",
+                    required: true,
+                    maxAge: 2592000,
+                    type: "Bearer"
+                },
+                user: {
+                    property: "data",
+                    autoFetch: true
+                },
                 endpoints: {
-                    login: {
-                        url: "/auth/login",
-                        method: "post",
-                        propertyName: "meta.token"
-                    },
+                    login: { url: "/auth/login", method: "post" },
                     logout: { url: "/auth/logout", method: "post" },
-                    user: { url: "/me", method: "get", propertyName: "data" }
+                    user: { url: "/auth/user", method: "get" }
+                },
+                redirect: {
+                    login: "/login",
+                    logout: "/login",
+                    callback: "/login",
+                    home: false
                 }
-                // tokenRequired: true,
-                // tokenType: 'bearer',
             }
         },
-        redirect: {
-            login: "/login",
-            logout: "/login",
-            home: "/"
-        }
-    },*/
+        plugins: [
+            { src: "~/plugins/auth", ssr: true },
+            { src: "~/plugins/axios", ssr: true }
+        ]
+    },
     /*
     sitemap: {
         hostname: 'https://chillwhispers.com',
