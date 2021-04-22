@@ -18,4 +18,16 @@ class TagController extends Controller
             'tag' => $tag
         ]);
     }
+
+    public function getVideos(Request $request)
+    {
+        $tag = Tag::find($request->id);
+
+        $videos = $tag->videos;
+
+        return response()->json([
+            'videos' => $videos,
+            'tag' => $tag
+        ]);
+    }
 }

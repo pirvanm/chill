@@ -11,12 +11,12 @@
             <div class="offset-md-2 col-md-6">
                 <span
                     class="badge badge-secondary"
-                    v-for="tag in vid.tags"
-                    :key="tag.id"
+                    style="cursor:pointer"
+                    v-for="(tag, index) in vid.tags"
+                    :key="`${index}tag  `"
+                    @click.prevent="clickTags(tag.id)"
                 >
-                    <nuxt-link :to="`/tag?id=${tag.id}`">
-                        {{ tag.name }}
-                    </nuxt-link>
+                    {{ tag.name }}
                 </span>
                 <br />
                 <youtube
@@ -37,7 +37,7 @@
             <!-- Next Video -->
             <div class="col-md-4 next-list">
                 <h1 style="color: white">
-                    Next Song Are comming :
+                    {{ nextSongText }} :
                     <br />
                     <br />
                 </h1>
@@ -45,8 +45,8 @@
                 <div
                     class="card"
                     style="cursor:pointer"
-                    v-for="v in vids"
-                    :key="v.id"
+                    v-for="(v, index) in vids"
+                    :key="`${index}v`"
                     @click.prevent="gotoWatch(v.videoId)"
                 >
                     <img class="card-img-top" :src="v.thumbnail" alt />
@@ -80,6 +80,7 @@ export default {
     },
     data() {
         return {
+            nextSongText: "Next Song Are comming",
             busy: false,
             playlists: [],
             form: {
@@ -222,6 +223,19 @@ export default {
     },
     methods: {
         // autoplay: 1,
+        clickTags(id) {
+            this.$axios
+                .post("/tag/get-videos", {
+                    id: id
+                })
+                .then(response => {
+                    // this.$router.push(
+                    //     `/watch?v=${this.$route.query.v}&tag=${id}` <--- this not work because there is watch handler
+                    // );
+                    this.vids = response.data.videos;
+                    this.nextSongText = `Comming next from ${response.data.tag.name} Tag`;
+                });
+        },
         errorVideo() {
             console.log("error");
         },
