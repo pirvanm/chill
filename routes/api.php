@@ -117,3 +117,16 @@ Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/search-elastic', 'SearchController@searchWithElastic')->middleware('throttle:9999999,1');
+
+Route::post('/tag', 'TagController@getTagVideos');
+
+Route::post('/tag/get-videos', 'TagController@getVideos');
+
+//Auth
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::get('/user', 'Auth\MeController@getMe');
+    });
+});

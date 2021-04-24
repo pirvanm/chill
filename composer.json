@@ -10,12 +10,16 @@
     "require": {
         "php": "^7.4",
         "alaouy/youtube": "^2.2",
+        "elasticsearch/elasticsearch": "^7.12",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
         "laravel/framework": "^6.0",
         "laravel/passport": "^7.4",
+        "laravel/sanctum": "^2.10",
+        "laravel/scout": "^8.6",
         "laravel/tinker": "^1.0",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "tamayo/laravel-scout-elastic": "^8.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

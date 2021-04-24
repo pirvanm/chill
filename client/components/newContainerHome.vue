@@ -9,12 +9,24 @@
 
             <div class="offset-md-2 col-md-10">
                 <div class="row">
-                    <!-- <div class="col-md-3">
-            Menu
-        </div> -->
-
                     <div class="col-md-12">
-                        Most Popular Song from Each Category
+                        <div
+                            v-if="$auth.loggedIn"
+                            style="color:white;"
+                            class="text-center"
+                        >
+                            {{ $auth.user.name }} <br />
+                            <button @click="$auth.logout()">Logout</button>
+                        </div>
+                        <div v-else>
+                            <nuxt-link to="/login">
+                                Login here
+                            </nuxt-link>
+                        </div>
+                        <search />
+                        <h1 style="color:white;">
+                            Most Popular Song from Each Category
+                        </h1>
                     </div>
                     <!-- Parent Div -->
 
@@ -333,10 +345,12 @@
 </template>
 <script>
 import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
 
 export default {
     components: {
-        newLeftBar
+        newLeftBar,
+        search
     }
 };
 </script>

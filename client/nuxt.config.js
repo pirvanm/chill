@@ -2,6 +2,9 @@ require("dotenv").config();
 
 import axios from "axios";
 export default {
+    env: {
+        baseUrl: process.env.BASE_URL || "http://localhost:3000"
+    },
     generate: {
         /* routes () {
             return axios.get('https://chillwhispers.com/')
@@ -49,6 +52,7 @@ export default {
         { src: "~/plugins/youtube", ssr: true },
         // { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
+        { src: "~/plugins/autocomplete", ssr: false },
         { src: "~/plugins/notifications", ssr: false }
         // { src: "~/plugins/multiselect", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }
@@ -71,36 +75,47 @@ export default {
         // Doc: https://axios.nuxtjs.org/usage
         "@nuxtjs/axios",
         //  "@nuxtjs/auth",
+        "@nuxtjs/auth-next",
+
         "@nuxtjs/pwa",
 
         "@nuxtjs/sitemap",
         "nuxt-fontawesome",
-        "@nuxtjs/axios",
         "@nuxtjs/proxy"
         /* '~/plugins/algolia'*/
     ],
-    /*    auth: {
+
+    auth: {
         strategies: {
             local: {
+                token: {
+                    property: "token",
+                    required: true,
+                    maxAge: 2592000,
+                    type: "Bearer"
+                },
+                user: {
+                    property: "data",
+                    autoFetch: true
+                },
                 endpoints: {
-                    login: {
-                        url: "/auth/login",
-                        method: "post",
-                        propertyName: "meta.token"
-                    },
+                    login: { url: "/auth/login", method: "post" },
                     logout: { url: "/auth/logout", method: "post" },
-                    user: { url: "/me", method: "get", propertyName: "data" }
+                    user: { url: "/auth/user", method: "get" }
+                },
+                redirect: {
+                    login: "/login",
+                    logout: "/login",
+                    callback: "/login",
+                    home: false
                 }
-                // tokenRequired: true,
-                // tokenType: 'bearer',
             }
         },
-        redirect: {
-            login: "/login",
-            logout: "/login",
-            home: "/"
-        }
-    },*/
+        plugins: [
+            { src: "~/plugins/auth", ssr: true },
+            { src: "~/plugins/axios", ssr: true }
+        ]
+    },
     /*
     sitemap: {
         hostname: 'https://chillwhispers.com',

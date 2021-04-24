@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\VideoResource;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -12,5 +13,15 @@ class SearchController extends Controller
         $videos = Video::where('title', 'LIKE', '%' . $request->text . '%')->get();
 
         return response()->json(['videos' => $videos]);
+    }
+
+    public function searchWithElastic(Request $request)
+    {
+        $videos = Video::whereLike('title', $request->search)->whereLike('description', $request->search)->paginate(10);
+
+        return VideoResource::collection($videos);
+        // return response()->json([
+        //     'videos' => $videos
+        // ]);
     }
 }
