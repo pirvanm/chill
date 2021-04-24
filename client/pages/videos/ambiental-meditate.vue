@@ -19,7 +19,7 @@
                             </div>
                         </nuxt-link>
                     </div>
-                </div>  
+                </div>
                 </div>
                 </div>
             </div>
@@ -29,7 +29,9 @@
 </template>
 
 
-<script>import SideBar from '@/components/SideS'
+<script>
+import SideBar from '@/components/SideS'
+
     export default {
     components: {
             SideBar

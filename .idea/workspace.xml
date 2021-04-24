@@ -5,10 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/client/assets/category/Classic.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/africa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/babe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/chillhop.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/chillout.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/china.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/down.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/france.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/gaming.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/indian.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/italy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/japan.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/lo-fi.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/lo-hi.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/lo-ho.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/lounge.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/meditation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/regional.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/spain.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/step.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/tec.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/trap.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/category/w.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Search.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/newContainerHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newContainerHome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/contact/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/contact/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/suggest/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/suggest/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/ambiental-meditate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/ambiental-meditate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -515,7 +539,8 @@
       <workItem from="1617289543824" duration="6140000" />
       <workItem from="1617815760150" duration="4731000" />
       <workItem from="1619118425388" duration="965000" />
-      <workItem from="1619250305946" duration="11848000" />
+      <workItem from="1619250305946" duration="18699000" />
+      <workItem from="1619286768740" duration="3449000" />
     </task>
     <servers />
   </component>
@@ -644,7 +669,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/components/newLeftBar.vue</url>
           <line>27</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>

@@ -1,13 +1,13 @@
 <template>
   <div class="row">
-  <div class="col-md-2"><SideBar/>
+  <div class="col-md-2 leftBar">    <newLeftBar />
   </div>
   <div class="col-md-9">
         <h1>Video Insert Zone</h1>
         <p>Let K.i.s.s(Keep it stupid simple),just copy youtube link in form,chouse category and subcategory and click on save.
         </p>
         <p>
-    P.S any summision it's moderate in this moment. 
+    P.S any summision it's moderate in this moment.
         <form @submit.prevent="save">
             <div class="form-group">
                 <label>Insert Video Id</label>
@@ -85,10 +85,12 @@
 <script>
 import Multiselect from "vue-multiselect";
 import SideBar from '@/components/SideS'
+import newLeftBar from "@/components/newLeftBar";
 export default {
     components: {
         Multiselect,
-        SideBar
+        SideBar,
+        newLeftBar
     },
   //  middleware: ["auth"],
     layout: "MenuAdmin",
@@ -180,9 +182,9 @@ export default {
 
 <style>
 .video-container-insert {
-  
+
     margin-top: 0%;
-  
+
 }
 .category {
     margin-top: 20px;
@@ -198,5 +200,28 @@ div select {
 }
 select.category {
     margin-top: 50px;
+}
+
+.leftBar {
+    background-color: #090909;
+    /* position: fixed; */
+    /* margin-right: 100px; */
+    margin-top: 0px;
+    height: 100%;
+    color: #8422a6;
+    border-top-right-radius: 50px;
+    /* opacity: 0.4; */
+    height: 1600px;
+    width: 110px;
+    /* position: fixed; */
+    z-index: 1;
+    top: 0;
+    /* left: 0; */
+    /* background-color: #111; */
+    overflow-x: hidden;
+    padding-top: 50px;
+    /* margin-left: 35px; */
+    padding-bottom: 20px;
+    padding-left: 50px;
 }
 </style>

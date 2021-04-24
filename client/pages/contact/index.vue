@@ -52,7 +52,7 @@
    <b-button type="reset" variant="danger">Reset</b-button>
 
 
-   <p> Or Just send me a email to : level@levelcoding.com</p>
+   <p> Or Just send me a email to : whisperchill4@gmail.com</p>
   </b-form>
 <!--  <b-card class="mt-3" header="Info">
    Each opinion matters, which is why we invite you to leave us an email at the following address : contact@chillwhisper.com
