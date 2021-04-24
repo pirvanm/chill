@@ -1,12 +1,37 @@
 <template>
-    <div>
+    <div class="container-search mt-3 mb-3">
         <client-only>
-            <autocomplete
-                :search="searchVideo"
-                placeholder="Search Video"
-                :get-result-value="getResultValue"
-                @submit="onSubmit"
-            ></autocomplete>
+            <div class="row">
+
+                <div class="col-md-10">
+                    <autocomplete
+                        :search="searchVideo"
+                        placeholder="Search Video"
+                        :get-result-value="getResultValue"
+                        @submit="onSubmit"
+                    >
+
+                    </autocomplete>
+                </div>
+                <div class="col-md-2" style="">
+                    <div
+                        v-if="$auth.loggedIn"
+                        style="color:white;"
+                        class="text-center"
+                    >
+                        {{ $auth.user.name }} <br />
+                        <button @click="$auth.logout()">Logout</button>
+                    </div>
+                    <div v-else>
+                        <nuxt-link to="/login">
+                            <button type="button" class="btn btn-primary"> Login </button>
+
+                        </nuxt-link>
+                    </div>
+
+                </div>
+            </div>
+
         </client-only>
         <!-- <input type="text" placeholder="Search" v-model="search" /> -->
     </div>

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/assets/category/ambient.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/newLeftBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newLeftBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/videos/all.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/all.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/videos/ambiental.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/ambiental.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/videos/chillhop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/chillhop.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/videos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/newContainerHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newContainerHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,7 +515,7 @@
       <workItem from="1617289543824" duration="6140000" />
       <workItem from="1617815760150" duration="4731000" />
       <workItem from="1619118425388" duration="965000" />
-      <workItem from="1619250305946" duration="10831000" />
+      <workItem from="1619250305946" duration="11848000" />
     </task>
     <servers />
   </component>

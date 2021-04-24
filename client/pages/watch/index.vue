@@ -9,6 +9,7 @@
 
             <!-- Video Container -->
             <div class="offset-md-2 col-md-6">
+                <search />
                 <div class="container-tags">
 
 
@@ -70,10 +71,12 @@
 <script>
 import SideBar from "@/components/SideBar";
 import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
 export default {
     components: {
         SideBar,
-        newLeftBar
+        newLeftBar,
+        search
     },
     async asyncData({ $axios, params, query }) {
         if (query) {
