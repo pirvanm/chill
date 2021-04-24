@@ -9,15 +9,19 @@
 
             <!-- Video Container -->
             <div class="offset-md-2 col-md-6">
+                <div class="container-tags">
+
+
                 <span
                     class="badge badge-primary"
                     style="cursor:pointer"
-                    v-for="(tag, index) in vid.tags"
+                    v-for="(tag, index) in vid.tags.slice(0,10)"
                     :key="`${index}tag  `"
                     @click.prevent="clickTags(tag.id)"
                 >
-                    {{ tag.name }}
+                    {{ tag.name.substring(0,12) }}...
                 </span>
+                </div>
                 <br />
                 <youtube
                     ref="youtube"
