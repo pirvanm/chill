@@ -6,7 +6,7 @@
         <a href="/" class=""> Home </a>
       </li>
       <li>
-        <a href="/videos/all" class=""> Videos </a>
+        <a href="/videos" class=""> Videos </a>
       </li>
       <li>
         <a href="/playlists" class=""> Playlists </a>

@@ -1,11 +1,16 @@
 <template>
     <div class="row wrapper-playlist">
-          <div class="col-md-2">NavBar</div>
-        <div class="col-md-10">
+          <div class="col-md-3 leftBar ">
+              <newLeftBar />
+          </div>
+        <div class="col-md-9">
             <div class="row container-playlist">
-                <div class="col-md-2">Ambiental</div>
+                <div class="col-md-2 amb">
+                    <a href="/videos/ambiental"> Ambiental  </a>
+                </div>
                 <div class="col-md-2">Ambiental Meditate</div>
-                <div class="col-md-2">Chill Hop</div>
+                <div class="col-md-2">  <a href="/videos/chillhop"> Chill Hop  </a>
+                    </div>
                 <div class="col-md-2">Chill Out </div>
                 <div class="col-md-2">Chill Out Gaming</div>
                 <div class="col-md-2">Chill Step</div>
@@ -66,4 +71,42 @@
         margin-left: 69px;
         position: absolute;
     }
+
+    .amb {
+        background: url("~assets/category/ambient.jpg");
+    }
+
+
+
+    .leftBar {
+        background-color: #090909;
+        /* position: fixed; */
+        /* margin-right: 100px; */
+        margin-top: 0px;
+        height: 100%;
+        color: #8422a6;
+        border-top-right-radius: 50px;
+        /* opacity: 0.4; */
+        height: 1600px;
+        width: 110px;
+        /* position: fixed; */
+        z-index: 1;
+        top: 0;
+        /* left: 0; */
+        /* background-color: #111; */
+        overflow-x: hidden;
+        padding-top: 50px;
+        /* margin-left: 35px; */
+        padding-bottom: 20px;
+        padding-left: 50px;
+    }
 </style>
+
+<script>
+import newLeftBar from "@/components/newLeftBar";
+
+export default {
+components: {
+        newLeftBar
+}}
+</script>

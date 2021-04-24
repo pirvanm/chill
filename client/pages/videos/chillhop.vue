@@ -4,8 +4,8 @@
         </div>
         <div class="homepage-video">
             <div class="row video-grid">
-                <div class="col-md-2">
-                <SideBar/>
+                <div class="col-md-3 leftBar">
+                    <newLeftBar />
                 </div>
                 <div class="col-md-9">
                 <div class="row">
@@ -19,7 +19,7 @@
                             </div>
                         </nuxt-link>
                     </div>
-                </div>  
+                </div>
                 </div>
                 </div>
             </div>
@@ -29,9 +29,11 @@
 </template>
 <script>
 import SideBar from '@/components/SideS'
+import newLeftBar from "@/components/newLeftBar";
     export default {
     components: {
-            SideBar
+            SideBar,
+        newLeftBar
         },
         async asyncData ({ $axios, params }) {
         let vid = await $axios.$get(`/videos-jazzy`)
@@ -50,5 +52,30 @@ import SideBar from '@/components/SideS'
 
     }
 </script>
+<style scoped>
+.leftBar {
+    background-color: #090909;
+    /* position: fixed; */
+    /* margin-right: 100px; */
+    margin-top: 0px;
+    height: 100%;
+    color: #8422a6;
+    border-top-right-radius: 50px;
+    /* opacity: 0.4; */
+    height: 1600px;
+    width: 110px;
+    /* position: fixed; */
+    z-index: 1;
+    top: 0;
+    /* left: 0; */
+    /* background-color: #111; */
+    overflow-x: hidden;
+    padding-top: 50px;
+    /* margin-left: 35px; */
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+</style>
+
 
 

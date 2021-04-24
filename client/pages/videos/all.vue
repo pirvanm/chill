@@ -2,8 +2,8 @@
     <div class="row wrapper-playlist">
           <div class="col-md-2">NavBar</div>
         <div class="col-md-10">
-            <div class="row container-playlist">
-                <div class="col-md-2">Ambiental</div>
+            <div class="row container-videos">
+                <div class="col-md-2 amb">Ambiental</div>
                 <div class="col-md-2">Ambiental Meditate</div>
                 <div class="col-md-2">Chill Hop</div>
                 <div class="col-md-2">Chill Out </div>
@@ -65,5 +65,8 @@
         margin-top: 30px;
         margin-left: 69px;
         position: absolute;
+    }
+    .amb {
+        background: url("~assets/category/ambient.jpg");
     }
 </style>

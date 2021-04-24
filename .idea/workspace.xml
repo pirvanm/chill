@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/client/assets/category/ambient.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/styles/watch.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/watch.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/newLeftBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newLeftBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/all.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/all.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/ambiental.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/ambiental.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/chillhop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/chillhop.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/videos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/videos/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +376,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laut" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/assets/category" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -381,11 +384,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/assets/category" />
       <recent name="$PROJECT_DIR$/client/pages/videos" />
       <recent name="F:\laragon\proj\www\chill3\client\pages\videos" />
       <recent name="F:\laragon\proj\www\chill3\client\pages" />
       <recent name="F:\laragon\proj\www\chill2\app\Models" />
-      <recent name="F:\laragon\proj\www\chill2\client\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\laragon\proj\www\chill3\client\pages\watch\_id" />
@@ -515,7 +518,7 @@
       <workItem from="1617289543824" duration="6140000" />
       <workItem from="1617815760150" duration="4731000" />
       <workItem from="1619118425388" duration="965000" />
-      <workItem from="1619250305946" duration="5039000" />
+      <workItem from="1619250305946" duration="10831000" />
     </task>
     <servers />
   </component>
