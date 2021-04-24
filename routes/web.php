@@ -15,6 +15,7 @@
 Route::post('/details', 'VideoController@details');
 
 Route::get('/', function () {
+    dd('why');
     return view('welcome');
 });
 

@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/TagResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/admin/stat.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chill2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chill2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/VideoResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/VideoResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +380,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/pages/videos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laut" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -509,7 +517,11 @@
       <workItem from="1612944445243" duration="3387000" />
       <workItem from="1616263472469" duration="1399000" />
       <workItem from="1616834318848" duration="759000" />
-      <workItem from="1617038668748" duration="2469000" />
+      <workItem from="1617038668748" duration="3539000" />
+      <workItem from="1617118189922" duration="634000" />
+      <workItem from="1617289543824" duration="6140000" />
+      <workItem from="1617815760150" duration="4731000" />
+      <workItem from="1619118425388" duration="965000" />
     </task>
     <servers />
   </component>
@@ -547,6 +559,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -559,30 +574,27 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>723</line>
+          <line>770</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>439</line>
+          <line>475</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>204</line>
+          <line>211</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>514</line>
+          <line>561</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -592,7 +604,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>683</line>
+          <line>730</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -632,7 +644,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/admin/index.vue</url>
-          <line>75</line>
+          <line>76</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>

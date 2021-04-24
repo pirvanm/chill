@@ -54,7 +54,7 @@
 
         <div class="content">
             <div v-if="activetab ==='1'" class="tabcontent">
-<!--            <Videos/>-->
+                <stat/>
             </div>
             <div v-if="activetab ==='2'" class="tabcontent">
                 Channel
@@ -72,11 +72,13 @@
 
 <script>
 import Multiselect from "vue-multiselect";
+import Stat from "./stat";
 // import Videos from 'videos';
 export default {
     components: {
         Multiselect,
-       
+        Stat
+
     },
     //  middleware: ["auth"],
     layout: "MenuAdmin",

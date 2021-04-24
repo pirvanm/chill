@@ -855,7 +855,7 @@ class VideoController extends Controller
         /* Latest Chill Hop*/
         //$videos = Video::whereNotIn('videoId', [$video->videoId])->where('category_id','1')->orderBy('id', 'DESC')->paginate(30);
 
-        return response()->json(['video' => $video, 'videos' => $videos]);
+        return response()->json(['video' => new VideoResource($video), 'videos' => VideoResource::collection($videos)]);
     }
 
 
