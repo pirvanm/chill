@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/TagResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/admin/stat.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/chill2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chill2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/VideoResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/VideoResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/_id/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,7 +513,7 @@
       <workItem from="1617289543824" duration="6140000" />
       <workItem from="1617815760150" duration="4731000" />
       <workItem from="1619118425388" duration="965000" />
-      <workItem from="1619250305946" duration="727000" />
+      <workItem from="1619250305946" duration="2175000" />
     </task>
     <servers />
   </component>
@@ -635,7 +626,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/nuxt.config.js</url>
-          <line>112</line>
+          <line>127</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

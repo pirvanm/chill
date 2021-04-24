@@ -10,7 +10,7 @@
             <!-- Video Container -->
             <div class="offset-md-2 col-md-6">
                 <span
-                    class="badge badge-secondary"
+                    class="badge badge-primary"
                     style="cursor:pointer"
                     v-for="(tag, index) in vid.tags"
                     :key="`${index}tag  `"
@@ -306,7 +306,7 @@ export default {
     }
 };
 </script>
-<style>
+<style scoped>
 .c {
     padding-left: 3%;
     padding-top: 50px;
@@ -392,5 +392,13 @@ p {
 }
 .next-list h1 {
     padding-top: 20px;
+}
+.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
 }
 </style>
