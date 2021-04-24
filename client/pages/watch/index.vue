@@ -32,10 +32,9 @@
                     @playing="playing"
                     @ended="endVideo"
                     @cued="errorVideo"
-                ></youtube>
-
-                <h3>{{ vid.title }}</h3>
-
+                >
+                </youtube>
+                <h3 class="title">{{ vid.title }}</h3>
                 <div class="video-desc" v-html="vid.description"></div>
             </div>
             <!-- Next Video -->
@@ -404,5 +403,16 @@ p {
     margin-right: 10px;
     margin-bottom: 15px;
     font-size: 1.2em;
+}
+.video-desc{
+    color:white;
+    margin-left: 50px;
+}
+
+.title {
+    font-size : 1.5em;
+    color :white;
+    font-weight: bold;
+    margin-top:2em;
 }
 </style>
