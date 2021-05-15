@@ -11,8 +11,6 @@
             <div class="offset-md-2 col-md-6">
                 <search />
                 <div class="container-tags">
-
-
                 <span
                     class="badge badge-primary"
                     style="cursor:pointer"
@@ -22,7 +20,7 @@
                 >
                     {{ tag.name.substring(0,12) }}...
                 </span>
-                </div>
+
                 <br />
                 <youtube
                     ref="youtube"
@@ -37,6 +35,7 @@
                 </youtube>
                 <h3 class="title">{{ vid.title }}</h3>
                 <div class="video-desc" v-html="vid.description"></div>
+            </div>
             </div>
             <!-- Next Video -->
             <div class="col-md-4 next-list">
@@ -303,6 +302,7 @@ export default {
                 });
         },
         gotoWatch(v) {
+            window.scrollTo(0,0);
             this.$router.push(`/watch?v=${v}`);
             this.$axios.get(`/watch/${v}`).then(response => {
                 this.vid = response.data.video;
