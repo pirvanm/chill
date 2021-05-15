@@ -28,6 +28,44 @@ class VideoController extends Controller
 
     use ConditionalWatch;
 
+
+    public function getStats () {
+
+        $videos = Video::all();
+
+//        Categories
+        $cat1 = $videos->where('category_id',1);
+        $cat2 = $videos->where('category_id',2);
+        $cat3 = $videos->where('category_id',3);
+        $cat4 = $videos->where('category_id',4);
+        $cat5 = $videos->where('category_id',5);
+        $cat6 = $videos->where('category_id',6);
+        $cat7 = $videos->where('category_id',7);
+        $cat8 = $videos->where('category_id',8);
+        $cat9 = $videos->where('category_id',9);
+        $cat10 = $videos->where('category_id',10);
+        $cat11 = $videos->where('category_id',11);
+        $cat12 = $videos->where('category_id',12);
+        $cat13 = $videos->where('category_id',13);
+        $cat14 = $videos->where('category_id',14);
+//        SubCategory
+        return [
+            'count1'=> count($cat1),
+            'count2'=> count($cat2),
+            'count3'=> count($cat3),
+            'count4'=> count($cat4),
+            'count5'=> count($cat5),
+            'count6'=> count($cat6),
+            'count7'=> count($cat7),
+            'count8'=> count($cat8),
+            'count9'=>count($cat9),
+            'count10'=> count($cat10),
+            'count11'=> count($cat11),
+            'count12'=> count($cat12),
+            'count13'=> count($cat13),
+            'count14'=> count($cat14),
+            ];
+    }
     public function details()
     {
         $detail = new Detail;
