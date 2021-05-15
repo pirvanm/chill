@@ -49,19 +49,13 @@ import newLeftBar from "@/components/newLeftBar";
 <style>
 .leftBar {
     background-color: #090909;
-    /* position: fixed; */
-    /* margin-right: 100px; */
     margin-top: 0px;
     color: #8422a6;
     border-top-right-radius: 50px;
-    /* opacity: 0.4; */
     height: 1600px;
     width: 110px;
-    /* position: fixed; */
     z-index: 1;
     top: 0;
-    /* left: 0; */
-    /* background-color: #111; */
     overflow-x: hidden;
     padding-top: 50px;
     /* margin-left: 35px; */

@@ -1,36 +1,42 @@
 <template>
-    <div>
+    <div class="container">
 
+        <div class="row">
 
+        </div>
 
-        <b-navbar toggleable="lg" type="dark" variant="info">
-            <b-navbar-brand href="/">Chill Whisper </b-navbar-brand>
+        <div class="row">
+            <div class="offset-1 col-2">
+                <ul>
+                    <li>
+                        <a href="/admin" class=""> Home  </a>
+                    </li>
+                    <li>
+                        <a href="/admin/channel" class=""> Channels </a>
+                    </li>
 
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+                    <li>
+                        <a href="/admin/playlists" class=""> Playlist </a>
+                    </li>
 
-            <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                    <b-nav-item href="/videos">Videos</b-nav-item>
-                    <b-nav-item href="/channels" >Channels</b-nav-item>
-                    <!-- <b-nav-item href="/suggest" >Emails Video</b-nav-item>-->
-                    <b-nav-item href="/donate" >Suport Us</b-nav-item>
-                    <b-nav-item   href="/contact" disable >Contact</b-nav-item>
+                    <li>
+                        <a href="/admin/stat" class=""> Stat </a>
+                    </li>
 
-                </b-navbar-nav>
+                    <li>
+                        Categories
+                    </li>
 
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto rigth-link">
-                    <b-nav-item href="#">Login</b-nav-item>
-                    <b-nav-item href="#">Register</b-nav-item>
+                    <li>
+                        Videos
+                    </li>
+                </ul>
+            </div>
 
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
+            <div class="col-9">
+                Body
+            </div>
+        </div>
     </div>
-</template>
 
-<script>
-    export default {
-        name: 'MenuAdmin',
-    }
-</script>
+</template>

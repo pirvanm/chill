@@ -16,7 +16,7 @@
                 <div class="col-md-2 out"><a href="/videos/chillout"> Chill Out  </a></div>
                 <div class="col-md-2 game"><a href="/videos/chillout-gaming"> Chill Out Gaming </a></div>
                 <div class="col-md-2 step"><a href="/videos/chillstep"> ChillStep</a></div>
-
+                <div class="col-md-2 rock "><a href="/videos/Trap"> Rock </a></div>
                 <div class="col-md-2 Classic"><a href="/videos/classic"> Classic</a></div>
                 <div class="col-md-2 babe"><a href="/videos/classical"> Classical</a></div>
                 <div class="col-md-2 down"><a href="/videos/downtempo"> DownTempo</a></div>
@@ -25,6 +25,7 @@
                 <div class="col-md-2 lo-ho"><a href="/videos/lofi-house"> Lofi House</a></div>
                 <div class="col-md-2 regional-r"><a href="/videos/regional"> Regional </a></div>
                 <div class="col-md-2 africa"><a href="/videos/regional-african"> African </a></div>
+                <div class="col-md-2 arabia"><a href="/videos/regional-arabic"> Arabic </a></div>
                 <div class="col-md-2 china"><a href="/videos/regional-chinese"> Chinese </a></div>
                 <div class="col-md-2 france"><a href="/videos/regional-france"> France </a></div>
                 <div class="col-md-2 india"><a href="/videos/regional-indian"> Indian </a></div>
@@ -168,6 +169,14 @@
         background: url("~assets/category/trap.jpeg");
     }
 
+    .arabia {
+        background: url("~assets/category/arabia.jpg");
+    }
+
+    .rock {
+        background: url("~assets/category/rock.jpeg");
+    }
+
 
 
     .leftBar {
@@ -193,7 +202,7 @@
         padding-left: 50px;
     }
 a {
-    color: inherit;
+
     text-decoration: inherit;
     top: 50%;
     left: 50%;
@@ -203,7 +212,10 @@ a {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    color: white;
+    color: purple;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 5px;
 }
 </style>
 
