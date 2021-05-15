@@ -29,7 +29,7 @@ class VideoController extends Controller
     use ConditionalWatch;
 
 
-    public function filterVideo () {
+    public function filterVideos () {
 //        #1 Chouse a category
         #2 Pick a type of duration
         #3 Pick a tagg
