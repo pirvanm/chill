@@ -32,6 +32,7 @@ Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
 Route::get('/latest-videos-jazzy', 'VideoController@getLatestVideosJazzy');
 
 Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
+Route::get('/videos-rock', 'VideoController@getLatestVideosRock');
 Route::get('/videos-ambient-meditate', 'VideoController@getVideosAmbientMeditate');
 
 Route::get('/latest-videos-ambient', 'VideoController@getLastestVideosAmbient');
