@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'VideoController@getAllVideos');
 
+Route::get('/stats', 'VideoController@getStats');
 
 
 Route::get('/details', 'VideoController@details');
