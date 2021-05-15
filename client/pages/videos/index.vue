@@ -16,7 +16,7 @@
                 <div class="col-md-2 out"><a href="/videos/chillout"> Chill Out  </a></div>
                 <div class="col-md-2 game"><a href="/videos/chillout-gaming"> Chill Out Gaming </a></div>
                 <div class="col-md-2 step"><a href="/videos/chillstep"> ChillStep</a></div>
-                <div class="col-md-2 rock "><a href="/videos/Trap"> Rock </a></div>
+                <div class="col-md-2 rock "><a href="/videos/rock"> Rock </a></div>
                 <div class="col-md-2 Classic"><a href="/videos/classic"> Classic</a></div>
                 <div class="col-md-2 babe"><a href="/videos/classical"> Classical</a></div>
                 <div class="col-md-2 down"><a href="/videos/downtempo"> DownTempo</a></div>
