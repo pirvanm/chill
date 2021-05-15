@@ -551,6 +551,15 @@ class VideoController extends Controller
         return VideoResource::collection($videos);
     }
 
+    public function getLatestVideosRock()
+    {
+        $videos = Video::latest()
+            ->where('category_id', 14)
+            //->where('subcategory_id', 2)
+            ->paginate(100);
+        return VideoResource::collection($videos);
+    }
+
 
     public function getVideosAmbient()
     {
