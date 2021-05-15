@@ -29,6 +29,28 @@ class VideoController extends Controller
     use ConditionalWatch;
 
 
+    public function filterVideo () {
+//        #1 Chouse a category
+        #2 Pick a type of duration
+        #3 Pick a tagg
+        #4 Pick a interval of views (show all videos which have ,from 1000 untill 10.000 views
+        // for example
+        #5
+
+
+        $tag= 'fromvue';
+        $duratin = 'on of 1|2|3|4|5';
+        $number="numberofview";
+        $filterdVideo =
+            Video::where('category_id',1)
+            ->where('duration',$duratin)
+            ->where('tags',$tag)
+                ->where('view',$number)
+        ->get();
+
+        return $filterdVideo;
+    }
+
     public function getStats () {
 
         $videos = Video::all();
