@@ -11,31 +11,31 @@
             <div class="offset-md-2 col-md-6">
                 <search />
                 <div class="container-tags">
-                <span
-                    class="badge badge-primary"
-                    style="cursor:pointer"
-                    v-for="(tag, index) in vid.tags.slice(0,10)"
-                    :key="`${index}tag  `"
-                    @click.prevent="clickTags(tag.id)"
-                >
-                    {{ tag.name.substring(0,12) }}...
-                </span>
+                    <span
+                        class="badge badge-primary"
+                        style="cursor:pointer"
+                        v-for="(tag, index) in vid.tags.slice(0, 10)"
+                        :key="`${index}tag  `"
+                        @click.prevent="clickTags(tag.id)"
+                    >
+                        {{ tag.name.substring(0, 12) }}...
+                    </span>
 
-                <br />
-                <youtube
-                    ref="youtube"
-                    width="100%"
-                    height="450px"
-                    :video-id="vid.videoId"
-                    :player-vars="playerVars"
-                    @playing="playing"
-                    @ended="endVideo"
-                    @cued="errorVideo"
-                >
-                </youtube>
-                <h3 class="title">{{ vid.title }}</h3>
-                <div class="video-desc" v-html="vid.description"></div>
-            </div>
+                    <br />
+                    <youtube
+                        ref="youtube"
+                        width="100%"
+                        height="450px"
+                        :video-id="vid.videoId"
+                        :player-vars="playerVars"
+                        @playing="playing"
+                        @ended="endVideo"
+                        @cued="errorVideo"
+                    >
+                    </youtube>
+                    <h3 class="title">{{ vid.title }}</h3>
+                    <div class="video-desc" v-html="vid.description"></div>
+                </div>
             </div>
             <!-- Next Video -->
             <div class="col-md-4 next-list">
@@ -45,6 +45,23 @@
                     <br />
                 </h1>
 
+                <div
+                    class="card"
+                    style="cursor:pointer"
+                    v-for="(tv, index) in tagvids"
+                    :key="`${index}v`"
+                    @click.prevent="gotoWatch(tv.videoId)"
+                >
+                    <img class="card-img-top" :src="tv.thumbnail" alt />
+                    <div class="card-body">
+                        <h4 class="card-title">{{ tv.title }}</h4>
+                        <!-- <p
+                class="card-text"
+                v-html="v.description.substring(0, 50) + '......'"
+              >
+              </p> -->
+                    </div>
+                </div>
                 <div
                     class="card"
                     style="cursor:pointer"
@@ -97,7 +114,8 @@ export default {
                 showinfo: 0
             },
             url: "",
-            vid: {}
+            vid: {},
+            tagvids: []
         };
     },
     head() {
@@ -237,7 +255,7 @@ export default {
                     // this.$router.push(
                     //     `/watch?v=${this.$route.query.v}&tag=${id}` <--- this not work because there is watch handler
                     // );
-                    this.vids = response.data.videos;
+                    this.tagvids = response.data.videos;
                     this.nextSongText = `Comming next from ${response.data.tag.name} Tag`;
                 });
         },
@@ -302,7 +320,7 @@ export default {
                 });
         },
         gotoWatch(v) {
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
             this.$router.push(`/watch?v=${v}`);
             this.$axios.get(`/watch/${v}`).then(response => {
                 this.vid = response.data.video;
@@ -407,15 +425,15 @@ p {
     margin-bottom: 15px;
     font-size: 1.2em;
 }
-.video-desc{
-    color:white;
+.video-desc {
+    color: white;
     margin-left: 50px;
 }
 
 .title {
-    font-size : 1.5em;
-    color :white;
+    font-size: 1.5em;
+    color: white;
     font-weight: bold;
-    margin-top:2em;
+    margin-top: 2em;
 }
 </style>
