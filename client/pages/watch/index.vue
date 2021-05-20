@@ -421,4 +421,15 @@ p {
     font-weight: bold;
     margin-top: 2em;
 }
+.leftBar {
+    background-color: #090909;
+    position: fixed;
+    margin-right: 100px;
+    margin-top: 120px;
+    height: 100%;
+    color: #8422a6;
+    border-top-right-radius: 50px;
+    opacity: 0.8;
+    width: 100%;
+}
 </style>
