@@ -242,6 +242,7 @@ export default {
     mounted() {
         this.getPlaylist();
         this.url = window.location.href;
+        this.addToHistory();
         // console.log(window.location.href);
     },
     methods: {
@@ -326,6 +327,11 @@ export default {
                 this.vid = response.data.video;
                 this.vids = response.data.videos;
             });
+            this.addToHistory();
+        },
+        addToHistory() {
+            var data = this.vid;
+            this.$store.dispatch("history/addVideoToHistory", data);
         }
     }
 };
@@ -366,16 +372,6 @@ export default {
     border-radius: 40px;
 }
 
-.leftBar {
-    background-color: #090909;
-    position: fixed;
-    margin-right: 100px;
-    /* margin-top: 120px; */
-    height: 100%;
-    color: #8422a6;
-    border-top-right-radius: 50px;
-    opacity: 0.8;
-}
 p {
     color: red;
 }
@@ -391,17 +387,6 @@ p {
 }
 .card-body p {
     color: purple;
-}
-
-.leftBar {
-    background-color: #090909;
-    position: fixed;
-    margin-right: 100px;
-    /* margin-top: 120px; */
-    height: 100%;
-    color: #8422a6;
-    border-top-right-radius: 50px;
-    opacity: 0.8;
 }
 
 /*  YT BAR */
