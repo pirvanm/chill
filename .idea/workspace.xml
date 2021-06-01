@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/stat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/stat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/admin/playlists/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/playlists/add.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,7 +521,7 @@
       <workItem from="1621107039218" duration="471000" />
       <workItem from="1621704842543" duration="1794000" />
       <workItem from="1621868297219" duration="1232000" />
-      <workItem from="1622542338302" duration="3892000" />
+      <workItem from="1622542338302" duration="4848000" />
     </task>
     <servers />
   </component>
