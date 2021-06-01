@@ -10,7 +10,6 @@
             <div class="offset-md-2 col-md-10">
                 <div class="row">
                     <div class="col-md-12">
-
                         <search />
                         <h1 style="color:white;">
                             Most Popular Song from Each Category
@@ -377,6 +376,7 @@ export default {
     /* padding-top: 140px; */
     margin-left: 35px;
     padding-bottom: 20px;
+    width: 100%;
 }
 a {
     color: #8422a6;
