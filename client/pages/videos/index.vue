@@ -6,37 +6,37 @@
         <div class="col-md-9">
             <div class="row container-videos">
                 <div class="col-md-2 amb">
-                    <a href="/videos/ambiental"> Ambiental  </a>
+                    <nuxt-link to="/videos/ambiental"> Ambiental  </nuxt-link>
                 </div>
                 <div class="col-md-2 med">
-                    <a href="/videos/ambiental-meditate"> Ambiental Meditate  </a>
+                    <nuxt-link to="/videos/ambiental-meditate"> Ambiental Meditate  </nuxt-link>
                     </div>
-                <div class=" card col-md-2 hop">  <a href="/videos/chillhop"> Chill Hop  </a>
+                <div class=" card col-md-2 hop">  <nuxt-link to="/videos/chillhop"> Chill Hop  </nuxt-link>
                     </div>
-                <div class="col-md-2 out"><a href="/videos/chillout"> Chill Out  </a></div>
-                <div class="col-md-2 game"><a href="/videos/chillout-gaming"> Chill Out Gaming </a></div>
-                <div class="col-md-2 step"><a href="/videos/chillstep"> ChillStep</a></div>
-                <div class="col-md-2 rock "><a href="/videos/rock"> Rock </a></div>
-                <div class="col-md-2 Classic"><a href="/videos/classic"> Classic</a></div>
-                <div class="col-md-2 babe"><a href="/videos/classical"> Classical</a></div>
-                <div class="col-md-2 down"><a href="/videos/downtempo"> DownTempo</a></div>
-                <div class="col-md-2 lofih"><a href="/videos/lofi"> Lofi</a></div>
-                <div class="col-md-2 lo-hi"><a href="/videos/lofi-hiphop"> Lofi HipHop</a></div>
-                <div class="col-md-2 lo-ho"><a href="/videos/lofi-house"> Lofi House</a></div>
-                <div class="col-md-2 regional-r"><a href="/videos/regional"> Regional </a></div>
-                <div class="col-md-2 africa"><a href="/videos/regional-african"> African </a></div>
-                <div class="col-md-2 arabia"><a href="/videos/regional-arabic"> Arabic </a></div>
-                <div class="col-md-2 china"><a href="/videos/regional-chinese"> Chinese </a></div>
-                <div class="col-md-2 france"><a href="/videos/regional-france"> France </a></div>
-                <div class="col-md-2 india"><a href="/videos/regional-indian"> Indian </a></div>
-                <div class="col-md-2 italy"><a href="/videos/regional-italy"> Italy </a></div>
-                <div class="col-md-2 japan"><a href="/videos/regional-japan"> Japan </a></div>
-                <div class="col-md-2 spain"><a href="/videos/regional-spanish"> Spanish </a></div>
+                <div class="col-md-2 out"><nuxt-link to="/videos/chillout"> Chill Out  </nuxt-link></div>
+                <div class="col-md-2 game"><nuxt-link to="/videos/chillout-gaming"> Chill Out Gaming </nuxt-link></div>
+                <div class="col-md-2 step"><nuxt-link to="/videos/chillstep"> ChillStep</nuxt-link></div>
+                <div class="col-md-2 rock "><nuxt-link to="/videos/rock"> Rock </nuxt-link></div>
+                <div class="col-md-2 Classic"><nuxt-link to="/videos/classic"> Classic</nuxt-link></div>
+                <div class="col-md-2 babe"><nuxt-link to="/videos/classical"> Classical</nuxt-link></div>
+                <div class="col-md-2 down"><nuxt-link to="/videos/downtempo"> DownTempo</nuxt-link></div>
+                <div class="col-md-2 lofih"><nuxt-link to="/videos/lofi"> Lofi</nuxt-link></div>
+                <div class="col-md-2 lo-hi"><nuxt-link to="/videos/lofi-hiphop"> Lofi HipHop</nuxt-link></div>
+                <div class="col-md-2 lo-ho"><nuxt-link to="/videos/lofi-house"> Lofi House</nuxt-link></div>
+                <div class="col-md-2 regional-r"><nuxt-link to="/videos/regional"> Regional </nuxt-link></div>
+                <div class="col-md-2 africa"><nuxt-link to="/videos/regional-african"> African </nuxt-link></div>
+                <div class="col-md-2 arabia"><nuxt-link to="/videos/regional-arabic"> Arabic </nuxt-link></div>
+                <div class="col-md-2 china"><nuxt-link to="/videos/regional-chinese"> Chinese </nuxt-link></div>
+                <div class="col-md-2 france"><nuxt-link to="/videos/regional-france"> France </nuxt-link></div>
+                <div class="col-md-2 india"><nuxt-link to="/videos/regional-indian"> Indian </nuxt-link></div>
+                <div class="col-md-2 italy"><nuxt-link to="/videos/regional-italy"> Italy </nuxt-link></div>
+                <div class="col-md-2 japan"><nuxt-link to="/videos/regional-japan"> Japan </nuxt-link></div>
+                <div class="col-md-2 spain"><nuxt-link to="/videos/regional-spanish"> Spanish </nuxt-link></div>
 
-                <div class="col-md-2 lounges"><a href="/videos/lounge"> Lounge </a></div>
-                <div class="col-md-2 w"><a href="/videos/world"> World </a></div>
-                <div class="col-md-2 tec"><a href="/videos/Techno"> Techno </a></div>
-                <div class="col-md-2 traps "><a href="/videos/Trap"> Trap </a></div>
+                <div class="col-md-2 lounges"><nuxt-link to="/videos/lounge"> Lounge </nuxt-link></div>
+                <div class="col-md-2 w"><nuxt-link to="/videos/world"> World </nuxt-link></div>
+                <div class="col-md-2 tec"><nuxt-link to="/videos/Techno"> Techno </nuxt-link></div>
+                <div class="col-md-2 traps "><nuxt-link to="/videos/Trap"> Trap </nuxt-link></div>
 
                 <div class="col-md-2" disable> Mood</div>
                 <div class="col-md-2" disable>Yoga</div>

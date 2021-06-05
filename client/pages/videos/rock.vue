@@ -36,7 +36,7 @@ export default {
         newLeftBar
     },
     async asyncData ({ $axios, params }) {
-        let vid = await $axios.$get(`/videos-rock'`)
+        let vid = await $axios.$get(`/videos-rock`)
         let chann = await $axios.$get(`/channels`)
         return { videos: vid.data, channels: chann.data }
     },
