@@ -56,7 +56,7 @@ export default {
   padding-left: 3%;
   padding-top: 50px;
   background: url("~assets/background.png");
-  height: 1560px;
+  height: 5000px;
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
@@ -80,6 +80,7 @@ export default {
   overflow-x: hidden;
   padding-top: 140px;
   padding-bottom: 20px;
+    width: 300px;
 }
 a {
   color: #8422a6;
