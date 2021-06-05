@@ -431,6 +431,7 @@ p {
     border-top-right-radius: 50px;
     opacity: 0.8;
     width: 100%;
+    width: 300px;
 }
 
 iframe {

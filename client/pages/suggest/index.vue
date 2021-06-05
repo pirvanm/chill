@@ -212,7 +212,7 @@ select.category {
     border-top-right-radius: 50px;
     /* opacity: 0.4; */
     height: 1600px;
-    width: 110px;
+    width: 300px;
     /* position: fixed; */
     z-index: 1;
     top: 0;

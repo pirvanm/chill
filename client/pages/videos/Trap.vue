@@ -58,6 +58,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     padding-left: 50px;
+    width: 300px;
 }
 </style>
 

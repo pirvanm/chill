@@ -394,6 +394,7 @@ export default {
     position: fixed;
     margin-right: 100px;
     /* margin-top: 120px; */
+    width:300px;
     height: 100%;
     color: #8422a6;
     border-top-right-radius: 50px;

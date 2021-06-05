@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/pages/playlists/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/playlists/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/playlists/_slug/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/playlists/_slug/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -521,7 +521,7 @@
       <workItem from="1621704842543" duration="1794000" />
       <workItem from="1621868297219" duration="1232000" />
       <workItem from="1622542338302" duration="6295000" />
-      <workItem from="1622895410064" duration="1816000" />
+      <workItem from="1622895410064" duration="2141000" />
     </task>
     <servers />
   </component>

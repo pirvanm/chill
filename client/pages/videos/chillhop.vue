@@ -74,6 +74,7 @@ import newLeftBar from "@/components/newLeftBar";
     /* margin-left: 35px; */
     padding-bottom: 20px;
     padding-left: 50px;
+    width: 300px;
 }
 </style>
 
