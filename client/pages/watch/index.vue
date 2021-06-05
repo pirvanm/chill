@@ -341,7 +341,7 @@ export default {
     padding-left: 3%;
     padding-top: 50px;
     background: url("~assets/background.png");
-    height: 1560px;
+    height: 100%;
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
 }
@@ -431,5 +431,12 @@ p {
     border-top-right-radius: 50px;
     opacity: 0.8;
     width: 100%;
+}
+
+iframe {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 1200px;
 }
 </style>
