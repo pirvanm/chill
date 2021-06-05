@@ -8,7 +8,7 @@
                 <nuxt-link to="/videos" class=""> Videos </nuxt-link>
             </li>
             <li>
-                <nuxt-link to href="/playlists" class=""> Playlists </nuxt-link>
+                <nuxt-link to="/playlists" class=""> Playlists </nuxt-link>
             </li>
             <li>
                 <nuxt-link to="/suggest" class="">Add a video </nuxt-link>
