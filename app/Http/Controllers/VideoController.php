@@ -29,7 +29,6 @@ class VideoController extends Controller
     // use ConditionalWatch;
 
 
-<<<<<<< HEAD
     public function filterVideos () {
 //        #1 Chouse a category
         #2 Pick a type of duration
@@ -53,10 +52,6 @@ class VideoController extends Controller
     }
 
     public function getStats () {
-=======
-    public function getStats()
-    {
->>>>>>> 66120e7c207b72aa2ab77dc9277a5a36d4bd57ab
 
         $videos = Video::all();
         $cat0 =    $videos;
@@ -78,24 +73,6 @@ class VideoController extends Controller
         $cat14 = $videos->where('category_id', 14);
         //        SubCategory
         return [
-<<<<<<< HEAD
-            'count0' => count($cat0),
-            'count1'=> count($cat1),
-            'count2'=> count($cat2),
-            'count3'=> count($cat3),
-            'count4'=> count($cat4),
-            'count5'=> count($cat5),
-            'count6'=> count($cat6),
-            'count7'=> count($cat7),
-            'count8'=> count($cat8),
-            'count9'=>count($cat9),
-            'count10'=> count($cat10),
-            'count11'=> count($cat11),
-            'count12'=> count($cat12),
-            'count13'=> count($cat13),
-            'count14'=> count($cat14),
-            ];
-=======
             'count1' => count($cat1),
             'count2' => count($cat2),
             'count3' => count($cat3),
@@ -111,7 +88,6 @@ class VideoController extends Controller
             'count13' => count($cat13),
             'count14' => count($cat14),
         ];
->>>>>>> 66120e7c207b72aa2ab77dc9277a5a36d4bd57ab
     }
     public function details()
     {
