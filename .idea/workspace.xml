@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/newContainerHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newContainerHome.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -527,7 +527,7 @@
       <workItem from="1623003795367" duration="365000" />
       <workItem from="1623078224479" duration="342000" />
       <workItem from="1623431219273" duration="2264000" />
-      <workItem from="1623435427137" duration="2248000" />
+      <workItem from="1623435427137" duration="4923000" />
     </task>
     <servers />
   </component>

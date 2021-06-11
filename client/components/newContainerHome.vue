@@ -18,6 +18,34 @@
                     <!-- Parent Div -->
 
                     <!-- Items Elements -->
+
+
+                    <div class="col-md-3">
+                        <div class="column">
+                            <!-- <p> Most Popolar Song of Ambiental Gehnre</p> -->
+                            <div class="card text-left">
+                                <nuxt-link
+                                    to="/watch/_bpS-cOBK6Q"
+                                    class="text-dark"
+                                >
+                                    <img
+                                        src="https://i.ytimg.com/vi/eulJvgsAZao/mqdefault.jpg"
+                                        alt=""
+                                        class="card-img-top"
+                                    />
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            Booker T & the M G 's - Green Onions (Original / HQ audio)
+                                        </h4>
+                                        <!-- <p>8 months ago</p> -->
+                                        <p>Rock</p>
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-3">
                         <div class="column">
                             <!-- <p> Most Popolar Song of Ambiental Gehnre</p> -->
@@ -68,6 +96,33 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="col-md-3">
+                        <div class="column">
+                            <!-- <p> Most Popolar Song of Ambiental Gehnre</p> -->
+                            <div class="card text-left">
+                                <nuxt-link
+                                    to="/watch/yEbrvMljMCg"
+                                    class="text-dark"
+                                >
+                                    <img
+                                        src="https://i.ytimg.com/vi/yEbrvMljMCg/mqdefault.jpg"
+                                        alt=""
+                                        class="card-img-top"
+                                    />
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            Deborah de Luca @ Château de Chambord in France for Cercle
+                                        </h4>
+                                        <!-- <p>8 months ago</p> -->
+                                        <p>Techno</p>
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-md-3">
                         <div class="column">
