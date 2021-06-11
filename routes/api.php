@@ -132,3 +132,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/user', 'Auth\MeController@getMe');
     });
 });
+
+Route::get('/social-login/facebook', 'SocialLoginController@fbLogin');
+
+Route::get('/social-login/facebook/callback', 'SocialLoginController@fbCallback');

@@ -38,7 +38,7 @@ class SaveViews extends Command
      * @return mixed
      */
     public function handle()
-    {   
+    {
         a:
 
         $video = Video::whereNull('views')->first();
@@ -50,10 +50,11 @@ class SaveViews extends Command
             $video->save();
             echo $videoApi->snippet->title;
             echo " saved \n";
-            goto a;
+        } else {
+            $video->views = 1;
+            $video->save();
         }
 
-        echo "Limit Ends \n";
-        
+        goto a;
     }
 }

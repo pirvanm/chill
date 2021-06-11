@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6 offset-md-3">
                 <form @submit.prevent="submit">
                     <div class="form-group">
                         <label>Email or Username</label>
@@ -42,6 +42,18 @@
                         Sign In
                     </button>
                 </form>
+                <br />
+                <hr />
+                <div class="text-center">
+                    Or
+                    <br />
+                    <button @click.prevent="login">Login</button>
+                    <!-- <a
+                        :href="`${fbLogin}social-login/facebook`"
+                        class="btn btn-primary btn-sm"
+                        >Login with facebook</a
+                    > -->
+                </div>
             </div>
         </div>
     </div>
@@ -58,9 +70,11 @@ export default {
                 password: "",
                 remember: false
             },
-            errors: []
+            errors: [],
+            fbLogin: process.env.baseUrl
         };
     },
+    mounted() {},
     methods: {
         submit() {
             this.$auth.loginWith("local", {
@@ -69,14 +83,13 @@ export default {
                     password: this.form.password
                 }
             });
-            // .then(res => {
-            //   this.$router.push(
-            //     this.$route.query.redirect ? this.$route.query.redirect : "/"
-            //   );
-            // })
-            // .catch(res => {
-            //   this.errors = res.response.data.errors;
-            // });
+        },
+        login() {
+            this.$axios
+                .get(`${this.fbLogin}social-login/facebook`)
+                .then(response => {
+                    console.log(response);
+                });
         }
     }
 };
