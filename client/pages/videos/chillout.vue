@@ -18,7 +18,7 @@
                             </div>
                         </nuxt-link>
                     </div>
-                </div>  
+                </div>
                 </div>
                 </div>
             </div>
@@ -85,6 +85,6 @@ import SideBar from '@/components/SideS'
     iframe
     {
         width: 100%;
-        height: 100%;
+
     }
 </style>

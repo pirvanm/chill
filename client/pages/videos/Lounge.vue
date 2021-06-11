@@ -85,7 +85,7 @@ import newLeftBar from "@/components/newLeftBar";
     iframe
     {
         width: 100%;
-        height: 100%;
+
     }
 
     .leftBar {
