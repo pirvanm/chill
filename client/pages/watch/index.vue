@@ -22,6 +22,28 @@
                     </span>
 
                     <br />
+
+                    <div class="d-flex" v-if="isAdmin">
+
+
+                        <button class="btn btn-primary" @click="showModal=true">Show</button>
+
+                        <modal v-if="showModal" @close="showModal = false" name="Umesh">
+                            <h1>
+                                Update Category of this video
+                            </h1>
+                            <select>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
+
+                            <button class="btn btn-primary" @click="updateVideo">Update</button>
+                        </modal>
+
+                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
+
+                        </div>
+
                     <youtube
                         ref="youtube"
                         width="100%"
@@ -70,7 +92,7 @@
                     <div class="d-flex" v-if="isAdmin">
 
 
-                        <button class="btn btn-primary" @click="showModal=true">Show</button>
+                        <button class="btn btn-primary" @click="showModal=true">Update</button>
 
                         <modal v-if="showModal" @close="showModal = false" name="Umesh">
                             <h1>
@@ -84,7 +106,7 @@
                             <button class="btn btn-primary" @click="updateVideo">Show</button>
                         </modal>
 
-                        <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
+                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
 
 
 
