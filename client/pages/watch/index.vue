@@ -52,16 +52,13 @@
                     :key="`${index}v`"
                     @click.prevent="gotoWatch(tv.videoId)"
                 >
+
                     <img class="card-img-top" :src="tv.thumbnail" alt />
                     <div class="card-body">
                         <h4 class="card-title">{{ tv.title }}</h4>
-                        <!-- <p
-                class="card-text"
-                v-html="v.description.substring(0, 50) + '......'"
-              >
-              </p> -->
                     </div>
                 </div>
+
                 <div
                     class="card"
                     style="cursor:pointer"
@@ -69,14 +66,51 @@
                     :key="`${index}v`"
                     @click.prevent="gotoWatch(v.videoId)"
                 >
-                    <img class="card-img-top" :src="v.thumbnail" alt />
+<!--                    if i'm loggend && admin(you or you) || user_id = 1 me or you-->
+                    <div class="d-flex" v-if="isAdmin">
+
+
+                        <button class="btn btn-primary" @click="showModal=true">Show</button>
+
+                        <modal v-if="showModal" @close="showModal = false" name="Umesh">
+                            <h1>
+                                Update Category of this video
+                            </h1>
+                         <select>
+                             <option>1</option>
+                             <option>1</option>
+                         </select>
+
+                            <button class="btn btn-primary" @click="updateVideo">Show</button>
+                        </modal>
+
+                        <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
+
+
+
+                        <div class="modal fade in modal-active">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" @click="$emit('close')" class="close"><span >&times;</span></button>
+                                        <h4 class="modal-title">
+                                            {{name}}
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <slot></slot>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" @click="$emit('close')">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="card-img-top mt-2 mb-2" :src="v.thumbnail" alt />
                     <div class="card-body">
-                        <h4 class="card-title">{{ v.title }}</h4>
-                        <!-- <p
-                class="card-text"
-                v-html="v.description.substring(0, 50) + '......'"
-              >
-              </p> -->
+                        <h4 class="card-title bg-dark">{{ v.title }}</h4>
                     </div>
                 </div>
             </div>
@@ -102,6 +136,8 @@ export default {
     },
     data() {
         return {
+            showModal:false,
+            isAdmin : true,
             nextSongText: "Next Song Are comming",
             busy: false,
             playlists: [],
@@ -309,6 +345,12 @@ export default {
                     this.getPlaylist();
                     console.log(response);
                 });
+        },
+        updateVideo() {
+
+        },
+        deleteVideo() {
+
         },
         AddVideoToPlayList(slug) {
             this.$axios
