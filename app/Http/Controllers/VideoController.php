@@ -17,6 +17,7 @@ use App\Models\Detail;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video as Video;
+use Auth;
 //o clasa externa pentru "prelucrarea" datelor
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,8 +30,9 @@ class VideoController extends Controller
     // use ConditionalWatch;
 
 
-    public function filterVideos () {
-//        #1 Chouse a category
+    public function filterVideos()
+    {
+        //        #1 Chouse a category
         #2 Pick a type of duration
         #3 Pick a tagg
         #4 Pick a interval of views (show all videos which have ,from 1000 untill 10.000 views
@@ -38,20 +40,21 @@ class VideoController extends Controller
         #5
 
 
-        $tag= 'fromvue';
+        $tag = 'fromvue';
         $duratin = 'on of 1|2|3|4|5';
-        $number="numberofview";
+        $number = "numberofview";
         $filterdVideo =
-            Video::where('category_id',1)
-            ->where('duration',$duratin)
-            ->where('tags',$tag)
-                ->where('view',$number)
-        ->get();
+            Video::where('category_id', 1)
+            ->where('duration', $duratin)
+            ->where('tags', $tag)
+            ->where('view', $number)
+            ->get();
 
         return $filterdVideo;
     }
 
-    public function getStats () {
+    public function getStats()
+    {
 
         $videos = Video::all();
         $cat0 =    $videos;
@@ -876,7 +879,7 @@ class VideoController extends Controller
 
         //   $tipe = $this->musicTime();
         $tipe = 1;
-        $video = Video::where('videoId', $id)->first();
+        $video = Video::where('videoId', $id)->firstorfail();
 
         if ($video->category) {
             $videos = Video::where('category_id', $video->category->id)->whereNotIn('videoId', [$video->videoId])
@@ -1012,5 +1015,35 @@ class VideoController extends Controller
         //        $video->uuid = '21321';
         //
         //        $video->save();
+    }
+
+    public function deleteVideo($id)
+    {
+        $user = Auth::user();
+        if ($user->isAdmin) {
+            $video = Video::find($id);
+            if ($video) {
+                $video->delete();
+                return response()->json(
+                    [
+                        'success' => [
+                            'Deleted success'
+                        ]
+                    ]
+                );
+            } else {
+                return response()->json([
+                    'error' => [
+                        'something went wrong'
+                    ]
+                ], 422);
+            }
+        } else {
+            return response()->json([
+                'error' => [
+                    'you dont have permission for delete this'
+                ]
+            ], 422);
+        }
     }
 }

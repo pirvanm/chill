@@ -131,6 +131,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('auth')->group(function () {
         Route::get('/user', 'Auth\MeController@getMe');
     });
+
+    Route::delete('/delete-video/{id}', 'VideoController@deleteVideo');
 });
 
 Route::get('/social-login/facebook', 'SocialLoginController@fbLogin');

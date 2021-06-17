@@ -24,11 +24,18 @@
                     <br />
 
                     <div class="d-flex" v-if="isAdmin">
+                        <button
+                            class="btn btn-primary"
+                            @click="showModal = true"
+                        >
+                            Show
+                        </button>
 
-
-                        <button class="btn btn-primary" @click="showModal=true">Show</button>
-
-                        <modal v-if="showModal" @close="showModal = false" name="Umesh">
+                        <modal
+                            v-if="showModal"
+                            @close="showModal = false"
+                            name="Umesh"
+                        >
                             <h1>
                                 Update Category of this video
                             </h1>
@@ -37,12 +44,23 @@
                                 <option>1</option>
                             </select>
 
-                            <button class="btn btn-primary" @click="updateVideo">Update</button>
+                            <button
+                                class="btn btn-primary"
+                                @click="updateVideo"
+                            >
+                                Update
+                            </button>
                         </modal>
 
-                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
-
-                        </div>
+                        <button
+                            type="button"
+                            class="btn btn-danger ml-2 btn-sm"
+                            data-dismiss="modal"
+                            @click.prevent="deleteVideo(vid.id, 'watch', 0)"
+                        >
+                            Remove
+                        </button>
+                    </div>
 
                     <youtube
                         ref="youtube"
@@ -50,9 +68,7 @@
                         height="450px"
                         :video-id="vid.videoId"
                         :player-vars="playerVars"
-                        @playing="playing"
                         @ended="endVideo"
-                        @cued="errorVideo"
                     >
                     </youtube>
                     <h3 class="title">{{ vid.title }}</h3>
@@ -71,10 +87,86 @@
                     class="card"
                     style="cursor:pointer"
                     v-for="(tv, index) in tagvids"
-                    :key="`${index}v`"
+                    :key="`${index}-v`"
                     @click.prevent="gotoWatch(tv.videoId)"
                 >
+                    <div class="d-flex" v-if="isAdmin">
+                        <button
+                            class="btn btn-primary"
+                            @click="showModal = true"
+                        >
+                            Update
+                        </button>
 
+                        <modal
+                            v-if="showModal"
+                            @close="showModal = false"
+                            name="Umesh"
+                        >
+                            <h1>
+                                Update Category of this video
+                            </h1>
+                            <select>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
+
+                            <button
+                                class="btn btn-primary"
+                                @click="updateVideo"
+                            >
+                                Show
+                            </button>
+                        </modal>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger ml-2"
+                            data-dismiss="modal"
+                            @click.prevent="
+                                deleteVideo(tv.id, 'category', index)
+                            "
+                        >
+                            Remove
+                        </button>
+
+                        <div class="modal fade in modal-active">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button
+                                            type="button"
+                                            @click="$emit('close')"
+                                            class="close"
+                                        >
+                                            <span>&times;</span>
+                                        </button>
+                                        <h4 class="modal-title">
+                                            <!-- {{ name }} -->
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <slot></slot>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-default"
+                                            @click="$emit('close')"
+                                        >
+                                            Close
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                        >
+                                            Save changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <img class="card-img-top" :src="tv.thumbnail" alt />
                     <div class="card-body">
                         <h4 class="card-title">{{ tv.title }}</h4>
@@ -88,49 +180,89 @@
                     :key="`${index}v`"
                     @click.prevent="gotoWatch(v.videoId)"
                 >
-<!--                    if i'm loggend && admin(you or you) || user_id = 1 me or you-->
+                    <!--                    if i'm loggend && admin(you or you) || user_id = 1 me or you-->
                     <div class="d-flex" v-if="isAdmin">
+                        <button
+                            class="btn btn-primary"
+                            @click="showModal = true"
+                        >
+                            Update
+                        </button>
 
-
-                        <button class="btn btn-primary" @click="showModal=true">Update</button>
-
-                        <modal v-if="showModal" @close="showModal = false" name="Umesh">
+                        <modal
+                            v-if="showModal"
+                            @close="showModal = false"
+                            name="Umesh"
+                        >
                             <h1>
                                 Update Category of this video
                             </h1>
-                         <select>
-                             <option>1</option>
-                             <option>1</option>
-                         </select>
+                            <select>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
 
-                            <button class="btn btn-primary" @click="updateVideo">Show</button>
+                            <button
+                                class="btn btn-primary"
+                                @click="updateVideo"
+                            >
+                                Show
+                            </button>
                         </modal>
 
-                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click="deleteVideo">Remove</button>
-
-
+                        <button
+                            type="button"
+                            class="btn btn-danger ml-2"
+                            data-dismiss="modal"
+                            @click.prevent="
+                                deleteVideo(v.id, 'category', index)
+                            "
+                        >
+                            Remove
+                        </button>
 
                         <div class="modal fade in modal-active">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" @click="$emit('close')" class="close"><span >&times;</span></button>
+                                        <button
+                                            type="button"
+                                            @click="$emit('close')"
+                                            class="close"
+                                        >
+                                            <span>&times;</span>
+                                        </button>
                                         <h4 class="modal-title">
-                                            {{name}}
+                                            <!-- {{ name }} -->
                                         </h4>
                                     </div>
                                     <div class="modal-body">
                                         <slot></slot>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" @click="$emit('close')">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-default"
+                                            @click="$emit('close')"
+                                        >
+                                            Close
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                        >
+                                            Save changes
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <img class="card-img-top mt-2 mb-2" :src="v.thumbnail" alt />
+                    <img
+                        class="card-img-top mt-2 mb-2"
+                        :src="v.thumbnail"
+                        alt
+                    />
                     <div class="card-body">
                         <h4 class="card-title bg-dark">{{ v.title }}</h4>
                     </div>
@@ -153,13 +285,17 @@ export default {
     async asyncData({ $axios, params, query }) {
         if (query) {
             let { video, videos } = await $axios.$get(`/watch/${query.v}`);
-            return { vid: video, vids: videos };
+            if (video) {
+                return { vid: video, vids: videos };
+            } else {
+                this.$router.push("/");
+            }
         }
     },
     data() {
         return {
-            showModal:false,
-            isAdmin : true,
+            showModal: false,
+            isAdmin: false,
             nextSongText: "Next Song Are comming",
             busy: false,
             playlists: [],
@@ -301,9 +437,14 @@ export default {
         this.getPlaylist();
         this.url = window.location.href;
         this.addToHistory();
-        // console.log(window.location.href);
+        this.checkAdmin();
     },
     methods: {
+        checkAdmin() {
+            if (this.$auth.loggedIn) {
+                this.isAdmin = this.$auth.user.isAdmin;
+            }
+        },
         // autoplay: 1,
         clickTags(id) {
             this.$axios
@@ -314,16 +455,12 @@ export default {
                     // this.$router.push(
                     //     `/watch?v=${this.$route.query.v}&tag=${id}` <--- this not work because there is watch handler
                     // );
+
                     this.tagvids = response.data.videos;
                     this.nextSongText = `Comming next from ${response.data.tag.name} Tag`;
                 });
         },
-        errorVideo() {
-            console.log("error");
-        },
-        playing() {
-            console.log("o/ we are watching!!!");
-        },
+
         play() {
             this.player.playVideo();
         },
@@ -350,7 +487,6 @@ export default {
         getPlaylist() {
             this.$axios.get("/playlists").then(response => {
                 this.playlists = response.data.data;
-                console.log(response);
             });
         },
         createNewPlaylist() {
@@ -365,14 +501,17 @@ export default {
                 .then(response => {
                     this.busy = false;
                     this.getPlaylist();
-                    console.log(response);
                 });
         },
-        updateVideo() {
-
-        },
-        deleteVideo() {
-
+        updateVideo() {},
+        deleteVideo(id, watch, index) {
+            this.$axios.delete(`/delete-video/${id}`).then(response => {
+                if (watch === "watch") {
+                    this.nextVideo();
+                } else {
+                    this.vids.splice(index, 1);
+                }
+            });
         },
         AddVideoToPlayList(slug) {
             this.$axios
@@ -380,9 +519,7 @@ export default {
                     playlist: slug,
                     video: this.$route.params.id
                 })
-                .then(response => {
-                    console.log(response);
-                });
+                .then(response => {});
         },
         gotoWatch(v) {
             window.scrollTo(0, 0);
