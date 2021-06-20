@@ -928,7 +928,9 @@ class VideoController extends Controller
         /* Latest Chill Hop*/
         //$videos = Video::whereNotIn('videoId', [$video->videoId])->where('category_id','1')->orderBy('id', 'DESC')->paginate(30);
 
-        return response()->json(['video' => new VideoResource($video), 'videos' => VideoResource::collection($videos)]);
+        $categories = Category::get();
+
+        return response()->json(['video' => new VideoResource($video), 'videos' => VideoResource::collection($videos), 'categories' => $categories]);
     }
 
 
@@ -1045,5 +1047,16 @@ class VideoController extends Controller
                 ]
             ], 422);
         }
+    }
+
+    public function saveCategoryToVideo(Request $request)
+    {
+        $video = Video::find($request->vid);
+        $video->category_id = $request->category;
+        $video->save();
+
+        return response()->json([
+            'save' => 'success'
+        ]);
     }
 }

@@ -15,7 +15,7 @@
                         class="badge badge-primary"
                         style="cursor:pointer"
                         v-for="(tag, index) in vid.tags.slice(0, 10)"
-                        :key="`${index}tag  `"
+                        :key="`${index}tag`"
                         @click.prevent="clickTags(tag.id)"
                     >
                         {{ tag.name.substring(0, 12) }}...
@@ -24,33 +24,39 @@
                     <br />
 
                     <div class="d-flex" v-if="isAdmin">
-                        <button
-                            class="btn btn-primary"
-                            @click="showModal = true"
-                        >
-                            Show
-                        </button>
-
-                        <modal
-                            v-if="showModal"
-                            @close="showModal = false"
-                            name="Umesh"
+                        <b-modal
+                            :id="`modal-primary`"
+                            title="BootstrapVue"
+                            hide-footer
                         >
                             <h1>
                                 Update Category of this video
                             </h1>
-                            <select>
-                                <option>1</option>
-                                <option>1</option>
+                            <select v-model="update.category">
+                                <option
+                                    v-for="(cat, cindex) in categories"
+                                    :key="`cat-${cindex}`"
+                                    :value="cat.id"
+                                    >{{ cat.category_name }}</option
+                                >
                             </select>
 
                             <button
-                                class="btn btn-primary"
-                                @click="updateVideo"
+                                class="btn btn-sm btn-success"
+                                @click.prevent="
+                                    saveCategory(vid.id, 'modal-primary')
+                                "
                             >
-                                Update
+                                Save
                             </button>
-                        </modal>
+                        </b-modal>
+
+                        <button
+                            class="btn btn-primary"
+                            @click.prevent="$bvModal.show(`modal-primary`)"
+                        >
+                            Update
+                        </button>
 
                         <button
                             type="button"
@@ -88,36 +94,41 @@
                     style="cursor:pointer"
                     v-for="(tv, index) in tagvids"
                     :key="`${index}-v`"
-                    @click.prevent="gotoWatch(tv.videoId)"
                 >
                     <div class="d-flex" v-if="isAdmin">
-                        <button
-                            class="btn btn-primary"
-                            @click="showModal = true"
-                        >
-                            Update
-                        </button>
-
-                        <modal
-                            v-if="showModal"
-                            @close="showModal = false"
-                            name="Umesh"
+                        <b-modal
+                            :id="`modal-${index}v`"
+                            title="BootstrapVue"
+                            hide-footer
                         >
                             <h1>
                                 Update Category of this video
                             </h1>
-                            <select>
-                                <option>1</option>
-                                <option>1</option>
+                            <select v-model="update.category">
+                                <option
+                                    v-for="(cat, cindex) in categories"
+                                    :key="`cat-${cindex}`"
+                                    :value="cat.id"
+                                    >{{ cat.category_name }}</option
+                                >
                             </select>
 
                             <button
-                                class="btn btn-primary"
-                                @click="updateVideo"
+                                class="btn btn-sm btn-success"
+                                @click.prevent="
+                                    saveCategory(tv.id, `modal-${index}v`)
+                                "
                             >
-                                Show
+                                Save
                             </button>
-                        </modal>
+                        </b-modal>
+
+                        <button
+                            class="btn btn-primary"
+                            @click.prevent="updateVideo(index)"
+                        >
+                            Update
+                        </button>
 
                         <button
                             type="button"
@@ -129,47 +140,21 @@
                         >
                             Remove
                         </button>
-
-                        <div class="modal fade in modal-active">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button
-                                            type="button"
-                                            @click="$emit('close')"
-                                            class="close"
-                                        >
-                                            <span>&times;</span>
-                                        </button>
-                                        <h4 class="modal-title">
-                                            <!-- {{ name }} -->
-                                        </h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <slot></slot>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button
-                                            type="button"
-                                            class="btn btn-default"
-                                            @click="$emit('close')"
-                                        >
-                                            Close
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-primary"
-                                        >
-                                            Save changes
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <img class="card-img-top" :src="tv.thumbnail" alt />
+
+                    <img
+                        class="card-img-top"
+                        @click.prevent="gotoWatch(tv.videoId)"
+                        :src="tv.thumbnail"
+                        alt
+                    />
                     <div class="card-body">
-                        <h4 class="card-title">{{ tv.title }}</h4>
+                        <h4
+                            class="card-title"
+                            @click.prevent="gotoWatch(tv.videoId)"
+                        >
+                            {{ tv.title }}
+                        </h4>
                     </div>
                 </div>
 
@@ -178,37 +163,42 @@
                     style="cursor:pointer"
                     v-for="(v, index) in vids"
                     :key="`${index}v`"
-                    @click.prevent="gotoWatch(v.videoId)"
                 >
-                    <!--                    if i'm loggend && admin(you or you) || user_id = 1 me or you-->
+                    <!--  if i'm loggend && admin(you or you) || user_id = 1 me or you-->
                     <div class="d-flex" v-if="isAdmin">
-                        <button
-                            class="btn btn-primary"
-                            @click="showModal = true"
-                        >
-                            Update
-                        </button>
-
-                        <modal
-                            v-if="showModal"
-                            @close="showModal = false"
-                            name="Umesh"
+                        <b-modal
+                            :id="`modal-${index}v`"
+                            title="BootstrapVue"
+                            hide-footer
                         >
                             <h1>
                                 Update Category of this video
                             </h1>
-                            <select>
-                                <option>1</option>
-                                <option>1</option>
+                            <select v-model="update.category">
+                                <option
+                                    v-for="(cat, cindex) in categories"
+                                    :key="`cat-${cindex}`"
+                                    :value="cat.id"
+                                    >{{ cat.category_name }}</option
+                                >
                             </select>
 
                             <button
-                                class="btn btn-primary"
-                                @click="updateVideo"
+                                class="btn btn-sm btn-success"
+                                @click.prevent="
+                                    saveCategory(v.id, `modal-${index}v`)
+                                "
                             >
-                                Show
+                                Save
                             </button>
-                        </modal>
+                        </b-modal>
+
+                        <button
+                            class="btn btn-primary"
+                            @click.prevent="updateVideo(index)"
+                        >
+                            Update
+                        </button>
 
                         <button
                             type="button"
@@ -220,51 +210,20 @@
                         >
                             Remove
                         </button>
-
-                        <div class="modal fade in modal-active">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button
-                                            type="button"
-                                            @click="$emit('close')"
-                                            class="close"
-                                        >
-                                            <span>&times;</span>
-                                        </button>
-                                        <h4 class="modal-title">
-                                            <!-- {{ name }} -->
-                                        </h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <slot></slot>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button
-                                            type="button"
-                                            class="btn btn-default"
-                                            @click="$emit('close')"
-                                        >
-                                            Close
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-primary"
-                                        >
-                                            Save changes
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <img
                         class="card-img-top mt-2 mb-2"
                         :src="v.thumbnail"
                         alt
+                        @click.prevent="gotoWatch(v.videoId)"
                     />
                     <div class="card-body">
-                        <h4 class="card-title bg-dark">{{ v.title }}</h4>
+                        <h4
+                            class="card-title bg-dark"
+                            @click.prevent="gotoWatch(v.videoId)"
+                        >
+                            {{ v.title }}
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -284,9 +243,11 @@ export default {
     },
     async asyncData({ $axios, params, query }) {
         if (query) {
-            let { video, videos } = await $axios.$get(`/watch/${query.v}`);
+            let { video, videos, categories } = await $axios.$get(
+                `/watch/${query.v}`
+            );
             if (video) {
-                return { vid: video, vids: videos };
+                return { vid: video, vids: videos, categories: categories };
             } else {
                 this.$router.push("/");
             }
@@ -309,7 +270,10 @@ export default {
             },
             url: "",
             vid: {},
-            tagvids: []
+            tagvids: [],
+            update: {
+                category: 1
+            }
         };
     },
     head() {
@@ -503,7 +467,19 @@ export default {
                     this.getPlaylist();
                 });
         },
-        updateVideo() {},
+        updateVideo(index) {
+            this.$bvModal.show(`modal-${index}v`);
+        },
+        saveCategory(video, modal) {
+            this.$axios
+                .post("save-category-to-video", {
+                    vid: video,
+                    category: this.update.category
+                })
+                .then(response => {
+                    this.$bvModal.hide(modal);
+                });
+        },
         deleteVideo(id, watch, index) {
             this.$axios.delete(`/delete-video/${id}`).then(response => {
                 if (watch === "watch") {

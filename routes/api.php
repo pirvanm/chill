@@ -133,6 +133,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 
     Route::delete('/delete-video/{id}', 'VideoController@deleteVideo');
+
+    Route::post('/save-category-to-video', 'VideoController@saveCategoryToVideo');
 });
 
 Route::get('/social-login/facebook', 'SocialLoginController@fbLogin');
