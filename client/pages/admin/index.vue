@@ -1,76 +1,74 @@
 <template>
-   <div>
-<menuAdmin />
+    <div>
+        <menuAdmin />
 
-<!--    <div class="video-container-insert">-->
-<!--        <b-nav>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="http://localhost:3000">Home</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="http://localhost:3000">Ambient</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="http://localhost:3000">ChillStep</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="/">ChillOut</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="/">ChillHop</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="/">Home</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    <nuxt-link to="/Search">Search</nuxt-link>-->
-<!--                </li>-->
-<!--            </ul>-->
+        <!--    <div class="video-container-insert">-->
+        <!--        <b-nav>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="http://localhost:3000">Home</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="http://localhost:3000">Ambient</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="http://localhost:3000">ChillStep</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="/">ChillOut</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="/">ChillHop</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="/">Home</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                    <nuxt-link to="/Search">Search</nuxt-link>-->
+        <!--                </li>-->
+        <!--            </ul>-->
 
-<!--            &lt;!&ndash;<nuxt-link to="http://localhost:3000">II</nuxt-link>&ndash;&gt;-->
-<!--        </b-nav>-->
+        <!--            &lt;!&ndash;<nuxt-link to="http://localhost:3000">II</nuxt-link>&ndash;&gt;-->
+        <!--        </b-nav>-->
 
-<!--    </div>-->
+        <!--    </div>-->
 
-<!--    <div id="tabs" class="container">-->
+        <!--    <div id="tabs" class="container">-->
 
-<!--        <ul class="tabs">-->
-<!--            <li></li>-->
-<!--            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">France</a>-->
-<!--            <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">Spain</a>-->
-<!--            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">Germany           </a>-->
-<!--            <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">Italy</a>-->
-<!--        </ul>-->
+        <!--        <ul class="tabs">-->
+        <!--            <li></li>-->
+        <!--            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">France</a>-->
+        <!--            <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">Spain</a>-->
+        <!--            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">Germany           </a>-->
+        <!--            <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">Italy</a>-->
+        <!--        </ul>-->
 
+        <!--        <div class="content">-->
+        <!--            <div v-if="activetab ==='1'" class="tabcontent">-->
+        <!--                <stat/>-->
+        <!--            </div>-->
+        <!--            <div v-if="activetab ==='2'" class="tabcontent">-->
+        <!--                Channel-->
+        <!--            </div>-->
+        <!--            <div v-if="activetab ==='3'" class="tabcontent">-->
 
-<!--        <div class="content">-->
-<!--            <div v-if="activetab ==='1'" class="tabcontent">-->
-<!--                <stat/>-->
-<!--            </div>-->
-<!--            <div v-if="activetab ==='2'" class="tabcontent">-->
-<!--                Channel-->
-<!--            </div>-->
-<!--            <div v-if="activetab ==='3'" class="tabcontent">-->
+        <!--            </div>-->
+        <!--            <div v-if="activetab ==='4'" class="tabcontent">-->
 
-<!--            </div>-->
-<!--            <div v-if="activetab ==='4'" class="tabcontent">-->
-
-<!--            </div>-->
-<!--        </div>-->
-
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 </template>
 
@@ -78,19 +76,19 @@
 import Multiselect from "vue-multiselect";
 import Stat from "./stat";
 // import Videos from 'videos';
-import  menuAdmin from '@/components/MenuAdmin';
+import menuAdmin from "@/components/MenuAdmin";
 export default {
     components: {
         Multiselect,
         Stat,
         menuAdmin
-
     },
     //  middleware: ["auth"],
     layout: "MenuAdmin",
+    middleware: ["admin"],
     data() {
         return {
-            activetab: '1' ,
+            activetab: "1",
             playerVars: {
                 autoplay: 1,
                 modestbranding: 1,
