@@ -194,38 +194,38 @@
                             class="btn btn-primary"
                             @click.prevent="updateVideo(index)"
                         >
-                            Update 3
+                            Update
                         </button>
-
-
                         <button
                             type="button"
                             class="btn btn-danger ml-2"
                             data-dismiss="modal"
                             @click.prevent="
-                                deleteVideo(v.id, 'category', index)
-                            "
-                        >
+                                deleteVideo(v.id, 'category', index)">
                             Remove
                         </button>
-                        <button   type="button"
-                                  class="btn btn-info ml-2"> {{v.category.category_name}}</button>
-                    </div>
+                        <button   type="button" class="btn btn-info ml-2"> {{v.category.category_name}}</button>
 
-                    <img
-                        class="card-img-top mt-2 mb-2"
-                        :src="v.thumbnail"
-                        alt
-                        @click.prevent="gotoWatch(v.videoId)"
-                    />
+                    </div>   <br><br>
+                    <br><br>
                     <div class="card-body">
-                        <h4
-                            class="card-title bg-dark"
+                        <h1 class="card-title bg-dark " style="padding:20px;
+                        margin-top:-30px; margin-bottom: 20px; color:white;
+                         text-align:center"
                             @click.prevent="gotoWatch(v.videoId)"
                         >
                             {{ v.title }}
-                        </h4>
+                        </h1>
                     </div>
+                    <br>  <br>  <br> <br>  <br>
+                    <img
+                        class="card-img-top mt-3 mb-2"
+                        :src="v.thumbnail"
+                        alt
+                        @click.prevent="gotoWatch(v.videoId)"/>
+                    <br><br>
+                    <br><br>
+
                 </div>
             </div>
         </div>

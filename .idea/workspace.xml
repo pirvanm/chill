@@ -528,7 +528,7 @@
       <workItem from="1623078224479" duration="342000" />
       <workItem from="1623431219273" duration="2264000" />
       <workItem from="1623435427137" duration="4923000" />
-      <workItem from="1624705002154" duration="1537000" />
+      <workItem from="1624705002154" duration="3803000" />
     </task>
     <servers />
   </component>
@@ -653,6 +653,12 @@
           <url>file://$PROJECT_DIR$/client/components/newLeftBar.vue</url>
           <line>27</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/pages/watch/index.vue</url>
+          <line>196</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
