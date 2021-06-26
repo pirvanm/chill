@@ -79,6 +79,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/add-video', 'VideoController@addVideo');
 
     Route::get('/videos', 'Admin\VideoController@getVideos');
+    Route::get('/categories', 'Admin\VideoController@getCategories');
 
     Route::post('/add-channel-videos', 'ChannelController@addChannelVideos');
 });

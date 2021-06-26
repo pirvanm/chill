@@ -4,11 +4,22 @@
             <div class="col-md-3 text-center border pr-2 mr-2">
                 <h1>Filters</h1>
 
-                <div class="form-group col-md-4 pr-2 mr-2">
+                <div class="form-group col-md-12 pr-2 mr-2">
                     <h1 for="inputState">#1 Filter Pick a Category</h1>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <select
+                        id="inputState"
+                        class="form-control"
+                        v-model="filter.category"
+                    >
+                        <option selected value="">Choose...</option>
+
+                        <option
+                            v-for="cat in categories.data"
+                            :key="cat.id"
+                            :value="cat.category_name"
+                        >
+                            {{ cat.category_name }}
+                        </option>
                     </select>
                 </div>
                 <label for="inputState">#2 Pick Duration</label>
@@ -72,21 +83,23 @@
 
             <div class="col-md-4 border pr-2">
                 <h1>
-                    <h1>New Playlist / count(total video)</h1>
+                    New Playlist / count(total video)
                 </h1>
             </div>
 
             <div class="col-md-4 border ml-2">
-                <h1>List of posible Songs / count(total)</h1>
+                <h1>List of posible Songs / count({{ videos.meta.total }})</h1>
                 <hr />
-                <p v-for="video in videos" :key="video.id">{{ video.title }}</p>
+                <p v-for="video in videos.data" :key="video.id">
+                    {{ video.title }}
+                </p>
 
-                <client-only>
+                <client-only placeholder="Loading...">
                     <pagination
-                        v-model="meta.current_page"
-                        :records="meta.total"
+                        v-model="videos.meta.current_page"
+                        :records="videos.meta.total"
                         @paginate="myCallback"
-                        :per-page="meta.per_page"
+                        :per-page="videos.meta.per_page"
                         :chunk="3"
                     />
                 </client-only>
@@ -97,24 +110,46 @@
 
 <script>
 export default {
-    asyncData({ query, params, error, $axios }) {
-        // var category = query.category ? query.category : ''
-        return $axios.$get(`/admin/videos`).then(res => {
-            return {
-                videos: res.data,
-                meta: res.meta
-            };
-        });
+    async asyncData({ query, params, error, $axios }) {
+        const videos = await $axios.$get(`/admin/videos`);
+        const categories = await $axios.$get(`/admin/categories`);
+        return { videos, categories };
+    },
+    data() {
+        return {
+            filter: {
+                category: ""
+            }
+        };
+    },
+    watch: {
+        filter: {
+            // This will let Vue know to look inside the array
+            deep: true,
+
+            // We have to move our method to a handler field
+            handler() {
+                this.filterVideo();
+                console.log("The list of colours has changed!");
+            }
+        }
     },
     methods: {
         myCallback() {
             this.$axios
-                .get(`/admin/videos?page=${this.meta.current_page}`)
+                .get(`/admin/videos?page=${this.videos.meta.current_page}`)
                 .then(response => {
-                    (this.videos = response.data.data),
-                        (this.meta = response.data.meta);
+                    (this.videos.data = response.data.data),
+                        (this.videos.meta = response.data.meta);
                 });
-            console.log("callback");
+        },
+        filterVideo() {
+            this.$axios
+                .get(`/admin/videos?category=${this.filter.category}`)
+                .then(response => {
+                    (this.videos.data = response.data.data),
+                        (this.videos.meta = response.data.meta);
+                });
         }
     }
 };
