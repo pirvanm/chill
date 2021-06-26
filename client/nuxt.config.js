@@ -53,7 +53,8 @@ export default {
         // { src: "~/plugins/analytics", ssr: false },
         { src: "~/plugins/fontawesome", ssr: false },
         { src: "~/plugins/autocomplete", ssr: false },
-        { src: "~/plugins/notifications", ssr: false }
+        { src: "~/plugins/notifications", ssr: false },
+        { src: "~/plugins/paginate", ssr: false }
         // { src: "~/plugins/multiselect", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }
     ],
