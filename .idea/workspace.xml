@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/newContainerHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newContainerHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -528,6 +528,7 @@
       <workItem from="1623078224479" duration="342000" />
       <workItem from="1623431219273" duration="2264000" />
       <workItem from="1623435427137" duration="4923000" />
+      <workItem from="1624705002154" duration="1537000" />
     </task>
     <servers />
   </component>
@@ -585,22 +586,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>817</line>
+          <line>820</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>513</line>
+          <line>516</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>249</line>
+          <line>252</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>608</line>
+          <line>611</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -610,7 +611,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php</url>
-          <line>777</line>
+          <line>780</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -645,7 +646,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/admin/index.vue</url>
-          <line>81</line>
+          <line>79</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

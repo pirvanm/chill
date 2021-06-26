@@ -41,12 +41,7 @@
                                 >
                             </select>
 
-                            <button
-                                class="btn btn-sm btn-success"
-                                @click.prevent="
-                                    saveCategory(vid.id, 'modal-primary')
-                                "
-                            >
+                            <button class="btn btn-sm btn-success" @click.prevent="saveCategory(vid.id, 'modal-primary') ">
                                 Save
                             </button>
                         </b-modal>
@@ -58,12 +53,14 @@
                             Update
                         </button>
 
+<!--                        <button   type="button"-->
+<!--                                  class="btn btn-info ml-2"> {{v.category.category_name}}</button>-->
+
                         <button
                             type="button"
                             class="btn btn-danger ml-2 btn-sm"
                             data-dismiss="modal"
-                            @click.prevent="deleteVideo(vid.id, 'watch', 0)"
-                        >
+                            @click.prevent="deleteVideo(vid.id, 'watch', 0)">
                             Remove
                         </button>
                     </div>
@@ -127,7 +124,7 @@
                             class="btn btn-primary"
                             @click.prevent="updateVideo(index)"
                         >
-                            Update
+                            Update 1
                         </button>
 
                         <button
@@ -197,8 +194,9 @@
                             class="btn btn-primary"
                             @click.prevent="updateVideo(index)"
                         >
-                            Update
+                            Update 3
                         </button>
+
 
                         <button
                             type="button"
@@ -210,7 +208,10 @@
                         >
                             Remove
                         </button>
+                        <button   type="button"
+                                  class="btn btn-info ml-2"> {{v.category.category_name}}</button>
                     </div>
+
                     <img
                         class="card-img-top mt-2 mb-2"
                         :src="v.thumbnail"
