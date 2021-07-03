@@ -155,18 +155,10 @@
                     </div>
                 </div>
 
-                <div
-                    class="card"
-                    style="cursor:pointer"
-                    v-for="(v, index) in vids"
-                    :key="`${index}v`"
-                >
+                <div class="card" style="cursor:pointer" v-for="(v, index) in vids" :key="`${index}v`">
                     <!--  if i'm loggend && admin(you or you) || user_id = 1 me or you-->
                     <div class="d-flex" v-if="isAdmin">
-                        <b-modal
-                            :id="`modal-${index}v`"
-                            title="BootstrapVue"
-                            hide-footer
+                        <b-modal :id="`modal-${index}v`" title="BootstrapVue" hide-footer
                         >
                             <h1>
                                 Update Category of this video
@@ -180,52 +172,31 @@
                                 >
                             </select>
 
-                            <button
-                                class="btn btn-sm btn-success"
+                            <button class="btn btn-sm btn-success"
                                 @click.prevent="
-                                    saveCategory(v.id, `modal-${index}v`)
-                                "
-                            >
+                                    saveCategory(v.id, `modal-${index}v`)">
                                 Save
                             </button>
                         </b-modal>
 
-                        <button
-                            class="btn btn-primary"
-                            @click.prevent="updateVideo(index)"
-                        >
+                        <button class="btn btn-primary" @click.prevent="updateVideo(index)">
                             Update
                         </button>
-                        <button
-                            type="button"
-                            class="btn btn-danger ml-2"
-                            data-dismiss="modal"
-                            @click.prevent="
-                                deleteVideo(v.id, 'category', index)">
+                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click.prevent="deleteVideo(v.id, 'category', index)">
                             Remove
                         </button>
                         <button   type="button" class="btn btn-info ml-2"> {{v.category.category_name}}</button>
 
-                    </div>   <br><br>
-                    <br><br>
-                    <div class="card-body">
+                    </div>
+                    <div class="card-body" style="margin-bottom: 26px;">
                         <h1 class="card-title bg-dark " style="padding:20px;
-                        margin-top:-30px; margin-bottom: 20px; color:white;
-                         text-align:center"
-                            @click.prevent="gotoWatch(v.videoId)"
-                        >
+                        margin-top:-30px; margin-bottom: 20px; color:white; position:relative;text-align:center" @click.prevent="gotoWatch(v.videoId)">
                             {{ v.title }}
                         </h1>
                     </div>
-                    <br>  <br>  <br> <br>  <br>
-                    <img
-                        class="card-img-top mt-3 mb-2"
-                        :src="v.thumbnail"
-                        alt
-                        @click.prevent="gotoWatch(v.videoId)"/>
-                    <br><br>
-                    <br><br>
-
+                    <div>
+                    <img class="card-img-top mt-3 mb-2" style="position: relative ;margin-bottom: 60px;" :src="v.thumbnail" alt @click.prevent="gotoWatch(v.videoId)"/>
+                    </div>
                 </div>
             </div>
         </div>
