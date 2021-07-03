@@ -188,15 +188,16 @@
                         <button   type="button" class="btn btn-info ml-2"> {{v.category.category_name}}</button>
 
                     </div>
-                    <div class="card-body" style="margin-bottom: 26px;">
+
+
                         <h1 class="card-title bg-dark " style="padding:20px;
                         margin-top:-30px; margin-bottom: 20px; color:white; position:relative;text-align:center" @click.prevent="gotoWatch(v.videoId)">
                             {{ v.title }}
                         </h1>
-                    </div>
-                    <div>
+
+
                     <img class="card-img-top mt-3 mb-2" style="position: relative ;margin-bottom: 60px;" :src="v.thumbnail" alt @click.prevent="gotoWatch(v.videoId)"/>
-                    </div>
+
                 </div>
             </div>
         </div>

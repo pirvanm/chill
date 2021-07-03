@@ -51,17 +51,17 @@
                             <!-- <p> Most Popolar Song of Ambiental Gehnre</p> -->
                             <div class="card text-left">
                                 <nuxt-link
-                                    to="/watch/n0svuurLibQ"
+                                    to="/watch/zOvsyamoEDg"
                                     class="text-dark"
                                 >
                                     <img
-                                        src="https://i.ytimg.com/vi/n0svuurLibQ/mqdefault.jpg"
+                                        src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg"
                                         alt=""
                                         class="card-img-top"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            'Infinite' Ambient Mix
+                                            FAUN - Federkleid (Offizielles Video)
                                         </h4>
                                         <!-- <p>8 months ago</p> -->
                                         <p>Ambiental</p>
@@ -76,18 +76,17 @@
                             <!-- <p> Most Popolar Song of Chill Hop Gehnre</p> -->
                             <div class="card text-left">
                                 <nuxt-link
-                                    to="/watch/gwDoRPcPxtc"
+                                    to="/watch/neV3EPgvZ3g"
                                     class="text-dark"
                                 >
                                     <img
-                                        src="https://i.ytimg.com/vi/gwDoRPcPxtc/mqdefault.jpg"
+                                        src="https://i.ytimg.com/vi/neV3EPgvZ3g/mqdefault.jpg"
                                         alt=""
                                         class="card-img-top"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            Chill Study Beats 2 • Instrumental &
-                                            Jazz Hip Hop Music [2016]
+                                            Relaxing Jazz Music - Background Chill Out  Music - Music For Relax,Study,Work
                                         </h4>
                                         <!-- <p>8 months ago</p> -->
                                         <p>Chill Hop</p>
@@ -155,17 +154,17 @@
                             <!-- <p> Most Popolar Song of ChillStep Gehnre</p> -->
                             <div class="card text-left">
                                 <nuxt-link
-                                    to="/watch/TDcJJYY5sms"
+                                    to="/watch/fWRISvgAygU"
                                     class="text-dark"
                                 >
                                     <img
-                                        src="https://i.ytimg.com/vi/TDcJJYY5sms/mqdefault.jpg"
+                                        src="https://i.ytimg.com/vi/fWRISvgAygU/mqdefault.jpg"
                                         alt=""
                                         class="card-img-top"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            Chillstep Mix 2018 [2 Hours]
+                                            Epic Chillstep Collection 2015 [2 Hours]
                                         </h4>
                                         <!-- <p>8 months ago</p> -->
                                         <p>ChillStep</p>
@@ -231,18 +230,17 @@
                             <!-- <p> Most Popolar Song DownTempo  Gehnre</p> -->
                             <div class="card text-left">
                                 <nuxt-link
-                                    to="/watch/0yMZ-04ud_Q"
+                                    to="/watch/PQQHuUGiOG8"
                                     class="text-dark"
                                 >
                                     <img
-                                        src="https://i.ytimg.com/vi/0yMZ-04ud_Q/mqdefault.jpg"
+                                        src="https://i.ytimg.com/vi/PQQHuUGiOG8/mqdefault.jpg"
                                         alt=""
                                         class="card-img-top"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            Peace Therapy [Melodic Downtempo,
-                                            Ambient, Chill Out & PsyChill Mix ]
+                                            Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental Vol  3 Re Upload
                                         </h4>
                                         <!-- <p>8 months ago</p> -->
                                         <p>DownTempo</p>
@@ -257,18 +255,17 @@
                             <!-- <p> Most Popolar Song of Lo-fi Gehnre</p> -->
                             <div class="card text-left">
                                 <nuxt-link
-                                    to="/watch/nBnjjZkeknY"
+                                    to="/watch/2atQnvunGCo"
                                     class="text-dark"
                                 >
                                     <img
-                                        src="https://i.ytimg.com/vi/oJnF5VxTO5g/mqdefault.jpg"
+                                        src="https://i.ytimg.com/vi/2atQnvunGCo/mqdefault_live.jpg"
                                         alt=""
                                         class="card-img-top"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            C H I L L V I B E S | Chill &
-                                            aesthetic music playlist
+                                            Shiloh - lofi hip hop mix [LIVE 24/7] Shiloh Dynasty
                                         </h4>
                                         <!-- <p>8 months ago</p> -->
                                         <p>Lo-fi</p>
