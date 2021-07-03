@@ -15,8 +15,11 @@ class VideoController extends Controller
     public function getVideos(Request $request)
     {
         $category = Category::where('category_name', $request->category)->first();
+        $duration = $request->duration;
         $videos = Video::latest()->when($category, function ($query, $category) {
             return $query->where('category_id', $category->id);
+        })->when($duration, function ($query, $duration) {
+            return $query->where('type_duration', $duration);
         })->paginate(30);
 
         return VideoResource::collection($videos);

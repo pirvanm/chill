@@ -29,7 +29,8 @@
                         type="radio"
                         name="inlineRadioOptions"
                         id="inlineRadio1"
-                        value="option1"
+                        :value="1"
+                        v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
@@ -39,7 +40,8 @@
                         type="radio"
                         name="inlineRadioOptions"
                         id="inlineRadio2"
-                        value="option2"
+                        :value="2"
+                        v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio2">2</label>
                 </div>
@@ -49,7 +51,8 @@
                         type="radio"
                         name="inlineRadioOptions"
                         id="inlineRadio3"
-                        value="option2"
+                        :value="3"
+                        v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">3</label>
                 </div>
@@ -118,7 +121,8 @@ export default {
     data() {
         return {
             filter: {
-                category: ""
+                category: "",
+                duration: 1
             }
         };
     },
@@ -130,7 +134,6 @@ export default {
             // We have to move our method to a handler field
             handler() {
                 this.filterVideo();
-                console.log("The list of colours has changed!");
             }
         }
     },
@@ -145,7 +148,9 @@ export default {
         },
         filterVideo() {
             this.$axios
-                .get(`/admin/videos?category=${this.filter.category}`)
+                .get(
+                    `/admin/videos?category=${this.filter.category}&duration=${this.filter.duration}`
+                )
                 .then(response => {
                     (this.videos.data = response.data.data),
                         (this.videos.meta = response.data.meta);
