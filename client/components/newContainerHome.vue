@@ -433,4 +433,13 @@ export default {
 a {
     color: #8422a6;
 }
+
+.c{
+    padding-left: 3%;
+    /* padding-top: 50px; */
+    background: url(/_nuxt/assets/background.png);
+    height: 2560px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 </style>
