@@ -62,18 +62,25 @@
                         <label for="inputState"
                             >#3 Chouse Number of Views</label
                         >
-
-                        <input
-                            type="range"
-                            class="form-control-range"
-                            id="formControlRange"
-                        />
+                        <client-only>
+                            <vue-slider
+                                v-model="range.views"
+                                :min="range.min"
+                                :max="range.max"
+                                @change="changeSlider"
+                            ></vue-slider>
+                        </client-only>
                     </div>
 
                     <div class="form-group">
                         <label for="inputState">#4 Type a Title</label>
 
-                        <input type="text" class="form-control" id="title" />
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            v-model="filter.title"
+                        />
                     </div>
 
                     <div class="form-group">
@@ -93,7 +100,11 @@
             <div class="col-md-4 border ml-2">
                 <h1>List of posible Songs / count({{ videos.meta.total }})</h1>
                 <hr />
-                <p v-for="video in videos.data" :key="video.id">
+                <p
+                    style="border-bottom:1px solid grey;"
+                    v-for="video in videos.data"
+                    :key="video.id"
+                >
                     {{ video.title }}
                 </p>
 
@@ -116,13 +127,23 @@ export default {
     async asyncData({ query, params, error, $axios }) {
         const videos = await $axios.$get(`/admin/videos`);
         const categories = await $axios.$get(`/admin/categories`);
-        return { videos, categories };
+        return {
+            videos,
+            categories,
+            range: {
+                views: [videos.imp.minView, videos.imp.maxView],
+                min: videos.imp.minView,
+                max: videos.imp.maxView
+            }
+        };
     },
     data() {
         return {
+            timer: null,
             filter: {
                 category: "",
-                duration: 1
+                duration: 1,
+                title: ""
             }
         };
     },
@@ -133,7 +154,10 @@ export default {
 
             // We have to move our method to a handler field
             handler() {
-                this.filterVideo();
+                clearTimeout(this.timer);
+                this.timer = setTimeout(() => {
+                    this.filterVideo();
+                }, 500);
             }
         }
     },
@@ -142,19 +166,25 @@ export default {
             this.$axios
                 .get(`/admin/videos?page=${this.videos.meta.current_page}`)
                 .then(response => {
-                    (this.videos.data = response.data.data),
-                        (this.videos.meta = response.data.meta);
+                    this.videos.data = response.data.data;
+                    this.videos.meta = response.data.meta;
                 });
         },
         filterVideo() {
             this.$axios
                 .get(
-                    `/admin/videos?category=${this.filter.category}&duration=${this.filter.duration}`
+                    `/admin/videos?category=${this.filter.category}&duration=${this.filter.duration}&min=${this.range.views[0]}&max=${this.range.views[1]}&title=${this.filter.title}`
                 )
                 .then(response => {
-                    (this.videos.data = response.data.data),
-                        (this.videos.meta = response.data.meta);
+                    this.videos.data = response.data.data;
+                    this.videos.meta = response.data.meta;
                 });
+        },
+        changeSlider() {
+            clearTimeout(this.timer);
+            this.timer = setTimeout(() => {
+                this.filterVideo();
+            }, 500);
         }
     }
 };
