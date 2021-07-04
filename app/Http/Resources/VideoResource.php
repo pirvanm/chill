@@ -27,7 +27,8 @@ class VideoResource extends JsonResource
             'channel' => new ChannelForVideoResource($this->channel),
             'tags' => TagResource::collection($this->tags),
             'category' => $this->category,
-            'subcategories' => $this->subcategories
+            'subcategories' => $this->subcategories,
+            'views' => $this->views
         ];
     }
 }
