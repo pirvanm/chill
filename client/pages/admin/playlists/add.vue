@@ -98,20 +98,54 @@
 
             <div class="col-md-4 border pr-2">
                 <h1>
-                    New Playlist / count(total video)
+                    New Playlist / count({{ left.length }})
+                    <button class="btn btn-sm btn-success">
+                        Save
+                    </button>
                 </h1>
+                <client-only>
+                    <draggable
+                        class="list-group"
+                        :list="left"
+                        group="video"
+                        style="height:500px"
+                    >
+                        <div
+                            class="list-group-item"
+                            v-for="lvideo in left"
+                            :key="lvideo.id"
+                        >
+                            {{ lvideo.title }}
+                        </div>
+                    </draggable>
+                </client-only>
             </div>
 
             <div class="col-md-4 border ml-2">
                 <h1>List of posible Songs / count({{ videos.meta.total }})</h1>
                 <hr />
-                <p
+                <client-only>
+                    <draggable
+                        class="list-group"
+                        :list="videos.data"
+                        group="video"
+                    >
+                        <div
+                            class="list-group-item"
+                            v-for="video in videos.data"
+                            :key="video.title"
+                        >
+                            {{ video.title }}
+                        </div>
+                    </draggable>
+                </client-only>
+                <!-- <p
                     style="border-bottom:1px solid grey;"
                     v-for="video in videos.data"
                     :key="video.id"
                 >
                     {{ video.title }}
-                </p>
+                </p> -->
 
                 <client-only placeholder="Loading...">
                     <pagination
@@ -146,6 +180,8 @@ export default {
     data() {
         return {
             timer: null,
+            right: [],
+            left: [],
             filter: {
                 category: "",
                 duration: 1,

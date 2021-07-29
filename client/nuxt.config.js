@@ -55,7 +55,8 @@ export default {
         { src: "~/plugins/autocomplete", ssr: false },
         { src: "~/plugins/notifications", ssr: false },
         { src: "~/plugins/paginate", ssr: false },
-        { src: "~/plugins/range-slider", ssr: false }
+        { src: "~/plugins/range-slider", ssr: false },
+        { src: "~/plugins/draggable", ssr: false }
         // { src: "~/plugins/sweetalert", ssr: false }
     ],
     /*
