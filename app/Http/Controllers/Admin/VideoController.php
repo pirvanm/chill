@@ -19,6 +19,7 @@ class VideoController extends Controller
         $minViewRequest = $request->min;
         $maxViewRequest = $request->max;
         $titleRequest = $request->title;
+        $tagRequest = $request->tag;
         $videos = Video::latest()
             ->when($category, function ($query, $category) {
                 return $query->where('category_id', $category->id);
@@ -34,6 +35,11 @@ class VideoController extends Controller
             })
             ->when($titleRequest, function ($query, $titleRequest) {
                 return $query->where('title', 'LIKE', '%' . $titleRequest . '%');
+            })
+            ->when($tagRequest, function ($query, $tagRequest) {
+                return $query->whereHas('tags', function (Builder $query) use($tagRequest) {
+                    $query->where('name', 'LIKE', '%' . $tagRequest . '%');
+                });
             })
             ->paginate(30);
 

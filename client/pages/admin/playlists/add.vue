@@ -86,7 +86,12 @@
                     <div class="form-group">
                         <label for="inputState">#5 Type a Tagg</label>
 
-                        <input type="text" class="form-control" id="tagg" />
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="tagg"
+                            v-model="filter.tag"
+                        />
                     </div>
                 </form>
             </div>
@@ -137,13 +142,15 @@ export default {
             }
         };
     },
+    mounted() {},
     data() {
         return {
             timer: null,
             filter: {
                 category: "",
                 duration: 1,
-                title: ""
+                title: "",
+                tag: ""
             }
         };
     },
@@ -173,7 +180,7 @@ export default {
         filterVideo() {
             this.$axios
                 .get(
-                    `/admin/videos?category=${this.filter.category}&duration=${this.filter.duration}&min=${this.range.views[0]}&max=${this.range.views[1]}&title=${this.filter.title}`
+                    `/admin/videos?category=${this.filter.category}&duration=${this.filter.duration}&min=${this.range.views[0]}&max=${this.range.views[1]}&title=${this.filter.title}&tag=${this.filter.tag}`
                 )
                 .then(response => {
                     this.videos.data = response.data.data;
