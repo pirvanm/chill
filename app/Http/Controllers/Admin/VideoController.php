@@ -48,6 +48,7 @@ class VideoController extends Controller
 
         if (count($videos->pluck('views')) > 0) {
             $maxView = max($videos->pluck('views')->toArray());
+            dd($maxView);
             $minView = min($videos->pluck('views')->toArray());
         } else {
             $minView = 0;
