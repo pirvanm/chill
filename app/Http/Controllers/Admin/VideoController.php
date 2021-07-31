@@ -7,8 +7,10 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\VideoResource;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Category;
+use App\Models\Playlist;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class VideoController extends Controller
 {
@@ -62,5 +64,21 @@ class VideoController extends Controller
         $categories = Category::latest()->get();
 
         return CategoryResource::collection($categories);
+    }
+
+    public function savePlaylist(Request $request)
+    {
+        $videos = collect($request->videos);
+        $name = $request->playlist;
+        $playlist = new Playlist();
+        $playlist->name = $name;
+        $playlist->slug = Str::slug($name, '-');
+        $playlist->mode = 'public';
+        $playlist->save();
+
+        $playlist->videos()->attach($videos->pluck('id')->toArray());
+        return response()->json([
+            'success' => 'Playlist saved success'
+        ]);
     }
 }

@@ -99,7 +99,16 @@
             <div class="col-md-4 border pr-2">
                 <h1>
                     New Playlist / count({{ left.length }})
-                    <button class="btn btn-sm btn-success">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Playlists Name"
+                        v-model="form.playlist"
+                    />
+                    <button
+                        class="btn btn-sm btn-success btn-block mt-1"
+                        @click.prevent="savePlaylists"
+                    >
                         Save
                     </button>
                 </h1>
@@ -162,6 +171,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
     async asyncData({ query, params, error, $axios }) {
         const videos = await $axios.$get(`/admin/videos`);
@@ -173,6 +183,9 @@ export default {
                 views: [videos.imp.minView, videos.imp.maxView],
                 min: videos.imp.minView,
                 max: videos.imp.maxView
+            },
+            form: {
+                playlist: ""
             }
         };
     },
@@ -205,6 +218,23 @@ export default {
         }
     },
     methods: {
+        savePlaylists() {
+            this.$axios
+                .post("/admin/playlist/add", {
+                    playlist: this.form.playlist,
+                    videos: this.left
+                })
+                .then(response => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Playlist created success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    this.left = [];
+                    this.form.playlist = "";
+                });
+        },
         myCallback() {
             this.$axios
                 .get(`/admin/videos?page=${this.videos.meta.current_page}`)
