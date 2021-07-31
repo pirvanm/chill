@@ -47,6 +47,7 @@ class VideoController extends Controller
             ->paginate(30);
 
         if (count($videos->pluck('views')) > 0) {
+            dd($videos->pluck('views')->toArray());
             $maxView = max($videos->pluck('views')->toArray());
             dd($maxView);
             $minView = min($videos->pluck('views')->toArray());
