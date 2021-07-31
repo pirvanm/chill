@@ -145,3 +145,5 @@ Route::get('/social-login/facebook', 'SocialLoginController@fbLogin');
 Route::get('/social-login/facebook/callback', 'SocialLoginController@fbCallback');
 
 Route::post('/admin/playlist/add', 'Admin\VideoController@savePlaylist');
+
+Route::get('/admin/playlists', 'Admin\VideoController@getPlaylists');

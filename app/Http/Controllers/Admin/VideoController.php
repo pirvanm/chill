@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\PlaylistResource;
 use App\Http\Resources\VideoResource;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Category;
@@ -80,5 +81,12 @@ class VideoController extends Controller
         return response()->json([
             'success' => 'Playlist saved success'
         ]);
+    }
+
+    public function getPlaylists()
+    {
+        $playlists = Playlist::latest()->paginate(50);
+
+        return PlaylistResource::collection($playlists);
     }
 }
