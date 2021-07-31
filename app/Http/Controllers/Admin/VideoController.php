@@ -45,12 +45,12 @@ class VideoController extends Controller
                 });
             })
             ->paginate(30);
-
-        if (count($videos->pluck('views')) > 0) {
-            dd($videos->pluck('views')->toArray());
-            $maxView = max($videos->pluck('views')->toArray());
+        $allVideos = Video::get();
+        if (count($allVideos->pluck('views')) > 0) {
+            dd($allVideos->pluck('views')->toArray());
+            $maxView = max($allVideos->pluck('views')->toArray());
             dd($maxView);
-            $minView = min($videos->pluck('views')->toArray());
+            $minView = min($allVideos->pluck('views')->toArray());
         } else {
             $minView = 0;
             $maxView = 0;
