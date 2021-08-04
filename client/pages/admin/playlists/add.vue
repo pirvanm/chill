@@ -163,6 +163,7 @@
                         @paginate="myCallback"
                         :per-page="videos.meta.per_page"
                         :chunk="3"
+                        chunksNavigation="fixed"
                     />
                 </client-only>
             </div>
@@ -237,7 +238,9 @@ export default {
         },
         myCallback() {
             this.$axios
-                .get(`/admin/videos?page=${this.videos.meta.current_page}`)
+                .get(
+                    `/admin/videos?page=${this.videos.meta.current_page}&category=${this.filter.category}&duration=${this.filter.duration}&min=${this.range.views[0]}&max=${this.range.views[1]}&title=${this.filter.title}&tag=${this.filter.tag}`
+                )
                 .then(response => {
                     this.videos.data = response.data.data;
                     this.videos.meta = response.data.meta;
