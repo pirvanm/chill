@@ -2,6 +2,7 @@
 @import "./sidebar.css";
 @import "./watch.css";
 @import "./video.css";
+@import "./home.css";
 ul.foater {
     text-align: center;
 }

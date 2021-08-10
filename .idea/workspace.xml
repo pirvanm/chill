@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/830190d1-d9a7-4e5f-8a61-beb33712a156.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/830190d1-d9a7-4e5f-8a61-beb33712a156.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/styles/watch.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/watch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/newIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/newIndex.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -549,7 +549,7 @@
       <workItem from="1625302237881" duration="1000" />
       <workItem from="1627140875209" duration="162000" />
       <workItem from="1627141841585" duration="674000" />
-      <workItem from="1628631654638" duration="2739000" />
+      <workItem from="1628631654638" duration="3199000" />
     </task>
     <servers />
   </component>
