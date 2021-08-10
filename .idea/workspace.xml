@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/830190d1-d9a7-4e5f-8a61-beb33712a156.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/830190d1-d9a7-4e5f-8a61-beb33712a156.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/watch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/watch/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/styles/watch.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/watch.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/pages/index.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/components/newContainerHome.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/admin/videos.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/routes/api.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/videos/regional-japan.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/videos/rock.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/videos/Techno.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/watch/index.vue" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -363,6 +377,8 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/laragon/proj/www/chill2/client/pages/index.vue" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -371,7 +387,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/S16" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/library" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -528,7 +544,12 @@
       <workItem from="1623078224479" duration="342000" />
       <workItem from="1623431219273" duration="2264000" />
       <workItem from="1623435427137" duration="4923000" />
-      <workItem from="1624705002154" duration="3803000" />
+      <workItem from="1624705002154" duration="4629000" />
+      <workItem from="1624722580365" duration="1373000" />
+      <workItem from="1625302237881" duration="1000" />
+      <workItem from="1627140875209" duration="162000" />
+      <workItem from="1627141841585" duration="674000" />
+      <workItem from="1628631654638" duration="2739000" />
     </task>
     <servers />
   </component>
@@ -636,7 +657,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/nuxt.config.js</url>
-          <line>127</line>
+          <line>129</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -656,8 +677,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/watch/index.vue</url>
-          <line>196</line>
-          <properties lambdaOrdinal="-1" />
+          <line>182</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
