@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/styles/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/newLeftBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/newLeftBar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/newIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/newIndex.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -549,7 +549,7 @@
       <workItem from="1625302237881" duration="1000" />
       <workItem from="1627140875209" duration="162000" />
       <workItem from="1627141841585" duration="674000" />
-      <workItem from="1628631654638" duration="3199000" />
+      <workItem from="1628631654638" duration="6756000" />
     </task>
     <servers />
   </component>
@@ -672,7 +672,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/components/newLeftBar.vue</url>
-          <line>27</line>
+          <line>12</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

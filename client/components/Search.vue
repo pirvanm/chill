@@ -1,9 +1,10 @@
 <template>
-    <div class="container-search mt-3 mb-3">
+<!--    <form class="search-form">-->
+<!--        <input type="text" placeholder="Search.." name="search">-->
+<!--        <button type="submit"><i class="fa fa-search"></i></button>-->
+<!--    </form>-->
+    <div class="container-search mt-3 mb-3 search-form">
         <client-only>
-            <div class="row">
-
-                <div class="col-md-10">
                     <autocomplete
                         :search="searchVideo"
                         placeholder="Search Video"
@@ -12,25 +13,21 @@
                     >
 
                     </autocomplete>
-                </div>
-                <div class="col-md-2" style="">
-                    <div
-                        v-if="$auth.loggedIn"
-                        style="color:white;"
-                        class="text-center"
-                    >
-                        {{ $auth.user.name }} <br />
-                        <button @click="$auth.logout()">Logout</button>
-                    </div>
-                    <div v-else>
-                        <nuxt-link to="/login">
-                            <button type="button" class="btn btn-primary"> Login </button>
+<!--                <div class="col-md-2" style="">-->
+<!--                    <div-->
+<!--                        v-if="$auth.loggedIn"-->
+<!--                        style="color:white;"-->
+<!--                        class="text-center"-->
+<!--                    >-->
+<!--                        {{ $auth.user.name }} <br />-->
+<!--                        <button @click="$auth.logout()">Logout</button>-->
+<!--                    </div>-->
+<!--                    <div v-else>-->
+<!--                        <nuxt-link to="/login">-->
+<!--                            <button type="button" class="btn btn-primary"> Login </button>-->
 
-                        </nuxt-link>
-                    </div>
-
-                </div>
-            </div>
+<!--                        </nuxt-link>-->
+<!--                    </div>-->
 
         </client-only>
         <!-- <input type="text" placeholder="Search" v-model="search" /> -->
