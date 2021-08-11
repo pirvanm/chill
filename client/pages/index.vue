@@ -2,8 +2,13 @@
     <div class="body">
     <div class="main">
         <div class="heading">
-            <button type="submit" onclick=toggleSidebar()>
-                <i class="fa fa-bars"></i></button>
+
+
+<!--            <button type="submit" v-on:click=toggleSidebar()>-->
+<!--                <i class="fa fa-bars"></i>Menu</button>-->
+
+            <button type="submit" v-on:click=toggleSidebar()>
+                <i class="fas fa-bars">Menu</i></button>
             <span class="title">Chillwhispers</span>
         </div>
 
@@ -27,7 +32,9 @@
                             <p class="title">
                                 Booker T & the M G 's - Green Onions (Original / HQ audio)
                             </p>
+
                             </nuxt-link>
+                            <a href="#" class="category">Rock</a>
                         </div>
                     </div>
 
@@ -42,11 +49,9 @@
                                     Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental Vol  3 Re Upload
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Downtempo</a>
                         </div>
                     </div>
-
-
-
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="video-card">
@@ -59,6 +64,7 @@
                                     Relaxing Jazz Music - Background Chill Out  Music - Music For Relax,Study,Work
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">ChillHop</a>
                         </div>
                     </div>
 
@@ -66,13 +72,13 @@
                         <div class="video-card">
                             <nuxt-link
                                 to="/watch/zOvsyamoEDg"
-                                class="text-dark"
-                            >
+                                class="text-dark">
                                 <img src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg"/>
                                 <p class="title">
                                     FAUN - Federkleid (Offizielles Video)
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Regional</a>
                         </div>
                     </div>
 
@@ -87,6 +93,7 @@
                                     Deborah de Luca @ Château de Chambord in France for Cercle
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Tehno</a>
                         </div>
                     </div>
 
@@ -101,6 +108,7 @@
                                     Shiloh - lofi hip hop mix [LIVE 24/7] Shiloh Dynasty
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Lo-Fi</a>
                         </div>
                     </div>
 
@@ -116,6 +124,7 @@
                                     Chillout Mix
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Lounge</a>
                         </div>
                     </div>
 
@@ -130,6 +139,7 @@
                                     Epic Chillstep Collection 2015 [2 Hours]
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Chillstep</a>
                         </div>
                     </div>
 
@@ -144,6 +154,7 @@
                                     Doja Cat - Trauma
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Clasic Pop</a>
                         </div>
                     </div>
 
@@ -159,28 +170,24 @@
                                     Mozartx
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Classical</a>
                         </div>
                     </div>
 
-
-
-
-
-
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/jpv2tMJJuz0"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>
-                                <p class="title">
-                                    EHRLING - Nu Lounge Bar Music 2017
-                                </p>
-                            </nuxt-link>
-                        </div>
-                    </div>
+<!--                    <div class="col-lg-4 col-md-6 mb-4">-->
+<!--                        <div class="video-card">-->
+<!--                            <nuxt-link-->
+<!--                                to="/watch/jpv2tMJJuz0"-->
+<!--                                class="text-dark"-->
+<!--                            >-->
+<!--                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>-->
+<!--                                <p class="title">-->
+<!--                                    EHRLING - Nu Lounge Bar Music 2017-->
+<!--                                </p>-->
+<!--                            </nuxt-link>-->
+<!--                            <a href="#" class="category">Classical</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="video-card">
@@ -195,6 +202,7 @@
                                     (Carosone, Modugno...)
                                 </p>
                             </nuxt-link>
+                            <a href="#" class="category">Regioanal </a>
                         </div>
                     </div>
 
@@ -311,6 +319,10 @@ export default {
     // },
 
     methods: {
+        toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle('shown')
+        },
         move(e) {
             if (e.keyCode === 48) {
                 window.location.href = "https://chillwhispers.com/playlists/1";
