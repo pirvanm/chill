@@ -41,7 +41,8 @@ class SaveViews extends Command
     {
         a:
         $video = Video::whereNull('duration')->first();
-        $videoApi = Youtube::getVideoInfo($video->videoId);
+        if ($video) {
+           $videoApi = Youtube::getVideoInfo($video->videoId);
 
         if ($videoApi) {
             $yduration = $videoApi->contentDetails->duration;
@@ -107,6 +108,10 @@ class SaveViews extends Command
             echo  $video->id . " \n";
             echo  $video->title . " \n";
             echo " saved \n";
+        } else {
+            echo "Video Id Not found \n";
+        }
+
 
         } else {
             $duration = '00:00:00';
