@@ -120,7 +120,7 @@ class SaveViews extends Command
             }
         }
          else {
-            dd($video->videoId);
+            dd($video);
             echo "Video Id Not found \n";
         }
          echo " goto A \n";
