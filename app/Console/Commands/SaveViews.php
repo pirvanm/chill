@@ -104,6 +104,7 @@ class SaveViews extends Command
             $video->duration = $duration;
             $video->type_duration = $durationType;
             $video->save();
+            echo  $video->id . " \n";
             echo  $video->title . " \n";
             echo " saved \n";
 
