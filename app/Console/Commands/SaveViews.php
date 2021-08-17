@@ -109,6 +109,7 @@ class SaveViews extends Command
             echo  $video->title . " \n";
             echo " saved \n";
         } else {
+            dd($video);
             echo "Video Id Not found \n";
         }
 
