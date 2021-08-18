@@ -70,6 +70,20 @@
                                 @change="changeSlider"
                             ></vue-slider>
                         </client-only>
+                        <div class="row">
+                            <input
+                                class="col-md-6 form-control"
+                                type="number"
+                                v-model="range.min"
+                                @input="changeSlider"
+                            />
+                            <input
+                                class="col-md-6 form-control"
+                                type="number"
+                                v-model="range.max"
+                                @input="changeSlider"
+                            />
+                        </div>
                     </div>
 
                     <div class="form-group">
