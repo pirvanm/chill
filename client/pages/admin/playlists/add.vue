@@ -56,6 +56,28 @@
                     />
                     <label class="form-check-label" for="inlineRadio3">3</label>
                 </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio3"
+                        :value="4"
+                        v-model="filter.duration"
+                    />
+                    <label class="form-check-label" for="inlineRadio3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio3"
+                        :value="5"
+                        v-model="filter.duration"
+                    />
+                    <label class="form-check-label" for="inlineRadio3">3</label>
+                </div>
 
                 <form>
                     <div class="form-group">
