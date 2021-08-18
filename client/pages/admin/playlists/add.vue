@@ -57,6 +57,7 @@
                     <label class="form-check-label" for="inlineRadio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
+                    <br>
                     <input
                         class="form-check-input"
                         type="radio"
@@ -180,7 +181,10 @@
                             v-for="video in videos.data"
                             :key="video.title"
                         >
-                            {{ video.title }}
+                           Title: {{ video.title }}
+                           Views: {{ video.views }}
+                            Duration {{ video.duration }}
+                           Type: {{video.type_duration}}
                         </div>
                     </draggable>
                 </client-only>

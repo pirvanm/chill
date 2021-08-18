@@ -28,7 +28,9 @@ class VideoResource extends JsonResource
             'tags' => TagResource::collection($this->tags),
             'category' => $this->category,
             'subcategories' => $this->subcategories,
-            'views' => $this->views
+            'views' => $this->views,
+            'duration' => $this->duration,
+            'type_duration' => $this->type_duration
         ];
     }
 }
