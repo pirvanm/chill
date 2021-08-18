@@ -56,6 +56,28 @@
                     />
                     <label class="form-check-label" for="inlineRadio3">3</label>
                 </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio4"
+                        :value="4"
+                        v-model="filter.duration"
+                    />
+                    <label class="form-check-label" for="inlineRadio3">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio5"
+                        :value="5"
+                        v-model="filter.duration"
+                    />
+                    <label class="form-check-label" for="inlineRadio3">5</label>
+                </div>
 
                 <form>
                     <div class="form-group">
@@ -70,6 +92,20 @@
                                 @change="changeSlider"
                             ></vue-slider>
                         </client-only>
+                        <div class="row">
+                            <input
+                                class="col-md-6 form-control"
+                                type="number"
+                                v-model="range.views[0]"
+                                @input="changeSlider"
+                            />
+                            <input
+                                class="col-md-6 form-control"
+                                type="number"
+                                v-model="range.views[1]"
+                                @input="changeSlider"
+                            />
+                        </div>
                     </div>
 
                     <div class="form-group">
