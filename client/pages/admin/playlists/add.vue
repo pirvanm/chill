@@ -74,13 +74,13 @@
                             <input
                                 class="col-md-6 form-control"
                                 type="number"
-                                v-model="range.min"
+                                v-model="range.views[0]"
                                 @input="changeSlider"
                             />
                             <input
                                 class="col-md-6 form-control"
                                 type="number"
-                                v-model="range.max"
+                                v-model="range.views[1]"
                                 @input="changeSlider"
                             />
                         </div>
