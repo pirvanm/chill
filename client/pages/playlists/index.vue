@@ -1,6 +1,16 @@
 <template>
     <div class="body">
         <div class="main">
+            <div class="heading">
+
+
+                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
+                <!--                <i class="fa fa-bars"></i>Menu</button>-->
+
+                <button type="submit" v-on:click=toggleSidebar()>
+                    <i class="fas fa-bars">Menu</i></button>
+                <span class="title">Chillwhispers</span>
+            </div>
             <newLeftBar />
             <div class="content">
                 <div>
