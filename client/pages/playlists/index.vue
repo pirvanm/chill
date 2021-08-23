@@ -1,47 +1,77 @@
 <template>
-    <div>
-        <div class="homepage-video">
-            <div class="row playlist-grid c">
-                <div
-                    class="col-md-2 leftBar d-lg-block d-none d-md-block d-lg-none"
-                >
-                    <LeftBar />
+    <div class="body">
+        <div class="main">
+            <newLeftBar />
+            <div class="content">
+                <div>
+                    <search />
                 </div>
-                <div class="offset-md-2 col-md-9">
+                <div class="clearfix"></div>
+
+                <div class="container">
+                    <h1>Popular Playlist For Each Category</h1>
                     <div class="row">
-                        <div
-                            class="col-md-3"
-                            v-for="playlist in playlists"
-                            :key="playlist.id"
-                        >
-                            <nuxt-link :to="`/playlists/${playlist.slug}`">
-                                <div
-                                    :class="
-                                        playlist.cover_style
-                                            ? playlist.cover_style
-                                            : 'classic'
-                                    "
-                                    class="card text-left"
-                                >
-                                    {{ playlist.name }}
-                                </div>
-                            </nuxt-link>
+                        <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
+                             :key="playlist.id" >
+                            <div class="category-card">
+                                <img src="https://cdn.hipwallpaper.com/m/84/39/GJk7qy.jpg"/>
+
+                                <nuxt-link :to="`/playlists/${playlist.slug}`">
+                                    <div>
+                                        <a href="#category-link" class="category">
+                                            {{ playlist.name }}
+                                        </a>
+                                    </div>
+                                </nuxt-link>
+                            </div>
                         </div>
+
+
+
                     </div>
+
                 </div>
+
+
+                <div class="container">
+                    <h1>All </h1>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
+                             :key="playlist.id" >
+                            <div class="category-card">
+                                <img src="https://cdn.hipwallpaper.com/m/84/39/GJk7qy.jpg"/>
+
+                                <nuxt-link :to="`/playlists/${playlist.slug}`">
+                                    <div>
+                                        <a href="#category-link" class="category">
+                                            {{ playlist.name }}
+                                        </a>
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
             </div>
-            <hr />
         </div>
     </div>
+
 </template>
 
 <script>
-import SideBar from "@/components/SideS";
-import LeftBar from "@/components/newLeftBar";
+import newFooter from "@/components/newFooter";
+import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
 export default {
     components: {
-        SideBar,
-        LeftBar
+        newLeftBar,
+        newFooter,
+        search
     },
     async asyncData({ $axios, params }) {
         let vid = await $axios.$get(`/playlists`);
