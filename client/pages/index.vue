@@ -251,8 +251,6 @@
 </template>
 
 <script>
-
-
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
