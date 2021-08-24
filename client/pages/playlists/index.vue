@@ -49,7 +49,9 @@
                         <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
                              :key="playlist.id" >
                             <div class="category-card">
-                                <img src="https://cdn.hipwallpaper.com/m/84/39/GJk7qy.jpg"/>
+                                {{playlist
+                                .name}}
+                                <img src=playlist.image/>
 
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
                                     <div>

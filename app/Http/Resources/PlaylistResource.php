@@ -19,7 +19,8 @@ class PlaylistResource extends JsonResource
             'mode' => $this->mode,
             'name' => $this->name,
             'slug' => $this->slug,
-            'cover_style' => $this->cover_style
+            'cover_style' => $this->cover_style,
+              'image' => $this->image,
         ];
     }
 }
