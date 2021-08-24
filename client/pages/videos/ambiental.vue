@@ -1,42 +1,64 @@
 <template>
-    <div>
-        <div class="bg-image">
-        </div>
-        <div class="homepage-video">
-            <div class="row video-grid">
-                <div class="col-md-3 leftBar ">
-                    <newLeftBar />
+
+
+        <div class="body">
+            <div class="main">
+                <div class="heading">
+
+
+                    <!--            <button type="submit" v-on:click=toggleSidebar()>-->
+                    <!--                <i class="fa fa-bars"></i>Menu</button>-->
+
+                    <button type="submit" v-on:click=toggleSidebar()>
+                        <i class="fas fa-bars">Menu</i></button>
+                    <span class="title">Chillwhispers</span>
                 </div>
-                <div class="col-md-9">
-                <div class="row">
-                <div class="col-md-3" v-for="video in videos" :key="video.id" >
-                    <div class="card text-left">
-                        <nuxt-link :to="`/watch/${video.videoId}`" class="text-dark">
-                            <img class="card-img-top" :src="video.thumbnail" alt=""  >
-                            <div class="card-body">
-                                <h4 class="card-title" >{{ video.title }}</h4>
-                                <p>{{ video.published_at }}</p>
+                <newLeftBar />
+                <div class="content">
+                    <div>
+                        <search />
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-4"
+                                 v-for="video in videos" :key="video.id">
+                                <div class="category-card">
+                                    <img class="card-img-top" :src="video.thumbnail" alt="" >
+                                    <nuxt-link :to="`/watch/${video.videoId}`" >
+
+
+                                    <div v-if="video.title.length < 20">
+                                        <a href="#category-link" class="category">
+                                            {{ video.title }}
+                                        </a>
+
+                                    </div>
+                                        <div v-else>
+                                            <h6 style="width: 200px;
+    word-break: normal;">     {{ video.title }}</h6>
+                                        </div>
+                                    </nuxt-link>
+                                </div>
                             </div>
-                        </nuxt-link>
+                        </div>
                     </div>
                 </div>
-                </div>
-                </div>
+
             </div>
-            <hr>
         </div>
-    </div>
 </template>
 
 
 <script>
 
-import SideBar from "@/components/SideBar";
 import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
     export default {
     components: {
-            SideBar,
-        newLeftBar
+        newLeftBar,search
+
         },
         async asyncData ({ $axios, params }) {
         let vid = await $axios.$get(`/videos-ambient`)
@@ -47,20 +69,4 @@ import newLeftBar from "@/components/newLeftBar";
     }
 </script>
 <style>
-.leftBar {
-    background-color: #090909;
-    margin-top: 0px;
-    color: #8422a6;
-    border-top-right-radius: 50px;
-    height: 1600px;
-    width: 110px;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 50px;
-    /* margin-left: 35px; */
-    padding-bottom: 20px;
-    padding-left: 50px;
-    width: 300px;
-}
 </style>

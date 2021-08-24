@@ -1,355 +1,280 @@
 <template>
- <div>
-
-  <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-   <b-form-group
-           id="input-group-1"
-           label="Email address:"
-           label-for="input-1"
-           description="We'll never share your email with anyone else."
-   >
-    <b-form-input
-            id="input-1"
-            v-model="form.email"
-            type="email"
-            required
-            placeholder="Enter email"
-    ></b-form-input>
-   </b-form-group>
-
-   <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-    <b-form-input
-            id="input-2"
-            v-model="form.name"
-            required
-            placeholder="Enter name"
-    ></b-form-input>
-   </b-form-group>
-
-   <b-form-group id="input-group-3" label="Topic:"
-                 label-for="input-3">
-    <b-form-select
-            id="input-3"
-            v-model="form.food"
-            :options="foods"
-            required
-    ></b-form-select>
+    <div class="body">
+        <div class="main">
+            <div class="heading">
 
 
-    <b-form-group id="input-group-2" label="Your Message:" label-for="input-2">
-     <b-form-textarea
-             id="input-2"
-             v-model="form.message"
-             required
-             placeholder="Enter the message"
-     ></b-form-textarea>
-    </b-form-group>
-   </b-form-group>
+                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
+                <!--                <i class="fa fa-bars"></i>Menu</button>-->
 
+                <button type="submit" v-on:click=toggleSidebar()>
+                    <i class="fas fa-bars">Menu</i></button>
+                <span class="title">Chillwhispers</span>
+            </div>
 
-
-   <b-button type="submit" variant="primary">Submit</b-button>
-   <b-button type="reset" variant="danger">Reset</b-button>
-
-
-   <p> Or Just send me a email to : whisperchill4@gmail.com</p>
-  </b-form>
-<!--  <b-card class="mt-3" header="Info">
-   Each opinion matters, which is why we invite you to leave us an email at the following address : contact@chillwhisper.com
- &lt;!&ndash;  <pre class="m-0">{{ form }}</pre>&ndash;&gt;
-  </b-card>-->
- </div>
-</template>
-
-<template>
-<div class="body">
-<div class="main">
-    <div class="heading">
-
-
-        <!--            <button type="submit" v-on:click=toggleSidebar()>-->
-        <!--                <i class="fa fa-bars"></i>Menu</button>-->
-
-        <button type="submit" v-on:click=toggleSidebar()>
-            <i class="fas fa-bars">Menu</i></button>
-        <span class="title">Chillwhispers</span>
-    </div>
-
-    <newLeftBar />
-    <div class="content">
-        <div>
-            <search />
-        </div>
-
-        <div class="clearfix"></div>
-        <h1>Popular songs</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/_bpS-cOBK6Q"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/eulJvgsAZao/mqdefault.jpg"/>
-                            <p class="title">
-                                Booker T & the M G 's - Green Onions (Original / HQ audio)
-                            </p>
-
-                        </nuxt-link>
-                        <a href="#" class="category">Rock</a>
-                    </div>
+            <newLeftBar />
+            <div class="content">
+                <div>
+                    <search />
                 </div>
 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/PQQHuUGiOG8"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/PQQHuUGiOG8/mqdefault.jpg"/>
-                            <p class="title">
-                                Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental Vol  3 Re Upload
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Downtempo</a>
-                    </div>
+                <div class="clearfix"></div>
+                <h1>Write A message for us </h1>
+                <div class="container">
+                    <!--Section: Contact v.2-->
+                    <section class="mb-4">
+
+                        <!--Section heading-->
+                        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                        <!--Section description-->
+                        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                            a matter of hours to help you.</p>
+
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-9 mb-md-0 mb-5">
+                                <form id="contact-form" name="contact-form" action="/api/contactUSPost" method="POST">
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="name" name="name" class="form-control">
+                                                <label for="name" class="mt-3 mb-3">Your name</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="email" name="email" class="form-control">
+                                                <label for="email" class="mt-3 mb-3">Your email</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="subject" name="subject" class="form-control">
+                                                <label for="subject" class="mt-3 mb-3">Subject</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+
+                                            <div class="md-form">
+                                                <textarea type="text" id="message" name="user_message" rows="2"
+                                                          class="form-control md-textarea"></textarea>
+                                                <label for="message">Your message</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                </form>
+
+                                <div class="text-center text-md-left">
+                                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                                </div>
+                                <div class="status"></div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-3 text-center">
+                                <ul class="list-unstyled mb-0">
+<!--                                    <li><i class="fas fa-map-marker-alt fa-2x"></i>-->
+<!--                                        <p>San Francisco, CA 94126, USA</p>-->
+<!--                                    </li>-->
+
+
+
+                                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                        <p>whisperchill4@gmail.com</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+
+                    </section>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/neV3EPgvZ3g"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/neV3EPgvZ3g/mqdefault.jpg"/>
-                            <p class="title">
-                                Relaxing Jazz Music - Background Chill Out  Music - Music For Relax,Study,Work
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">ChillHop</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/zOvsyamoEDg"
-                            class="text-dark">
-                            <img src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg"/>
-                            <p class="title">
-                                FAUN - Federkleid (Offizielles Video)
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Regional</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/yEbrvMljMCg"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/yEbrvMljMCg/mqdefault.jpg"/>
-                            <p class="title">
-                                Deborah de Luca @ Château de Chambord in France for Cercle
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Tehno</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/2atQnvunGCo"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/2atQnvunGCo/mqdefault_live.jpg"/>
-                            <p class="title">
-                                Shiloh - lofi hip hop mix [LIVE 24/7] Shiloh Dynasty
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Lo-Fi</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/98I_ST9GZSE"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/98I_ST9GZSE/mqdefault.jpg"/>
-                            <p class="title">
-                                Beautiful IBIZA Beach Lounge Del Mar
-                                Chillout Mix
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Lounge</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/fWRISvgAygU"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/fWRISvgAygU/mqdefault.jpg"/>
-                            <p class="title">
-                                Epic Chillstep Collection 2015 [2 Hours]
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Chillstep</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/jUoGYrWZXLs"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/jUoGYrWZXLs/mqdefault.jpg"/>
-                            <p class="title">
-                                Doja Cat - Trauma
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Clasic Pop</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/7JmprpRIsEY"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/7JmprpRIsEY/mqdefault.jpg"/>
-                            <p class="title">
-                                Classical Music for Brain Power -
-                                Mozartx
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Classical</a>
-                    </div>
-                </div>
-
-                <!--                    <div class="col-lg-4 col-md-6 mb-4">-->
-                <!--                        <div class="video-card">-->
-                <!--                            <nuxt-link-->
-                <!--                                to="/watch/jpv2tMJJuz0"-->
-                <!--                                class="text-dark"-->
-                <!--                            >-->
-                <!--                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>-->
-                <!--                                <p class="title">-->
-                <!--                                    EHRLING - Nu Lounge Bar Music 2017-->
-                <!--                                </p>-->
-                <!--                            </nuxt-link>-->
-                <!--                            <a href="#" class="category">Classical</a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/hvkZWhpzmWs"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/hvkZWhpzmWs/mqdefault.jpg"/>
-                            <p class="title">
-                                Italian Dinner - Background Music,
-                                Italian Music, Folk Music from Italy
-                                (Carosone, Modugno...)
-                            </p>
-                        </nuxt-link>
-                        <a href="#" class="category">Regioanal </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/K9WiYD8zCA8"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/K9WiYD8zCA8/mqdefault.jpg"/>
-                            <p class="title">
-                                Trap Music ♫ Chill & Happy Trap Mix
-                                ♫ Gaming Music
-                            </p>
-                        </nuxt-link>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="video-card">
-                        <nuxt-link
-                            to="/watch/hDzgYiiuR30"
-                            class="text-dark"
-                        >
-                            <img src="https://i.ytimg.com/vi/hDzgYiiuR30/mqdefault.jpg"/>
-                            <p class="title">
-                                Wonderfull Chill Out Music Love
-                                Session on Amazing
-                            </p>
-                        </nuxt-link>
-                    </div>
-                </div>
-
-
-
-
-
-
-
             </div>
         </div>
     </div>
-</div>
-</div>
 </template>
 
 <script>
-
+import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
-    export default {
-            components: {
-                newLeftBar,
+import search from "@/components/Search";
+export default {
+    components: {
+        newLeftBar,
+        newFooter,
+        search
+    },
+
+    head: {
+        title: "Chillwhispers ",
+        meta: [
+            {
+                hid: "description",
+                name: "description",
+                content: "Chillwhispers Home Page"
             },
-        data() {
-            return {
-                form: {
-                    email: '',
-                    name: '',
-                    food: null,
-                    checked: []
-                },
-                foods: [{ text: 'Select One', value: null }, 'Colaboration', 'Free Talk', 'Bugg'],
-                show: true
+            {
+                hid: "keywords",
+                name: "keywords",
+                content: "chillwhispers, video, calm music, music, music video,"
+            },
+            {
+                hid: "og:title",
+                name: "og:title",
+                content: "Chillwhispers music videos"
+            },
+            {
+                hid: "og:type",
+                name: "og:type",
+                content: "music"
+            },
+            {
+                hid: "og:url",
+                name: "og:url",
+                content: "https://chillwhispers.com"
+            },
+            {
+                hid: "og:image",
+                name: "og:image",
+                content: "https://i.ytimg.com/vi/n0svuurLibQ/mqdefault.jpg"
+            },
+            {
+                hid: "og:site_name",
+                name: "og:site_name",
+                content: "chillwhispers"
+            },
+            {
+                hid: "og:description",
+                name: "og:description",
+                content: "Chillwhispers Home Page"
             }
+        ]
+    },
+    // mounted() {
+    //     document.addEventListener("keydown", this.move);
+    // },
+
+    // beforeDestroy() {
+    //     document.removeEventListener("keydown", this.move);
+    // },
+
+    methods: {
+        toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle('shown')
         },
-        methods: {
-            onSubmit(evt) {
-                evt.preventDefault()
-                alert(JSON.stringify(this.form))
-            },
-            onReset(evt) {
-                evt.preventDefault()
-                // Reset our form values
-                this.form.email = ''
-                this.form.name = ''
-                this.form.food = null
-                this.form.checked = []
-                // Trick to reset/clear native browser form validation state
-                this.show = false
-                this.$nextTick(() => {
-                    this.show = true
-            })
+        move(e) {
+            if (e.keyCode === 48) {
+                window.location.href = "https://chillwhispers.com/playlists/1";
+                //return;
             }
+
+            if (e.keyCode === 49) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/3";
+                //return;
+            }
+
+            if (e.keyCode === 50) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/4";
+                //return;
+            }
+
+            if (e.keyCode === 51) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/6";
+                //return;
+            }
+
+            if (e.keyCode === 52) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/7";
+                //return;
+            }
+
+            if (e.keyCode === 53) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/8";
+                //return;
+            }
+
+            if (e.keyCode === 54) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/9";
+                //return;
+            }
+
+            if (e.keyCode === 55) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/10";
+                //return;
+            }
+
+            if (e.keyCode === 56) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/13";
+                //return;
+            }
+
+            if (e.keyCode === 57) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/14";
+                //return;
+            }
+
+            if (e.keyCode === 17) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/19";
+                //return;
+            }
+
+            if (e.keyCode === 84) {
+                console.log("stopp");
+                window.location.href = "https://chillwhispers.com/playlists/20";
+                //return;
+            }
+
+            e.preventDefault();
         }
     }
+};
 </script>
+
+<style scoped>
+
+p {
+    color:white;
+}
+label {
+    color:#f58aff;
+}
+/*# sourceMappingURL=style.css.map */
+</style>

@@ -1,21 +1,39 @@
 <template>
-    <div>
-        <div class="bg-image">
-        </div>
-        <div class="homepage-video">
-            <div class="row video-grid">
-                <div class="col-md-3 leftBar">
-                    <newLeftBar />
+    <div class="body">
+        <div class="main">
+            <div class="heading">
+                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
+                <!--                <i class="fa fa-bars"></i>Menu</button>-->
+
+                <button type="submit" v-on:click=toggleSidebar()>
+                    <i class="fas fa-bars">Menu</i></button>
+                <span class="title">Chillwhispers</span>
+            </div>
+            <newLeftBar/>
+            <div class="content">
+                <div>
+                    <search/>
                 </div>
-                <div class="col-md-9">
+
+                <div class="clearfix"></div>
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-3" v-for="video in videos" :key="video.id" >
-                            <div class="card text-left">
-                                <nuxt-link :to="`/watch/${video.videoId}`" class="text-dark">
-                                    <img class="card-img-top" :src="video.thumbnail" alt=""  >
-                                    <div class="card-body">
-                                        <h4 class="card-title" >{{ video.title }}</h4>
-                                        <p>{{ video.published_at }}</p>
+                        <div class="col-lg-4 col-md-6 mb-4"
+                             v-for="video in videos" :key="video.id">
+                            <div class="category-card">
+                                <img class="card-img-top" :src="video.thumbnail" alt="">
+                                <nuxt-link :to="`/watch/${video.videoId}`">
+
+
+                                    <div v-if="video.title.length < 20">
+                                        <a href="#category-link" class="category">
+                                            {{ video.title }}
+                                        </a>
+
+                                    </div>
+                                    <div v-else>
+                                        <h6 style="width: 200px;
+    word-break: normal;"> {{ video.title }}</h6>
                                     </div>
                                 </nuxt-link>
                             </div>
@@ -23,17 +41,17 @@
                     </div>
                 </div>
             </div>
-            <hr>
+
         </div>
     </div>
 </template>
+
 <script>
-import SideBar from '@/components/SideS';
 import newLeftBar from "@/components/newLeftBar";
+import search from "@/components/Search";
     export default {
      components: {
-            SideBar,
-         newLeftBar
+         newLeftBar, search
         },
         async asyncData ({ $axios, params }) {
         let vid = await $axios.$get(`/videos-regional`)
