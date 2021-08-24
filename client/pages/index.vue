@@ -251,16 +251,12 @@
 </template>
 
 <script>
-import Nav from "@/components/Nav";
-import newContainerHome from "@/components/newContainerHome";
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
 export default {
     components: {
-        Nav,
         newLeftBar,
-        newContainerHome,
         newFooter,
         search
     },

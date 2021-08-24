@@ -23,6 +23,7 @@
                     </select>
                 </div>
                 <label for="inputState">#2 Pick Duration</label>
+                <br><br>
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -33,7 +34,7 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio1">1</label>
-                </div>
+                </div><br><br>
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -44,7 +45,7 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio2">2</label>
-                </div>
+                </div><br><br>
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -55,7 +56,7 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">3</label>
-                </div>
+                </div><br><br>
                 <div class="form-check form-check-inline">
                     <br>
                     <input
@@ -67,7 +68,7 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">4</label>
-                </div>
+                </div><br><br>
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -78,7 +79,7 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">5</label>
-                </div>
+                </div><br><br>
 
                 <form>
                     <div class="form-group">
@@ -95,11 +96,12 @@
                         </client-only>
                         <div class="row">
                             <input
-                                class="col-md-6 form-control"
+                                class="col-md-6 form-control pb-2"
                                 type="number"
                                 v-model="range.views[0]"
                                 @input="changeSlider"
                             />
+                            <br><br>
                             <input
                                 class="col-md-6 form-control"
                                 type="number"

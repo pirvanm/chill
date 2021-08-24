@@ -1,63 +1,35 @@
 <template>
-    <div class="body">
-        <div class="main">
-            <div class="heading">
-
-
-                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
-                <!--                <i class="fa fa-bars"></i>Menu</button>-->
-
-                <button type="submit" v-on:click=toggleSidebar()>
-                    <i class="fas fa-bars">Menu</i></button>
-                <span class="title">Chillwhispers</span>
-            </div>
-
-            <newLeftBar/>
-            <div class="content">
-                <div>
-                    <search/>
+    <div class="container-playlist c">
+        <div v-if="videos.length">
+            <div class="row">
+                <div class="col-md-2 container-vertical-nav leftBar">
+                    <LeftBar />
                 </div>
-                <div class="clearfix"></div>
-<!--                <div class="breadcrumbs mt-2 mb-2">-->
-<!--                    <a href="#">home</a>/<a href="#">chillstep</a>-->
-<!--                </div>-->
-                <div class="container">
-                    <div v-if="videos.length">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <youtube
-                                    ref="youtube"
-                                    width="100%"
-                                    height="450px"
-                                    :video-id="videos[play].videoId"
-                                    @ended="endVideo"
-                                    :player-vars="playerVars"
-                                ></youtube>
-                            </div>
-                            <div class="col-md-4">
-                                <h2>Coming up</h2>
-                                <div class="video-card mb-4"
-                                     v-for="(video, index) in videos"
-                                     :key="index">
-                                    <div class="play" v-if="index == play"></div>
-                                    <div
-                                        class="else-play cursor"
-                                        v-else
-                                        @click.prevent="clickedPlaylist(index)"
-                                    >
-                                        <img :src="video.thumbnail" alt/>
-
-
-                                        <p class="title">  {{ video.title }}</p>
-                                        <a class="anchor" href="#anchor-link"></a>
-                                    </div>
-
-                                </div>
-
-                                <h1>"Coming home" Wonderful Melodic Dubstep Mix</h1>
-
-
-                            </div>
+                <div class="col-md-6 container-video">
+                    <youtube
+                        ref="youtube"
+                        width="100%"
+                        height="450px"
+                        :video-id="videos[play].videoId"
+                        @ended="endVideo"
+                        :player-vars="playerVars"
+                    ></youtube>
+                </div>
+                <div class="col-md-4 container-list-video next-list">
+                    <h1>Coming</h1>
+                    <div
+                        class="main"
+                        v-for="(video, index) in videos"
+                        :key="index"
+                    >
+                        <div class="play" v-if="index == play"></div>
+                        <div
+                            class="else-play cursor"
+                            v-else
+                            @click.prevent="clickedPlaylist(index)"
+                        >
+                            <img :src="video.thumbnail" alt />
+                            {{ video.title }}
                         </div>
                     </div>
                 </div>
@@ -66,14 +38,12 @@
     </div>
 </template>
 <script>
-
-import newLeftBar from "@/components/newLeftBar";
-import search from "@/components/Search";
-
+import SideBar from "@/components/SideS";
+import LeftBar from "@/components/newLeftBar";
 export default {
     components: {
-        newLeftBar,
-        search
+        SideBar,
+        LeftBar
     },
     computed: {
         player() {
@@ -83,9 +53,9 @@ export default {
             return this.videos[this.videos.length - 1];
         }
     },
-    async asyncData({$axios, params}) {
+    async asyncData({ $axios, params }) {
         let vid = await $axios.$get(`/playlists/${params.slug}`);
-        return {videos: vid.data};
+        return { videos: vid.data };
     },
     head() {
         return {
@@ -223,10 +193,6 @@ export default {
         console.log(this.videos[this.play].videoId);
     },
     methods: {
-        toggleSidebar() {
-            const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
-        },
         clickedPlaylist(index) {
             this.play = index;
         },
@@ -264,19 +230,15 @@ export default {
     margin-left: 15%;
     /* background-color: white !important; */
 }
-
 .container-playlist {
     margin-top: 100px;
 }
-
 .container-list-video {
     /* background-color: #f8f8f8; */
 }
-
 .background {
     background-color: aqua;
 }
-
 .else-play {
     padding-bottom: 37px;
 }
@@ -317,7 +279,6 @@ export default {
     align-items: center;
     margin-bottom: 15px;
 }
-
 .african {
     background-image: linear-gradient(to right, red, yellow, blue);
     color: black;
@@ -332,7 +293,6 @@ export default {
     background-color: black;
     color: white;
 }
-
 .chillhop {
     background-image: linear-gradient(to right, #8b008b, #8b0000);
     color: white;
@@ -342,67 +302,54 @@ export default {
     background-image: linear-gradient(to right, #ffff00, #87ceeb);
     color: white;
 }
-
 .chillout-gaming {
     background-color: black;
     color: white;
 }
-
 .chillstep {
     background-image: linear-gradient(to right, #ba55d3, #c8e5eb);
     color: white;
 }
-
 .world {
     background-color: black;
     color: white;
 }
-
 .classic {
     background-image: linear-gradient(to right, #dc143c, #f8f8ff);
     color: white;
 }
-
 .classical {
     background-image: linear-gradient(to right, #800000, #b8860b);
     color: white;
 }
-
 .downtempo {
     background-color: grey;
     color: white;
 }
-
 .lofi {
     background-color: #ff6600;
     color: lightyellow;
 }
-
 .lofi-hip {
     background-color: black;
     color: white;
 }
-
 .lofi-house {
     background-color: black;
     color: white;
 }
-
 .lounge {
     background-image: linear-gradient(to right, #00bfff, #1e90ff);
     color: white;
 }
-
 .regional {
     background-color: black;
     color: yellow;
 }
-
 .regional-arab {
     background-image: linear-gradient(to right, green, white, black);
     color: red;
 }
-
 .regional-italy {
     color: white;
     background-image: linear-gradient(to right, #009246, #ce2b37);
@@ -412,7 +359,6 @@ export default {
     background-color: red;
     color: yellow;
 }
-
 .regional-chin {
     background-color: red;
     color: white;
@@ -422,16 +368,13 @@ export default {
     background-image: linear-gradient(to right, black, #00ced1);
     color: white;
 }
-
 .trap {
     background-image: linear-gradient(to right, black, red);
 }
-
 .sleep {
     background-color: black;
     color: white;
 }
-
 .sad {
     background-color: black;
     color: white;
@@ -451,7 +394,7 @@ export default {
     position: fixed;
     margin-right: 100px;
     /* margin-top: 120px; */
-    width: 300px;
+    width:300px;
     height: 100%;
     color: #8422a6;
     border-top-right-radius: 50px;
@@ -467,7 +410,6 @@ export default {
     padding-top: 140px;
     padding-bottom: 20px;
 }
-
 a {
     color: #8422a6;
 }
@@ -476,11 +418,9 @@ a {
     background-color: #482139;
     border-top-left-radius: 50px;
 }
-
 .next-list h1 {
     padding-top: 20px;
 }
-
 .cursor {
     cursor: pointer;
 }
