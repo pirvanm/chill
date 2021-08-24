@@ -8,7 +8,7 @@
 <!--                <i class="fa fa-bars"></i>Menu</button>-->
 
             <button type="submit" v-on:click=toggleSidebar()>
-                <i class="fas fa-bars">Menu</i></button>
+                <i class="fas fa-bars"></i></button>
             <span class="title">Chillwhispers</span>
         </div>
 

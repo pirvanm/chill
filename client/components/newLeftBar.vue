@@ -2,7 +2,7 @@
     <div>
         <div class="sidebar">
             <nav>
-                <a class="active" href="/">Home</a>
+                <a class="" href="/">Home</a>
                 <a href="/videos">Videos</a>
                 <a href="/playlists">Playlists</a>
                 <a href="/history">History</a>
