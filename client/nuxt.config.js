@@ -33,11 +33,6 @@ export default {
                 rel: "stylesheet",
                 href:
                     "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"
-            },
-            {
-                rel: "stylesheet",
-                href:
-                    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
             }
         ]
     },
@@ -49,7 +44,11 @@ export default {
     /*
      ** Global CSS
      */
-    css: ["./assets/styles/app.scss", "~/assets/styles/app.css"],
+    css: [
+        "./assets/styles/app.scss",
+        "~/assets/styles/app.css",
+        "@fortawesome/fontawesome-free/css/all.css"
+    ],
     /*
      ** Plugins to load before mounting the App
      */
@@ -67,8 +66,20 @@ export default {
     /*
      ** Nuxt.js dev-modules
      */
-    buildModules: ["@nuxtjs/dotenv", "@nuxtjs/google-analytics"],
+    buildModules: [
+        "@nuxtjs/dotenv",
+        "@nuxtjs/google-analytics",
+        "@nuxtjs/fontawesome"
+    ],
 
+    fontawesome: {
+        icons: {
+            solid: true,
+            regular: true,
+            brands: true
+        },
+        suffix: true
+    },
     googleAnalytics: {
         id: "UA-133292357-1"
     },

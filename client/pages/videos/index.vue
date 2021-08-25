@@ -17,21 +17,20 @@
                 <div class="clearfix"></div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4"  >
-                            <i class="fa fa-play" aria-hidden="true"></i>
-                            <i class="fa fa-etsy" aria-hidden="true"></i>
+                        <div class="col-lg-3 col-md-6 mb-4">
                             <div class="category-card">
                                 <img src="~assets/category/ambient.jpg"/>
                                     <div><a href="#category-link" class="category">Ambiental</a>
                                         <div class="cat-buttons">
                                             <nuxt-link to="/videos/ambiental">
                                                 <a href="#play-link" class="start" title="start playlist">
-                                                    <i class="fa fa-play" aria-hidden="true"></i>
-
-                                                </a></nuxt-link>
+                                                   <font-awesome-icon icon="play"></font-awesome-icon>
+                                                </a>
+                                            </nuxt-link>
                                             <nuxt-link to="/videos/ambiental">
                                                 <a href="#category-link" class="list" title="see playlist">
-                                                <i class="fa fa-indent" aria-hidden="true"></i></a>
+                                                    <font-awesome-icon icon="play"></font-awesome-icon>
+                                                </a>
                                             </nuxt-link>
                                         </div>
                                     </div>
