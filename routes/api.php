@@ -118,7 +118,7 @@ Route::get('/playlists/{slug}', 'PlaylistController@getPlaylistbySlug');
 Route::post('/playlists', 'PlaylistController@createPublicPlaylist');
 Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
 
-Route::post('/contactUs', 'ContactController@contactUSPost');
+Route::post('/contact', 'ContactController@contactUSPost');
 
 
 Route::get('/', function () {

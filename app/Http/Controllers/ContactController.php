@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 use App\Http\Requests;
 use App\Models\ContactUs;
 use Mail;
+
 class ContactController extends Controller
 {
     public function contact()
@@ -18,21 +21,28 @@ class ContactController extends Controller
     public function contactUSPost(Request $request)
     {
 
-        $this->validate($request, [ 'name' => 'required', 'email' => 'required|email', 'message' => 'required' ]);
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+        // $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required']);
 
-        ContactUs::create($request->all());
+        // ContactUs::create($request->all());
 
 
-        Mail::send('emails.email',
+        Mail::send(
+            'emails.email',
             array(
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'user_message' => $request->get('message')
-            ), function($message)
-            {
+            ),
+            function ($message) {
                 $message->from('saquib.gt@gmail.com');
                 $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
-            });
-        return back()->with('success', 'Thanks for contacting us!');
+            }
+        );
+        return response()->json(['success' => 'Thanks for contacting us!']);
     }
 }

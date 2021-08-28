@@ -34,7 +34,7 @@
 
                             <!--Grid column-->
                             <div class="col-md-9 mb-md-0 mb-5">
-                                <form id="contact-form" name="contact-form" action="/api/contactUSPost" method="POST">
+                                <form id="contact-form" name="contact-form" @submit.prevent="submit">
 
                                     <!--Grid row-->
                                     <div class="row">
@@ -42,7 +42,7 @@
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="name" name="name" class="form-control">
+                                                <input type="text" id="name" name="name" class="form-control" v-model="form.name">
                                                 <label for="name" class="mt-3 mb-3">Your name</label>
                                             </div>
                                         </div>
@@ -51,7 +51,7 @@
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="email" name="email" class="form-control">
+                                                <input type="text" id="email" name="email" class="form-control" v-model="form.email">
                                                 <label for="email" class="mt-3 mb-3">Your email</label>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="subject" name="subject" class="form-control">
+                                                <input type="text" id="subject" name="subject" class="form-control" v-model="form.subject">
                                                 <label for="subject" class="mt-3 mb-3">Subject</label>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
 
                                             <div class="md-form">
                                                 <textarea type="text" id="message" name="user_message" rows="2"
-                                                          class="form-control md-textarea"></textarea>
+                                                          class="form-control md-textarea" v-model="form.message"></textarea>
                                                 <label for="message">Your message</label>
                                             </div>
 
@@ -87,12 +87,14 @@
                                     </div>
                                     <!--Grid row-->
 
-                                </form>
+                              
 
-                                <div class="text-center text-md-left">
-                                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-                                </div>
-                                <div class="status"></div>
+                                    <div class="text-center text-md-left">
+                                        <button type="submit" class="btn btn-primary" :disabled="isBusy">Send</button>
+                                    </div>
+
+                                    <div class="status"></div>
+                                  </form>
                             </div>
                             <!--Grid column-->
 
@@ -131,7 +133,17 @@ export default {
         newFooter,
         search
     },
-
+    data(){
+        return {
+            isBusy: false,
+            form: {
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            }
+      }
+    },
     head: {
         title: "Chillwhispers ",
         meta: [
@@ -186,6 +198,18 @@ export default {
     // },
 
     methods: {
+        submit(){
+            this.isBusy = true;
+            this.$axios.post('/contact', this.form)
+            .then(response => {
+                this.isBusy = false;
+                console.log(response);
+            })
+            .catch(error => {
+                this.isBusy = false;
+                console.log(error.response);
+            })
+        },
         toggleSidebar() {
             const sidebar = document.querySelector(".sidebar");
             sidebar.classList.toggle('shown')
