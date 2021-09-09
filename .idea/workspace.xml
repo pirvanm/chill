@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991682e9-527e-4b93-8b94-4d50d61b4049" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PlaylistResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PlaylistResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/playlists/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/playlists/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -555,7 +555,9 @@
       <workItem from="1629311873750" duration="1741000" />
       <workItem from="1629711440929" duration="1194000" />
       <workItem from="1629722750156" duration="19549000" />
-      <workItem from="1629795804864" duration="3178000" />
+      <workItem from="1629795804864" duration="3233000" />
+      <workItem from="1631003231705" duration="143000" />
+      <workItem from="1631183741667" duration="344000" />
     </task>
     <servers />
   </component>
@@ -663,7 +665,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/nuxt.config.js</url>
-          <line>134</line>
+          <line>145</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -688,27 +690,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/videos/index.vue</url>
-          <line>467</line>
+          <line>466</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/videos/index.vue</url>
-          <line>111</line>
+          <line>110</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/videos/index.vue</url>
-          <line>145</line>
+          <line>144</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/videos/index.vue</url>
-          <line>162</line>
+          <line>161</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/pages/videos/index.vue</url>
-          <line>178</line>
+          <line>177</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>

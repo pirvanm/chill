@@ -50,7 +50,7 @@
                              :key="playlist.id" >
                             <div class="category-card">
                                 {{playlist
-                                .name}}
+                                .image}}
                                 <img src=playlist.image/>
 
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
