@@ -187,6 +187,21 @@
                            Views: {{ video.views }}
                             Duration {{ video.duration }}
                            Type: {{video.type_duration}}
+                            <div> See Video
+
+                                <button
+                                    class="btn btn-sm btn-info btn-block mt-1"
+
+                                >
+
+                                    <nuxt-link
+                                        to="/watch/_bpS-cOBK6Q"
+                                        class="text-dark"
+                                        target="_blank" >
+                                    See Video {{video.videoId}}
+                                    </nuxt-link>
+                                </button>
+                            </div>
                         </div>
                     </draggable>
                 </client-only>
