@@ -608,6 +608,22 @@
         height: 220px;
         width: 100%;
     }
+    .list ,
+    .start {
+        /*margin-top:30px;*/
+
+
+    }
+
+    .start {
+        float:left;
+        margin-left: -101px;
+    }
+
+    .list{
+        float:right;
+        padding-left: 187px;
+    }
 
 </style>
 
