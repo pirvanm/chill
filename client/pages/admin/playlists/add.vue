@@ -194,12 +194,13 @@
 
                                 >
 
-                                    <nuxt-link
-                                        to="/watch/_bpS-cOBK6Q"
-                                        class="text-dark"
-                                        target="_blank" >
-                                    See Video {{video.videoId}}
-                                    </nuxt-link>
+<!--                                    <nuxt-link-->
+<!--                                        to='/watch/' +video.videoId-->
+<!--                                        class="text-dark"-->
+<!--                                        target="_blank" >-->
+<!--                                    See Video {{video.videoId}}-->
+<!--                                    </nuxt-link>-->
+                                    <a :href="'/watch/'+ video.videoId"  target="_blank">See Video with id : {{ video.videoId}}</a>
                                 </button>
                             </div>
                         </div>
