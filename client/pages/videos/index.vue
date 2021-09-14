@@ -265,7 +265,7 @@
                                 <img src="~assets/category/lo-ho.jpeg"/>
                                 <div><a href="#category-link" class="category">Lofi House</a>
                                     <div class="cat-buttons">
-                                        <a href="/playlists/1" class="start" title="start playlist">
+                                        <a href="/playlists/Top-Lofi-House" class="start" title="start playlist">
                                             <i class="fa fa-play" aria-hidden="true"></i>
                                         </a>
 
