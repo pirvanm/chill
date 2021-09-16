@@ -24,13 +24,14 @@
                         <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
                              :key="playlist.id" >
                             <div class="category-card">
-                                <img :src= playlist.image />
-
+                         
+       <img :src= playlist.image />
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
                                     <div>
                                         <a href="#category-link" class="category">
                                             {{ playlist.name }}
                                         </a>
+                                        
                                     </div>
                                 </nuxt-link>
                             </div>
@@ -101,6 +102,6 @@ export default {
     width: 300px;
 }
 a {
-    color: #8422a6;
+    color:#f58aff
 }
 </style>
