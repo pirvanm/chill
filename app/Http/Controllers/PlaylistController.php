@@ -31,6 +31,11 @@ class PlaylistController extends Controller
     public function getPublicPlaylist()
     {
         $playlists = Playlist::latest()->where('mode', 'public')->get();
+        $popularPlaylists = Playlist::latest()->where('name', 'like','top%')->get();
+        $quickPlaylists = Playlist::latest()->where('name', 'like','quick%')->get();
+        $chillHopPlaylists = Playlist::latest()->where('name', 'like','%hop%')->get();
+        $playlistsAmbiental = Playlist::latest()->where('name','like','amb%')->get();
+        $regioanlPlaylists = Playlist::latest()->where('name', 'like','regioanal%')->get();
 
         return PlaylistResource::collection($playlists);
     }
