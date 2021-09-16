@@ -24,7 +24,7 @@
                         <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
                              :key="playlist.id" >
                             <div class="category-card">
-                                <img src="https://cdn.hipwallpaper.com/m/84/39/GJk7qy.jpg"/>
+                                <img :src= playlist.image />
 
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
                                     <div>
@@ -43,31 +43,7 @@
                 </div>
 
 
-                <div class="container">
-                    <h1>All </h1>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
-                             :key="playlist.id" >
-                            <div class="category-card">
-                                {{playlist
-                                .image}}
-                                <img src=playlist.image/>
 
-                                <nuxt-link :to="`/playlists/${playlist.slug}`">
-                                    <div>
-                                        <a href="#category-link" class="category">
-                                            {{ playlist.name }}
-                                        </a>
-                                    </div>
-                                </nuxt-link>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
 
             </div>
         </div>
