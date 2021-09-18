@@ -3,10 +3,6 @@
         <div class="main">
             <div class="heading">
 
-
-                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
-                <!--                <i class="fa fa-bars"></i>Menu</button>-->
-
                 <button type="submit" v-on:click=toggleSidebar()>
                     <i class="fas fa-bars"></i></button>
                 <span class="title">Chillwhispers</span>
@@ -18,9 +14,6 @@
                     <search/>
                 </div>
                 <div class="clearfix"></div>
-<!--                <div class="breadcrumbs mt-2 mb-2">-->
-<!--                    <a href="#">home</a>/<a href="#">chillstep</a>-->
-<!--                </div>-->
                 <div class="container">
                     <div v-if="videos.length">
                         <div class="row">
@@ -54,7 +47,7 @@
 
                                 </div>
 
-                                <h1>"Coming home" Wonderful Melodic Dubstep Mix</h1>
+                    
 
 
                             </div>

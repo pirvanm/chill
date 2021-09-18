@@ -19,13 +19,33 @@
                 <div class="clearfix"></div>
 
                 <div class="container">
+                    <h1>Popular  Category</h1>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4"  v-for="popularCategory in popularPlaylistsByCategory"
+                             :key="popularCategory.id" >
+                            <div class="category-card">
+                         
+                        <img :src= popularCategory.image />
+                                <nuxt-link :to="`/playlists/${popularCategory.slug}`">
+                                    <div>
+                                        <a href="#category-link" class="category">
+                                            {{ popularCategory.name }}
+                                        </a>
+                                        
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <h1>Popular Playlist For Each Category</h1>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
                              :key="playlist.id" >
                             <div class="category-card">
                          
-       <img :src= playlist.image />
+                        <img :src= playlist.image />
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
                                     <div>
                                         <a href="#category-link" class="category">
@@ -36,15 +56,8 @@
                                 </nuxt-link>
                             </div>
                         </div>
-
-
-
                     </div>
-
                 </div>
-
-
-
 
             </div>
         </div>
@@ -65,7 +78,7 @@ export default {
     async asyncData({ $axios, params }) {
         let vid = await $axios.$get(`/playlists`);
         let chann = await $axios.$get(`/channels`);
-        return { playlists: vid.data, channels: chann.data };
+        return { playlists: vid.data,popularPlaylistsByCategory:vid.data, channels: chann.data };
     }
 };
 </script>
