@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 use App\Http\Requests;
+use App\Mail\ContactRequest;
+use App\Models\Contact;
 use App\Models\ContactUs;
 use Mail;
 
@@ -24,25 +26,18 @@ class ContactController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'subject' => 'required',
             'message' => 'required',
         ]);
-        // $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required']);
 
-        // ContactUs::create($request->all());
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
 
-
-        Mail::send(
-            'emails.email',
-            array(
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'user_message' => $request->get('message')
-            ),
-            function ($message) {
-                $message->from('saquib.gt@gmail.com');
-                $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
-            }
-        );
+        Mail::to('whisperchill4@gmail.com')->send(new ContactRequest($contact));
         return response()->json(['success' => 'Thanks for contacting us!']);
     }
 }

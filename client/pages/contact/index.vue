@@ -2,13 +2,12 @@
     <div class="body">
         <div class="main">
             <div class="heading">
-
-
                 <!--            <button type="submit" v-on:click=toggleSidebar()>-->
                 <!--                <i class="fa fa-bars"></i>Menu</button>-->
 
-                <button type="submit" v-on:click=toggleSidebar()>
-                    <i class="fas fa-bars"></i></button>
+                <button type="submit" v-on:click="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <span class="title">Chillwhispers</span>
             </div>
 
@@ -19,31 +18,48 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <h1>Write A message for us </h1>
+                <h1>Write A message for us</h1>
                 <div class="container">
                     <!--Section: Contact v.2-->
                     <section class="mb-4">
-
                         <!--Section heading-->
-                        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                        <h2
+                            class="h1-responsive font-weight-bold text-center my-4"
+                        >
+                            Contact us
+                        </h2>
                         <!--Section description-->
-                        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-                            a matter of hours to help you.</p>
+                        <p class="text-center w-responsive mx-auto mb-5">
+                            Do you have any questions? Please do not hesitate to
+                            contact us directly. Our team will come back to you
+                            within a matter of hours to help you.
+                        </p>
 
                         <div class="row">
-
                             <!--Grid column-->
                             <div class="col-md-9 mb-md-0 mb-5">
-                                <form id="contact-form" name="contact-form" @submit.prevent="submit">
-
+                                <form
+                                    id="contact-form"
+                                    name="contact-form"
+                                    @submit.prevent="submit"
+                                >
                                     <!--Grid row-->
                                     <div class="row">
-
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="name" name="name" class="form-control" v-model="form.name">
-                                                <label for="name" class="mt-3 mb-3">Your name</label>
+                                                <input
+                                                    type="text"
+                                                    id="name"
+                                                    name="name"
+                                                    class="form-control"
+                                                    v-model="form.name"
+                                                />
+                                                <label
+                                                    for="name"
+                                                    class="mt-3 mb-3"
+                                                    >Your name</label
+                                                >
                                             </div>
                                         </div>
                                         <!--Grid column-->
@@ -51,12 +67,21 @@
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="email" name="email" class="form-control" v-model="form.email">
-                                                <label for="email" class="mt-3 mb-3">Your email</label>
+                                                <input
+                                                    type="text"
+                                                    id="email"
+                                                    name="email"
+                                                    class="form-control"
+                                                    v-model="form.email"
+                                                />
+                                                <label
+                                                    for="email"
+                                                    class="mt-3 mb-3"
+                                                    >Your email</label
+                                                >
                                             </div>
                                         </div>
                                         <!--Grid column-->
-
                                     </div>
                                     <!--Grid row-->
 
@@ -64,8 +89,18 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="subject" name="subject" class="form-control" v-model="form.subject">
-                                                <label for="subject" class="mt-3 mb-3">Subject</label>
+                                                <input
+                                                    type="text"
+                                                    id="subject"
+                                                    name="subject"
+                                                    class="form-control"
+                                                    v-model="form.subject"
+                                                />
+                                                <label
+                                                    for="subject"
+                                                    class="mt-3 mb-3"
+                                                    >Subject</label
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -73,49 +108,57 @@
 
                                     <!--Grid row-->
                                     <div class="row">
-
                                         <!--Grid column-->
                                         <div class="col-md-12">
-
                                             <div class="md-form">
-                                                <textarea type="text" id="message" name="user_message" rows="2"
-                                                          class="form-control md-textarea" v-model="form.message"></textarea>
-                                                <label for="message">Your message</label>
+                                                <textarea
+                                                    type="text"
+                                                    id="message"
+                                                    name="user_message"
+                                                    rows="2"
+                                                    class="form-control md-textarea"
+                                                    v-model="form.message"
+                                                ></textarea>
+                                                <label for="message"
+                                                    >Your message</label
+                                                >
                                             </div>
-
                                         </div>
                                     </div>
                                     <!--Grid row-->
-
-                              
 
                                     <div class="text-center text-md-left">
-                                        <button type="submit" class="btn btn-primary" :disabled="isBusy">Send</button>
+                                        <button
+                                            type="submit"
+                                            class="btn btn-primary"
+                                            :disabled="isBusy"
+                                        >
+                                            Send
+                                        </button>
                                     </div>
 
                                     <div class="status"></div>
-                                  </form>
+                                </form>
                             </div>
                             <!--Grid column-->
 
                             <!--Grid column-->
                             <div class="col-md-3 text-center">
                                 <ul class="list-unstyled mb-0">
-<!--                                    <li><i class="fas fa-map-marker-alt fa-2x"></i>-->
-<!--                                        <p>San Francisco, CA 94126, USA</p>-->
-<!--                                    </li>-->
+                                    <!--                                    <li><i class="fas fa-map-marker-alt fa-2x"></i>-->
+                                    <!--                                        <p>San Francisco, CA 94126, USA</p>-->
+                                    <!--                                    </li>-->
 
-
-
-                                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                    <li>
+                                        <i
+                                            class="fas fa-envelope mt-4 fa-2x"
+                                        ></i>
                                         <p>whisperchill4@gmail.com</p>
                                     </li>
                                 </ul>
                             </div>
                             <!--Grid column-->
-
                         </div>
-
                     </section>
                 </div>
             </div>
@@ -133,16 +176,16 @@ export default {
         newFooter,
         search
     },
-    data(){
+    data() {
         return {
             isBusy: false,
             form: {
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
+                name: "",
+                email: "",
+                subject: "",
+                message: ""
             }
-      }
+        };
     },
     head: {
         title: "Chillwhispers ",
@@ -198,21 +241,20 @@ export default {
     // },
 
     methods: {
-        submit(){
+        submit() {
             this.isBusy = true;
-            this.$axios.post('/contact', this.form)
-            .then(response => {
-                this.isBusy = false;
-                console.log(response);
-            })
-            .catch(error => {
-                this.isBusy = false;
-                console.log(error.response);
-            })
+            this.$axios
+                .post("/contact", this.form)
+                .then(response => {
+                    this.isBusy = false;
+                })
+                .catch(error => {
+                    this.isBusy = false;
+                });
         },
         toggleSidebar() {
             const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
+            sidebar.classList.toggle("shown");
         },
         move(e) {
             if (e.keyCode === 48) {
@@ -293,12 +335,11 @@ export default {
 </script>
 
 <style scoped>
-
 p {
-    color:white;
+    color: white;
 }
 label {
-    color:#f58aff;
+    color: #f58aff;
 }
 /*# sourceMappingURL=style.css.map */
 </style>
