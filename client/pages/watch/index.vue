@@ -1,206 +1,97 @@
 <template>
-    <div class="c container-fluid">
-        <div class="row">
-            <div
-                class="col-md-2 leftBar d-lg-block d-none d-md-block d-lg-none"
-            >
-                <newLeftBar />
+    <div class="body">
+        <div class="main">
+            <div class="heading">
+            <button type="submit" v-on:click=toggleSidebar()>
+                <i class="fas fa-bars"></i>
+            </button>
+            <span class="title">Chillwhispers</span>
+        </div>
+        <newLeftBar />
+        <div class="content">
+            <div>
+                <search />
             </div>
 
-            <!-- Video Container -->
-            <div class="offset-md-2 col-md-6">
-                <search />
-                <div class="container-tags">
-                    <span
-                        class="badge badge-primary"
-                        style="cursor:pointer"
-                        v-for="(tag, index) in vid.tags.slice(0, 10)"
-                        :key="`${index}tag`"
-                        @click.prevent="clickTags(tag.id)"
-                    >
-                        {{ tag.name.substring(0, 12) }}...
-                    </span>
+            <div class="clearfix"></div>
 
-                    <br />
-
-                    <div class="d-flex" v-if="isAdmin">
-                        <b-modal
-                            :id="`modal-primary`"
-                            title="BootstrapVue"
-                            hide-footer
-                        >
+            <div class="container">
+                <div v-if="vids.length">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="breadcrumbs">
+                                <a href="/">Home</a>/ <nuxt-link :to="`/videos/${vid.category.category_name}`">
+                                {{vid.category.category_name}}
+                                </nuxt-link>
+                            </div>
+                            <br>
+                            <div class="d-flex mb-5" v-if="isAdmin">
+                            <b-modal :id="`modal-primary`" title="BootstrapVue" hide-footer>
+ 
                             <h1>
                                 Update Category of this video
                             </h1>
                             <select v-model="update.category">
                                 <option
-                                    v-for="(cat, cindex) in categories"
-                                    :key="`cat-${cindex}`"
-                                    :value="cat.id"
-                                    >{{ cat.category_name }}</option
-                                >
+                                    v-for="(cat, cindex) in categories" :key="`cat-${cindex}`":value="cat.id">{{ cat.category_name }}
+                                    </option>
                             </select>
 
                             <button class="btn btn-sm btn-success" @click.prevent="saveCategory(vid.id, 'modal-primary') ">
                                 Save
                             </button>
-                        </b-modal>
-
-                        <button
-                            class="btn btn-primary"
-                            @click.prevent="$bvModal.show(`modal-primary`)"
-                        >
-                            Update
-                        </button>
-
-<!--                        <button   type="button"-->
-<!--                                  class="btn btn-info ml-2"> {{v.category.category_name}}</button>-->
-
-                        <button
-                            type="button"
-                            class="btn btn-danger ml-2 btn-sm"
-                            data-dismiss="modal"
-                            @click.prevent="deleteVideo(vid.id, 'watch', 0)">
-                            Remove
-                        </button>
-                    </div>
-
-                    <youtube
-                        ref="youtube"
-                        width="100%"
-                        height="450px"
-                        :video-id="vid.videoId"
-                        :player-vars="playerVars"
-                        @ended="endVideo"
-                    >
-                    </youtube>
-                    <h3 class="title">{{ vid.title }}</h3>
-                    <div class="video-desc" v-html="vid.description"></div>
-                </div>
-            </div>
-            <!-- Next Video -->
-            <div class="col-md-4 next-list">
-                <h1 style="color: white">
-                    {{ nextSongText }} :
-                    <br />
-                    <br />
-                </h1>
-
-                <div
-                    class="card"
-                    style="cursor:pointer"
-                    v-for="(tv, index) in tagvids"
-                    :key="`${index}-v`"
-                >
-                    <div class="d-flex" v-if="isAdmin">
-                        <b-modal
-                            :id="`modal-${index}v`"
-                            title="BootstrapVue"
-                            hide-footer
-                        >
-                            <h1>
-                                Update Category of this video
-                            </h1>
-                            <select v-model="update.category">
-                                <option
-                                    v-for="(cat, cindex) in categories"
-                                    :key="`cat-${cindex}`"
-                                    :value="cat.id"
-                                    >{{ cat.category_name }}</option
-                                >
-                            </select>
+                            </b-modal>
+                            <button class="btn btn-primary" @click.prevent="$bvModal.show(`modal-primary`)">Update
+                            </button>
 
                             <button
-                                class="btn btn-sm btn-success"
-                                @click.prevent="
-                                    saveCategory(tv.id, `modal-${index}v`)
-                                "
-                            >
-                                Save
-                            </button>
-                        </b-modal>
-
-                        <button
-                            class="btn btn-primary"
-                            @click.prevent="updateVideo(index)"
-                        >
-                            Update 1
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-danger ml-2"
-                            data-dismiss="modal"
-                            @click.prevent="
-                                deleteVideo(tv.id, 'category', index)
-                            "
-                        >
+                            type="button" class="btn btn-danger ml-2 btn-sm" data-dismiss="modal" @click.prevent="deleteVideo(vid.id, 'watch', 0)">
                             Remove
-                        </button>
+                            </button>
                     </div>
-
-                    <img
-                        class="card-img-top"
-                        @click.prevent="gotoWatch(tv.videoId)"
-                        :src="tv.thumbnail"
-                        alt
-                    />
-                    <div class="card-body">
-                        <h4
-                            class="card-title"
-                            @click.prevent="gotoWatch(tv.videoId)"
-                        >
-                            {{ tv.title }}
-                        </h4>
+                             <br>
+                           <h3 class="title">{{ vid.title }}</h3>
+                            <br>
+                    <youtube ref="youtube" width="100%" :video-id="vid.videoId" :player-vars="playerVars" @ended="endVideo" >
+                    </youtube>
+                  
+                    <div class="video-desc" v-html="vid.description"></div>
                     </div>
-                </div>
-
-                <div class="card" style="cursor:pointer" v-for="(v, index) in vids" :key="`${index}v`">
-                    <!--  if i'm loggend && admin(you or you) || user_id = 1 me or you-->
-                    <div class="d-flex" v-if="isAdmin">
-                        <b-modal :id="`modal-${index}v`" title="BootstrapVue" hide-footer
-                        >
+                        <div class="col-md-4">
+                            <h1>Coming up</h1>
+                            <div class="video-card mb-4" v-for="(v, index) in vids" :key="`${index}v`" @click.prevent="gotoWatch(v.videoId)">
+                                <div class="d-flex mb-5" v-if="isAdmin">
+                        <b-modal :id="`modal-${index}v`" title="BootstrapVue" hide-footer >
                             <h1>
                                 Update Category of this video
                             </h1>
                             <select v-model="update.category">
-                                <option
-                                    v-for="(cat, cindex) in categories"
-                                    :key="`cat-${cindex}`"
-                                    :value="cat.id"
-                                    >{{ cat.category_name }}</option
-                                >
-                            </select>
+                                <option v-for="(cat, cindex) in categories" :key="`cat-${cindex}`" :value="cat.id" >{{ cat.category_name }}</option>
+                                </select>
 
                             <button class="btn btn-sm btn-success"
-                                @click.prevent="
-                                    saveCategory(v.id, `modal-${index}v`)">
-                                Save
+                                @click.prevent=" saveCategory(v.id, `modal-${index}v`)"> Save
                             </button>
                         </b-modal>
 
                         <button class="btn btn-primary" @click.prevent="updateVideo(index)">
                             Update
                         </button>
+
                         <button type="button" class="btn btn-danger ml-2" data-dismiss="modal" @click.prevent="deleteVideo(v.id, 'category', index)">
                             Remove
                         </button>
-                        <button   type="button" class="btn btn-info ml-2"> {{v.category.category_name}}</button>
-
+                        <button type="button" class="btn btn-info ml-2"> {{v.category.category_name}}</button>
+                    </div>      
+                            <img :src="v.thumbnail"  />
+                                <p class="title">  {{ v.title }}</p>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-
-
-                        <h1 class="card-title bg-dark " style="padding:20px;
-                        margin-top:-30px; margin-bottom: 20px; color:white; position:relative;text-align:center" @click.prevent="gotoWatch(v.videoId)">
-                            {{ v.title }}
-                        </h1>
-
-
-                    <img class="card-img-top mt-3 mb-2" style="position: relative ;margin-bottom: 60px;" :src="v.thumbnail" alt @click.prevent="gotoWatch(v.videoId)"/>
-
-                </div>
+             </div>
             </div>
-        </div>
+     </div>
     </div>
 </template>
 
@@ -479,6 +370,10 @@ export default {
             });
             this.addToHistory();
         },
+           toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle('shown')
+        },
         addToHistory() {
             var data = this.vid;
             this.$store.dispatch("history/addVideoToHistory", data);
@@ -565,11 +460,19 @@ p {
 }
 
 .title {
-    font-size: 1.5em;
+    font-size: 1em;
     color: white;
     font-weight: bold;
     margin-top: 2em;
 }
+
+    @media (min-width: 320px) {
+        title {
+              font-size: 0.5em;
+        }
+    }
+
+
 .leftBar {
     background-color: #090909;
     position: fixed;
@@ -584,6 +487,31 @@ iframe {
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
-    height: 1200px;
+  
+      height: auto   !important;
+}
+
+
+@media (min-device-width: 320px ) and (max-device-width: 768px) {
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    .video-desc {
+        display:none;
+    }
+
+    h3 title {
+        font-size: 1em!important;
+    }
+
+    title {
+           font-size: 1em!important;
+    }
+}
+
+youtube {
+     width: 100%    !important;
+  height: auto   !important;
 }
 </style>

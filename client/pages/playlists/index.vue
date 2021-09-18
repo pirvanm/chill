@@ -79,7 +79,15 @@ export default {
         let vid = await $axios.$get(`/playlists`);
         let chann = await $axios.$get(`/channels`);
         return { playlists: vid.data,popularPlaylistsByCategory:vid.data, channels: chann.data };
-    }
+    },
+
+   methods: {
+
+          toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle('shown')
+        }
+   }
 };
 </script>
 

@@ -12,7 +12,12 @@ export default {
     methods: {
         gotoWatch() {
             this.$router.push(`/watch?v=${this.$route.params.id}`);
-        }
+        },
+        toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle('shown')
+        },
+    
     }
 };
 </script>

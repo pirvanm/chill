@@ -934,6 +934,15 @@
         padding: 5px 15px;
         border-radius: 50%;
     }
+   @media (max-width: 768px) {
+    .category-card .cat-buttons a[data-v-332576d4] {
+    font-size: 26px;
+    padding: 5px 93px;
+    border-radius: 3px;
+    margin-top: -138px;
+    position: relative;
+}
+   }
     .category-card .cat-buttons a:hover {
         color: #d303fc;
     }

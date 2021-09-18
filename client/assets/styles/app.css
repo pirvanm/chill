@@ -19,3 +19,18 @@ ul.footer li {
 * {
     font-size: 20px;
 }
+
+
+@media (min-width: 320px ) and (max-width: 768px) {
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    .video-desc {
+        display:none;
+    }
+
+    h3 title {
+        font-size: 1em;
+    }
+}
