@@ -34,6 +34,7 @@ ul li {
 import menuAdmin from "@/components/MenuAdmin";
 
 export default {
+    middleware: ["admin"],
     components: {
         menuAdmin
     },

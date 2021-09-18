@@ -23,7 +23,7 @@
                     </select>
                 </div>
                 <label for="inputState">#2 Pick Duration</label>
-                <br><br>
+                <br /><br />
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -34,7 +34,8 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio1">1</label>
-                </div><br><br>
+                </div>
+                <br /><br />
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -45,7 +46,8 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio2">2</label>
-                </div><br><br>
+                </div>
+                <br /><br />
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -56,9 +58,10 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">3</label>
-                </div><br><br>
+                </div>
+                <br /><br />
                 <div class="form-check form-check-inline">
-                    <br>
+                    <br />
                     <input
                         class="form-check-input"
                         type="radio"
@@ -68,7 +71,8 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">4</label>
-                </div><br><br>
+                </div>
+                <br /><br />
                 <div class="form-check form-check-inline">
                     <input
                         class="form-check-input"
@@ -79,7 +83,8 @@
                         v-model="filter.duration"
                     />
                     <label class="form-check-label" for="inlineRadio3">5</label>
-                </div><br><br>
+                </div>
+                <br /><br />
 
                 <form>
                     <div class="form-group">
@@ -101,7 +106,7 @@
                                 v-model="range.views[0]"
                                 @input="changeSlider"
                             />
-                            <br><br>
+                            <br /><br />
                             <input
                                 class="col-md-6 form-control"
                                 type="number"
@@ -183,24 +188,27 @@
                             v-for="video in videos.data"
                             :key="video.title"
                         >
-                           Title: {{ video.title }}
-                           Views: {{ video.views }}
-                            Duration {{ video.duration }}
-                           Type: {{video.type_duration}}
-                            <div> See Video
+                            Title: {{ video.title }} Views:
+                            {{ video.views }} Duration
+                            {{ video.duration }} Type: {{ video.type_duration }}
+                            <div>
+                                See Video
 
                                 <button
                                     class="btn btn-sm btn-info btn-block mt-1"
-
                                 >
-
-<!--                                    <nuxt-link-->
-<!--                                        to='/watch/' +video.videoId-->
-<!--                                        class="text-dark"-->
-<!--                                        target="_blank" >-->
-<!--                                    See Video {{video.videoId}}-->
-<!--                                    </nuxt-link>-->
-                                    <a :href="'/watch/'+ video.videoId"  target="_blank">See Video with id : {{ video.videoId}}</a>
+                                    <!--                                    <nuxt-link-->
+                                    <!--                                        to='/watch/' +video.videoId-->
+                                    <!--                                        class="text-dark"-->
+                                    <!--                                        target="_blank" >-->
+                                    <!--                                    See Video {{video.videoId}}-->
+                                    <!--                                    </nuxt-link>-->
+                                    <a
+                                        :href="'/watch/' + video.videoId"
+                                        target="_blank"
+                                        >See Video with id :
+                                        {{ video.videoId }}</a
+                                    >
                                 </button>
                             </div>
                         </div>
@@ -248,6 +256,7 @@ export default {
             }
         };
     },
+    middleware: ["admin"],
     mounted() {},
     data() {
         return {

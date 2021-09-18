@@ -1,11 +1,6 @@
 <template>
-
-
     <div>
-
-
         Video Admin
-
 
         <h1>Video Insert Zone</h1>
         <youtube
@@ -28,8 +23,8 @@
                     @change="getVideoId"
                 />
                 <span class="text-danger" v-if="errors.video">{{
-                        errors.video[0]
-                    }}</span>
+                    errors.video[0]
+                }}</span>
 
                 <div class="row">
                     <div class="col-md-6">
@@ -95,6 +90,7 @@ export default {
     },
     //  middleware: ["auth"],
     layout: "MenuAdmin",
+    middleware: ["admin"],
     data() {
         return {
             playerVars: {
@@ -196,6 +192,5 @@ export default {
             }
         }
     }
-
 };
 </script>

@@ -79,7 +79,7 @@
 <script>
 import Multiselect from "vue-multiselect";
 export default {
-    //  middleware: ["auth"],
+    middleware: ["admin"],
     components: {
         Multiselect
     },
