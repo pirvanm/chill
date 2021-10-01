@@ -6,7 +6,7 @@
                 <a href="/videos">Videos</a>
                 <nuxt-link to="/playlists">Playlists</nuxt-link>
                 <a href="/history">History</a>
-                <a href="#">Contact</a>
+                <a href="/contact">Contact</a>
             </nav>
         </div>
 
