@@ -2,16 +2,16 @@
     <div class="body">
         <div class="main">
             <div class="heading">
-
-                <button type="submit" v-on:click=toggleSidebar()>
-                    <i class="fas fa-bars"></i></button>
+                <button type="submit" v-on:click="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <span class="title">Chillwhispers</span>
             </div>
 
-            <newLeftBar/>
+            <newLeftBar />
             <div class="content">
                 <div>
-                    <search/>
+                    <search />
                 </div>
                 <div class="clearfix"></div>
                 <div class="container">
@@ -29,27 +29,32 @@
                             </div>
                             <div class="col-md-4">
                                 <h2>Coming up</h2>
-                                <div class="video-card mb-4"
-                                     v-for="(video, index) in videos"
-                                     :key="index">
-                                    <div class="play" v-if="index == play"></div>
+                                <div
+                                    class="video-card mb-4 overflow-auto"
+                                    v-for="(video, index) in videos"
+                                    :key="index"
+                                >
                                     <div
-                                        class="else-play cursor"
-                                        v-else
+                                        class="else-play cursor "
+                                        :class="
+                                            videos[play].videoId ==
+                                            video.videoId
+                                                ? 'selected-border'
+                                                : ''
+                                        "
                                         @click.prevent="clickedPlaylist(index)"
                                     >
-                                        <img :src="video.thumbnail" alt/>
+                                        <img :src="video.thumbnail" alt />
 
-
-                                        <p class="title">  {{ video.title }}</p>
-                                        <a class="anchor" href="#anchor-link"></a>
+                                        <p class="title">
+                                            {{ video.title }}
+                                        </p>
+                                        <a
+                                            class="anchor"
+                                            href="#anchor-link"
+                                        ></a>
                                     </div>
-
                                 </div>
-
-                    
-
-
                             </div>
                         </div>
                     </div>
@@ -59,7 +64,6 @@
     </div>
 </template>
 <script>
-
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
 
@@ -76,9 +80,9 @@ export default {
             return this.videos[this.videos.length - 1];
         }
     },
-    async asyncData({$axios, params}) {
+    async asyncData({ $axios, params }) {
         let vid = await $axios.$get(`/playlists/${params.slug}`);
-        return {videos: vid.data};
+        return { videos: vid.data };
     },
     head() {
         return {
@@ -213,27 +217,40 @@ export default {
     },
     mounted() {
         this.getVideoIdParams();
-        console.log(this.videos[this.play].videoId);
+        this.addVideoIdToUrl();
     },
     methods: {
+        addVideoIdToUrl() {
+            if (this.play) {
+                this.$router.push(
+                    `/playlists/${this.$route.params.slug}?videoid=${
+                        this.videos[this.play].videoId
+                    }`
+                );
+            }
+        },
         toggleSidebar() {
             const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
+            sidebar.classList.toggle("shown");
         },
         clickedPlaylist(index) {
             this.play = index;
+            this.$router.push(
+                `/playlists/${this.$route.params.slug}?videoid=${this.videos[index].videoId}`
+            );
         },
         getVideoIdParams() {
-            console.log(this.$route.query.videoid);
+            var index = this.videos.findIndex(
+                v => v.videoId === this.$route.query.videoid
+            );
 
             if (this.$route.query.videoid) {
-                this.play = this.$route.query.videoid;
+                this.play = index;
             } else {
                 this.play = 0;
             }
         },
         endVideo() {
-            console.log("Ended");
             var indexid = this.videos.findIndex(
                 f => f.id === this.videoLastId.id
             );
@@ -249,10 +266,6 @@ export default {
 </script>
 
 <style scoped>
-.container-vertical-nav {
-    /* background-color: #f8f8f8; */
-}
-
 .container-video {
     margin-left: 15%;
     /* background-color: white !important; */
@@ -260,10 +273,6 @@ export default {
 
 .container-playlist {
     margin-top: 100px;
-}
-
-.container-list-video {
-    /* background-color: #f8f8f8; */
 }
 
 .background {
@@ -476,5 +485,8 @@ a {
 
 .cursor {
     cursor: pointer;
+}
+.selected-border {
+    border: 5px solid purple !important;
 }
 </style>

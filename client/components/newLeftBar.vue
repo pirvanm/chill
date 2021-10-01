@@ -4,18 +4,17 @@
             <nav>
                 <a class="" href="/">Home</a>
                 <a href="/videos">Videos</a>
-                <a href="/playlists">Playlists</a>
+                <nuxt-link to="/playlists">Playlists</nuxt-link>
                 <a href="/history">History</a>
                 <a href="#">Contact</a>
             </nav>
         </div>
 
-
-<!--        <div class="footer">-->
-<!--            <ul>-->
-<!--                <li></li>-->
-<!--            </ul>-->
-<!--        </div>-->
+        <!--        <div class="footer">-->
+        <!--            <ul>-->
+        <!--                <li></li>-->
+        <!--            </ul>-->
+        <!--        </div>-->
     </div>
 </template>
 <script>
