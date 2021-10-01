@@ -210,7 +210,7 @@
                                         {{ video.videoId }}</a
                                     >
                                       <a
-                                        :href="'  video.videoId'"
+                                        :href="'  video.thumbnail'"
                                         target="_blank"
                                         >See Video Image:
                                         {{ video.videoId }}</a
