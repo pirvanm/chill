@@ -15,7 +15,17 @@
         <newLeftBar />
         <div class="content">
             <div>
+            <div class="d-flex mb-5" v-if="isAdmin">
+                 <button class="btn-info btn">
+                <nuxt-link
+                                to="/admin"
+                                class="text-dark"
+                            >Admin
+                        </nuxt-link>
+                 </button>
+                 </div>
                 <search />
+                 
             </div>
 
             <div class="clearfix"></div>
@@ -275,6 +285,11 @@ export default {
         newLeftBar,
         newFooter,
         search
+    },
+    data () {
+        return {
+                isAdmin: false,
+        }
     },
 
     head: {
