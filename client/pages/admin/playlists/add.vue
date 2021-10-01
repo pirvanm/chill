@@ -209,6 +209,12 @@
                                         >See Video with id :
                                         {{ video.videoId }}</a
                                     >
+                                      <a
+                                        :href="'  video.videoId'"
+                                        target="_blank"
+                                        >See Video Image:
+                                        {{ video.videoId }}</a
+                                    >
                                 </button>
                             </div>
                         </div>
