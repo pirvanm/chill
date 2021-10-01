@@ -22,6 +22,7 @@
             <h1>Popular songs</h1>
             <div class="container">
                 <div class="row">
+
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="video-card">
                             <nuxt-link
@@ -65,6 +66,21 @@
                                 </p>
                             </nuxt-link>
                             <a href="#" class="category">ChillHop</a>
+                        </div>
+                    </div>
+
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card">
+                            <nuxt-link
+                                to="/watch/S9bCLPwzSC0"
+                                class="text-dark"
+                            >
+                                <img src="https://i.ytimg.com/vi/S9bCLPwzSC0/mqdefault.jpg"/>
+                                <p class="title">
+                                   Eminem
+                                </p>
+                            </nuxt-link>
+                            <a href="#" class="category">Rapp</a>
                         </div>
                     </div>
 
