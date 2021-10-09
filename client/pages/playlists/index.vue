@@ -2,13 +2,9 @@
     <div class="body">
         <div class="main">
             <div class="heading">
-
-
-                <!--            <button type="submit" v-on:click=toggleSidebar()>-->
-                <!--                <i class="fa fa-bars"></i>Menu</button>-->
-
-                <button type="submit" v-on:click=toggleSidebar()>
-                    <i class="fas fa-bars"></i></button>
+                <button type="submit" @click="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <span class="title">Chillwhispers</span>
             </div>
             <newLeftBar />
@@ -16,42 +12,50 @@
                 <div>
                     <search />
                 </div>
-                <div class="clearfix"></div>
 
                 <div class="container">
-                    <h1>Popular  Category</h1>
+                    <h1>Top Category</h1>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4"  v-for="popularCategory in popularPlaylistsByCategory"
-                             :key="popularCategory.id" >
+                        <div
+                            class="col-lg-3 col-md-6 mb-4"
+                            v-for="popularCategory in tops"
+                            :key="popularCategory.id"
+                        >
                             <div class="category-card">
-                         
-                        <img :src= popularCategory.image />
-                                <nuxt-link :to="`/playlists/${popularCategory.slug}`">
+                                <img :src="popularCategory.image" />
+                                <nuxt-link
+                                    :to="`/playlists/${popularCategory.slug}`"
+                                >
                                     <div>
-                                        <a href="#category-link" class="category">
+                                        <a
+                                            href="#category-link"
+                                            class="category"
+                                        >
                                             {{ popularCategory.name }}
                                         </a>
-                                        
                                     </div>
                                 </nuxt-link>
                             </div>
                         </div>
                     </div>
 
-
                     <h1>Popular Playlist For Each Category</h1>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4"  v-for="playlist in playlists"
-                             :key="playlist.id" >
+                        <div
+                            class="col-lg-3 col-md-6 mb-4"
+                            v-for="playlist in playlists"
+                            :key="playlist.id"
+                        >
                             <div class="category-card">
-                         
-                        <img :src= playlist.image />
+                                <img :src="playlist.image" />
                                 <nuxt-link :to="`/playlists/${playlist.slug}`">
                                     <div>
-                                        <a href="#category-link" class="category">
+                                        <a
+                                            href="#category-link"
+                                            class="category"
+                                        >
                                             {{ playlist.name }}
                                         </a>
-                                        
                                     </div>
                                 </nuxt-link>
                             </div>
@@ -59,10 +63,60 @@
                     </div>
                 </div>
 
+                <div class="clearfix"></div>
+
+                <div class="container">
+                    <h1>Popular Category</h1>
+                    <div class="row">
+                        <div
+                            class="col-lg-3 col-md-6 mb-4"
+                            v-for="popularCategory in playlists"
+                            :key="popularCategory.id"
+                        >
+                            <div class="category-card">
+                                <img :src="popularCategory.image" />
+                                <nuxt-link
+                                    :to="`/playlists/${popularCategory.slug}`"
+                                >
+                                    <div>
+                                        <a
+                                            href="#category-link"
+                                            class="category"
+                                        >
+                                            {{ popularCategory.name }}
+                                        </a>
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Popular Playlist For Each Category</h1>
+                    <div class="row">
+                        <div
+                            class="col-lg-3 col-md-6 mb-4"
+                            v-for="playlist in playlists"
+                            :key="playlist.id"
+                        >
+                            <div class="category-card">
+                                <img :src="playlist.image" />
+                                <nuxt-link :to="`/playlists/${playlist.slug}`">
+                                    <div>
+                                        <a
+                                            href="#category-link"
+                                            class="category"
+                                        >
+                                            {{ playlist.name }}
+                                        </a>
+                                    </div>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -76,18 +130,21 @@ export default {
         search
     },
     async asyncData({ $axios, params }) {
-        let vid = await $axios.$get(`/playlists`);
+        let playlist = await $axios.$get(`/playlists`);
         let chann = await $axios.$get(`/channels`);
-        return { playlists: vid.data,popularPlaylistsByCategory:vid.data, channels: chann.data };
+        return {
+            playlists: playlist.playlists,
+            tops: playlist.top,
+            channels: chann.data
+        };
     },
 
-   methods: {
-
-          toggleSidebar() {
+    methods: {
+        toggleSidebar() {
             const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
+            sidebar.classList.toggle("shown");
         }
-   }
+    }
 };
 </script>
 
@@ -123,6 +180,6 @@ export default {
     width: 300px;
 }
 a {
-    color:#f58aff
+    color: #f58aff;
 }
 </style>

@@ -30,16 +30,28 @@ class PlaylistController extends Controller
 
     public function getPublicPlaylist()
     {
+        $top = Playlist::latest()->where('name', 'LIKE', '%top%')->get();
         $playlists = Playlist::latest()->where('mode', 'public')->get();
-        $popularPlaylistsByCategory = Playlist::latest()->where('name', 'like','top%')->get();
-        $quickPlaylists = Playlist::latest()->where('name', 'like','quick%')->get();
-        $chillHopPlaylists = Playlist::latest()->where('name', 'like','%hop%')->get();
-        $playlistsAmbiental = Playlist::latest()->where('name','like','amb%')->get();
-        $regioanlPlaylists = Playlist::latest()->where('name', 'like','regioanal%')->get();
+        $popularPlaylistsByCategory = Playlist::latest()->where('name', 'like', 'top%')->get();
+        $quickPlaylists = Playlist::latest()->where('name', 'like', 'quick%')->get();
+        $chillHopPlaylists = Playlist::latest()->where('name', 'like', '%hop%')->get();
+        $playlistsAmbiental = Playlist::latest()->where('name', 'like', 'amb%')->get();
+        $regioanlPlaylists = Playlist::latest()->where('name', 'like', 'regioanal%')->get();
 
-        return PlaylistResource::collection(
-            $playlists,$popularPlaylistsByCategory ,$quickPlaylists,$chillHopPlaylists,$playlistsAmbiental,$regioanlPlaylists
-        );
+        // return $top;
+        return response()->json([
+            'playlists' => $playlists,
+            'top' => $top
+        ]);
+        // return PlaylistResource::collection(
+        //     // $top,
+        //     $playlists,
+        //     // $popularPlaylistsByCategory,
+        //     // $quickPlaylists,
+        //     // $chillHopPlaylists,
+        //     // $playlistsAmbiental,
+        //     // $regioanlPlaylists,
+        // );
     }
 
     public function createPublicPlaylist(Request $request)
