@@ -20,26 +20,71 @@ class PlaylistController extends Controller
         return 'ceva';
 
 
-        $playlist = Playlist::where('videoId', $id)->first();
+        // $playlist = Playlist::where('videoId', $id)->first();
 
-        $videos = Video::whereNotIn('videoId', [$video->videoId])
-            //  ->where('category_id', $tipe)
-            ->inRandomOrder()
-            ->paginate(100);
+        // $videos = Video::whereNotIn('videoId', [$video->videoId])
+        //     //  ->where('category_id', $tipe)
+        //     ->inRandomOrder()
+        //     ->paginate(100);
     }
 
     public function getPublicPlaylist()
     {
         $playlists = Playlist::latest()->where('mode', 'public')->get();
-        $popularPlaylistsByCategory = Playlist::latest()->where('name', 'like','top%')->get();
-        $quickPlaylists = Playlist::latest()->where('name', 'like','quick%')->get();
-        $chillHopPlaylists = Playlist::latest()->where('name', 'like','%hop%')->get();
-        $playlistsAmbiental = Playlist::latest()->where('name','like','amb%')->get();
-        $regioanlPlaylists = Playlist::latest()->where('name', 'like','regioanal%')->get();
+        $top = Playlist::latest()->where('name', 'LIKE', '%top%')->get();
+        $rock = Playlist::latest()->where('name', 'LIKE', '%rock%')->get();
+        $chill = Playlist::latest()->where('name', 'LIKE', '%chill%')->get();
+        $long = Playlist::latest()->where('name', 'LIKE', '%long%')->get();
+        $quick = Playlist::latest()->where('name', 'LIKE', '%quick%')->get();
+        $meditat = Playlist::latest()->where('name', 'LIKE', '%meditat%')->get();
+        $downtempo = Playlist::latest()->where('name', 'LIKE', '%downtempo%')->get();
+        $all = Playlist::latest()->where('name', 'LIKE', '%all%')->get();
+        $ambiental = Playlist::latest()->where('name', 'LIKE', '%ambiental%')->get();
+        $gaming = Playlist::latest()->where('name', 'LIKE', '%gaming%')->get();
+        $classic = Playlist::latest()->where('name', 'LIKE', '%classic%')->get();
+        $lo_fi = Playlist::latest()->where('name', 'LIKE', '%lo fi%')->get();
+        $hiphop = Playlist::latest()->where('name', 'LIKE', '%hiphop%')->get();
+        $african = Playlist::latest()->where('name', 'LIKE', '%african%')->get();
+        $spania = Playlist::latest()->where('name', 'LIKE', '%spania%')->get();
+        $china = Playlist::latest()->where('name', 'LIKE', '%china%')->get();
+        $arabic = Playlist::latest()->where('name', 'LIKE', '%arabic%')->get();
+        $chinese = Playlist::latest()->where('name', 'LIKE', '%chinese%')->get();
+        $france = Playlist::latest()->where('name', 'LIKE', '%france%')->get();
+        $indian = Playlist::latest()->where('name', 'LIKE', '%indian%')->get();
+        $italy = Playlist::latest()->where('name', 'LIKE', '%italy%')->get();
+        $spanish = Playlist::latest()->where('name', 'LIKE', '%spanish%')->get();
+        $japan = Playlist::latest()->where('name', 'LIKE', '%japan%')->get();
+        $techno = Playlist::latest()->where('name', 'LIKE', '%techno%')->get();
+        $trap = Playlist::latest()->where('name', 'LIKE', '%trap%')->get();
 
-        return PlaylistResource::collection(
-            $playlists,$popularPlaylistsByCategory ,$quickPlaylists,$chillHopPlaylists,$playlistsAmbiental,$regioanlPlaylists
-        );
+        return response()->json([
+            'playlists' => $playlists,
+            'top' => $top,
+            'rock' => $rock,
+            'chill' => $chill,
+            'long' => $long,
+            'quick' => $quick,
+            'meditat' => $meditat,
+            'downtempo' => $downtempo,
+            'all' => $all,
+            'ambiental' => $ambiental,
+            'gaming' => $gaming,
+            'classic' => $classic,
+            'lo_fi' => $lo_fi,
+            'hiphop' => $hiphop,
+            'african' => $african,
+            'spania' => $spania,
+            'china' => $china,
+            'arabic' => $arabic,
+            'chinese' => $chinese,
+            'france' => $france,
+            'indian' => $indian,
+            'italy' => $italy,
+            'spanish' => $spanish,
+            'japan' => $japan,
+            'techno' => $techno,
+            'trap' => $trap,
+        ]);
     }
 
     public function createPublicPlaylist(Request $request)
