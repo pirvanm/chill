@@ -26,6 +26,7 @@
                                     @ended="endVideo"
                                     :player-vars="playerVars"
                                 ></youtube>
+                                {{videos.title}}
                             </div>
                             <div class="col-md-4">
                                 <h2>Coming up</h2>
