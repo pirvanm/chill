@@ -126,12 +126,12 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="video-card">
                             <nuxt-link
-                                to="/watch/2atQnvunGCo"
+                                to="/watch/YOJsKatW-Ts"
                                 class="text-dark"
                             >
-                                <img src="https://i.ytimg.com/vi/2atQnvunGCo/mqdefault_live.jpg"/>
+                                <img src="https://i.ytimg.com/vi/YOJsKatW-Ts/mqdefault.jpg"/>
                                 <p class="title">
-                                    Shiloh - lofi hip hop mix [LIVE 24/7] Shiloh Dynasty
+                                   RAINING IN ＯＳＡＫＡ (Lofi HipHop)
                                 </p>
                             </nuxt-link>
                             <a href="#" class="category">Lo-Fi</a>

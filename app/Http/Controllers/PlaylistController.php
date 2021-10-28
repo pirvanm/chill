@@ -30,32 +30,44 @@ class PlaylistController extends Controller
 
     public function getPublicPlaylist()
     {
-        $playlists = Playlist::latest()->where('mode', 'public')->get();
+      
+        //top 
         $top = Playlist::latest()->where('name', 'LIKE', '%top%')->get();
-        $rock = Playlist::latest()->where('name', 'LIKE', '%rock%')->get();
-        $chill = Playlist::latest()->where('name', 'LIKE', '%chill%')->get();
-        $long = Playlist::latest()->where('name', 'LIKE', '%long%')->get();
+
+        //duration 
         $quick = Playlist::latest()->where('name', 'LIKE', '%quick%')->get();
+        $everage =Playlist::latest()->where('name', 'LIKE', '%quick%')->get();
+        $long = Playlist::latest()->where('name', 'LIKE', '%long%')->get();
+        
+        //category 
         $meditat = Playlist::latest()->where('name', 'LIKE', '%meditat%')->get();
         $downtempo = Playlist::latest()->where('name', 'LIKE', '%downtempo%')->get();
-        $all = Playlist::latest()->where('name', 'LIKE', '%all%')->get();
         $ambiental = Playlist::latest()->where('name', 'LIKE', '%ambiental%')->get();
+        $rock = Playlist::latest()->where('name', 'LIKE', '%rock%')->get();
+        $chill = Playlist::latest()->where('name', 'LIKE', '%chill%')->get();
         $gaming = Playlist::latest()->where('name', 'LIKE', '%gaming%')->get();
         $classic = Playlist::latest()->where('name', 'LIKE', '%classic%')->get();
-        $lo_fi = Playlist::latest()->where('name', 'LIKE', '%lo fi%')->get();
-        $hiphop = Playlist::latest()->where('name', 'LIKE', '%hiphop%')->get();
-        $african = Playlist::latest()->where('name', 'LIKE', '%african%')->get();
-        $spania = Playlist::latest()->where('name', 'LIKE', '%spania%')->get();
-        $china = Playlist::latest()->where('name', 'LIKE', '%china%')->get();
+        $techno = Playlist::latest()->where('name', 'LIKE', '%techno%')->get();
+        $trap = Playlist::latest()->where('name', 'LIKE', '%trap%')->get();
+      
+        $lo_fi = Playlist::latest()->where('name', 'LIKE', '%lo-fi%')->get();
+        $hiphop = Playlist::latest()->where('name', 'LIKE', '%hip-hop%')->get();
+        // regioanal
+
         $arabic = Playlist::latest()->where('name', 'LIKE', '%arabic%')->get();
+        $african = Playlist::latest()->where('name', 'LIKE', '%african%')->get();
+        $china = Playlist::latest()->where('name', 'LIKE', '%china%')->get();
         $chinese = Playlist::latest()->where('name', 'LIKE', '%chinese%')->get();
         $france = Playlist::latest()->where('name', 'LIKE', '%france%')->get();
         $indian = Playlist::latest()->where('name', 'LIKE', '%indian%')->get();
         $italy = Playlist::latest()->where('name', 'LIKE', '%italy%')->get();
+        $spania = Playlist::latest()->where('name', 'LIKE', '%Spania%')->get();
         $spanish = Playlist::latest()->where('name', 'LIKE', '%spanish%')->get();
         $japan = Playlist::latest()->where('name', 'LIKE', '%japan%')->get();
-        $techno = Playlist::latest()->where('name', 'LIKE', '%techno%')->get();
-        $trap = Playlist::latest()->where('name', 'LIKE', '%trap%')->get();
+       
+
+        // all playlist 
+        $playlists = Playlist::latest()->where('mode', 'public')->get();
 
         return response()->json([
             'playlists' => $playlists,
