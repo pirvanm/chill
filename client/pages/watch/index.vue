@@ -526,4 +526,12 @@ youtube {
 .fa-redo-alt {
     color: #d303fc;
 }
+.ytp-chrome-controls{
+    color:grey; display:none;
+}
+
+.ytp-play-button.ytp-button{
+color:red;
+
+}
 </style>
