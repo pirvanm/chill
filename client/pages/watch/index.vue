@@ -54,6 +54,14 @@
                             <br>
                     <youtube ref="youtube" width="100%" :video-id="vid.videoId" :player-vars="playerVars" @ended="endVideo" >
                     </youtube>
+
+            <div class="video-desc"> 
+             <i class="fas fa-forward" @click="nextVideo"></i>
+
+
+                 <i class="fas fa-redo-alt"></i>
+                 </div>
+                    <div>  </div>
                   
                     <div class="video-desc" v-html="vid.description"></div>
                     </div>
@@ -305,6 +313,7 @@ export default {
         },
 
         nextVideo() {
+            console.log('move to next');
             this.$router.push(`/watch/${this.vids[0].videoId}`);
             this.player.playVideo();
         },
@@ -513,5 +522,8 @@ iframe {
 youtube {
      width: 100%    !important;
   height: auto   !important;
+}
+.fa-redo-alt {
+    color: #d303fc;
 }
 </style>
