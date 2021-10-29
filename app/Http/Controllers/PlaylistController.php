@@ -31,6 +31,7 @@ class PlaylistController extends Controller
     public function getPublicPlaylist()
     {
       
+        $all = Playlist::latest()->get();
         //top 
         $top = Playlist::latest()->where('name', 'LIKE', '%top%')->get();
 
