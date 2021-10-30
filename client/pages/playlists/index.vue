@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="row">
-                   <div class="col-lg-3">
+                   <div class="col-lg-2">
                           <div class="container"> 
    <h1> Main: </h1>
 
@@ -167,7 +167,7 @@
 
                     </div>
  </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-10">
                 <div class="container" v-if="key == 1" >
 
                     <h1>Top Category</h1>
