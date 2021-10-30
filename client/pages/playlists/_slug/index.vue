@@ -13,11 +13,14 @@
                 <div>
                     <search />
                 </div>
+
                 <div class="clearfix"></div>
                 <div class="container">
                     <div v-if="videos.length">
                         <div class="row">
                             <div class="col-md-8">
+                            <h1 class="mb-2"> {{ videos.title}} </h1>
+
                                 <youtube
                                     ref="youtube"
                                     width="100%"
@@ -26,7 +29,27 @@
                                     @ended="endVideo"
                                     :player-vars="playerVars"
                                 ></youtube>
-                                {{videos.title}}
+                              
+                             
+                                <div class="mt-2">
+                        <div class="audio-player text-center row">
+ 
+  <div class="controls-container col-xs-12">
+
+    <ul class="controls list-inline d-flex mx-auto pt-2 ml-4 pl-4">
+  
+      <li  @click="nextVideo"><i class="fa fa-play fa-2x justify-content-center"></i> </li>
+      <li><i class="fa fa-pause fa-2x justify-content-center "></i></li>
+      <li><i class="fa fa-stop fa-2x justify-content-center"></i></li>
+      <li><i class="fa fa-forward fa-2x justify-content-center"></i></li>
+      <li> <i class="fas fa-redo-alt fa-2x"></i> </li>
+    </ul>
+  </div>
+</div>
+<hr />
+
+
+                 </div>
                             </div>
                             <div class="col-md-4">
                                 <h2>Coming up</h2>
@@ -489,5 +512,17 @@ a {
 }
 .selected-border {
     border: 5px solid purple !important;
+}
+.fa-2x {
+    padding-right:10px;
+    margin-right:10px;
+}
+
+.list-inline {
+    margin-left:100px;
+    padding-left:100px;
+}
+.list-inline li  {
+        padding-right:20px;
 }
 </style>
