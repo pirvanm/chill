@@ -79,11 +79,11 @@
                 </youtube>
 
                 <div>
-                  <span @click="play" class="cursor">
+                  <span @click="play" :class="isPlay ? 'pink' : 'white' ">
                     <i class="fas fa-play fa-2x"></i>
                   </span>
 
-                  <span @click="pause" class="cursor">
+                  <span @click="pause" :class="isPause ? 'pink' : 'white' ">
                     <i class="fas fa-pause fa-2x"></i>
                   </span>
 
@@ -196,6 +196,8 @@ export default {
   data() {
     return {
       loop: false,
+      isPlay: true,
+      isPause: false,
       showModal: false,
       isAdmin: false,
       nextSongText: "Next Song Are comming",
