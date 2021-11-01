@@ -93,15 +93,24 @@
                                 >
                                 </youtube>
 
-                                <div class="video-desc">
-                                    <span @click="nextVideo" class="cursor">
-                                        <i class="fas fa-forward"></i>
+<div>     <span @click="nextVideo" class="cursor">
+                                        <i class="fas fa-forward fa-2x"></i>
                                     </span>
                                     <span
                                         @click="triggerLoop"
                                         :class="loop ? 'pink' : 'white'"
                                     >
-                                        <i class="fas fa-redo-alt "></i>
+                                        <i class="fas fa-redo-alt fa-2x "></i>
+                                    </span> </div>
+                                <div class=" mt-2 video-desc controls-container col-xs-12">
+                                    <span @click="nextVideo" class="cursor">
+                                        <i class="fas fa-forward fa-2x"></i>
+                                    </span>
+                                    <span
+                                        @click="triggerLoop"
+                                        :class="loop ? 'pink' : 'white'"
+                                    >
+                                        <i class="fas fa-redo-alt fa-2x "></i>
                                     </span>
                                 </div>
                                 <div></div>
@@ -641,5 +650,28 @@ youtube {
 }
 .cursor {
     cursor: pointer;
+}
+
+.next-list h1 {
+    padding-top: 20px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+.selected-border {
+    border: 5px solid purple !important;
+}
+.fa-2x {
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.list-inline {
+    margin-left: 100px;
+    padding-left: 100px;
+}
+.list-inline li {
+    padding-right: 20px;
 }
 </style>
