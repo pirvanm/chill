@@ -19,7 +19,7 @@
                     <div v-if="videos.length">
                         <div class="row">
                             <div class="col-md-8">
-                            <h1 class="mb-2"> {{ videos.title}} </h1>
+                                <h1 class="mb-2">{{ videos.title }}</h1>
 
                                 <youtube
                                     ref="youtube"
@@ -29,27 +29,59 @@
                                     @ended="endVideo"
                                     :player-vars="playerVars"
                                 ></youtube>
-                              
-                             
+
                                 <div class="mt-2">
-                        <div class="audio-player text-center row">
- 
-  <div class="controls-container col-xs-12">
-
-    <ul class="controls list-inline d-flex mx-auto pt-2 ml-4 pl-4">
-  
-      <li  @click="nextVideo"><i class="fa fa-play fa-2x justify-content-center"></i> </li>
-      <li><i class="fa fa-pause fa-2x justify-content-center "></i></li>
-      <li><i class="fa fa-stop fa-2x justify-content-center"></i></li>
-      <li><i class="fa fa-forward fa-2x justify-content-center"></i></li>
-      <li> <i class="fas fa-redo-alt fa-2x"></i> </li>
-    </ul>
-  </div>
-</div>
-<hr />
-
-
-                 </div>
+                                    <div class="audio-player text-center row">
+                                        <div
+                                            class="controls-container col-xs-12"
+                                        >
+                                            <ul
+                                                class="controls list-inline d-flex mx-auto pt-2 ml-4 pl-4"
+                                            >
+                                                <li>
+                                                    <span>
+                                                        <i
+                                                            class="fa fa-play fa-2x justify-content-center"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <i
+                                                        class="fa fa-pause fa-2x justify-content-center "
+                                                    ></i>
+                                                </li>
+                                                <li>
+                                                    <i
+                                                        class="fa fa-stop fa-2x justify-content-center"
+                                                    ></i>
+                                                </li>
+                                                <li>
+                                                    <span
+                                                        @click="nextVideo"
+                                                        style="cursor:pointer"
+                                                    >
+                                                        <i
+                                                            class="fa fa-forward fa-2x justify-content-center"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span
+                                                        @click="triggerLoop"
+                                                        :class="
+                                                            loop ? 'yellow' : ''
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fas fa-redo-alt fa-2x"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
                             </div>
                             <div class="col-md-4">
                                 <h2>Coming up</h2>
@@ -231,6 +263,7 @@ export default {
 
     data() {
         return {
+            loop: false,
             playlist: this.$route.params.slug,
             playerVars: {
                 autoplay: 1
@@ -244,6 +277,24 @@ export default {
         this.addVideoIdToUrl();
     },
     methods: {
+        triggerLoop() {
+            if (this.loop) {
+                this.loop = false;
+            } else {
+                this.loop = true;
+            }
+        },
+        nextVideo() {
+            var indexid = this.videos.findIndex(
+                f => f.id === this.videoLastId.id
+            );
+
+            if (indexid == this.play) {
+                this.play = 0;
+            } else {
+                this.play++;
+            }
+        },
         addVideoIdToUrl() {
             if (this.play) {
                 this.$router.push(
@@ -275,14 +326,18 @@ export default {
             }
         },
         endVideo() {
-            var indexid = this.videos.findIndex(
-                f => f.id === this.videoLastId.id
-            );
-
-            if (indexid == this.play) {
-                this.play = 0;
+            if (this.loop) {
+                this.player.playVideo();
             } else {
-                this.play++;
+                var indexid = this.videos.findIndex(
+                    f => f.id === this.videoLastId.id
+                );
+
+                if (indexid == this.play) {
+                    this.play = 0;
+                } else {
+                    this.play++;
+                }
             }
         }
     }
@@ -514,15 +569,18 @@ a {
     border: 5px solid purple !important;
 }
 .fa-2x {
-    padding-right:10px;
-    margin-right:10px;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .list-inline {
-    margin-left:100px;
-    padding-left:100px;
+    margin-left: 100px;
+    padding-left: 100px;
 }
-.list-inline li  {
-        padding-right:20px;
+.list-inline li {
+    padding-right: 20px;
+}
+.yellow {
+    color: violet !important;
 }
 </style>
