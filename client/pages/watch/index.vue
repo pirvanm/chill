@@ -78,7 +78,7 @@
                 >
                 </youtube>
 
-                <div>
+                <div class="mt-2">
                   <span @click="play" :class="isPlay ? 'pink' : 'white' ">
                     <i class="fas fa-play fa-2x"></i>
                   </span>
@@ -95,14 +95,8 @@
                     <i class="fas fa-redo-alt fa-2x"></i>
                   </span>
                 </div>
-                <div class="mt-2 video-desc controls-container col-xs-12">
-                  <span @click="nextVideo" class="cursor">
-                    <i class="fas fa-forward fa-2x"></i>
-                  </span>
-                  <span @click="triggerLoop" :class="loop ? 'pink' : 'white'">
-                    <i class="fas fa-redo-alt fa-2x"></i>
-                  </span>
-                </div>
+
+
                 <div></div>
 
                 <div class="video-desc" v-html="vid.description"></div>
