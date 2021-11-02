@@ -71,14 +71,13 @@
                 <br />
         
 
-        <div class="mobile-player">
+        <div class="wrapper embed-responsive embed-responsive-4by3">
                       <youtube ref="youtube"
-width="100%"
-                    height="650px"
+ width="560" height="315" 
                   :video-id="vid.videoId"
                   :player-vars="playerVars"
                   @ended="endVideo"
-                    class=" "
+                    class="player embed-responsive-item"
                 >
                 </youtube>
   </div>
@@ -572,19 +571,9 @@ p {
   width: 300px;
 }
 
-iframe {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-
-  height: auto !important;
-}
 
 @media (min-device-width: 320px) and (max-device-width: 768px) {
-  iframe {
-    width: 100%;
-    height: auto;
-  }
+
   .video-desc {
     display: none;
   }
@@ -598,10 +587,7 @@ iframe {
   }
 }
 
-youtube {
-  width: 100% !important;
-  height: auto !important;
-}
+
 
 .ytp-chrome-controls {
   color: grey;
@@ -662,5 +648,33 @@ padding: 0% 0% 1.25%;
   top: 0; bottom: 0; left: 0;
   width: 100%;
   height: 246px;
+}
+
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%!important;
+  background: #000;
+}
+
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>

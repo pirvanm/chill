@@ -22,10 +22,7 @@ ul.footer li {
 
 
 @media (min-width: 320px ) and (max-width: 768px) {
-    iframe {
-        width: 100%;
-        height: auto;
-    }
+
     .video-desc {
         display:none;
     }

@@ -103,9 +103,5 @@ import search from "@/components/Search";
     .rigth-link{
         margin-right: 40px;
     }
-    iframe
-    {
-        width: 100%;
 
-    }
 </style>

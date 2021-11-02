@@ -21,26 +21,16 @@
                             <div class="col-md-8">
                                 <h1 class="mb-2">{{ videos.title }}</h1>
 
-                                <youtube
-                                    ref="youtube"
-                                    width="100%"
-                                    height="450px"
-                                    :video-id="videos[play].videoId"
-                                    @ended="endVideo"
-                                    :player-vars="playerVars"
-                                    class="d-none d-lg-block d-xl-none"
-                                ></youtube>
-
-                                <div class="mobile-player">
-                                    <youtube
-                                        ref="youtube"
-                                        width="100%"
-                                        height="650px"
+    
+                                <div class="wrapper embed-responsive embed-responsive-4by3">
+                                    <youtube ref="youtube"
+                                       width="560" height="315" 
                                         :video-id="videos[play].videoId"
                                         @ended="endVideo"
                                         :player-vars="playerVars"
-                                        class=""
-                                    ></youtube>
+                                        class="player embed-responsive-item">
+                                    </youtube>
+
                                 </div>
                                 <div class="mt-2">
                                     <div
@@ -595,21 +585,35 @@ a {
     color: violet !important;
 }
 
-.mobile-player {
-    position: relative;
-    display: block;
-    width: 100%; /* width of iframe wrapper */
-    height: 300px;
-    margin: auto;
-    padding: 0% 0% 56.25%; /* 16:9 ratio */
-    overflow: hidden;
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
 }
-.mobile-player iframe {
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.embed-responsive-item {
+    position :relative;
+}
+
+.wrapper {
+     height: 350px;   
+}
+
+.embed-responsive .embed-responsive-item, .embed-responsive iframe, .embed-responsive embed, .embed-responsive object, .embed-responsive video {
+  
     top: 0;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 546px;
+    height: 100%;
     border: 0;
 }
 </style>
