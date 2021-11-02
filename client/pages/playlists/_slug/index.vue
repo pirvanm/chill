@@ -30,6 +30,7 @@
                                     :player-vars="playerVars"
                                     class="d-none d-lg-block d-xl-none"
                                 ></youtube>
+
                                 <div class="mobile-player">
                                     <youtube
                                         ref="youtube"
@@ -38,7 +39,7 @@
                                         :video-id="videos[play].videoId"
                                         @ended="endVideo"
                                         :player-vars="playerVars"
-                                        class="d-block d-sm-none"
+                                        class=""
                                     ></youtube>
                                 </div>
                                 <div class="mt-2">

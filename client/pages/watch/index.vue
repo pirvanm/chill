@@ -69,17 +69,7 @@
                 <br />
                 <h3 class="title sm-mt-0">{{ vid.title }}</h3>
                 <br />
-                <youtube
-                  ref="youtube"
-                  width="100%"
-                  
-                    height="650px"
-                  :video-id="vid.videoId"
-                  :player-vars="playerVars"
-                  @ended="endVideo"
-                    class=" d-none d-lg-block d-xl-none"
-                >
-                </youtube>
+        
 
         <div class="mobile-player">
                       <youtube ref="youtube"
@@ -88,7 +78,7 @@ width="100%"
                   :video-id="vid.videoId"
                   :player-vars="playerVars"
                   @ended="endVideo"
-                    class=" d-block d-sm-none"
+                    class=" "
                 >
                 </youtube>
   </div>
