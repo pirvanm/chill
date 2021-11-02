@@ -27,16 +27,23 @@
                                     height="450px"
                                     :video-id="videos[play].videoId"
                                     @ended="endVideo"
-                                    :player-vars="playerVars"
+                                    :player-vars="playerVars" class="d-none d-lg-block d-xl-none"
                                 ></youtube>
-
+                        <div class="mobile-player">
+                                      <youtube
+                                    ref="youtube"
+                                    width="100%"
+                                    height="650px"
+                                    :video-id="videos[play].videoId"
+                                    @ended="endVideo"
+                                    :player-vars="playerVars" class="d-block d-sm-none"
+                                ></youtube>
+</div>
                                 <div class="mt-2">
-                                    <div class="audio-player text-center row">
-                                        <div
-                                            class="controls-container col-xs-12"
-                                        >
+                                    <div class="audio-player text-center bg-black row">
+                                        <div class="controls-container col-xs-12">
                                             <ul
-                                                class="controls list-inline d-flex mx-auto pt-2 ml-4 pl-4"
+                                                class="controls list-inline d-flex mx-auto pt-2 ml-5 pl-5"
                                             >
                                                 <li>
                                                     <span>
@@ -45,16 +52,8 @@
                                                         ></i>
                                                     </span>
                                                 </li>
-                                                <li>
-                                                    <i
-                                                        class="fa fa-pause fa-2x justify-content-center "
-                                                    ></i>
-                                                </li>
-                                                <li>
-                                                    <i
-                                                        class="fa fa-stop fa-2x justify-content-center"
-                                                    ></i>
-                                                </li>
+                                              
+                                             
                                                 <li>
                                                     <span
                                                         @click="nextVideo"
@@ -589,4 +588,22 @@ a {
 .yellow {
     color: violet !important;
 }
+
+.mobile-player{
+    position: relative;
+  display: block;
+  width: 100%; /* width of iframe wrapper */
+  height: 300px;
+  margin: auto;
+  padding: 0% 0% 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+}
+.mobile-player iframe {
+
+  top: 0; bottom: 0; left: 0;
+  width: 100%;
+  height: 546px;
+  border: 0;
+}
+
 </style>

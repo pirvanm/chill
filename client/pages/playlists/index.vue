@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="row">
-                   <div class="col-lg-2">
+                   <div class="col-lg-2 d-none d-sm-block">
                           <div class="container"> 
    <h1> Main: </h1>
 
