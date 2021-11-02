@@ -329,15 +329,21 @@ export default {
             if (this.loop) {
                 this.player.playVideo();
             } else {
-                var indexid = this.videos.findIndex(
-                    f => f.id === this.videoLastId.id
-                );
+                var indexid = this.videos.length - 1;
+                // var indexid = this.videos.findIndex(
+                //     f => f.id === this.videoLastId.id
+                // );
 
                 if (indexid == this.play) {
                     this.play = 0;
                 } else {
                     this.play++;
                 }
+                this.$router.push(
+                    `/playlists/${this.$route.params.slug}?videoid=${
+                        this.videos[this.play].videoId
+                    }`
+                );
             }
         }
     }
