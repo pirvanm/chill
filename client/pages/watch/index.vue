@@ -67,21 +67,39 @@
                   </button>
                 </div>
                 <br />
-                <h3 class="title">{{ vid.title }}</h3>
+                <h3 class="title sm-mt-0">{{ vid.title }}</h3>
                 <br />
                 <youtube
                   ref="youtube"
                   width="100%"
+                  
+                    height="650px"
                   :video-id="vid.videoId"
                   :player-vars="playerVars"
                   @ended="endVideo"
+                    class=" d-none d-lg-block d-xl-none"
                 >
                 </youtube>
+
+        <div class="mobile-player">
+                      <youtube ref="youtube"
+width="100%"
+                    height="650px"
+                  :video-id="vid.videoId"
+                  :player-vars="playerVars"
+                  @ended="endVideo"
+                    class=" d-block d-sm-none"
+                >
+                </youtube>
+  </div>
+            
 
                 <div class="mt-2">
                   <span @click="play" :class="isPlay ? 'pink' : 'white' ">
                     <i class="fas fa-play fa-2x"></i>
                   </span>
+
+                
 
                   <span @click="pause" :class="isPause ? 'pink' : 'white' ">
                     <i class="fas fa-pause fa-2x"></i>
@@ -637,5 +655,22 @@ youtube {
 }
 .list-inline li {
   padding-right: 20px;
+}
+
+
+.mobile-player{
+    position: relative;
+  display: block;
+  width: 100%; /* width of iframe wrapper */
+  height: auto;
+  margin: auto;
+padding: 0% 0% 1.25%;
+  overflow: hidden;
+}
+.mobile-player iframe {
+
+  top: 0; bottom: 0; left: 0;
+  width: 100%;
+  height: 246px;
 }
 </style>

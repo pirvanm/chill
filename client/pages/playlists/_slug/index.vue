@@ -1,350 +1,364 @@
 <template>
-  <div class="body">
-    <div class="main">
-      <div class="heading">
-        <button type="submit" v-on:click="toggleSidebar()">
-          <i class="fas fa-bars"></i>
-        </button>
-        <span class="title">Chillwhispers</span>
-      </div>
-
-      <newLeftBar />
-      <div class="content">
-        <div>
-          <search />
-        </div>
-
-        <div class="clearfix"></div>
-        <div class="container">
-          <div v-if="videos.length">
-            <div class="row">
-              <div class="col-md-8">
-                <h1 class="mb-2">{{ videos.title }}</h1>
-
-                <youtube
-                  ref="youtube"
-                  width="100%"
-                  height="450px"
-                  :video-id="videos[play].videoId"
-                  @ended="endVideo"
-                  :player-vars="playerVars"
-                  class="d-none d-lg-block d-xl-none"
-                ></youtube>
-                <div class="mobile-player">
-                  <youtube
-                    ref="youtube"
-                    width="100%"
-                    height="650px"
-                    :video-id="videos[play].videoId"
-                    @ended="endVideo"
-                    :player-vars="playerVars"
-                    class="d-block d-sm-none"
-                  ></youtube>
-                </div>
-                <div class="mt-2">
-                  <div class="audio-player text-center bg-black text-white row">
-                    <div class="controls-container col-xs-12">
-                      <ul
-                        class="
-                          controls
-                          list-inline
-                          d-flex
-                          mx-auto
-                          pt-2
-                          ml-5
-                          pl-5
-                        "
-                      >
-                        <li>
-                          <span>
-                            <i
-                              class="fa fa-play fa-2x justify-content-center"
-                            ></i>
-                          </span>
-                        </li>
-
-                        <li>
-                          <span @click="nextVideo" style="cursor: pointer">
-                            <i
-                              class="fa fa-forward fa-2x justify-content-center"
-                            ></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span
-                            @click="triggerLoop"
-                            :class="loop ? 'yellow' : ''"
-                          >
-                            <i class="fas fa-redo-alt fa-2x"></i>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <hr />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <h2>Coming up</h2>
-                <div
-                  class="video-card mb-4 overflow-auto"
-                  v-for="(video, index) in videos"
-                  :key="index"
-                >
-                  <div
-                    class="else-play cursor"
-                    :class="
-                      videos[play].videoId == video.videoId
-                        ? 'selected-border'
-                        : ''
-                    "
-                    @click.prevent="clickedPlaylist(index)"
-                  >
-                    <img :src="video.thumbnail" alt />
-
-                    <p class="title">
-                      {{ video.title }}
-                    </p>
-                    <a class="anchor" href="#anchor-link"></a>
-                  </div>
-                </div>
-              </div>
+    <div class="body">
+        <div class="main">
+            <div class="heading">
+                <button type="submit" v-on:click="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <span class="title">Chillwhispers</span>
             </div>
-          </div>
+
+            <newLeftBar />
+            <div class="content">
+                <div>
+                    <search />
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="container">
+                    <div v-if="videos.length">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h1 class="mb-2">{{ videos.title }}</h1>
+
+                                <youtube
+                                    ref="youtube"
+                                    width="100%"
+                                    height="450px"
+                                    :video-id="videos[play].videoId"
+                                    @ended="endVideo"
+                                    :player-vars="playerVars" class="d-none d-lg-block d-xl-none"
+                                ></youtube>
+                        <div class="mobile-player">
+                                      <youtube
+                                    ref="youtube"
+                                    width="100%"
+                                    height="650px"
+                                    :video-id="videos[play].videoId"
+                                    @ended="endVideo"
+                                    :player-vars="playerVars" class="d-block d-sm-none"
+                                ></youtube>
+</div>
+                                <div class="mt-2">
+                                    <div class="audio-player text-center bg-black row">
+                                        <div class="controls-container col-xs-12">
+                                            <ul
+                                                class="controls list-inline d-flex mx-auto pt-2 ml-5 pl-5"
+                                            >
+                                                <li>
+                                                    <span>
+                                                        <i
+                                                            class="fa fa-play fa-2x justify-content-center"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                              
+                                             
+                                                <li>
+                                                    <span
+                                                        @click="nextVideo"
+                                                        style="cursor:pointer"
+                                                    >
+                                                        <i
+                                                            class="fa fa-forward fa-2x justify-content-center"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span
+                                                        @click="triggerLoop"
+                                                        :class="
+                                                            loop ? 'yellow' : ''
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fas fa-redo-alt fa-2x"
+                                                        ></i>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>Coming up</h2>
+                                <div
+                                    class="video-card mb-4 overflow-auto"
+                                    v-for="(video, index) in videos"
+                                    :key="index"
+                                >
+                                    <div
+                                        class="else-play cursor "
+                                        :class="
+                                            videos[play].videoId ==
+                                            video.videoId
+                                                ? 'selected-border'
+                                                : ''
+                                        "
+                                        @click.prevent="clickedPlaylist(index)"
+                                    >
+                                        <img :src="video.thumbnail" alt />
+
+                                        <p class="title">
+                                            {{ video.title }}
+                                        </p>
+                                        <a
+                                            class="anchor"
+                                            href="#anchor-link"
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 <script>
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
 
 export default {
-  components: {
-    newLeftBar,
-    search,
-  },
-  computed: {
-    player() {
-      return this.$refs.youtube.player;
+    components: {
+        newLeftBar,
+        search
     },
-    videoLastId() {
-      return this.videos[this.videos.length - 1];
-    },
-  },
-  async asyncData({ $axios, params }) {
-    let vid = await $axios.$get(`/playlists/${params.slug}`);
-    return { videos: vid.data };
-  },
-  head() {
-    return {
-      title: this.videos[this.play].title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.videos[this.play].description.substring(0, 300),
+    computed: {
+        player() {
+            return this.$refs.youtube.player;
         },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content: "chillwhispers, video, calm music, music, music video,",
-        },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: "Chillwhispers music videos",
-        },
-        {
-          hid: "og:type",
-          name: "og:type",
-          content: "music",
-        },
-        {
-          hid: "og:url",
-          name: "og:url",
-          content: "https://chillwhispers.com",
-        },
-        {
-          hid: "og:image",
-          name: "og:image",
-          content: this.videos[this.play].thumbnail,
-        },
-        {
-          hid: "og:site_name",
-          name: "og:site_name",
-          content: "chillwhispers",
-        },
-        {
-          hid: "og:description",
-          name: "og:description",
-          content: this.videos[this.play].description.substring(0, 300),
-        },
-        {
-          hid: "twitter:card",
-          name: "twitter:card",
-          content: this.videos[this.play].title,
-        },
-        {
-          hid: "twitter:url",
-          name: "twitter:url",
-          content: `https://chillwhispers.com/watch/${
-            this.videos[this.play].videoId
-          }`,
-        },
-        {
-          hid: "twitter:creator",
-          name: "twitter:creator",
-          content: "@2amtech",
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: this.videos[this.play].title,
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: this.videos[this.play].description.substring(0, 300),
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: this.videos[this.play].thumbnail,
-        },
-
-        {
-          hid: "twitter:app:url:iphone",
-          name: "twitter:app:url:iphone",
-          content: `https://www.youtube.com/embed/${
-            this.videos[this.play].videoId
-          }`,
-        },
-        {
-          hid: "twitter:app:url:ipad",
-          name: "twitter:app:url:ipad",
-          content: `https://www.youtube.com/embed/${
-            this.videos[this.play].videoId
-          }`,
-        },
-
-        {
-          hid: "twitter:app:url:googleplay",
-          name: "twitter:app:url:googleplay",
-          content: `https://www.youtube.com/embed/${
-            this.videos[this.play].videoId
-          }`,
-        },
-        {
-          hid: "twitter:player",
-          name: "twitter:player",
-          content: `https://www.youtube.com/embed/${
-            this.videos[this.play].videoId
-          }`,
-        },
-      ],
-    };
-  },
-
-  data() {
-    return {
-      loop: false,
-      playlist: this.$route.params.slug,
-      playerVars: {
-        autoplay: 1,
-      },
-      play: 0,
-      videos: [],
-    };
-  },
-  mounted() {
-    this.getVideoIdParams();
-    this.addVideoIdToUrl();
-  },
-  methods: {
-    triggerLoop() {
-      if (this.loop) {
-        this.loop = false;
-      } else {
-        this.loop = true;
-      }
-    },
-    nextVideo() {
-      var indexid = this.videos.findIndex((f) => f.id === this.videoLastId.id);
-
-      if (indexid == this.play) {
-        this.play = 0;
-      } else {
-        this.play++;
-      }
-    },
-    addVideoIdToUrl() {
-      if (this.play) {
-        this.$router.push(
-          `/playlists/${this.$route.params.slug}?videoid=${
-            this.videos[this.play].videoId
-          }`
-        );
-      }
-    },
-    toggleSidebar() {
-      const sidebar = document.querySelector(".sidebar");
-      sidebar.classList.toggle("shown");
-    },
-    clickedPlaylist(index) {
-      this.play = index;
-      this.$router.push(
-        `/playlists/${this.$route.params.slug}?videoid=${this.videos[index].videoId}`
-      );
-    },
-    getVideoIdParams() {
-      var index = this.videos.findIndex(
-        (v) => v.videoId === this.$route.query.videoid
-      );
-
-      if (this.$route.query.videoid) {
-        this.play = index;
-      } else {
-        this.play = 0;
-      }
-    },
-    endVideo() {
-      if (this.loop) {
-        this.player.playVideo();
-      } else {
-        var indexid = this.videos.findIndex(
-          (f) => f.id === this.videoLastId.id
-        );
-
-        if (indexid == this.play) {
-          this.play = 0;
-        } else {
-          this.play++;
+        videoLastId() {
+            return this.videos[this.videos.length - 1];
         }
-      }
     },
-  },
+    async asyncData({ $axios, params }) {
+        let vid = await $axios.$get(`/playlists/${params.slug}`);
+        return { videos: vid.data };
+    },
+    head() {
+        return {
+            title: this.videos[this.play].title,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+                {
+                    hid: "keywords",
+                    name: "keywords",
+                    content:
+                        "chillwhispers, video, calm music, music, music video,"
+                },
+                {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: "Chillwhispers music videos"
+                },
+                {
+                    hid: "og:type",
+                    name: "og:type",
+                    content: "music"
+                },
+                {
+                    hid: "og:url",
+                    name: "og:url",
+                    content: "https://chillwhispers.com"
+                },
+                {
+                    hid: "og:image",
+                    name: "og:image",
+                    content: this.videos[this.play].thumbnail
+                },
+                {
+                    hid: "og:site_name",
+                    name: "og:site_name",
+                    content: "chillwhispers"
+                },
+                {
+                    hid: "og:description",
+                    name: "og:description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+                {
+                    hid: "twitter:card",
+                    name: "twitter:card",
+                    content: this.videos[this.play].title
+                },
+                {
+                    hid: "twitter:url",
+                    name: "twitter:url",
+                    content: `https://chillwhispers.com/watch/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:creator",
+                    name: "twitter:creator",
+                    content: "@2amtech"
+                },
+                {
+                    hid: "twitter:title",
+                    name: "twitter:title",
+                    content: this.videos[this.play].title
+                },
+                {
+                    hid: "twitter:description",
+                    name: "twitter:description",
+                    content: this.videos[this.play].description.substring(
+                        0,
+                        300
+                    )
+                },
+
+                {
+                    hid: "twitter:image",
+                    name: "twitter:image",
+                    content: this.videos[this.play].thumbnail
+                },
+
+                {
+                    hid: "twitter:app:url:iphone",
+                    name: "twitter:app:url:iphone",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:app:url:ipad",
+                    name: "twitter:app:url:ipad",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+
+                {
+                    hid: "twitter:app:url:googleplay",
+                    name: "twitter:app:url:googleplay",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                },
+                {
+                    hid: "twitter:player",
+                    name: "twitter:player",
+                    content: `https://www.youtube.com/embed/${
+                        this.videos[this.play].videoId
+                    }`
+                }
+            ]
+        };
+    },
+
+    data() {
+        return {
+            loop: false,
+            playlist: this.$route.params.slug,
+            playerVars: {
+                autoplay: 1
+            },
+            play: 0,
+            videos: []
+        };
+    },
+    mounted() {
+        this.getVideoIdParams();
+        this.addVideoIdToUrl();
+    },
+    methods: {
+        triggerLoop() {
+            if (this.loop) {
+                this.loop = false;
+            } else {
+                this.loop = true;
+            }
+        },
+        nextVideo() {
+            var indexid = this.videos.findIndex(
+                f => f.id === this.videoLastId.id
+            );
+
+            if (indexid == this.play) {
+                this.play = 0;
+            } else {
+                this.play++;
+            }
+        },
+        addVideoIdToUrl() {
+            if (this.play) {
+                this.$router.push(
+                    `/playlists/${this.$route.params.slug}?videoid=${
+                        this.videos[this.play].videoId
+                    }`
+                );
+            }
+        },
+        toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle("shown");
+        },
+        clickedPlaylist(index) {
+            this.play = index;
+            this.$router.push(
+                `/playlists/${this.$route.params.slug}?videoid=${this.videos[index].videoId}`
+            );
+        },
+        getVideoIdParams() {
+            var index = this.videos.findIndex(
+                v => v.videoId === this.$route.query.videoid
+            );
+
+            if (this.$route.query.videoid) {
+                this.play = index;
+            } else {
+                this.play = 0;
+            }
+        },
+        endVideo() {
+            if (this.loop) {
+                this.player.playVideo();
+            } else {
+                var indexid = this.videos.findIndex(
+                    f => f.id === this.videoLastId.id
+                );
+
+                if (indexid == this.play) {
+                    this.play = 0;
+                } else {
+                    this.play++;
+                }
+            }
+        }
+    }
 };
 </script>
 
 <style scoped>
 .container-video {
-  margin-left: 15%;
-  /* background-color: white !important; */
+    margin-left: 15%;
+    /* background-color: white !important; */
 }
 
 .container-playlist {
-  margin-top: 100px;
+    margin-top: 100px;
 }
 
 .background {
-  background-color: aqua;
+    background-color: aqua;
 }
 
 .else-play {
-  padding-bottom: 37px;
+    padding-bottom: 37px;
 }
 </style>
 <style>
@@ -372,219 +386,218 @@ export default {
 .trap,
 .sleep,
 .sad {
-  padding: 50px;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  margin: auto;
-  height: 190px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
+    padding: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .african {
-  background-image: linear-gradient(to right, red, yellow, blue);
-  color: black;
+    background-image: linear-gradient(to right, red, yellow, blue);
+    color: black;
 }
 
 .ambiental {
-  background-image: linear-gradient(to right, #4682b4, #708090);
-  color: white;
+    background-image: linear-gradient(to right, #4682b4, #708090);
+    color: white;
 }
 
 .ambiental-meditate {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .chillhop {
-  background-image: linear-gradient(to right, #8b008b, #8b0000);
-  color: white;
+    background-image: linear-gradient(to right, #8b008b, #8b0000);
+    color: white;
 }
 
 .chillout {
-  background-image: linear-gradient(to right, #ffff00, #87ceeb);
-  color: white;
+    background-image: linear-gradient(to right, #ffff00, #87ceeb);
+    color: white;
 }
 
 .chillout-gaming {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .chillstep {
-  background-image: linear-gradient(to right, #ba55d3, #c8e5eb);
-  color: white;
+    background-image: linear-gradient(to right, #ba55d3, #c8e5eb);
+    color: white;
 }
 
 .world {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .classic {
-  background-image: linear-gradient(to right, #dc143c, #f8f8ff);
-  color: white;
+    background-image: linear-gradient(to right, #dc143c, #f8f8ff);
+    color: white;
 }
 
 .classical {
-  background-image: linear-gradient(to right, #800000, #b8860b);
-  color: white;
+    background-image: linear-gradient(to right, #800000, #b8860b);
+    color: white;
 }
 
 .downtempo {
-  background-color: grey;
-  color: white;
+    background-color: grey;
+    color: white;
 }
 
 .lofi {
-  background-color: #ff6600;
-  color: lightyellow;
+    background-color: #ff6600;
+    color: lightyellow;
 }
 
 .lofi-hip {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .lofi-house {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .lounge {
-  background-image: linear-gradient(to right, #00bfff, #1e90ff);
-  color: white;
+    background-image: linear-gradient(to right, #00bfff, #1e90ff);
+    color: white;
 }
 
 .regional {
-  background-color: black;
-  color: yellow;
+    background-color: black;
+    color: yellow;
 }
 
 .regional-arab {
-  background-image: linear-gradient(to right, green, white, black);
-  color: red;
+    background-image: linear-gradient(to right, green, white, black);
+    color: red;
 }
 
 .regional-italy {
-  color: white;
-  background-image: linear-gradient(to right, #009246, #ce2b37);
+    color: white;
+    background-image: linear-gradient(to right, #009246, #ce2b37);
 }
 
 .regional-span {
-  background-color: red;
-  color: yellow;
+    background-color: red;
+    color: yellow;
 }
 
 .regional-chin {
-  background-color: red;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 .techno {
-  background-image: linear-gradient(to right, black, #00ced1);
-  color: white;
+    background-image: linear-gradient(to right, black, #00ced1);
+    color: white;
 }
 
 .trap {
-  background-image: linear-gradient(to right, black, red);
+    background-image: linear-gradient(to right, black, red);
 }
 
 .sleep {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .sad {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .c {
-  padding-left: 3%;
-  padding-top: 50px;
-  background: url("~assets/background.png");
-  height: 1560px;
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+    padding-left: 3%;
+    padding-top: 50px;
+    background: url("~assets/background.png");
+    height: 1560px;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .leftBar {
-  background-color: #090909;
-  position: fixed;
-  margin-right: 100px;
-  /* margin-top: 120px; */
-  width: 300px;
-  height: 100%;
-  color: #8422a6;
-  border-top-right-radius: 50px;
-  opacity: 0.8;
-  height: 100%;
-  /* width: 160px; */
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  /* background-color: #111; */
-  overflow-x: hidden;
-  padding-top: 140px;
-  padding-bottom: 20px;
+    background-color: #090909;
+    position: fixed;
+    margin-right: 100px;
+    /* margin-top: 120px; */
+    width: 300px;
+    height: 100%;
+    color: #8422a6;
+    border-top-right-radius: 50px;
+    opacity: 0.8;
+    height: 100%;
+    /* width: 160px; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    padding-top: 140px;
+    padding-bottom: 20px;
 }
 
 a {
-  color: #8422a6;
+    color: #8422a6;
 }
 
 .next-list {
-  background-color: #482139;
-  border-top-left-radius: 50px;
+    background-color: #482139;
+    border-top-left-radius: 50px;
 }
 
 .next-list h1 {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .cursor {
-  cursor: pointer;
+    cursor: pointer;
 }
 .selected-border {
-  border: 5px solid purple !important;
+    border: 5px solid purple !important;
 }
 .fa-2x {
-  padding-right: 10px;
-  margin-right: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .list-inline {
-  margin-left: 100px;
-  padding-left: 100px;
+    margin-left: 100px;
+    padding-left: 100px;
 }
 .list-inline li {
-  padding-right: 20px;
+    padding-right: 20px;
 }
 .yellow {
-  color: violet !important;
+    color: violet !important;
 }
 
-.mobile-player {
-  position: relative;
+.mobile-player{
+    position: relative;
   display: block;
-  width: 90%; /* width of iframe wrapper */
-  height: 0;
+  width: 100%; /* width of iframe wrapper */
+  height: 300px;
   margin: auto;
   padding: 0% 0% 56.25%; /* 16:9 ratio */
   overflow: hidden;
 }
 .mobile-player iframe {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+
+  top: 0; bottom: 0; left: 0;
   width: 100%;
   height: 546px;
   border: 0;
 }
+
 </style>
