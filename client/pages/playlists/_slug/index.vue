@@ -604,7 +604,8 @@ a {
 }
 
 .wrapper {
-     height: 350px;   
+     height: 350px;  
+         padding-bottom: 0; 
 }
 
 .embed-responsive .embed-responsive-item, .embed-responsive iframe, .embed-responsive embed, .embed-responsive object, .embed-responsive video {
