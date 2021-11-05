@@ -1,6 +1,11 @@
 <template>
     <div class="container">
         <div class="row">
+        <div class="col-md-2">
+           <menuAdmin />
+        </div>
+        <div class="col-md-10">
+        <div class="row">
             <div class="col-md-3 text-center border pr-2 mr-2">
                 <h1>Filters</h1>
 
@@ -240,11 +245,13 @@
                 </client-only>
             </div>
         </div>
+    </div>      </div>
     </div>
 </template>
 
 <script>
 import Swal from "sweetalert2";
+import menuAdmin from "@/components/MenuAdmin";
 export default {
     async asyncData({ query, params, error, $axios }) {
         const videos = await $axios.$get(`/admin/videos`);
@@ -263,6 +270,9 @@ export default {
         };
     },
     middleware: ["admin"],
+      components: {
+        menuAdmin
+    },
     mounted() {},
     data() {
         return {

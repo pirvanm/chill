@@ -1,24 +1,38 @@
 <template>
-    <div class="video-container-insert">
-        <h1>Channel Insert Zone</h1>
+    <div>
 
-        <h1 class="text-right" v-if="pageInfo">
-            Total Video : {{ pageInfo.totalResults }}
-            <br />
-            Page: {{ page }}
-        </h1>
+        <div class="row ">
+
+        <div class="col-2">
+            <menuAdmin />
+        </div>
+
+        <div class="col-10">
+
+        Video Admin
+
+        <h1>Video Insert Zone</h1>
+        <youtube
+            ref="youtube"
+            width="100%"
+            height="450px"
+            :video-id="videoId"
+            :player-vars="playerVars"
+            @playing="playing"
+        ></youtube>
         <form @submit.prevent="save">
             <div class="form-group">
-                <label>Channel Id</label>
+                <label>Insert Video Id</label>
                 <input
                     type="text"
                     class="form-control"
+                    placeholder="https://www.youtube.com/watch?v=qFkNATtc3mc"
                     required
-                    v-model="form.channel"
-                    :disabled="pageInfo.nextPageToken"
+                    v-model="form.video"
+                    @change="getVideoId"
                 />
-                <span class="text-danger" v-if="errors.channel">{{
-                    errors.channel[0]
+                <span class="text-danger" v-if="errors.video">{{
+                    errors.video[0]
                 }}</span>
 
                 <div class="row">
@@ -33,6 +47,8 @@
                             :options="categories"
                             :searchable="true"
                             :allow-empty="false"
+                            :taggable="true"
+                            @tag="addCategory"
                             @select="getSubCategoryWithCategory"
                         >
                             <template
@@ -56,6 +72,8 @@
                             :options="subcategories"
                             :searchable="true"
                             :allow-empty="false"
+                            :taggable="true"
+                            @tag="addSubCategory"
                         >
                             <template
                                 slot="singleLabel"
@@ -68,35 +86,38 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success" :disabled="busy">
-                {{ pageInfo.nextPageToken ? "Next" : "Save" }}
-            </button>
-            <p v-if="busy">Loading...</p>
+            <button type="submit" class="btn btn-success">Save</button>
         </form>
-    </div>
+    </div></div></div>
 </template>
 
 <script>
 import Multiselect from "vue-multiselect";
+import menuAdmin from "@/components/MenuAdmin";
 export default {
-    middleware: ["admin"],
     components: {
-        Multiselect
+        Multiselect,
+         menuAdmin
     },
+    //  middleware: ["auth"],
     layout: "MenuAdmin",
+    middleware: ["admin"],
     data() {
         return {
+            playerVars: {
+                autoplay: 1,
+                modestbranding: 1,
+                showinfo: 0
+            },
             errors: [],
-            busy: false,
+            categories: [],
+            subcategories: [],
             form: {
-                channel: "",
+                video: "",
                 category: null,
                 subcategories: []
             },
-            pageInfo: {},
-            page: 0,
-            categories: [],
-            subcategories: []
+            videoId: ""
         };
     },
     mounted() {
@@ -104,16 +125,21 @@ export default {
     },
 
     methods: {
+        playing() {
+            console.log("playing");
+        },
+        getVideoId() {
+            var regExp = /^https?\:\/\/(?:www\.youtube(?:\-nocookie)?\.com\/|m\.youtube\.com\/|youtube\.com\/)?(?:ytscreeningroom\?vi?=|youtu\.be\/|vi?\/|user\/.+\/u\/\w{1,2}\/|embed\/|watch\?(?:.*\&)?vi?=|\&vi?=|\?(?:.*\&)?vi?=)([^#\&\?\n\/<>"']*)/i;
+            var match = this.form.video.match(regExp);
+
+            // return (match && match[1].length==11)? match[1] : false;
+            // console.log(match && match[1].length == 11 ? match[1] : false);
+            this.videoId = match && match[1].length == 11 ? match[1] : false;
+        },
         save() {
             this.errors = [];
-            this.busy = true;
             this.$axios
-                .post("/admin/add-channel-videos", {
-                    channel: this.form.channel,
-                    category: this.form.category,
-                    subcategories: this.form.subcategories,
-                    token: this.pageInfo ? this.pageInfo.nextPageToken : null
-                })
+                .post("/admin/add-video", this.form)
                 .then(response => {
                     if (response.status == 200) {
                         this.$notify({
@@ -122,57 +148,60 @@ export default {
                             text: "Video Added Success",
                             type: "success"
                         });
-                        if (response.data.pageInfo.nextPageToken) {
-                            this.page++;
-                        } else {
-                            this.page = 0;
-                            this.form.channel = "";
-                        }
-                        this.pageInfo = response.data.pageInfo;
-                        this.busy = false;
                     }
+                    this.form.video = "";
+                    this.form.category = "";
+                    this.form.subcategories = [];
                 })
                 .catch(error => {
                     this.errors = error.response.data.errors;
-                    this.busy = false;
-                });
-        },
-
-        getSubCategoryWithCategory(event) {
-            this.$axios
-                .get(`/subcategories-with-category/${event.id}`)
-                .then(response => {
-                    this.subcategories = response.data.subcategories;
                 });
         },
         getCategories() {
             this.$axios.get("categories").then(response => {
                 this.categories = response.data.categories;
             });
+        },
+        addCategory(event) {
+            this.$axios
+                .post("/category", {
+                    name: event
+                })
+                .then(response => {
+                    this.categories.push(response.data.category);
+                    this.form.category = response.data.category;
+                });
+        },
+        getSubCategoryWithCategory(event) {
+            console.log(event.id);
+
+            this.$axios
+                .get(`/subcategories-with-category/${event.id}`)
+                .then(response => {
+                    this.subcategories = response.data.subcategories;
+                });
+        },
+        addSubCategory(event) {
+            let vm = this;
+            if (vm.form.category) {
+                vm.$axios
+                    .post("/subcategory", {
+                        category: vm.form.category,
+                        name: event
+                    })
+                    .then(response => {
+                        vm.subcategories.push(response.data.subcategory);
+                        vm.form.subcategories.push(response.data.subcategory);
+                    });
+            } else {
+                vm.$notify({
+                    group: "notification",
+                    title: "Important message",
+                    text: "Please select category before add subcategory",
+                    type: "error"
+                });
+            }
         }
     }
 };
 </script>
-
-<style>
-.video-container-insert {
-    margin-left: 5%;
-    margin-top: 0%;
-    margin-right: 5%;
-}
-.category {
-    margin-top: 20px;
-}
-div select {
-    margin-top: 15px;
-}
-.cat {
-    margin-top: 30px;
-}
-.sub {
-    margin-top: 40px;
-}
-select.category {
-    margin-top: 50px;
-}
-</style>

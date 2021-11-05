@@ -28,14 +28,12 @@
                     </li>
 
                     <li>
-                        Videos
+                      <a href="/admin/videos" class=""> Videos </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-9">
-                Body
-            </div>
+      
         </div>
     </div>
 
