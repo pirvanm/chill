@@ -21,16 +21,19 @@
                             <div class="col-md-8">
                                 <h1 class="mb-2">{{ videos.title }}</h1>
 
-    
-                                <div class="wrapper embed-responsive embed-responsive-4by3">
-                                    <youtube ref="youtube"
-                                       width="560" height="315" 
+                                <div
+                                    class="wrapper embed-responsive embed-responsive-4by3"
+                                >
+                                    <youtube
+                                        ref="youtube"
+                                        width="560"
+                                        height="315"
                                         :video-id="videos[play].videoId"
                                         @ended="endVideo"
                                         :player-vars="playerVars"
-                                        class="player embed-responsive-item">
+                                        class="player embed-responsive-item"
+                                    >
                                     </youtube>
-
                                 </div>
                                 <div class="mt-2">
                                     <div
@@ -52,7 +55,7 @@
 
                                                 <li>
                                                     <span
-                                                        @click="nextVideo"
+                                                        @click="endVideo"
                                                         style="cursor:pointer"
                                                     >
                                                         <i
@@ -585,31 +588,38 @@ a {
     color: violet !important;
 }
 
-.iframe-container{
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; 
-  height: 0;
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
 }
-.iframe-container iframe{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .embed-responsive-item {
-    position :relative;
+    position: relative;
 }
 
 .wrapper {
+<<<<<<< HEAD
      height: 350px;  
          padding-bottom: 0; 
+=======
+    height: 350px;
+>>>>>>> d959ca1c2aedacead41f85df03cc8668c307749b
 }
 
-.embed-responsive .embed-responsive-item, .embed-responsive iframe, .embed-responsive embed, .embed-responsive object, .embed-responsive video {
-  
+.embed-responsive .embed-responsive-item,
+.embed-responsive iframe,
+.embed-responsive embed,
+.embed-responsive object,
+.embed-responsive video {
     top: 0;
     bottom: 0;
     left: 0;
