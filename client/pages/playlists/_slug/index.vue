@@ -607,12 +607,8 @@ a {
 }
 
 .wrapper {
-<<<<<<< HEAD
      height: 350px;  
          padding-bottom: 0; 
-=======
-    height: 350px;
->>>>>>> d959ca1c2aedacead41f85df03cc8668c307749b
 }
 
 .embed-responsive .embed-responsive-item,
