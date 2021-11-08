@@ -7,6 +7,17 @@
         </div>
         <div class="col-9">
             <div class="row">
+
+
+               <div class="card" >
+                <img src="" class="card-img-top" alt="" />
+                <div class="card-body">
+                    <h5 class="card-title"> Total All</h5>
+                    <p class="card-text">{{ stats.count0 }}</p>
+                    <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                </div>
+            </div>
+
             <div class="card" >
                 <img src="" class="card-img-top" alt="" />
                 <div class="card-body">

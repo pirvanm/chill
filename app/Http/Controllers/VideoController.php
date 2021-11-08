@@ -76,6 +76,7 @@ class VideoController extends Controller
         $cat14 = $videos->where('category_id', 14);
         //        SubCategory
         return [
+            'count0' => count($cat0);
             'count1' => count($cat1),
             'count2' => count($cat2),
             'count3' => count($cat3),
