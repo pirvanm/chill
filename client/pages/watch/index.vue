@@ -654,7 +654,9 @@ padding: 0% 0% 1.25%;
 .wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
+
+       height: 650px;  
+         padding-bottom: 0; 
 }
 
 iframe {
