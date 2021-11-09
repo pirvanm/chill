@@ -75,7 +75,7 @@ class VideoController extends Controller
         $cat13 = $videos->where('category_id', 13);
         $cat14 = $videos->where('category_id', 14);
         //        SubCategory
-        return [
+        return response()->json([
             'count0' => count($cat0),
             'count1' => count($cat1),
             'count2' => count($cat2),
@@ -93,6 +93,7 @@ class VideoController extends Controller
             'count14' => count($cat14),
         ]);
     }
+
     public function details()
     {
         $detail = new Detail;
