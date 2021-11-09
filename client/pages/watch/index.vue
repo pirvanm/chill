@@ -69,28 +69,26 @@
                 <br />
                 <h3 class="title sm-mt-0">{{ vid.title }}</h3>
                 <br />
-        
 
-        <div class="wrapper embed-responsive embed-responsive-4by3">
-                      <youtube ref="youtube"
- width="560" height="315" 
-                  :video-id="vid.videoId"
-                  :player-vars="playerVars"
-                  @ended="endVideo"
+                <div class="wrapper embed-responsive embed-responsive-4by3">
+                  <youtube
+                    ref="youtube"
+                    width="560"
+                    height="315"
+                    :video-id="vid.videoId"
+                    :player-vars="playerVars"
+                    @ended="endVideo"
                     class="player embed-responsive-item"
-                >
-                </youtube>
-  </div>
-            
+                  >
+                  </youtube>
+                </div>
 
                 <div class="mt-2">
-                  <span @click="play" :class="isPlay ? 'pink' : 'white' ">
+                  <span @click="play" :class="isPlay ? 'pink' : 'white'">
                     <i class="fas fa-play fa-2x"></i>
                   </span>
 
-                
-
-                  <span @click="pause" :class="isPause ? 'pink' : 'white' ">
+                  <span @click="pause" :class="isPause ? 'pink' : 'white'">
                     <i class="fas fa-pause fa-2x"></i>
                   </span>
 
@@ -102,7 +100,6 @@
                     <i class="fas fa-redo-alt fa-2x"></i>
                   </span>
                 </div>
-
 
                 <div></div>
 
@@ -341,12 +338,38 @@ export default {
     },
   },
   mounted() {
+    document.addEventListener("keydown", this.move);
     this.getPlaylist();
     this.url = window.location.href;
     this.addToHistory();
     this.checkAdmin();
   },
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.move);
+  },
   methods: {
+    move(e) {
+      if (e.keyCode === 76) {
+        this.play();
+      }
+
+      if (e.keyCode === 78) {
+        this.nextVideo();
+      }
+
+      if (e.keyCode === 65) {
+        // pause
+        this.pause();
+        //window.location.href = "https://chillwhispers.com/playlists/1";
+        //return;
+      }
+
+      if (e.keyCode === 82) {
+        this.triggerLoop();
+      }
+
+      e.preventDefault();
+    },
     triggerLoop() {
       if (this.loop) {
         this.loop = false;
@@ -571,9 +594,7 @@ p {
   width: 300px;
 }
 
-
 @media (min-device-width: 320px) and (max-device-width: 768px) {
-
   .video-desc {
     display: none;
   }
@@ -586,8 +607,6 @@ p {
     font-size: 1em !important;
   }
 }
-
-
 
 .ytp-chrome-controls {
   color: grey;
@@ -633,48 +652,47 @@ p {
   padding-right: 20px;
 }
 
-
-.mobile-player{
-    position: relative;
+.mobile-player {
+  position: relative;
   display: block;
   width: 100%; /* width of iframe wrapper */
   height: auto;
   margin: auto;
-padding: 0% 0% 1.25%;
+  padding: 0% 0% 1.25%;
   overflow: hidden;
 }
 .mobile-player iframe {
-
-  top: 0; bottom: 0; left: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 246px;
 }
-
 
 .wrapper {
   position: relative;
   width: 100%;
 
-       height: 650px;  
-         padding-bottom: 0; 
+  height: 650px;
+  padding-bottom: 0;
 }
 
 iframe {
   position: absolute;
   width: 100%;
-  height: 100%!important;
+  height: 100% !important;
   background: #000;
 }
 
-.iframe-container{
+.iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; 
+  padding-bottom: 56.25%;
   height: 0;
 }
-.iframe-container iframe{
+.iframe-container iframe {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
