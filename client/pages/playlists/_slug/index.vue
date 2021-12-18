@@ -30,6 +30,7 @@
                     @ended="endVideo"
                     :player-vars="playerVars"
                     class="player embed-responsive-item"
+                     picture-in-picture
                   >
                   </youtube>
                 </div>

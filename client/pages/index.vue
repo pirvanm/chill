@@ -3,7 +3,7 @@
     <div class="main">
         <div class="heading">
 
-
+<h1> Marian te-a vizitat </h1>
 <!--            <button type="submit" v-on:click=toggleSidebar()>-->
 <!--                <i class="fa fa-bars"></i>Menu</button>-->
 
@@ -34,6 +34,7 @@
                 <div class="row">
 
                     <div class="col-lg-4 col-md-6 mb-4">
+                    <h1> AIci Aici</h1>
                         <div class="video-card">
                             <nuxt-link
                                 to="/watch/_bpS-cOBK6Q"
