@@ -35,18 +35,10 @@
                   </youtube>
                 </div>
                 <div class="mt-2">
-                  <div class="audio-player text-center bg-black row">
-                    <div class="controls-container col-xs-12">
-                      <ul
-                        class="
-                          controls
-                          list-inline
-                          d-flex
-                          mx-auto
-                          pt-2
-                          ml-5
-                          pl-5
-                        "
+                  <div class="audio-player text-center row">
+                    <div class="controls-container col-xs-12 text-center">
+                      <ul class="
+                          controls  text-center list-inline d-flex mx-auto pt-2  ml-5 pl-5"
                       >
                         <li>
                           <span>
@@ -627,5 +619,13 @@ a {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.fa-2x {
+    border: 5px solid white;
+    padding: 10px;
+    height: 55px;
+    width: 55px!important;
+    border-radius: 38px;
 }
 </style>
