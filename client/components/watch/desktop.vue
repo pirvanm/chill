@@ -1,5 +1,7 @@
 <template>
     <div class="body">
+    <div>DDD
+    </div>
         <div class="main">
             <div class="heading">
                 <button type="submit" v-on:click="toggleSidebar()">
@@ -29,7 +31,7 @@
                                         {{ vid.category.category_name }}
                                     </nuxt-link>
                                 </div>
-                                <br />
+                            
                                 <div class="d-flex mb-5" v-if="isAdmin">
                                     <b-modal
                                         :id="`modal-primary`"
@@ -80,9 +82,9 @@
                                         Remove
                                     </button>
                                 </div>
-                                <br />
-                                <h3 class="title sm-mt-0">{{ vid.title }}</h3>
-                                <br />
+                         
+                                <h3 class="title mt-3 pt-2 pb-3">{{ vid.title }}</h3>
+                            
 
                                 <div
                                     class="wrapper embed-responsive embed-responsive-4by3"
@@ -496,7 +498,7 @@ p {
     font-size: 1em;
     color: white;
     font-weight: bold;
-    margin-top: 2em;
+  
 }
 
 @media (min-width: 320px) {
@@ -593,7 +595,7 @@ p {
 .wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
+   
 }
 
 iframe {
@@ -606,7 +608,7 @@ iframe {
 .iframe-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
+   
     height: 0;
 }
 .iframe-container iframe {
@@ -615,5 +617,8 @@ iframe {
     left: 0;
     width: 100%;
     height: 100%;
+}
+.player.embed-responsive-item {
+        height:200px;
 }
 </style>
