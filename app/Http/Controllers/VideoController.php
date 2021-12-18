@@ -18,6 +18,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video as Video;
 use App\Models\ListHomeVideos;
+use App\Models\ListCategoryVideos;
 use Auth;
 //o clasa externa pentru "prelucrarea" datelor
 use Carbon\Carbon;
@@ -631,13 +632,14 @@ class VideoController extends Controller
 
     public function getListHomeVideo () {
 
-        $videos = ListHomeVideos::get()
-        ;
-
+        $videos = ListHomeVideos::get();
         return $videos;
+    }
 
-        
-        dd($videos);
+    public function getListCategoryVideo () {
+
+        $videos = ListCategoryVideos::get();
+        return $videos;
     }
 
     public function getVideosLofiHouse()

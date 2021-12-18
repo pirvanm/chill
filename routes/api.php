@@ -20,6 +20,8 @@ use Illuminate\Http\Request;
 Route::get('/', 'VideoController@getAllVideos');
 
 Route::get('/stats', 'VideoController@getStats');
+Route::get('/list-home-videos', 'VideoController@getListHomeVideo');
+Route::get('/list-videos-categories', 'VideoController@getListCategoryVideo');
 
 
 Route::get('/details', 'VideoController@details');
