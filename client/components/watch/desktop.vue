@@ -1,7 +1,6 @@
 <template>
     <div class="body">
-    <div>DDD
-    </div>
+
         <div class="main">
             <div class="heading">
                 <button type="submit" v-on:click="toggleSidebar()">
@@ -101,7 +100,7 @@
                                     </youtube>
                                 </div>
 
-                                <div class="mt-2">
+                                <div class="mt-3 text-center mb-3">
                                     <span
                                         @click="play"
                                         :class="isPlay ? 'pink' : 'white'"
@@ -620,5 +619,13 @@ iframe {
 }
 .player.embed-responsive-item {
         height:200px;
+}
+
+.fa-2x {
+        border: 5px solid white;
+    padding: 11px;
+    height: 55px;
+    width: 55px;
+    border-radius: 38px;
 }
 </style>

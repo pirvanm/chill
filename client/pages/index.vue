@@ -3,9 +3,6 @@
     <div class="main">
         <div class="heading">
 
-<h1> Marian te-a vizitat </h1>
-<!--            <button type="submit" v-on:click=toggleSidebar()>-->
-<!--                <i class="fa fa-bars"></i>Menu</button>-->
 
             <button type="submit" v-on:click=toggleSidebar()>
                 <i class="fas fa-bars"></i></button>
@@ -34,7 +31,7 @@
                 <div class="row">
 
                     <div class="col-lg-4 col-md-6 mb-4">
-                    <h1> AIci Aici</h1>
+          
                         <div class="video-card">
                             <nuxt-link
                                 to="/watch/_bpS-cOBK6Q"
@@ -216,22 +213,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
 
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/hvkZWhpzmWs"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/hvkZWhpzmWs/mqdefault.jpg"/>
-                                <p class="title">
-                                    Italian Dinner - Background Music,
-                                    Italian Music, Folk Music from Italy
-                                    (Carosone, Modugno...)
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Regioanal </a>
-                        </div>
-                    </div>
+
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="video-card">
@@ -245,6 +227,7 @@
                                     ♫ Gaming Music
                                 </p>
                             </nuxt-link>
+                              <a href="#" class="category">Trap</a>
                         </div>
                     </div>
 
@@ -261,6 +244,7 @@
                                     Session on Amazing
                                 </p>
                             </nuxt-link>
+                             <a href="#" class="category">Chill Out</a>
                         </div>
                     </div>
 

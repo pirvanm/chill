@@ -474,4 +474,12 @@ iframe {
 .body {
     margin-top:-36px;
 }
+
+.fa-2x {
+        border: 5px solid white;
+    padding: 11px;
+    height: 55px;
+    width: 55px;
+    border-radius: 38px;
+}
 </style>
