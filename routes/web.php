@@ -15,7 +15,7 @@
 Route::post('/details', 'VideoController@details');
 
 Route::get('/', function () {
-    dd('why');
+   
     return view('welcome');
 });
 
@@ -24,7 +24,7 @@ Route::get('/chanel-videos', 'VideoController@getVideoOfChannels');
 
 Route::get('/chanel-search', 'VideoController@searchVideo');
 
-
+Route::get('/list-home-videos', 'VideoController@getListHomeVideo');
 Route::get('/videos', 'VideoController@getVideos');
 Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
 Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
