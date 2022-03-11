@@ -1,264 +1,193 @@
 <template>
-    <div class="body">
+  <div class="body">
     <div class="main">
-        <div class="heading">
+      <div class="heading">
+        <button type="submit" v-on:click="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <span class="title">Chillwhispers</span>
+      </div>
 
-
-            <button type="submit" v-on:click=toggleSidebar()>
-                <i class="fas fa-bars"></i></button>
-            <span class="title">Chillwhispers</span>
+      <newLeftBar />
+      <div class="content">
+        <div>
+          <div class="d-flex mb-5" v-if="isAdmin">
+            <button class="btn-info btn">
+              <nuxt-link to="/admin" class="text-dark">Admin </nuxt-link>
+            </button>
+          </div>
+          <search />
         </div>
 
-        <newLeftBar />
-        <div class="content">
-            <div>
-            <div class="d-flex mb-5" v-if="isAdmin">
-                 <button class="btn-info btn">
-                <nuxt-link
-                                to="/admin"
-                                class="text-dark"
-                            >Admin
-                        </nuxt-link>
-                 </button>
-                 </div>
-                <search />
-                 
+        <div class="clearfix"></div>
+        <h1>Popular songs</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/_bpS-cOBK6Q" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/eulJvgsAZao/mqdefault.jpg" />
+                  <p class="title">
+                    Booker T & the M G 's - Green Onions (Original / HQ audio)
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Rock</a>
+              </div>
             </div>
 
-            <div class="clearfix"></div>
-            <h1>Popular songs</h1>
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-          
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/_bpS-cOBK6Q"
-                                class="text-dark"
-                            >
-                            <img src="https://i.ytimg.com/vi/eulJvgsAZao/mqdefault.jpg"/>
-                            <p class="title">
-                                Booker T & the M G 's - Green Onions (Original / HQ audio)
-                            </p>
-
-                            </nuxt-link>
-                            <a href="#" class="category">Rock</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/PQQHuUGiOG8"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/PQQHuUGiOG8/mqdefault.jpg"/>
-                                <p class="title">
-                                    Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental Vol  3 Re Upload
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Downtempo</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/neV3EPgvZ3g"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/neV3EPgvZ3g/mqdefault.jpg"/>
-                                <p class="title">
-                                    Relaxing Jazz Music - Background Chill Out  Music - Music For Relax,Study,Work
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">ChillHop</a>
-                        </div>
-                    </div>
-
-                                        <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/S9bCLPwzSC0"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/S9bCLPwzSC0/mqdefault.jpg"/>
-                                <p class="title">
-                                   Eminem
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Rapp</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/zOvsyamoEDg"
-                                class="text-dark">
-                                <img src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg"/>
-                                <p class="title">
-                                    FAUN - Federkleid (Offizielles Video)
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Regional</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/yEbrvMljMCg"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/yEbrvMljMCg/mqdefault.jpg"/>
-                                <p class="title">
-                                    Deborah de Luca @ Château de Chambord in France for Cercle
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Tehno</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/YOJsKatW-Ts"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/YOJsKatW-Ts/mqdefault.jpg"/>
-                                <p class="title">
-                                   RAINING IN ＯＳＡＫＡ (Lofi HipHop)
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Lo-Fi</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/98I_ST9GZSE"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/98I_ST9GZSE/mqdefault.jpg"/>
-                                <p class="title">
-                                    Beautiful IBIZA Beach Lounge Del Mar
-                                    Chillout Mix
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Lounge</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/fWRISvgAygU"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/fWRISvgAygU/mqdefault.jpg"/>
-                                <p class="title">
-                                    Epic Chillstep Collection 2015 [2 Hours]
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Chillstep</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/jUoGYrWZXLs"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/jUoGYrWZXLs/mqdefault.jpg"/>
-                                <p class="title">
-                                    Doja Cat - Trauma
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Clasic Pop</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/7JmprpRIsEY"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/7JmprpRIsEY/mqdefault.jpg"/>
-                                <p class="title">
-                                    Classical Music for Brain Power -
-                                    Mozartx
-                                </p>
-                            </nuxt-link>
-                            <a href="#" class="category">Classical</a>
-                        </div>
-                    </div>
-
-<!--                    <div class="col-lg-4 col-md-6 mb-4">-->
-<!--                        <div class="video-card">-->
-<!--                            <nuxt-link-->
-<!--                                to="/watch/jpv2tMJJuz0"-->
-<!--                                class="text-dark"-->
-<!--                            >-->
-<!--                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>-->
-<!--                                <p class="title">-->
-<!--                                    EHRLING - Nu Lounge Bar Music 2017-->
-<!--                                </p>-->
-<!--                            </nuxt-link>-->
-<!--                            <a href="#" class="category">Classical</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/K9WiYD8zCA8"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/K9WiYD8zCA8/mqdefault.jpg"/>
-                                <p class="title">
-                                    Trap Music ♫ Chill & Happy Trap Mix
-                                    ♫ Gaming Music
-                                </p>
-                            </nuxt-link>
-                              <a href="#" class="category">Trap</a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="video-card">
-                            <nuxt-link
-                                to="/watch/hDzgYiiuR30"
-                                class="text-dark"
-                            >
-                                <img src="https://i.ytimg.com/vi/hDzgYiiuR30/mqdefault.jpg"/>
-                                <p class="title">
-                                    Wonderfull Chill Out Music Love
-                                    Session on Amazing
-                                </p>
-                            </nuxt-link>
-                             <a href="#" class="category">Chill Out</a>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/PQQHuUGiOG8" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/PQQHuUGiOG8/mqdefault.jpg" />
+                  <p class="title">
+                    Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental
+                    Vol 3 Re Upload
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Downtempo</a>
+              </div>
             </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/neV3EPgvZ3g" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/neV3EPgvZ3g/mqdefault.jpg" />
+                  <p class="title">
+                    Relaxing Jazz Music - Background Chill Out Music - Music For
+                    Relax,Study,Work
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">ChillHop</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/S9bCLPwzSC0" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/S9bCLPwzSC0/mqdefault.jpg" />
+                  <p class="title">Eminem</p>
+                </nuxt-link>
+                <a href="#" class="category">Rapp</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/zOvsyamoEDg" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg" />
+                  <p class="title">FAUN - Federkleid (Offizielles Video)</p>
+                </nuxt-link>
+                <a href="#" class="category">Regional</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/yEbrvMljMCg" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/yEbrvMljMCg/mqdefault.jpg" />
+                  <p class="title">
+                    Deborah de Luca @ Château de Chambord in France for Cercle
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Tehno</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/YOJsKatW-Ts" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/YOJsKatW-Ts/mqdefault.jpg" />
+                  <p class="title">RAINING IN ＯＳＡＫＡ (Lofi HipHop)</p>
+                </nuxt-link>
+                <a href="#" class="category">Lo-Fi</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/98I_ST9GZSE" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/98I_ST9GZSE/mqdefault.jpg" />
+                  <p class="title">
+                    Beautiful IBIZA Beach Lounge Del Mar Chillout Mix
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Lounge</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/fWRISvgAygU" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/fWRISvgAygU/mqdefault.jpg" />
+                  <p class="title">Epic Chillstep Collection 2015 [2 Hours]</p>
+                </nuxt-link>
+                <a href="#" class="category">Chillstep</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/jUoGYrWZXLs" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/jUoGYrWZXLs/mqdefault.jpg" />
+                  <p class="title">Doja Cat - Trauma</p>
+                </nuxt-link>
+                <a href="#" class="category">Clasic Pop</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/7JmprpRIsEY" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/7JmprpRIsEY/mqdefault.jpg" />
+                  <p class="title">Classical Music for Brain Power - Mozartx</p>
+                </nuxt-link>
+                <a href="#" class="category">Classical</a>
+              </div>
+            </div>
+
+            <!--                    <div class="col-lg-4 col-md-6 mb-4">-->
+            <!--                        <div class="video-card">-->
+            <!--                            <nuxt-link-->
+            <!--                                to="/watch/jpv2tMJJuz0"-->
+            <!--                                class="text-dark"-->
+            <!--                            >-->
+            <!--                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>-->
+            <!--                                <p class="title">-->
+            <!--                                    EHRLING - Nu Lounge Bar Music 2017-->
+            <!--                                </p>-->
+            <!--                            </nuxt-link>-->
+            <!--                            <a href="#" class="category">Classical</a>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/K9WiYD8zCA8" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/K9WiYD8zCA8/mqdefault.jpg" />
+                  <p class="title">
+                    Trap Music ♫ Chill & Happy Trap Mix ♫ Gaming Music
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Trap</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="video-card">
+                <nuxt-link to="/watch/hDzgYiiuR30" class="text-dark">
+                  <img src="https://i.ytimg.com/vi/hDzgYiiuR30/mqdefault.jpg" />
+                  <p class="title">
+                    Wonderfull Chill Out Music Love Session on Amazing
+                  </p>
+                </nuxt-link>
+                <a href="#" class="category">Chill Out</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -266,160 +195,160 @@ import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
 export default {
-    components: {
-        newLeftBar,
-        newFooter,
-        search
+  components: {
+    newLeftBar,
+    newFooter,
+    search,
+  },
+  data() {
+    return {
+      isAdmin: false,
+    };
+  },
+
+  head: {
+    title: "Chillwhispers ",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Chillwhispers Home Page",
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: "chillwhispers, video, calm music, music, music video,",
+      },
+      {
+        hid: "og:title",
+        name: "og:title",
+        content: "Chillwhispers music videos",
+      },
+      {
+        hid: "og:type",
+        name: "og:type",
+        content: "music",
+      },
+      {
+        hid: "og:url",
+        name: "og:url",
+        content: "https://chillwhispers.com",
+      },
+      {
+        hid: "og:image",
+        name: "og:image",
+        content: "https://i.ytimg.com/vi/n0svuurLibQ/mqdefault.jpg",
+      },
+      {
+        hid: "og:site_name",
+        name: "og:site_name",
+        content: "chillwhispers",
+      },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "Chillwhispers Home Page",
+      },
+    ],
+  },
+  mounted() {
+    document.addEventListener("keydown", this.move);
+  },
+
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.move);
+  },
+
+  methods: {
+    toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      sidebar.classList.toggle("shown");
     },
-    data () {
-        return {
-                isAdmin: false,
-        }
+    move(e) {
+      if (e.keyCode === 48) {
+        window.location.href = "https://chillwhispers.com/playlists/1";
+        //return;
+      }
+
+      if (e.keyCode === 49) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/3";
+        //return;
+      }
+
+      if (e.keyCode === 50) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/4";
+        //return;
+      }
+
+      if (e.keyCode === 51) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/6";
+        //return;
+      }
+
+      if (e.keyCode === 52) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/7";
+        //return;
+      }
+
+      if (e.keyCode === 53) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/8";
+        //return;
+      }
+
+      if (e.keyCode === 54) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/9";
+        //return;
+      }
+
+      if (e.keyCode === 55) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/10";
+        //return;
+      }
+
+      if (e.keyCode === 56) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/13";
+        //return;
+      }
+
+      if (e.keyCode === 57) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/14";
+        //return;
+      }
+
+      if (e.keyCode === 17) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/19";
+        //return;
+      }
+
+      if (e.keyCode === 84) {
+        console.log("stopp");
+        window.location.href = "https://chillwhispers.com/playlists/20";
+        //return;
+      }
+
+      e.preventDefault();
     },
-
-    head: {
-        title: "Chillwhispers ",
-        meta: [
-            {
-                hid: "description",
-                name: "description",
-                content: "Chillwhispers Home Page"
-            },
-            {
-                hid: "keywords",
-                name: "keywords",
-                content: "chillwhispers, video, calm music, music, music video,"
-            },
-            {
-                hid: "og:title",
-                name: "og:title",
-                content: "Chillwhispers music videos"
-            },
-            {
-                hid: "og:type",
-                name: "og:type",
-                content: "music"
-            },
-            {
-                hid: "og:url",
-                name: "og:url",
-                content: "https://chillwhispers.com"
-            },
-            {
-                hid: "og:image",
-                name: "og:image",
-                content: "https://i.ytimg.com/vi/n0svuurLibQ/mqdefault.jpg"
-            },
-            {
-                hid: "og:site_name",
-                name: "og:site_name",
-                content: "chillwhispers"
-            },
-            {
-                hid: "og:description",
-                name: "og:description",
-                content: "Chillwhispers Home Page"
-            }
-        ]
-    },
-    mounted() {
-        document.addEventListener("keydown", this.move);
-    },
-
-    beforeDestroy() {
-        document.removeEventListener("keydown", this.move);
-    },
-
-    methods: {
-        toggleSidebar() {
-            const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
-        },
-        move(e) {
-            if (e.keyCode === 48) {
-                window.location.href = "https://chillwhispers.com/playlists/1";
-                //return;
-            }
-
-            if (e.keyCode === 49) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/3";
-                //return;
-            }
-
-            if (e.keyCode === 50) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/4";
-                //return;
-            }
-
-            if (e.keyCode === 51) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/6";
-                //return;
-            }
-
-            if (e.keyCode === 52) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/7";
-                //return;
-            }
-
-            if (e.keyCode === 53) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/8";
-                //return;
-            }
-
-            if (e.keyCode === 54) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/9";
-                //return;
-            }
-
-            if (e.keyCode === 55) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/10";
-                //return;
-            }
-
-            if (e.keyCode === 56) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/13";
-                //return;
-            }
-
-            if (e.keyCode === 57) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/14";
-                //return;
-            }
-
-            if (e.keyCode === 17) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/19";
-                //return;
-            }
-
-            if (e.keyCode === 84) {
-                console.log("stopp");
-                window.location.href = "https://chillwhispers.com/playlists/20";
-                //return;
-            }
-
-            e.preventDefault();
-        }
-    }
+  },
 };
 </script>
 
 <style scoped>
 .fa-2x {
-        border: 5px solid white;
-    padding: 11px;
-    height: 55px;
-    width: 55px;
-    border-radius: 38px;
+  border: 5px solid white;
+  padding: 11px;
+  height: 55px;
+  width: 55px;
+  border-radius: 38px;
 }
 
 /*# sourceMappingURL=style.css.map */

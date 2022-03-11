@@ -1,0 +1,33 @@
+@import "./playlistModule.css";
+@import "./sidebar.css";
+@import "./watch.css";
+@import "./video.css";
+@import "./home.css";
+ul.foater {
+    text-align: center;
+}
+
+.footer li {
+    color: #C20BDE!important;
+    display: inline-block;
+}
+
+ul.footer li {
+    display: inline-block;
+}
+
+* {
+    font-size: 20px;
+}
+
+
+@media (min-width: 320px ) and (max-width: 768px) {
+
+    .video-desc {
+        display:none;
+    }
+
+    h3 title {
+        font-size: 1em;
+    }
+}
