@@ -23,164 +23,19 @@
         <h1>Popular songs</h1>
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div
+              class="col-lg-4 col-md-6 mb-4"
+              v-for="(vid, index) in videos"
+              :key="index"
+            >
               <div class="video-card">
-                <nuxt-link to="/watch/_bpS-cOBK6Q" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/eulJvgsAZao/mqdefault.jpg" />
+                <nuxt-link :to="`/watch/${vid.videoId}`" class="text-dark">
+                  <img :src="vid.thumbnail" />
                   <p class="title">
-                    Booker T & the M G 's - Green Onions (Original / HQ audio)
+                    {{ vid.title }}
                   </p>
                 </nuxt-link>
-                <a href="#" class="category">Rock</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/PQQHuUGiOG8" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/PQQHuUGiOG8/mqdefault.jpg" />
-                  <p class="title">
-                    Best of Trip Hop & Downtempo & Lofi & Hip Hop Instrumental
-                    Vol 3 Re Upload
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">Downtempo</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/neV3EPgvZ3g" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/neV3EPgvZ3g/mqdefault.jpg" />
-                  <p class="title">
-                    Relaxing Jazz Music - Background Chill Out Music - Music For
-                    Relax,Study,Work
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">ChillHop</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/S9bCLPwzSC0" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/S9bCLPwzSC0/mqdefault.jpg" />
-                  <p class="title">Eminem</p>
-                </nuxt-link>
-                <a href="#" class="category">Rapp</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/zOvsyamoEDg" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/zOvsyamoEDg/mqdefault.jpg" />
-                  <p class="title">FAUN - Federkleid (Offizielles Video)</p>
-                </nuxt-link>
-                <a href="#" class="category">Regional</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/yEbrvMljMCg" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/yEbrvMljMCg/mqdefault.jpg" />
-                  <p class="title">
-                    Deborah de Luca @ Château de Chambord in France for Cercle
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">Tehno</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/YOJsKatW-Ts" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/YOJsKatW-Ts/mqdefault.jpg" />
-                  <p class="title">RAINING IN ＯＳＡＫＡ (Lofi HipHop)</p>
-                </nuxt-link>
-                <a href="#" class="category">Lo-Fi</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/98I_ST9GZSE" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/98I_ST9GZSE/mqdefault.jpg" />
-                  <p class="title">
-                    Beautiful IBIZA Beach Lounge Del Mar Chillout Mix
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">Lounge</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/fWRISvgAygU" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/fWRISvgAygU/mqdefault.jpg" />
-                  <p class="title">Epic Chillstep Collection 2015 [2 Hours]</p>
-                </nuxt-link>
-                <a href="#" class="category">Chillstep</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/jUoGYrWZXLs" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/jUoGYrWZXLs/mqdefault.jpg" />
-                  <p class="title">Doja Cat - Trauma</p>
-                </nuxt-link>
-                <a href="#" class="category">Clasic Pop</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/7JmprpRIsEY" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/7JmprpRIsEY/mqdefault.jpg" />
-                  <p class="title">Classical Music for Brain Power - Mozartx</p>
-                </nuxt-link>
-                <a href="#" class="category">Classical</a>
-              </div>
-            </div>
-
-            <!--                    <div class="col-lg-4 col-md-6 mb-4">-->
-            <!--                        <div class="video-card">-->
-            <!--                            <nuxt-link-->
-            <!--                                to="/watch/jpv2tMJJuz0"-->
-            <!--                                class="text-dark"-->
-            <!--                            >-->
-            <!--                                <img src="https://i.ytimg.com/vi/jpv2tMJJuz0/mqdefault.jpg"/>-->
-            <!--                                <p class="title">-->
-            <!--                                    EHRLING - Nu Lounge Bar Music 2017-->
-            <!--                                </p>-->
-            <!--                            </nuxt-link>-->
-            <!--                            <a href="#" class="category">Classical</a>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/K9WiYD8zCA8" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/K9WiYD8zCA8/mqdefault.jpg" />
-                  <p class="title">
-                    Trap Music ♫ Chill & Happy Trap Mix ♫ Gaming Music
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">Trap</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="video-card">
-                <nuxt-link to="/watch/hDzgYiiuR30" class="text-dark">
-                  <img src="https://i.ytimg.com/vi/hDzgYiiuR30/mqdefault.jpg" />
-                  <p class="title">
-                    Wonderfull Chill Out Music Love Session on Amazing
-                  </p>
-                </nuxt-link>
-                <a href="#" class="category">Chill Out</a>
+                <!-- <a href="#" class="category">{{ vid.category_name }}</a> -->
               </div>
             </div>
           </div>
@@ -194,11 +49,18 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
+
 export default {
   components: {
     newLeftBar,
     newFooter,
     search,
+  },
+
+  async asyncData({ $axios, params }) {
+    let data = await $axios.$get(`/list-home-videos`);
+
+    return { videos: data };
   },
   data() {
     return {

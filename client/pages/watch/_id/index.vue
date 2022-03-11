@@ -1,35 +1,38 @@
 <template>
-    <div>
-      <div class="lds-facebook"><div></div><div></div><div></div></div>
+  <div>
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    mounted() {
-        this.gotoWatch();
+  mounted() {
+    this.gotoWatch();
+  },
+  methods: {
+    gotoWatch() {
+      // console.log(this.$route.params.id);
+      this.$router.push(`/watch?v=${this.$route.params.id}`);
     },
-    methods: {
-        gotoWatch() {
-            this.$router.push(`/watch?v=${this.$route.params.id}`);
-        },
-        toggleSidebar() {
-            const sidebar = document.querySelector(".sidebar");
-            sidebar.classList.toggle('shown')
-        },
-    
-    }
+    toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      sidebar.classList.toggle("shown");
+    },
+  },
 };
 </script>
 
 <style>
-
 .lds-facebook {
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
-   position: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -60,10 +63,10 @@ export default {
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
 }
-
 </style>

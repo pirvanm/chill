@@ -126,7 +126,7 @@ export default {
       if (video) {
         return { vid: video, vids: videos, categories: categories };
       } else {
-        // this.$router.push("/");
+        this.$router.push("/");
       }
     }
   },

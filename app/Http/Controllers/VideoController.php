@@ -19,6 +19,7 @@ use App\Models\User;
 use App\Models\Video as Video;
 use App\Models\ListHomeVideos;
 use App\Models\ListCategoryVideos;
+use App\Models\Playlist;
 use Auth;
 //o clasa externa pentru "prelucrarea" datelor
 use Carbon\Carbon;
@@ -630,13 +631,18 @@ class VideoController extends Controller
         return VideoResource::collection($videos);
     }
 
-    public function getListHomeVideo () {
+    public function getListHomeVideo()
+    {
 
-        $videos = ListHomeVideos::get();
+        $playlist = Playlist::where('name', 'home')->first();
+        if ($playlist) {
+            $videos = $playlist->videos;
+        }
         return $videos;
     }
 
-    public function getListCategoryVideo () {
+    public function getListCategoryVideo()
+    {
 
         $videos = ListCategoryVideos::get();
         return $videos;

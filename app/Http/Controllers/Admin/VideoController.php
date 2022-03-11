@@ -40,7 +40,7 @@ class VideoController extends Controller
                 return $query->where('title', 'LIKE', '%' . $titleRequest . '%');
             })
             ->when($tagRequest, function ($query, $tagRequest) {
-                return $query->whereHas('tags', function (Builder $query) use($tagRequest) {
+                return $query->whereHas('tags', function (Builder $query) use ($tagRequest) {
                     $query->where('name', 'LIKE', '%' . $tagRequest . '%');
                 });
             })
@@ -88,5 +88,27 @@ class VideoController extends Controller
         $playlists = Playlist::latest()->paginate(50);
 
         return PlaylistResource::collection($playlists);
+    }
+
+    public function getPlaylistById($id)
+    {
+        $playlist = Playlist::find($id);
+
+        return new PlaylistResource($playlist);
+    }
+
+    public function updatePlaylist($id, Request $request)
+    {
+        $videos = collect($request->videos);
+        $playlist = Playlist::find($id);
+        $playlist->name = $request->playlist;
+        $playlist->slug = Str::slug($request->playlist, '-');
+        $playlist->mode = 'public';
+        $playlist->save();
+        $playlist->videos()->detach();
+        $playlist->videos()->attach($videos->pluck('id')->toArray());
+        return response()->json([
+            'success' => 'Playlist updated success'
+        ]);
     }
 }

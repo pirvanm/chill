@@ -92,7 +92,7 @@ export default {
         showinfo: 0,
       },
       url: "",
-      // vid: {},
+      vid: {},
       tagvids: [],
       update: {
         category: 1,
