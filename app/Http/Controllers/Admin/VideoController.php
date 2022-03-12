@@ -104,6 +104,8 @@ class VideoController extends Controller
         $playlist->name = $request->playlist;
         $playlist->slug = Str::slug($request->playlist, '-');
         $playlist->mode = 'public';
+
+        $playlist->image = $request->image;
         $playlist->save();
         $playlist->videos()->detach();
         $playlist->videos()->attach($videos->pluck('id')->toArray());

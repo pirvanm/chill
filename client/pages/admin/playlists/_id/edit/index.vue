@@ -152,6 +152,13 @@
                 placeholder="Enter Playlists Name"
                 v-model="form.playlist"
               />
+              <input
+                type="file"
+                placeholder="Choose image"
+                @input="pickFile"
+                ref="fileInput"
+              />
+              <img :src="previewImage" alt="" width="100%" />
               <button
                 class="btn btn-sm btn-success btn-block mt-1"
                 @click.prevent="savePlaylists"
@@ -235,6 +242,7 @@ export default {
       videos,
       categories,
       left: playl.data.videos,
+      previewImage: playl.data.image,
       playlist: playl.data,
       range: {
         views: [videos.imp.minView, videos.imp.maxView],
@@ -262,6 +270,7 @@ export default {
         title: "",
         tag: "",
       },
+      previewImage: null,
     };
   },
   watch: {
@@ -279,11 +288,24 @@ export default {
     },
   },
   methods: {
+    pickFile() {
+      let input = this.$refs.fileInput;
+      let file = input.files;
+      if (file && file[0]) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+          this.previewImage = e.target.result;
+        };
+        reader.readAsDataURL(file[0]);
+        // this.$emit("input", file[0]);
+      }
+    },
     savePlaylists() {
       this.$axios
         .post(`/admin/playlist/${this.playlist.id}/edit`, {
           playlist: this.form.playlist,
           videos: this.left,
+          image: this.previewImage,
         })
         .then((response) => {
           if (response.status == 200) {
