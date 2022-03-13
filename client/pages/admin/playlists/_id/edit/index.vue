@@ -197,6 +197,10 @@
                   Title: {{ video.title }} Views: {{ video.views }} Duration
                   {{ video.duration }} Type: {{ video.type_duration }}
                   <div>
+                    <button @click.prevent="previewImage = video.thumbnail">
+                      Cover Me
+                    </button>
+                    <br />
                     See Video
 
                     <button class="btn btn-sm btn-info btn-block mt-1">
