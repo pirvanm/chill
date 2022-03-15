@@ -638,7 +638,7 @@ class VideoController extends Controller
         if ($playlist) {
             $videos = $playlist->videos;
         }
-        return $videos;
+        return VideoResource::collection($videos);
     }
 
     public function getListCategoryVideo()
