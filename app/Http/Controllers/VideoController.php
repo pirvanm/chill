@@ -635,10 +635,13 @@ class VideoController extends Controller
     {
 
         $playlist = Playlist::where('name', 'home')->first();
-        if ($playlist) {
-            $videos = $playlist->videos;
-        }
-        return VideoResource::collection($videos);
+
+        // if ($playlist) {
+        //     $videos = $playlist->videos;
+        // } else {
+        //     $videos = null;
+        // }
+        return VideoResource::collection($playlist->videos);
     }
 
     public function getListCategoryVideo()
