@@ -78,7 +78,36 @@ export default {
     "@nuxtjs/sitemap",
     "nuxt-fontawesome",
     "@nuxtjs/proxy",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        file: "en.js",
+        name: "English",
+      },
+      {
+        code: "ru",
+        file: "ru.js",
+        name: "Romanian",
+      },
+      {
+        code: "in",
+        file: "in.js",
+        name: "Hindi",
+      },
+    ],
+    lazy: true,
+    defaultLocale: "en",
+    langDir: "lang/",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root", // recommended
+    },
+  },
 
   fontawesome: {
     icons: {

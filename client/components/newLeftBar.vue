@@ -2,11 +2,19 @@
   <div>
     <div class="sidebar">
       <nav>
-        <nuxt-link to="/">Home</nuxt-link>
-        <nuxt-link to="/videos">Videos</nuxt-link>
-        <nuxt-link to="/playlists">Playlists</nuxt-link>
-        <a href="/history">History</a>
-        <a href="/contact">Contact</a>
+        <nuxt-link :to="`/${$i18n.locale}/`">{{ $t("home") }}</nuxt-link>
+        <nuxt-link :to="`/${$i18n.locale}/videos`">{{
+          $t("videos")
+        }}</nuxt-link>
+        <nuxt-link :to="`/${$i18n.locale}/playlists`">{{
+          $t("playlists")
+        }}</nuxt-link>
+        <nuxt-link :to="`/${$i18n.locale}/history`">{{
+          $t("history")
+        }}</nuxt-link>
+        <nuxt-link :to="`/${$i18n.locale}/contact`">{{
+          $t("contact")
+        }}</nuxt-link>
       </nav>
     </div>
 
