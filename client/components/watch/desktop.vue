@@ -21,7 +21,9 @@
               <div class="col-md-8">
                 <div class="breadcrumbs">
                   <a href="/">Home</a>/
-                  <nuxt-link :to="`/videos/${vid.category.category_name}`">
+                  <nuxt-link
+                    :to="routeToLang(`/videos/${vid.category.category_name}`)"
+                  >
                     {{ vid.category.category_name }}
                   </nuxt-link>
                 </div>
@@ -70,6 +72,7 @@
                 <h3 class="title mt-3 pt-2 pb-3">{{ vid.title }}</h3>
 
                 <div class="wrapper embed-responsive embed-responsive-4by3">
+                  <!-- <client-only> -->
                   <youtube
                     ref="youtube"
                     width="560"
@@ -80,6 +83,7 @@
                     class="player embed-responsive-item"
                   >
                   </youtube>
+                  <!-- </client-only> -->
                 </div>
 
                 <div class="mt-3 text-center mb-3">
@@ -199,7 +203,7 @@ export default {
         showinfo: 0,
       },
       url: "",
-      vid: {},
+      // vid: {},
       tagvids: [],
       update: {
         category: 1,
@@ -242,6 +246,13 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
     handleResize() {
       this.innerWidth = window.innerWidth;
     },
@@ -285,14 +296,14 @@ export default {
       } else {
         this.vid = this.vids[0];
 
-        this.$router.push(`/watch?v=${this.vid.videoId}`);
+        this.$router.push(this.routeToLang(`/watch?v=${this.vid.videoId}`));
         this.player.playVideo();
 
         this.vids.splice(0, 1);
       }
     },
     nextVideo() {
-      this.$router.push(`/watch/${this.vids[0].videoId}`);
+      this.$router.push(this.routeToLang(`/watch/${this.vids[0].videoId}`));
       this.player.playVideo();
     },
     lastVideo() {
@@ -350,10 +361,11 @@ export default {
     },
     gotoWatch(v) {
       window.scrollTo(0, 0);
-      this.$router.push(`/watch?v=${v}`);
+      this.$router.push(this.routeToLang(`/watch?v=${v}`));
       this.$axios.get(`/watch/${v}`).then((response) => {
-        this.vid = response.data.video;
-        this.vids = response.data.videos;
+        this.$emit("respo", response);
+        // this.vid = response.data.video;
+        // this.vids = response.data.videos;
       });
       this.addToHistory();
     },

@@ -85,17 +85,26 @@ export default {
     locales: [
       {
         code: "en",
+        iso: "en-US",
         file: "en.js",
         name: "English",
       },
       {
-        code: "ru",
-        file: "ru.js",
+        code: "ro",
+        file: "ro.js",
+        iso: "ro",
         name: "Romanian",
       },
       {
-        code: "in",
-        file: "in.js",
+        code: "ro-md",
+        file: "ro.js",
+        iso: "ro-MD",
+        name: "Romanian (Republic of Moldova)",
+      },
+      {
+        code: "hi",
+        file: "hi.js",
+        iso: "hi",
         name: "Hindi",
       },
     ],

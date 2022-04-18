@@ -634,7 +634,7 @@ class VideoController extends Controller
     public function getListHomeVideo()
     {
 
-        $playlist = Playlist::where('name', 'home-page')->first();
+        $playlist = Playlist::where('name', 'Home Page')->first();
 
         // if ($playlist) {
         //     $videos = $playlist->videos;

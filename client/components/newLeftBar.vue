@@ -2,31 +2,29 @@
   <div>
     <div class="sidebar">
       <nav>
-        <nuxt-link :to="`/${$i18n.locale}/`">{{ $t("home") }}</nuxt-link>
-        <nuxt-link :to="`/${$i18n.locale}/videos`">{{
-          $t("videos")
-        }}</nuxt-link>
-        <nuxt-link :to="`/${$i18n.locale}/playlists`">{{
+        <nuxt-link :to="routeToLang('/')">{{ $t("home") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/videos')">{{ $t("videos") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/playlists')">{{
           $t("playlists")
         }}</nuxt-link>
-        <nuxt-link :to="`/${$i18n.locale}/history`">{{
-          $t("history")
-        }}</nuxt-link>
-        <nuxt-link :to="`/${$i18n.locale}/contact`">{{
-          $t("contact")
-        }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/history')">{{ $t("history") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/contact')">{{ $t("contact") }}</nuxt-link>
       </nav>
     </div>
-
-    <!--        <div class="footer">-->
-    <!--            <ul>-->
-    <!--                <li></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
+  },
+};
 </script>
 <style scoped>
 ul {

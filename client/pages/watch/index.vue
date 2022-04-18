@@ -5,6 +5,7 @@
       :vid="vid"
       :vids="vids"
       :categories="categories"
+      @respo="responseData($event)"
     >
     </desktop>
     <mobile v-else :vid="vid" :vids="vids" :categories="categories"> </mobile>
@@ -156,6 +157,10 @@ export default {
   methods: {
     handleResize() {
       this.innerWidth = window.innerWidth;
+    },
+    responseData(data) {
+      this.vid = data.data.video;
+      this.vids = data.data.videos;
     },
   },
 };

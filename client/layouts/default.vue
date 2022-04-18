@@ -18,10 +18,14 @@ export default {
   },
   mounted() {
     this.setHistory();
+    this.pushLang();
   },
   computed: {
     availableLocales() {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
+    },
+    lang() {
+      return navigator.language;
     },
   },
   methods: {
@@ -31,6 +35,10 @@ export default {
       //         this.$store.dispatch("history/addVideoToHistory", vid);
       //     });
       // }
+    },
+    pushLang() {
+      window.$nuxt.$i18n.setLocaleCookie(this.lang);
+      this.$router.push(this.switchLocalePath(this.lang));
     },
   },
 };
