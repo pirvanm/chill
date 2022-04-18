@@ -38,7 +38,9 @@ export default {
     },
     pushLang() {
       window.$nuxt.$i18n.setLocaleCookie(this.lang);
-      this.$router.push(this.switchLocalePath(this.lang));
+      if (this.lang !== "en") {
+        this.$router.push(this.switchLocalePath(this.lang));
+      }
     },
   },
 };
