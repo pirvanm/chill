@@ -636,11 +636,6 @@ class VideoController extends Controller
 
         $playlist = Playlist::where('name', 'Home Page')->first();
 
-        // if ($playlist) {
-        //     $videos = $playlist->videos;
-        // } else {
-        //     $videos = null;
-        // }
         return VideoResource::collection($playlist->videos);
     }
 
@@ -1083,5 +1078,15 @@ class VideoController extends Controller
         return response()->json([
             'save' => 'success'
         ]);
+    }
+
+    public function saveUserCategories(Request $request)
+    {
+        $user = Auth::user();
+        $user->categories()->sync($request->categories);
+        $user->step = 2;
+        $user->save();
+
+        return response()->json(['success' => 'Saved success']);
     }
 }

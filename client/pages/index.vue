@@ -47,6 +47,17 @@
         </div>
       </div>
     </div>
+
+    <b-modal
+      id="suggestion"
+      size="xl"
+      no-close-on-backdrop
+      centered
+      hide-footer
+      title="Choose what u like!"
+    >
+      <suggestion-modal @saved="closeSuggestionModal" />
+    </b-modal>
   </div>
 </template>
 
@@ -54,12 +65,14 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
+import SuggestionModal from "../components/suggestionModal.vue";
 
 export default {
   components: {
     newLeftBar,
     newFooter,
     search,
+    SuggestionModal,
   },
 
   async asyncData({ $axios, params }) {
@@ -118,15 +131,20 @@ export default {
       },
     ],
   },
-  // mounted() {
-  //   document.addEventListener("keydown", this.move);
-  // },
+  mounted() {
+    if (this.$auth.user.step == 1) {
+      this.$bvModal.show("suggestion");
+    }
+  },
 
   // beforeDestroy() {
   //   document.removeEventListener("keydown", this.move);
   // },
 
   methods: {
+    closeSuggestionModal() {
+      this.$bvModal.hide("suggestion");
+    },
     routeToLang(loc) {
       if (this.$i18n.locale == "en") {
         return loc;

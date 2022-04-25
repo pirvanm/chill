@@ -13,12 +13,9 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-
-
         $user = User::where('email', $request->email)->first();
 
         if ($user) {
-
             if (Hash::check($request->password, $user->password)) {
                 return response()->json([
                     'token' => $user->createToken('Login', ['user'])->plainTextToken
@@ -33,13 +30,13 @@ class LoginController extends Controller
                 ]);
             }
         } else {
-            return response()->json([[
+            return response()->json([
                 'errors' => [
                     'email' => [
                         'User not found or Email not verified'
                     ]
                 ]
-            ]], 409);
+            ], 409);
         }
 
         // $user = User::Where('email', $request->email)->first();

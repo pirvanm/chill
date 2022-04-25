@@ -83,7 +83,8 @@
                     class="player embed-responsive-item"
                   >
                   </youtube>
-                  <!-- </client-only> -->
+                  <!-- </client-only>
+                   -->
                 </div>
 
                 <div class="mt-3 text-center mb-3">
