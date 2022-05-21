@@ -192,6 +192,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+    babel: {
+      compact: true,
+    },
   },
   server: {
     port: process.env.SERVER_PORT || 3000, // default: 3000
