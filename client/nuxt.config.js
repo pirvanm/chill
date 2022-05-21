@@ -200,4 +200,5 @@ export default {
     port: process.env.SERVER_PORT || 3000, // default: 3000
     host: process.env.SERVER_IP || "localhost", // default: localhost,
   },
+  components: false,
 };
