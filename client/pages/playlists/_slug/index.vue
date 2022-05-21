@@ -30,20 +30,34 @@
                     @ended="endVideo"
                     :player-vars="playerVars"
                     class="player embed-responsive-item"
-                     picture-in-picture
+                    picture-in-picture
                   >
                   </youtube>
                 </div>
                 <div class="mt-2">
                   <div class="audio-player text-center row">
                     <div class="controls-container col-xs-12 text-center">
-                      <ul class="
-                          controls  text-center list-inline d-flex mx-auto pt-2  ml-5 pl-5"
+                      <ul
+                        class="controls text-center list-inline d-flex mx-auto pt-2 ml-5 pl-5"
                       >
                         <li>
-                          <span>
+                          <span
+                            @click="videoPlay()"
+                            :class="isPlay ? 'pink' : 'white'"
+                          >
                             <i
                               class="fa fa-play fa-2x justify-content-center"
+                            ></i>
+                          </span>
+                        </li>
+
+                        <li>
+                          <span
+                            @click="pause"
+                            :class="isPause ? 'pink' : 'white'"
+                          >
+                            <i
+                              class="fa fa-pause fa-2x justify-content-center"
                             ></i>
                           </span>
                         </li>
@@ -235,6 +249,8 @@ export default {
 
   data() {
     return {
+      isPlay: true,
+      isPause: false,
       loop: false,
       playlist: this.$route.params.slug,
       playerVars: {
@@ -254,6 +270,12 @@ export default {
     document.removeEventListener("keydown", this.move);
   },
   methods: {
+    videoPlay() {
+      this.player.playVideo();
+    },
+    pause() {
+      this.player.pauseVideo();
+    },
     move(e) {
       if (e.keyCode === 76) {
       }
@@ -622,10 +644,10 @@ a {
 }
 
 .fa-2x {
-    border: 5px solid white;
-    padding: 10px;
-    height: 55px;
-    width: 55px!important;
-    border-radius: 38px;
+  border: 5px solid white;
+  padding: 10px;
+  height: 55px;
+  width: 55px !important;
+  border-radius: 38px;
 }
 </style>
