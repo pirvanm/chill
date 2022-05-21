@@ -131,9 +131,11 @@ export default {
       },
     ],
   },
-  mounted() {
-    if (this.$auth.user.step == 1) {
-      this.$bvModal.show("suggestion");
+  created() {
+    if (this.$auth.loggedIn) {
+      if (this.$auth.user.step == 1) {
+        this.$bvModal.show("suggestion");
+      }
     }
   },
 
