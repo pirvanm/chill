@@ -68,6 +68,7 @@ import search from "@/components/Search";
 import SuggestionModal from "../components/suggestionModal.vue";
 
 export default {
+  name: "Home",
   components: {
     newLeftBar,
     newFooter,

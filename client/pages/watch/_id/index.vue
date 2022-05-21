@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div class="lds-facebook">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <div class="lds-facebook">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </template>
 
@@ -22,7 +20,6 @@ export default {
       }
     },
     gotoWatch() {
-      // console.log(this.$route.params.id);
       this.$router.push(this.routeToLang(`/watch?v=${this.$route.params.id}`));
     },
     toggleSidebar() {

@@ -180,16 +180,7 @@ export default {
       this.player.pauseVideo();
     },
     endVideo() {
-      if (this.loop) {
-        this.player.playVideo();
-      } else {
-        this.vid = this.vids[0];
-
-        this.$router.push(this.routeToLang(`/watch?v=${this.vid.videoId}`));
-        this.player.playVideo();
-
-        this.vids.splice(0, 1);
-      }
+      this.$emit("endVideo");
     },
     nextVideo() {
       this.$router.push(this.routeToLang(`/watch/${this.vids[0].videoId}`));

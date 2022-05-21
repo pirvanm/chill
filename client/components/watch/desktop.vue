@@ -222,22 +222,19 @@ export default {
   },
   watch: {
     query: {
-      // This will let Vue know to look inside the array
       deep: true,
 
-      // We have to move our method to a handler field
       handler() {
         this.gotoWatch(this.$route.query.v);
       },
     },
   },
-  mounted() {
+
+  created() {
     this.getPlaylist();
     this.url = window.location.href;
     this.addToHistory();
     this.checkAdmin();
-  },
-  created() {
     if (process.browser) {
       window.addEventListener("resize", this.handleResize);
       this.handleResize();
@@ -292,19 +289,10 @@ export default {
       this.player.pauseVideo();
     },
     endVideo() {
-      if (this.loop) {
-        this.player.playVideo();
-      } else {
-        this.vid = this.vids[0];
-
-        this.$router.push(this.routeToLang(`/watch?v=${this.vid.videoId}`));
-        this.player.playVideo();
-
-        this.vids.splice(0, 1);
-      }
+      this.$emit("endVideo");
     },
     nextVideo() {
-      this.$router.push(this.routeToLang(`/watch/${this.vids[0].videoId}`));
+      this.$router.push(this.routeToLang(`/watch?v=${this.vids[0].videoId}`));
       this.player.playVideo();
     },
     lastVideo() {
@@ -365,8 +353,6 @@ export default {
       this.$router.push(this.routeToLang(`/watch?v=${v}`));
       this.$axios.get(`/watch/${v}`).then((response) => {
         this.$emit("respo", response);
-        // this.vid = response.data.video;
-        // this.vids = response.data.videos;
       });
       this.addToHistory();
     },
