@@ -50,7 +50,6 @@
                             ></i>
                           </span>
                         </li>
-
                         <li>
                           <span
                             @click="pause"
@@ -61,7 +60,6 @@
                             ></i>
                           </span>
                         </li>
-
                         <li>
                           <span @click="endVideo" style="cursor: pointer">
                             <i
@@ -118,7 +116,6 @@
 <script>
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
   components: {
     newLeftBar,
