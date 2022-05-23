@@ -200,8 +200,9 @@ export default {
       },
       playerVars: {
         autoplay: 1,
-        modestbranding: 1,
+        modestbranding: 0,
         showinfo: 0,
+        controls: 0,
       },
       url: "",
       // vid: {},
