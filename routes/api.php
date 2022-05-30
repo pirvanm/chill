@@ -111,6 +111,7 @@ Route::post('/register', 'Auth\RegisterController@postRegister');
 Route::post('/search', 'SearchController@searchVideo');
 
 Route::get('/categories', 'CategoryController@getCategories');
+Route::get('/categories/{name}', 'CategoryController@currentCategoriesWithName');
 Route::post('/category', 'CategoryController@postCategory');
 Route::get('/subcategories-with-category/{id}', 'SubCategoryController@getSubCategoryWithCategory');
 Route::post('/subcategory', 'SubCategoryController@postSubCategory');
