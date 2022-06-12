@@ -23,12 +23,13 @@
                   <h3 class="title sm-mt-0">{{ vid.title }}</h3>
 
                   <div class="mt-3 mb-3 text-center">
-                    <span @click="play" :class="isPlay ? 'pink' : 'white'">
-                      <i class="fas fa-play fa-2x"></i>
-                    </span>
-
-                    <span @click="pause" :class="isPause ? 'pink' : 'white'">
-                      <i class="fas fa-pause fa-2x"></i>
+                    <span @click="play">
+                      <span v-show="isPlay" class="pink">
+                        <i :class="`fas fa-play fa-2x `"></i>
+                      </span>
+                      <span v-show="!isPlay">
+                        <i :class="`fas fa-pause fa-2x`"></i>
+                      </span>
                     </span>
 
                     <span @click="nextVideo" class="cursor">
@@ -175,10 +176,12 @@ export default {
     },
 
     play() {
-      this.player.playVideo();
-    },
-    pause() {
-      this.player.pauseVideo();
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) {
+        this.player.playVideo();
+      } else {
+        this.player.pauseVideo();
+      }
     },
     endVideo() {
       this.$emit("endVideo");

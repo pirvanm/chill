@@ -13,7 +13,7 @@
           <search />
         </div>
 
-        <div class="clearfix"></div>
+        <!-- <div class="clearfix"></div> -->
 
         <div class="container">
           <div v-if="vids.length">
@@ -88,12 +88,13 @@
                 </div>
 
                 <div class="mt-3 text-center mb-3">
-                  <span @click="play" :class="isPlay ? 'pink' : 'white'">
-                    <i class="fas fa-play fa-2x"></i>
-                  </span>
-
-                  <span @click="pause" :class="isPause ? 'pink' : 'white'">
-                    <i class="fas fa-pause fa-2x"></i>
+                  <span @click="play">
+                    <span v-show="isPlay" class="pink">
+                      <i :class="`fas fa-play fa-2x `"></i>
+                    </span>
+                    <span v-show="!isPlay">
+                      <i :class="`fas fa-pause fa-2x`"></i>
+                    </span>
                   </span>
 
                   <span @click="nextVideo" class="cursor">
@@ -284,7 +285,12 @@ export default {
     },
 
     play() {
-      this.player.playVideo();
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) {
+        this.player.playVideo();
+      } else {
+        this.player.pauseVideo();
+      }
     },
     pause() {
       this.player.pauseVideo();
