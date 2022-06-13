@@ -7,7 +7,7 @@
       :categories="categories"
       @respo="responseData($event)"
       ref="youtube"
-      @endVideo="endVideo"
+      @endVideo="endVideo($event)"
     >
     </desktop>
     <mobile
@@ -15,6 +15,7 @@
       :vid="vid"
       :vids="vids"
       :categories="categories"
+      ref="youtube"
       @endVideo="endVideo"
     >
     </mobile>
@@ -201,8 +202,8 @@ export default {
         return "/" + this.$i18n.locale + loc;
       }
     },
-    endVideo() {
-      if (this.loop) {
+    endVideo(e) {
+      if (e) {
         this.player.playVideo();
       } else {
         this.vid = this.vids[0];

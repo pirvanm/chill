@@ -91,7 +91,7 @@ export default {
         autoplay: 1,
         modestbranding: 0,
         showinfo: 0,
-        controls: 0,
+        controls: 1,
       },
       url: "",
       // vid: {},
@@ -148,11 +148,7 @@ export default {
       this.innerWidth = window.innerWidth;
     },
     triggerLoop() {
-      if (this.loop) {
-        this.loop = false;
-      } else {
-        this.loop = true;
-      }
+      this.loop = !this.loop;
     },
     checkAdmin() {
       if (this.$auth.loggedIn) {
@@ -184,11 +180,11 @@ export default {
       }
     },
     endVideo() {
-      this.$emit("endVideo");
+      this.$emit("endVideo", this.loop);
     },
     nextVideo() {
-      this.$router.push(this.routeToLang(`/watch/${this.vids[0].videoId}`));
-      this.player.playVideo();
+      this.$router.push(this.routeToLang(`/watch?v=${this.vids[0].videoId}`));
+      // this.player.playVideo();
     },
     lastVideo() {
       //this.$router.pop(`/watch/${this.vids[0].videoId}`);
