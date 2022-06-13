@@ -41,27 +41,18 @@
                         class="controls text-center list-inline d-flex mx-auto pt-2 ml-5 pl-5"
                       >
                         <li>
-                          <span
-                            @click="videoPlay()"
-                            :class="isPlay ? 'pink' : 'white'"
-                          >
-                            <i
-                              class="fa fa-play fa-2x justify-content-center"
-                            ></i>
+                          <span @click="playVideo()">
+                            <span v-show="isPlay" class="yellow">
+                              <i :class="`fas fa-play fa-2x `"></i>
+                            </span>
+                            <span v-show="!isPlay">
+                              <i :class="`fas fa-pause fa-2x`"></i>
+                            </span>
                           </span>
                         </li>
+
                         <li>
-                          <span
-                            @click="pause"
-                            :class="isPause ? 'pink' : 'white'"
-                          >
-                            <i
-                              class="fa fa-pause fa-2x justify-content-center"
-                            ></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span @click="endVideo" style="cursor: pointer">
+                          <span @click="forwardVideo" style="cursor: pointer">
                             <i
                               class="fa fa-forward fa-2x justify-content-center"
                             ></i>
@@ -267,9 +258,15 @@ export default {
     document.removeEventListener("keydown", this.move);
   },
   methods: {
-    videoPlay() {
-      this.player.playVideo();
+    playVideo() {
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) {
+        this.player.playVideo();
+      } else {
+        this.player.pauseVideo();
+      }
     },
+
     pause() {
       this.player.pauseVideo();
     },
@@ -280,12 +277,6 @@ export default {
       if (e.keyCode === 78) {
         this.nextVideo();
       }
-
-      //    if (e.keyCode === 82) {
-      //     this.triggerLoop();
-      //     //window.location.href = "https://chillwhispers.com/playlists/1";
-      //     //return;
-      // }
 
       if (e.keyCode === 82) {
         this.triggerLoop();
@@ -339,25 +330,25 @@ export default {
         this.play = 0;
       }
     },
+    forwardVideo() {
+      var indexid = this.videos.length - 1;
+
+      if (indexid == this.play) {
+        this.play = 0;
+      } else {
+        this.play++;
+      }
+      this.$router.push(
+        `/playlists/${this.$route.params.slug}?videoid=${
+          this.videos[this.play].videoId
+        }`
+      );
+    },
     endVideo() {
       if (this.loop) {
         this.player.playVideo();
       } else {
-        var indexid = this.videos.length - 1;
-        // var indexid = this.videos.findIndex(
-        //     f => f.id === this.videoLastId.id
-        // );
-
-        if (indexid == this.play) {
-          this.play = 0;
-        } else {
-          this.play++;
-        }
-        this.$router.push(
-          `/playlists/${this.$route.params.slug}?videoid=${
-            this.videos[this.play].videoId
-          }`
-        );
+        this.forwardVideo();
       }
     },
   },
