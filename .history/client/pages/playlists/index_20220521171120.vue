@@ -15,25 +15,13 @@
 
             <div class="row">
                 <div class="col-lg-2 d-none d-sm-block">
-
-                    
                     <div class="container"> 
             <h3> Filter By: </h3>
 
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
-                    </h5>
-
-                <div class="custom-control custom-radio">
+            <div class="custom-control custom-radio">
                     <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
                     <label class="custom-control-label" for="customRadio1">Top</label>
                 </div>
-
-                    <div class="custom-control custom-radio">
-                    <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadio1">Un Top</label>
-                    </div>
 
         <h5> Duration</h5>
 
@@ -147,7 +135,7 @@
 
 
                     <div class="custom-control custom-radio">
-                <input   @click="key = 17" type="radio" id="customRadio17" name="customRadio" class="custom-control-input" >
+                <input   @click="key = 17" type="radio" id="customRadio17" name="customRadio" class="custom-control-input" checked>
                 <label class="custom-control-label" for="customRadio17">Arabic</label>
             </div>
 
@@ -859,7 +847,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,
@@ -968,16 +955,8 @@ export default {
     padding-bottom: 20px;
     width: 300px;
 }
-h3,
 a {
     color: #f58aff;
-}
-
-h3 {
-        font-size: 1.25rem;
-        border-bottom: 2px solid #2ecc71;
-            padding-bottom: 1rem;
-
 }
 
 
@@ -1054,29 +1033,8 @@ box-shadow: none;
 }
 
 
-/*  submenu logic */
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-}
-.dropdown-submenu:hover > .dropdown-menu {
-  display: block;
-}
-.dropdown-submenu:hover > a:after {
-  border-left-color: #fff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left > .dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-}
+
+
 
 
 </style>

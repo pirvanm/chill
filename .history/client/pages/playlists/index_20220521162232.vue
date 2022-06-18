@@ -13,66 +13,65 @@
                     <search />
                 </div>
 
-            <div class="row">
-                <div class="col-lg-2 d-none d-sm-block">
+                <div class="row">
+                   <div class="col-lg-2 d-none d-sm-block">
+                          <div class="container"> 
+  <div class="custom-control custom-radio">
+                <h3>  Filter By: </h3>
 
-                    
-                    <div class="container"> 
-            <h3> Filter By: </h3>
-
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
-                    </h5>
-
-                <div class="custom-control custom-radio">
-                    <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadio1">Top</label>
-                </div>
-
-                    <div class="custom-control custom-radio">
-                    <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadio1">Un Top</label>
-                    </div>
-
-        <h5> Duration</h5>
-
-            <div class="custom-control custom-radio">
-                <input  @click="key = 2" type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Quick</label>
-            </div>
-
-                    <div class="custom-control custom-radio">
-                <input  @click="key = 3" type="radio" id="customRadio3" name="customRadio" class="custom-control-input" checked>
-                <label  class="custom-control-label" for="customRadio3">Long</label>
-            </div>
-
-        <h5> Categories </h5>
+                <ul>
+                    <li> </li>
+                </ul>
+                <!-- parent -->
+        <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio1">Top</label>
+      </div>
+                  
+  <!-- parent -->
+      <h1> By Duration</h1>
+<!-- child -->
+      <div class="custom-control custom-radio">
+        <input  @click="key = 2" type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio2">Quick</label>
+      </div>
+      <!-- child -->
 
             <div class="custom-control custom-radio">
-                <input   @click="key = 4" type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio4">Rock</label>
-            </div>
+        <input  @click="key = 3" type="radio" id="customRadio3" name="customRadio" class="custom-control-input" checked>
+        <label  class="custom-control-label" for="customRadio3">Long</label>
+      </div>
 
-                    <div class="custom-control custom-radio">
-                <input  @click="key = 5" type="radio" id="customRadio5" name="customRadio" class="custom-control-input" checked>
-                <label class="custom-control-label" for="customRadio5">Chill</label>
-            </div>
+      <h1> Categories </h1>
+
+      <div class="custom-control custom-radio">
+        <input   @click="key = 4" type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio4">Rock</label>
+      </div>
+
+      <!-- child -->
 
             <div class="custom-control custom-radio">
-                <input  @click="key = 6" type="radio" id="customRadio6" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio6">Meditate</label>
-            </div>
+        <input  @click="key = 5" type="radio" id="customRadio5" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio5">Chill</label>
+      </div>
 
+      <!-- child -->
 
-                    <div class="custom-control custom-radio">
-                <input   @click="key = 7" type="radio" id="customRadio7" name="customRadio" class="custom-control-input" checked>
-                <label class="custom-control-label" for="customRadio7">Popular</label>
-            </div>
+      <div class="custom-control custom-radio">
+        <input  @click="key = 6" type="radio" id="customRadio6" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio6">Meditate</label>
+      </div>
+
+<!-- child -->
+
+            <div class="custom-control custom-radio">
+        <input   @click="key = 7" type="radio" id="customRadio7" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio7">Popular</label>
+      </div>
 
      
 
-   
+      <!--
 
                         <div class="custom-control custom-radio">
         <input  @click="key = 26" type="radio" id="customRadio26" name="customRadio" class="custom-control-input">
@@ -82,95 +81,99 @@
         <input  @click="key = 8" type="radio" id="customRadio8" name="customRadio" class="custom-control-input">
         <label class="custom-control-label" for="customRadio8">All</label>
       </div>
-      -
+      -->
+
+         <div class="custom-control custom-radio">
+        <input  @click="key = 9" type="radio" id="customRadio9" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio9">Ambiental</label>
+      </div>
+
+               <div class="custom-control custom-radio">
+        <input  @click="key = 10" type="radio" id="customRadio10" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio10">Gaming</label>
+      </div>
+
 
             <div class="custom-control custom-radio">
-            <input  @click="key = 9" type="radio" id="customRadio9" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio9">Ambiental</label>
-        </div>
+        <input   @click="key = 11" type="radio" id="customRadio11" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio11">Classic</label>
+      </div>
 
-                <div class="custom-control custom-radio">
-            <input  @click="key = 10" type="radio" id="customRadio10" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio10">Gaming</label>
-        </div>
-
-
-                <div class="custom-control custom-radio">
-            <input   @click="key = 11" type="radio" id="customRadio11" name="customRadio" class="custom-control-input" checked>
-            <label class="custom-control-label" for="customRadio11">Classic</label>
-        </div>
-
-        <div class="custom-control custom-radio">
-            <input  @click="key = 12" type="radio" id="customRadio12" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio12">Lo-Fi</label>
-        </div>
-
-                <div class="custom-control custom-radio">
-                <input  @click="key = 13" type="radio" id="customRadio13" name="customRadio" class="custom-control-input" checked>
-                <label  class="custom-control-label" for="customRadio13">HipHop</label>
-                </div>
+      <div class="custom-control custom-radio">
+        <input  @click="key = 12" type="radio" id="customRadio12" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio12">Lo-Fi</label>
+      </div>
 
             <div class="custom-control custom-radio">
-                <input  @click="key = 24" type="radio" id="customRadio24" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio24">Techno  </label>
-            </div>
+        <input  @click="key = 13" type="radio" id="customRadio13" name="customRadio" class="custom-control-input" checked>
+        <label  class="custom-control-label" for="customRadio13">HipHop</label>
+      </div>
+
+                      <div class="custom-control custom-radio">
+        <input  @click="key = 24" type="radio" id="customRadio24" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio24">Techno  </label>
+      </div>
 
                 <div class="custom-control custom-radio">
         <input  @click="key = 25" type="radio" id="customRadio25" name="customRadio" class="custom-control-input">
         <label class="custom-control-label" for="customRadio25">Trap  </label>
       </div>
 
-      <h5> Countries / Regional </h5>
+      <h1> By Countries / Regional </h1>
+
+      <div class="custom-control custom-radio">
+        <input   @click="key = 14" type="radio" id="customRadio14" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio14">African</label>
+      </div>
 
             <div class="custom-control custom-radio">
-                <input   @click="key = 14" type="radio" id="customRadio14" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio14">African</label>
-            </div>
+        <input  @click="key = 15" type="radio" id="customRadio15" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio15">Spania</label>
+      </div>
+        <div class="custom-control custom-radio">
+        <input  @click="key = 22" type="radio" id="customRadio22" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio22">Spanish  </label>
+      </div>
 
-                    <div class="custom-control custom-radio">
-                <input  @click="key = 15" type="radio" id="customRadio15" name="customRadio" class="custom-control-input" checked>
-                <label class="custom-control-label" for="customRadio15">Spania</label>
-            </div>
-                <div class="custom-control custom-radio">
-                <input  @click="key = 22" type="radio" id="customRadio22" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio22">Spanish  </label>
-            </div>
+      <div class="custom-control custom-radio">
+        <input  @click="key = 16" type="radio" id="customRadio16" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio16">China</label>
+      </div>
+            <div class="custom-control custom-radio">
+        <input  @click="key = 18" type="radio" id="customRadio18" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio18">Chinese</label>
+      </div>
+
 
             <div class="custom-control custom-radio">
-                <input  @click="key = 16" type="radio" id="customRadio16" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio16">China</label>
-            </div>
-                    <div class="custom-control custom-radio">
-                <input  @click="key = 18" type="radio" id="customRadio18" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio18">Chinese</label>
-            </div>
+        <input   @click="key = 17"type="radio" id="customRadio17" name="customRadio" class="custom-control-input" checked>
+        <label class="custom-control-label" for="customRadio17">Arabic</label>
+      </div>
 
+         <div class="custom-control custom-radio">
+        <input  @click="key = 19" type="radio" id="customRadio19" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio19">France </label>
+      </div>
 
-                    <div class="custom-control custom-radio">
-                <input   @click="key = 17" type="radio" id="customRadio17" name="customRadio" class="custom-control-input" >
-                <label class="custom-control-label" for="customRadio17">Arabic</label>
-            </div>
+               <div class="custom-control custom-radio">
+        <input  @click="key = 20" type="radio" id="customRadio20" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio20">Indian </label>
+      </div>
 
                 <div class="custom-control custom-radio">
-                <input  @click="key = 19" type="radio" id="customRadio19" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio19">France </label>
-            </div>
-
-                    <div class="custom-control custom-radio">
-                <input  @click="key = 20" type="radio" id="customRadio20" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio20">Indian </label>
-            </div>
-
-                        <div class="custom-control custom-radio">
-                <input  @click="key = 21" type="radio" id="customRadio21" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio21">Italy </label>
-            </div>
+        <input  @click="key = 21" type="radio" id="customRadio21" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio21">Italy </label>
+      </div>
 
 
-                        <div class="custom-control custom-radio">
-                <input  @click="key = 23" type="radio" id="customRadio23" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio23">Japan  </label>
-            </div>
+                <div class="custom-control custom-radio">
+        <input  @click="key = 23" type="radio" id="customRadio23" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio23">Japan  </label>
+      </div>
+
+
+
+
                     </div>
  </div>
                     <div class="col-lg-10">
@@ -821,7 +824,7 @@
                 <div class="clearfix"></div>
        
                 <div class="container"  v-if="key == 26">
-                    <!-- <h1>Popular Category</h1> -->
+                    <h1>Popular Category</h1>
                     <div class="row">
                         <div
                             class="col-lg-3 col-md-6 mb-4"
@@ -859,7 +862,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,
@@ -968,16 +970,8 @@ export default {
     padding-bottom: 20px;
     width: 300px;
 }
-h3,
 a {
     color: #f58aff;
-}
-
-h3 {
-        font-size: 1.25rem;
-        border-bottom: 2px solid #2ecc71;
-            padding-bottom: 1rem;
-
 }
 
 
@@ -1054,29 +1048,8 @@ box-shadow: none;
 }
 
 
-/*  submenu logic */
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-}
-.dropdown-submenu:hover > .dropdown-menu {
-  display: block;
-}
-.dropdown-submenu:hover > a:after {
-  border-left-color: #fff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left > .dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-}
+
+
 
 
 </style>

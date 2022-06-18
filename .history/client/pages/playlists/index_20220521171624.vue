@@ -16,24 +16,64 @@
             <div class="row">
                 <div class="col-lg-2 d-none d-sm-block">
 
-                    
+                    <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#">Second Level Menu ! <i class="fa fa-chevron-right"></i></a>
+              <ul class="dropdown-menu">
+                <li><a tabindex="-1" href="#">Link 1</a></li>
+                <li><a href="#">Lik 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </li>
+        <!-- .dropdown -->
+      </ul>
+      <!-- .nav .navbar-nav -->
+    </div>
+    <!-- /.navbar-collapse -->
+
+  </div>
+  <!-- /.container-fluid -->
+</nav>
                     <div class="container"> 
             <h3> Filter By: </h3>
 
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
-                    </h5>
+                    <h5> Popularity</h5>
 
-                <div class="custom-control custom-radio">
+            <div class="custom-control custom-radio">
                     <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
                     <label class="custom-control-label" for="customRadio1">Top</label>
                 </div>
 
                     <div class="custom-control custom-radio">
                     <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadio1">Un Top</label>
-                    </div>
+                    <label class="custom-control-label" for="customRadio1"></label>
+                </div>
 
         <h5> Duration</h5>
 
@@ -859,7 +899,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,
@@ -968,16 +1007,8 @@ export default {
     padding-bottom: 20px;
     width: 300px;
 }
-h3,
 a {
     color: #f58aff;
-}
-
-h3 {
-        font-size: 1.25rem;
-        border-bottom: 2px solid #2ecc71;
-            padding-bottom: 1rem;
-
 }
 
 

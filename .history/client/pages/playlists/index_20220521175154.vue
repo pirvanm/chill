@@ -21,8 +21,8 @@
             <h3> Filter By: </h3>
 
                     <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
+                         <!-- <i class="fas fa-minus"></i>
+<i class="fas fa-plus"></i>         -->
                     </h5>
 
                 <div class="custom-control custom-radio">
@@ -864,7 +864,7 @@ export default {
     components: {
         newLeftBar,
         newFooter,
-        search
+        search,faGithub,fas
     },
     async asyncData({ $axios, params }) {
         let playlist = await $axios.$get(`/playlists`);

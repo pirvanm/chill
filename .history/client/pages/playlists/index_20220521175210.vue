@@ -864,7 +864,7 @@ export default {
     components: {
         newLeftBar,
         newFooter,
-        search
+        search,faGithub,fas
     },
     async asyncData({ $axios, params }) {
         let playlist = await $axios.$get(`/playlists`);

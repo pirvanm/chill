@@ -21,8 +21,11 @@
             <h3> Filter By: </h3>
 
                     <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
+                        <i class="fa-solid fa-angles-down"></i>
+                       <i class="fa-solid fa-caret-down"></i>
+                     <i class="fa-solid fa-plus"></i>
+         
+                
                     </h5>
 
                 <div class="custom-control custom-radio">
@@ -859,7 +862,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,

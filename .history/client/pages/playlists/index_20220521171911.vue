@@ -20,20 +20,17 @@
                     <div class="container"> 
             <h3> Filter By: </h3>
 
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
-                    </h5>
+                    <h5> Popularity</h5>
 
-                <div class="custom-control custom-radio">
+            <div class="custom-control custom-radio">
                     <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
                     <label class="custom-control-label" for="customRadio1">Top</label>
                 </div>
 
                     <div class="custom-control custom-radio">
                     <input   @click="key = 1" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadio1">Un Top</label>
-                    </div>
+                    <label class="custom-control-label" for="customRadio1"></label>
+                </div>
 
         <h5> Duration</h5>
 
@@ -859,7 +856,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,
@@ -968,16 +964,8 @@ export default {
     padding-bottom: 20px;
     width: 300px;
 }
-h3,
 a {
     color: #f58aff;
-}
-
-h3 {
-        font-size: 1.25rem;
-        border-bottom: 2px solid #2ecc71;
-            padding-bottom: 1rem;
-
 }
 
 

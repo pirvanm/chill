@@ -20,9 +20,13 @@
                     <div class="container"> 
             <h3> Filter By: </h3>
 
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
+                    <h5> Popularity  <i class="fas fa-minus"></i>
+                      <i class="fa-solid fa-minus"></i>
+                      <font-awesome-icon icon="fa-solid fa-heart-circle-minus" />
+                      <i class="fa-solid fa-heart-circle-minus"></i>
+                     <i class="fa-solid fa-plus"></i>
+         
+                
                     </h5>
 
                 <div class="custom-control custom-radio">
@@ -859,12 +863,13 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 export default {
     components: {
         newLeftBar,
         newFooter,
-        search
+        search,faGithub,fas
     },
     async asyncData({ $axios, params }) {
         let playlist = await $axios.$get(`/playlists`);

@@ -20,9 +20,8 @@
                     <div class="container"> 
             <h3> Filter By: </h3>
 
-                    <h5> Popularity 
-                          <i class="fas fa-minus"></i>
-<i class="fas fa-plus"></i>         
+                    <h5> Popularity <i class="fa-solid fa-plus"></i>
+                   <font-awesome-icon icon="fa-solid fa-minus" />
                     </h5>
 
                 <div class="custom-control custom-radio">
@@ -859,7 +858,6 @@
 import newFooter from "@/components/newFooter";
 import newLeftBar from "@/components/newLeftBar";
 import search from "@/components/Search";
-
 export default {
     components: {
         newLeftBar,
