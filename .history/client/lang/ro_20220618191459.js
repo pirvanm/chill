@@ -24,7 +24,7 @@ export default async (context, locale) => {
     send: "Trimite",
     records: "Rezultate",
     showing: "Showing",
-    of: "din",
+    of: "din"
     search_video: " Cauta Video",
 
   });

@@ -20,7 +20,7 @@ export default async (context, locale) => {
     your_email: " Your email",
     subject: "Subject",
     your_message: "Your message",
-    send: "Send",
+    send: "Send"
     search_video: "Search Video",
 
 
