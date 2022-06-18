@@ -36,9 +36,9 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle2">
-                {{ $t("duration") }}
-              </h4>
+              <h4 class="mt-3" @click="toggle2"></h4>
+
+              {{ $t("duration") }}
 
               <div v-show="shown2">
                 <div class="custom-control custom-radio">
@@ -69,7 +69,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle3">{{ $t("categories") }}</h4>
+              <h4 class="mt-3" @click="toggle3">Categories</h4>
               <div v-show="shown3">
                 <div class="custom-control custom-radio" v-if="statusTogggle">
                   <input
@@ -219,9 +219,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle4">
-                {{ $t("countries_regional") }}
-              </h4>
+              <h4 class="mt-3" @click="toggle4">Countries / Regional</h4>
 
               <div v-show="shown4">
                 <div class="custom-control custom-radio">

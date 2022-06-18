@@ -16,8 +16,8 @@
         <div class="row">
           <div class="col-lg-2 d-none d-sm-block">
             <div class="container ml-3">
-              <h4 class="mt-3">{{ $t("filter_by") }}</h4>
-              <h4 @click="toggle">{{ $t("popularity") }}</h4>
+              <h3 class="mt-3">Filter By:</h3>
+              <h4 @click="toggle">Popularity: {{ $t("history") }}</h4>
 
               <div v-show="shown">
                 <div class="custom-control custom-radio">
@@ -36,9 +36,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle2">
-                {{ $t("duration") }}
-              </h4>
+              <h4 class="mt-3" @click="toggle2">Duration</h4>
 
               <div v-show="shown2">
                 <div class="custom-control custom-radio">
@@ -69,7 +67,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle3">{{ $t("categories") }}</h4>
+              <h4 class="mt-3" @click="toggle3">Categories</h4>
               <div v-show="shown3">
                 <div class="custom-control custom-radio" v-if="statusTogggle">
                   <input
@@ -219,9 +217,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle4">
-                {{ $t("countries_regional") }}
-              </h4>
+              <h4 class="mt-3" @click="toggle4">Countries / Regional</h4>
 
               <div v-show="shown4">
                 <div class="custom-control custom-radio">

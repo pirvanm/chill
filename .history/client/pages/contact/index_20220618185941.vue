@@ -121,7 +121,7 @@
                       class="btn btn-primary"
                       :disabled="isBusy"
                     >
-                      {{ $t("send") }}
+                      Send
                     </button>
                   </div>
 

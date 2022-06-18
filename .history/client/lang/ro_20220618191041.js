@@ -23,7 +23,7 @@ export default async (context, locale) => {
     your_message: "Mesajul tau",
     send: "Trimite",
     records: "Rezultate",
-    showing: "Showing",
+    showing: "Showing"
     of: "din"
 
   });

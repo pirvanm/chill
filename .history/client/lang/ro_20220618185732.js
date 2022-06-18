@@ -6,7 +6,6 @@ export default async (context, locale) => {
     history: "Istoric",
     contact: "Contact",
     my_country: "Tara Mea",
-    coming_up: "Urmeaza",
     popular_song: "Cele mai cautate Melodi ",
     top_playlists: "Albume Celebre ",
     filter_by: "Filtreaza dupa:",
@@ -21,10 +20,7 @@ export default async (context, locale) => {
     your_email: "Email-ul Tau",
     subject: "Subiect",
     your_message: "Mesajul tau",
-    send: "Trimite",
-    records: "Rezultate",
-    showing: "Showing",
-    of: "din"
+    send: "Trimite"
 
   });
 };

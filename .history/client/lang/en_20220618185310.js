@@ -5,7 +5,6 @@ export default async (context, locale) => {
     playlists: "playlists",
     history: "history",
     contact: "contact",
-    coming_up: "Coming up",
     popular_song: "Popular songs",
     top_playlists: "Top Playlist",
     filter_by: "Filter By:",
@@ -19,8 +18,7 @@ export default async (context, locale) => {
     your_name: "Your name",
     your_email: " Your email",
     subject: "Subject",
-    your_message: "Your message",
-    send: "Send"
+    mesajul_tau: "Your message"
 
 
 

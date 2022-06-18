@@ -20,7 +20,7 @@
         </div>
 
         <div class="clearfix"></div>
-        <h1 class="ml-5">{{ $t("popular_song") }}</h1>
+        <h1>Popular songs {{ $t("history") }}</h1>
         <div class="container">
           <div class="row">
             <div

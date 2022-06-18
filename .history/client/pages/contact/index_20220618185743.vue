@@ -51,9 +51,7 @@
                           class="form-control"
                           v-model="form.name"
                         />
-                        <label for="name" class="mt-3 mb-3">{{
-                          $t("your_name")
-                        }}</label>
+                        <label for="name" class="mt-3 mb-3">Your name</label>
                       </div>
                     </div>
                     <!--Grid column-->
@@ -68,9 +66,7 @@
                           class="form-control"
                           v-model="form.email"
                         />
-                        <label for="email" class="mt-3 mb-3">
-                          {{ $t("your_email") }}
-                        </label>
+                        <label for="email" class="mt-3 mb-3">Your email</label>
                       </div>
                     </div>
                     <!--Grid column-->
@@ -88,9 +84,7 @@
                           class="form-control"
                           v-model="form.subject"
                         />
-                        <label for="subject" class="mt-3 mb-3">
-                          {{ $t("subject") }}</label
-                        >
+                        <label for="subject" class="mt-3 mb-3">Subject</label>
                       </div>
                     </div>
                   </div>
@@ -109,7 +103,7 @@
                           class="form-control md-textarea"
                           v-model="form.message"
                         ></textarea>
-                        <label for="message"> {{ $t("your_message") }}</label>
+                        <label for="message">Your message</label>
                       </div>
                     </div>
                   </div>
@@ -121,7 +115,7 @@
                       class="btn btn-primary"
                       :disabled="isBusy"
                     >
-                      {{ $t("send") }}
+                      Send
                     </button>
                   </div>
 

@@ -27,6 +27,10 @@ export default {
 };
 </script>
 <style scoped>
+ul {
+  /* background-color: red; */
+}
+
 h2 {
   font-size: 1.5em;
   padding: 10px 0 10px 0;

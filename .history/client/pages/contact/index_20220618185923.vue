@@ -109,7 +109,7 @@
                           class="form-control md-textarea"
                           v-model="form.message"
                         ></textarea>
-                        <label for="message"> {{ $t("your_message") }}</label>
+                        <label for="message">Your message</label>
                       </div>
                     </div>
                   </div>
@@ -121,7 +121,7 @@
                       class="btn btn-primary"
                       :disabled="isBusy"
                     >
-                      {{ $t("send") }}
+                      Send
                     </button>
                   </div>
 

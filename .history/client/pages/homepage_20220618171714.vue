@@ -124,13 +124,6 @@ export default {
   },
 
   methods: {
-    routeToLang(loc) {
-      if (this.$i18n.locale == "en") {
-        return loc;
-      } else {
-        return "/" + this.$i18n.locale + loc;
-      }
-    },
     toggleSidebar() {
       const sidebar = document.querySelector(".sidebar");
       sidebar.classList.toggle("shown");

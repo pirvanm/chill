@@ -22,9 +22,8 @@ export default async (context, locale) => {
     subject: "Subiect",
     your_message: "Mesajul tau",
     send: "Trimite",
-    records: "Rezultate",
-    showing: "Showing",
-    of: "din"
+    records: "records",
+    showing: "Showing"
 
   });
 };

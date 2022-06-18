@@ -220,7 +220,7 @@
               </div>
 
               <h4 class="mt-3" @click="toggle4">
-                {{ $t("countries_regional") }}
+                {{ $("countries_regional") }}
               </h4>
 
               <div v-show="shown4">

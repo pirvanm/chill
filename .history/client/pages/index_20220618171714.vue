@@ -20,7 +20,7 @@
         </div>
 
         <div class="clearfix"></div>
-        <h1 class="ml-5">{{ $t("popular_song") }}</h1>
+        <h1>Popular songs</h1>
         <div class="container">
           <div class="row">
             <div
@@ -145,13 +145,6 @@ export default {
   // },
 
   methods: {
-    routeToLang(loc) {
-      if (this.$i18n.locale == "en") {
-        return loc;
-      } else {
-        return "/" + this.$i18n.locale + loc;
-      }
-    },
     closeSuggestionModal() {
       this.$bvModal.hide("suggestion");
     },

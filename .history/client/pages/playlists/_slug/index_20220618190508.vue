@@ -73,7 +73,7 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <h2>{{ $t("coming_up") }}</h2>
+                <h2>Coming up</h2>
                 <div
                   class="video-card mb-4 overflow-auto"
                   v-for="(video, index) in videos"

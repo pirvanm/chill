@@ -219,9 +219,7 @@
                 </div>
               </div>
 
-              <h4 class="mt-3" @click="toggle4">
-                {{ $t("countries_regional") }}
-              </h4>
+              <h4 class="mt-3" @click="toggle4">Countries / Regional</h4>
 
               <div v-show="shown4">
                 <div class="custom-control custom-radio">

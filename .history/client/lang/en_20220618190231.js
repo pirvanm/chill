@@ -5,7 +5,7 @@ export default async (context, locale) => {
     playlists: "playlists",
     history: "history",
     contact: "contact",
-    coming_up: "Coming up",
+    coming up: "Coming up",
     popular_song: "Popular songs",
     top_playlists: "Top Playlist",
     filter_by: "Filter By:",

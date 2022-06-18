@@ -21,10 +21,7 @@ export default async (context, locale) => {
     your_email: "Email-ul Tau",
     subject: "Subiect",
     your_message: "Mesajul tau",
-    send: "Trimite",
-    records: "Rezultate",
-    showing: "Showing",
-    of: "din"
+    send: "Trimite"
 
   });
 };
