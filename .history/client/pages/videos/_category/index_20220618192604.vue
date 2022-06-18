@@ -99,10 +99,6 @@ export default {
   width: 300px;
 }
 h6 {
-  color: white;
-  font-weight: bold;
-  width: 200px;
-  word-break: normal;
-  height: 99px;
+  "width: 200px; word-break: normal
 }
 </style>

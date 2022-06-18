@@ -34,9 +34,9 @@
                     </a>
                   </div>
                   <div v-else>
-                    <!-- <h6 style="width: 200px; word-break: normal">
+                    <h6 style="width: 200px; word-break: normal">
                       {{ video.title }}
-                    </h6> -->
+                    </h6>
                   </div>
                 </nuxt-link>
               </div>
@@ -97,12 +97,5 @@ export default {
   padding-bottom: 20px;
   padding-left: 50px;
   width: 300px;
-}
-h6 {
-  color: white;
-  font-weight: bold;
-  width: 200px;
-  word-break: normal;
-  height: 99px;
 }
 </style>

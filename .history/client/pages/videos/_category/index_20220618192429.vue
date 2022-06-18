@@ -25,7 +25,6 @@
               :key="video.id"
             >
               <div class="category-card">
-                <h6>{{ video.title }}</h6>
                 <img class="card-img-top" :src="video.thumbnail" alt="" />
                 <nuxt-link :to="`/watch/${video.videoId}`">
                   <div v-if="video.title.length < 20">
@@ -34,12 +33,14 @@
                     </a>
                   </div>
                   <div v-else>
-                    <!-- <h6 style="width: 200px; word-break: normal">
+                    <h6 style="width: 200px; word-break: normal">
                       {{ video.title }}
-                    </h6> -->
+                    </h6>
                   </div>
                 </nuxt-link>
               </div>
+
+              {{ video.title }}
             </div>
           </div>
           <client-only>
@@ -97,12 +98,5 @@ export default {
   padding-bottom: 20px;
   padding-left: 50px;
   width: 300px;
-}
-h6 {
-  color: white;
-  font-weight: bold;
-  width: 200px;
-  word-break: normal;
-  height: 99px;
 }
 </style>
