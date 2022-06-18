@@ -78,7 +78,45 @@ export default {
     "@nuxtjs/sitemap",
     "nuxt-fontawesome",
     "@nuxtjs/proxy",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+        file: "en.js",
+        name: "English",
+      },
+      {
+        code: "ro",
+        file: "ro.js",
+        iso: "ro",
+        name: "Romanian",
+      },
+      {
+        code: "ro-md",
+        file: "ro.js",
+        iso: "ro-MD",
+        name: "Romanian (Republic of Moldova)",
+      },
+      {
+        code: "hi",
+        file: "hi.js",
+        iso: "hi",
+        name: "Hindi",
+      },
+    ],
+    lazy: true,
+    defaultLocale: "en",
+    langDir: "lang/",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root", // recommended
+    },
+  },
 
   fontawesome: {
     icons: {
@@ -154,9 +192,13 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+    babel: {
+      compact: true,
+    },
   },
   server: {
     port: process.env.SERVER_PORT || 3000, // default: 3000
     host: process.env.SERVER_IP || "localhost", // default: localhost,
   },
+  components: false,
 };

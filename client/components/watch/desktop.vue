@@ -13,7 +13,7 @@
           <search />
         </div>
 
-        <div class="clearfix"></div>
+        <!-- <div class="clearfix"></div> -->
 
         <div class="container">
           <div v-if="vids.length">
@@ -21,7 +21,9 @@
               <div class="col-md-8">
                 <div class="breadcrumbs">
                   <a href="/">Home</a>/
-                  <nuxt-link :to="`/videos/${vid.category.category_name}`">
+                  <nuxt-link
+                    :to="routeToLang(`/videos/${vid.category.category_name}`)"
+                  >
                     {{ vid.category.category_name }}
                   </nuxt-link>
                 </div>
@@ -70,6 +72,7 @@
                 <h3 class="title mt-3 pt-2 pb-3">{{ vid.title }}</h3>
 
                 <div class="wrapper embed-responsive embed-responsive-4by3">
+                  <!-- <client-only> -->
                   <youtube
                     ref="youtube"
                     width="560"
@@ -80,15 +83,18 @@
                     class="player embed-responsive-item"
                   >
                   </youtube>
+                  <!-- </client-only>
+                   -->
                 </div>
 
                 <div class="mt-3 text-center mb-3">
-                  <span @click="play" :class="isPlay ? 'pink' : 'white'">
-                    <i class="fas fa-play fa-2x"></i>
-                  </span>
-
-                  <span @click="pause" :class="isPause ? 'pink' : 'white'">
-                    <i class="fas fa-pause fa-2x"></i>
+                  <span @click="play">
+                    <span v-show="isPlay" class="pink">
+                      <i :class="`fas fa-play fa-2x `"></i>
+                    </span>
+                    <span v-show="!isPlay">
+                      <i :class="`fas fa-pause fa-2x`"></i>
+                    </span>
                   </span>
 
                   <span @click="nextVideo" class="cursor">
@@ -195,11 +201,12 @@ export default {
       },
       playerVars: {
         autoplay: 1,
-        modestbranding: 1,
+        modestbranding: 0,
         showinfo: 0,
+        controls: 1,
       },
       url: "",
-      vid: {},
+      // vid: {},
       tagvids: [],
       update: {
         category: 1,
@@ -217,22 +224,19 @@ export default {
   },
   watch: {
     query: {
-      // This will let Vue know to look inside the array
       deep: true,
 
-      // We have to move our method to a handler field
       handler() {
         this.gotoWatch(this.$route.query.v);
       },
     },
   },
-  mounted() {
+
+  created() {
     this.getPlaylist();
     this.url = window.location.href;
     this.addToHistory();
     this.checkAdmin();
-  },
-  created() {
     if (process.browser) {
       window.addEventListener("resize", this.handleResize);
       this.handleResize();
@@ -242,15 +246,18 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
     handleResize() {
       this.innerWidth = window.innerWidth;
     },
     triggerLoop() {
-      if (this.loop) {
-        this.loop = false;
-      } else {
-        this.loop = true;
-      }
+      this.loop = !this.loop;
     },
     checkAdmin() {
       if (this.$auth.loggedIn) {
@@ -274,25 +281,21 @@ export default {
     },
 
     play() {
-      this.player.playVideo();
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) {
+        this.player.playVideo();
+      } else {
+        this.player.pauseVideo();
+      }
     },
     pause() {
       this.player.pauseVideo();
     },
     endVideo() {
-      if (this.loop) {
-        this.player.playVideo();
-      } else {
-        this.vid = this.vids[0];
-
-        this.$router.push(`/watch?v=${this.vid.videoId}`);
-        this.player.playVideo();
-
-        this.vids.splice(0, 1);
-      }
+      this.$emit("endVideo", this.loop);
     },
     nextVideo() {
-      this.$router.push(`/watch/${this.vids[0].videoId}`);
+      this.$router.push(this.routeToLang(`/watch?v=${this.vids[0].videoId}`));
       this.player.playVideo();
     },
     lastVideo() {
@@ -350,10 +353,9 @@ export default {
     },
     gotoWatch(v) {
       window.scrollTo(0, 0);
-      this.$router.push(`/watch?v=${v}`);
+      this.$router.push(this.routeToLang(`/watch?v=${v}`));
       this.$axios.get(`/watch/${v}`).then((response) => {
-        this.vid = response.data.video;
-        this.vids = response.data.videos;
+        this.$emit("respo", response);
       });
       this.addToHistory();
     },

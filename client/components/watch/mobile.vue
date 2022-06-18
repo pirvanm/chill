@@ -23,12 +23,13 @@
                   <h3 class="title sm-mt-0">{{ vid.title }}</h3>
 
                   <div class="mt-3 mb-3 text-center">
-                    <span @click="play" :class="isPlay ? 'pink' : 'white'">
-                      <i class="fas fa-play fa-2x"></i>
-                    </span>
-
-                    <span @click="pause" :class="isPause ? 'pink' : 'white'">
-                      <i class="fas fa-pause fa-2x"></i>
+                    <span @click="play">
+                      <span v-show="isPlay" class="pink">
+                        <i :class="`fas fa-play fa-2x `"></i>
+                      </span>
+                      <span v-show="!isPlay">
+                        <i :class="`fas fa-pause fa-2x`"></i>
+                      </span>
                     </span>
 
                     <span @click="nextVideo" class="cursor">
@@ -88,11 +89,12 @@ export default {
       },
       playerVars: {
         autoplay: 1,
-        modestbranding: 1,
+        modestbranding: 0,
         showinfo: 0,
+        controls: 1,
       },
       url: "",
-      vid: {},
+      // vid: {},
       tagvids: [],
       update: {
         category: 1,
@@ -135,15 +137,18 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
     handleResize() {
       this.innerWidth = window.innerWidth;
     },
     triggerLoop() {
-      if (this.loop) {
-        this.loop = false;
-      } else {
-        this.loop = true;
-      }
+      this.loop = !this.loop;
     },
     checkAdmin() {
       if (this.$auth.loggedIn) {
@@ -167,26 +172,19 @@ export default {
     },
 
     play() {
-      this.player.playVideo();
-    },
-    pause() {
-      this.player.pauseVideo();
-    },
-    endVideo() {
-      if (this.loop) {
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) {
         this.player.playVideo();
       } else {
-        this.vid = this.vids[0];
-
-        this.$router.push(`/watch?v=${this.vid.videoId}`);
-        this.player.playVideo();
-
-        this.vids.splice(0, 1);
+        this.player.pauseVideo();
       }
     },
+    endVideo() {
+      this.$emit("endVideo", this.loop);
+    },
     nextVideo() {
-      this.$router.push(`/watch/${this.vids[0].videoId}`);
-      this.player.playVideo();
+      this.$router.push(this.routeToLang(`/watch?v=${this.vids[0].videoId}`));
+      // this.player.playVideo();
     },
     lastVideo() {
       //this.$router.pop(`/watch/${this.vids[0].videoId}`);
@@ -243,7 +241,7 @@ export default {
     },
     gotoWatch(v) {
       window.scrollTo(0, 0);
-      this.$router.push(`/watch?v=${v}`);
+      this.$router.push(this.routeToLang(`/watch?v=${v}`));
       this.$axios.get(`/watch/${v}`).then((response) => {
         this.vid = response.data.video;
         this.vids = response.data.videos;

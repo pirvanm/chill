@@ -111,6 +111,7 @@ Route::post('/register', 'Auth\RegisterController@postRegister');
 Route::post('/search', 'SearchController@searchVideo');
 
 Route::get('/categories', 'CategoryController@getCategories');
+Route::get('/categories/{name}', 'CategoryController@currentCategoriesWithName');
 Route::post('/category', 'CategoryController@postCategory');
 Route::get('/subcategories-with-category/{id}', 'SubCategoryController@getSubCategoryWithCategory');
 Route::post('/subcategory', 'SubCategoryController@postSubCategory');
@@ -142,6 +143,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/delete-video/{id}', 'VideoController@deleteVideo');
 
     Route::post('/save-category-to-video', 'VideoController@saveCategoryToVideo');
+
+    Route::post('/save-user-categories', 'VideoController@saveUserCategories');
 });
 
 Route::get('/social-login/facebook', 'SocialLoginController@fbLogin');

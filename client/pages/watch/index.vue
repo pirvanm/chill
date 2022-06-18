@@ -5,9 +5,20 @@
       :vid="vid"
       :vids="vids"
       :categories="categories"
+      @respo="responseData($event)"
+      ref="youtube"
+      @endVideo="endVideo($event)"
     >
     </desktop>
-    <mobile v-else :vid="vid" :vids="vids" :categories="categories"> </mobile>
+    <mobile
+      v-else
+      :vid="vid"
+      :vids="vids"
+      :categories="categories"
+      ref="youtube"
+      @endVideo="endVideo"
+    >
+    </mobile>
   </div>
 </template>
 
@@ -18,6 +29,7 @@ import search from "@/components/Search";
 import desktop from "@/components/watch/desktop";
 import mobile from "@/components/watch/mobile";
 export default {
+  name: "Watch",
   head() {
     return {
       title: this.vid.title,
@@ -130,6 +142,23 @@ export default {
       }
     }
   },
+  computed: {
+    player() {
+      return this.$refs.youtube.$refs.youtube.player;
+    },
+    query() {
+      return this.$route.query.v;
+    },
+  },
+  watch: {
+    query: {
+      deep: true,
+
+      handler() {
+        this.gotoWatch(this.$route.query.v);
+      },
+    },
+  },
   components: {
     SideBar,
     newLeftBar,
@@ -154,8 +183,43 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
+    gotoWatch(v) {
+      window.scrollTo(0, 0);
+      this.$router.push(this.routeToLang(`/watch?v=${v}`));
+      this.$axios.get(`/watch/${v}`).then((response) => {
+        this.$emit("respo", response);
+      });
+      this.addToHistory();
+    },
+    addToHistory() {
+      var data = this.vid;
+      this.$store.dispatch("history/addVideoToHistory", data);
+    },
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
+    endVideo(e) {
+      if (e) {
+        this.player.playVideo();
+      } else {
+        this.vid = this.vids[0];
+
+        this.$router.push(this.routeToLang(`/watch?v=${this.vid.videoId}`));
+        this.player.playVideo();
+
+        this.vids.splice(0, 1);
+      }
+    },
     handleResize() {
       this.innerWidth = window.innerWidth;
+    },
+    responseData(data) {
+      this.vid = data.data.video;
+      this.vids = data.data.videos;
     },
   },
 };

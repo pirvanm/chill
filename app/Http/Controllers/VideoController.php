@@ -634,11 +634,9 @@ class VideoController extends Controller
     public function getListHomeVideo()
     {
 
-        $playlist = Playlist::where('name', 'home')->first();
-        if ($playlist) {
-            $videos = $playlist->videos;
-        }
-        return $videos;
+        $playlist = Playlist::where('name', 'Home Page')->first();
+
+        return VideoResource::collection($playlist->videos);
     }
 
     public function getListCategoryVideo()
@@ -1080,5 +1078,15 @@ class VideoController extends Controller
         return response()->json([
             'save' => 'success'
         ]);
+    }
+
+    public function saveUserCategories(Request $request)
+    {
+        $user = Auth::user();
+        $user->categories()->sync($request->categories);
+        $user->step = 2;
+        $user->save();
+
+        return response()->json(['success' => 'Saved success']);
     }
 }

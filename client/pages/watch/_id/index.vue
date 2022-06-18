@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div class="lds-facebook">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <div class="lds-facebook">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </template>
 
@@ -14,9 +12,15 @@ export default {
     this.gotoWatch();
   },
   methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
     gotoWatch() {
-      // console.log(this.$route.params.id);
-      this.$router.push(`/watch?v=${this.$route.params.id}`);
+      this.$router.push(this.routeToLang(`/watch?v=${this.$route.params.id}`));
     },
     toggleSidebar() {
       const sidebar = document.querySelector(".sidebar");

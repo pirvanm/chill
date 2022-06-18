@@ -1,54 +1,60 @@
 <template>
-    <div>
-        <div class="sidebar">
-            <nav>
-                <a class="" href="/">Home</a>
-                <a href="/videos">Videos</a>
-                <nuxt-link to="/playlists">Playlists</nuxt-link>
-                <a href="/history">History</a>
-                <a href="/contact">Contact</a>
-            </nav>
-        </div>
-
-        <!--        <div class="footer">-->
-        <!--            <ul>-->
-        <!--                <li></li>-->
-        <!--            </ul>-->
-        <!--        </div>-->
+  <div>
+    <div class="sidebar">
+      <nav>
+        <nuxt-link :to="routeToLang('/')">{{ $t("home") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/videos')">{{ $t("videos") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/playlists')">{{
+          $t("playlists")
+        }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/history')">{{ $t("history") }}</nuxt-link>
+        <nuxt-link :to="routeToLang('/contact')">{{ $t("contact") }}</nuxt-link>
+      </nav>
     </div>
+  </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    routeToLang(loc) {
+      if (this.$i18n.locale == "en") {
+        return loc;
+      } else {
+        return "/" + this.$i18n.locale + loc;
+      }
+    },
+  },
+};
 </script>
 <style scoped>
 ul {
-    /* background-color: red; */
+  /* background-color: red; */
 }
 
 h2 {
-    font-size: 1.5em;
-    padding: 10px 0 10px 0;
+  font-size: 1.5em;
+  padding: 10px 0 10px 0;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 .footer ul li {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 li a {
-    color: #8422a6;
+  color: #8422a6;
 }
 </style>

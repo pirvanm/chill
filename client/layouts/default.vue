@@ -1,11 +1,32 @@
 <template>
-  <nuxt />
+  <div>
+    <nuxt-link
+      v-for="locale in availableLocales"
+      :key="locale.code"
+      :to="switchLocalePath(locale.code)"
+      class="ml-5 text-center"
+      >{{ locale.name }}</nuxt-link
+    >
+    <nuxt />
+  </div>
 </template>
 
 <script>
 export default {
+  head() {
+    return this.$nuxtI18nHead();
+  },
   mounted() {
     this.setHistory();
+    this.pushLang();
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
+    },
+    lang() {
+      return navigator.language;
+    },
   },
   methods: {
     setHistory() {
@@ -14,6 +35,12 @@ export default {
       //         this.$store.dispatch("history/addVideoToHistory", vid);
       //     });
       // }
+    },
+    pushLang() {
+      window.$nuxt.$i18n.setLocaleCookie(this.lang);
+      if (this.lang !== "en") {
+        this.$router.push(this.switchLocalePath(this.lang));
+      }
     },
   },
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\VideoResource;
 use Illuminate\Routing\Controller;
 use App\Models\Category;
 use App\Models\Video;
@@ -15,6 +16,7 @@ class CategoryController extends Controller
     {
         $categories = Category::latest()->get();
 
+        return CategoryResource::collection($categories);
         return response()->json(['categories' => $categories]);
     }
 
@@ -27,7 +29,16 @@ class CategoryController extends Controller
         return response()->json(['category' => $category]);
     }
 
-   public function currentCategories($id) {
+    public function currentCategoriesWithName($name)
+    {
+        $category = Category::where('category_name', $name)->first();
+        $videos = Video::where('category_id', $category->id)->paginate(18);
+        return VideoResource::collection($videos);
+        return new CategoryResource($category);
+    }
+
+    public function currentCategories($id)
+    {
 
         /*
         SELECT c.category_name FROM videos v
@@ -40,19 +51,18 @@ class CategoryController extends Controller
             ->join('category', 'category.id', '=', 'videos.category_id')
 
             ->select('category.category_name')
-            ->where('videoId','=',$id)
+            ->where('videoId', '=', $id)
             ->get();
 
 
 
         return new CategoryResource($category);
 
-      //  return response()->json(['category' => $category]);
-      // return $category;
+        //  return response()->json(['category' => $category]);
+        // return $category;
 
-     /*   $category = Video::find(1)->category;
+        /*   $category = Video::find(1)->category;
 
         dd($category);*/
-
     }
 }
