@@ -4,7 +4,6 @@ export default async (context, locale) => {
     videos: "Videoclipuri",
     playlists: "Albume",
     history: "Istoric",
-    contact: "Contact",
-    my_country: "Tara Mea",
+    contact: "a lua legatura",
   });
 };

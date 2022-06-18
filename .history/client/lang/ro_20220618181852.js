@@ -3,8 +3,7 @@ export default async (context, locale) => {
     home: "Acasă",
     videos: "Videoclipuri",
     playlists: "Albume",
-    history: "Istoric",
-    contact: "Contact",
-    my_country: "Tara Mea",
+    history: "istorie",
+    contact: "a lua legatura",
   });
 };

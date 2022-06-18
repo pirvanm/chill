@@ -5,6 +5,5 @@ export default async (context, locale) => {
     playlists: "Albume",
     history: "Istoric",
     contact: "Contact",
-    my_country: "Tara Mea",
   });
 };
