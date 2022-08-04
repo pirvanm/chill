@@ -30,6 +30,9 @@
                     <li>
                       <a href="/admin/videos" class=""> Videos </a>
                     </li>
+                      <li>
+                      <a href="/admin/videos" class=""> HomePage Videos </a>
+                    </li>
                 </ul>
             </div>
 
