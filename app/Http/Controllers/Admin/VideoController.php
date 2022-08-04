@@ -85,7 +85,7 @@ class VideoController extends Controller
 
     public function getPlaylists()
     {
-        $playlists = Playlist::latest()->paginate(50);
+        $playlists = Playlist::latest()->paginate(500);
 
         return PlaylistResource::collection($playlists);
     }
