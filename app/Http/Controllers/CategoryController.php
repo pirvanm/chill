@@ -14,7 +14,9 @@ class CategoryController extends Controller
 {
     public function getCategories()
     {
-        $categories = Category::latest()->get();
+      
+        $categories = Category::latest()
+        ->orderBy('category_name', 'desc')->get();
 
         return CategoryResource::collection($categories);
         return response()->json(['categories' => $categories]);
