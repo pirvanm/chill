@@ -10,7 +10,7 @@
                 <h1>Filters</h1>
 
                 <div class="form-group col-md-12 pr-2 mr-2">
-                    <h1 for="inputState">#1 Filter Pick a Category</h1>
+                    <h3 for="inputState">#1 Filter Pick a Category</h3>
                     <select
                         id="inputState"
                         class="form-control"
@@ -349,6 +349,12 @@ export default {
 };
 </script>
 <style scoped>
+
+@media (min-width: 1200px) {
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 2000px;
+}
+}
 .container {
     margin-top: 50px;
 }

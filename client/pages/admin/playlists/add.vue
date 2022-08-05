@@ -6,11 +6,11 @@
         </div>
         <div class="col-md-10">
         <div class="row">
-            <div class="col-md-3 text-center border pr-2 mr-2">
+            <div class="col-md-3  border pr-0 mr-2">
                 <h1>Filters</h1>
 
-                <div class="form-group col-md-12 pr-2 mr-2">
-                    <h1 for="inputState">#1 Filter Pick a Category</h1>
+                <div class="form-group col-md-12 pr-1 mr-2">
+                    <h3 for="inputState">#1  Pick a Category</h3>
                     <select
                         id="inputState"
                         class="form-control"
@@ -30,6 +30,7 @@
                 <label for="inputState">#2 Pick Duration</label>
                 <br /><br />
                 <div class="form-check form-check-inline">
+                    
                     <input
                         class="form-check-input"
                         type="radio"
@@ -104,16 +105,16 @@
                                 @change="changeSlider"
                             ></vue-slider>
                         </client-only>
-                        <div class="row">
+                        <div class="row  pt-2  mt-2 ">
                             <input
-                                class="col-md-6 form-control pb-2"
+                                class="col-md-5 form-control ml-2 pb-1 ml-1pb-2"
                                 type="number"
                                 v-model="range.views[0]"
                                 @input="changeSlider"
                             />
-                            <br /><br />
+                           
                             <input
-                                class="col-md-6 form-control"
+                                class="col-md-5 form-control"
                                 type="number"
                                 v-model="range.views[1]"
                                 @input="changeSlider"
@@ -146,8 +147,8 @@
             </div>
 
             <div class="col-md-4 border pr-2">
-                <h1>
-                    New Playlist / count({{ left.length }})
+                <h3>
+                    New Playlist / count({{ left.length }})  </h3>
                     <input
                         type="text"
                         class="form-control"
@@ -160,7 +161,7 @@
                     >
                         Save
                     </button>
-                </h1>
+              
                 <client-only>
                     <draggable
                         class="list-group"
@@ -180,7 +181,9 @@
             </div>
 
             <div class="col-md-4 border ml-2">
-                <h1>List of posible Songs / count({{ videos.meta.total }})</h1>
+                <h1>List of posible Songs 
+                    <p>    count({{ videos.meta.total }})</p>
+                 </h1>
                 <hr />
                 <client-only>
                     <draggable
@@ -193,21 +196,18 @@
                             v-for="video in videos.data"
                             :key="video.title"
                         >
-                            Title: {{ video.title }} Views:
-                            {{ video.views }} Duration
-                            {{ video.duration }} Type: {{ video.type_duration }}
+                            Title: {{ video.title }} 
+                            <p>   Views: {{ video.views }}  </p>
+                        
+                            <p>Duration {{ video.duration }}</p> 
+                             Type: {{ video.type_duration }}
                             <div>
                                 See Video
 
                                 <button
                                     class="btn btn-sm btn-info btn-block mt-1"
                                 >
-                                    <!--                                    <nuxt-link-->
-                                    <!--                                        to='/watch/' +video.videoId-->
-                                    <!--                                        class="text-dark"-->
-                                    <!--                                        target="_blank" >-->
-                                    <!--                                    See Video {{video.videoId}}-->
-                                    <!--                                    </nuxt-link>-->
+                                  
                                     <a
                                         :href="'/watch/' + video.videoId"
                                         target="_blank"
@@ -349,7 +349,173 @@ export default {
 };
 </script>
 <style scoped>
+@media (min-width: 1200px) {
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 2000px;
+}
+}
 .container {
     margin-top: 50px;
 }
+
+ul li .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid #0DFF92;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #0DFF92;
+}
+
+input[type=radio]:checked ~ label{
+  color: #0DFF92;
+}
+
+.signature {
+	margin: 10px auto;
+	padding: 10px 0;
+	width: 100%;
+}
+
+.signature p{
+	text-align: center;
+	font-family: Helvetica, Arial, Sans-Serif;
+	font-size: 0.85em;
+	color: #AAAAAA;
+}
+
+.signature .much-heart{
+	display: inline-block;
+	position: relative;
+	margin: 0 4px;
+	height: 10px;
+	width: 10px;
+	background: #AC1D3F;
+	border-radius: 4px;
+	-ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.signature .much-heart::before, 
+.signature .much-heart::after {
+	  display: block;
+  content: '';
+  position: absolute;
+  margin: auto;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: #AC1D3F;
+  top: -4px;
+}
+
+.signature .much-heart::after {
+	bottom: 0;
+	top: auto;
+	left: -4px;
+}
+
+.signature a {
+	color: #AAAAAA;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+/* Styles for alert... 
+by the way it is so weird when you look at your code a couple of years after you wrote it XD */
+
+.alert {
+	box-sizing: border-box;
+	background-color: #BDFFE1;
+	width: 100%;
+	position: relative; 
+	top: 0;
+	left: 0;
+	z-index: 300;
+	padding: 20px 40px;
+	color: #333;
+}
+
+.alert h2 {
+	font-size: 22px;
+	color: #232323;
+	margin-top: 0;
+}
+
+.alert p {
+	line-height: 1.6em;
+	font-size:18px;
+}
+
+.alert a {
+	color: #232323;
+	font-weight: bold;
+}
+
+ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+ul li:hover label{
+	color: #FFFFFF;
+}
+
+ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 30px;
+  left: 20px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+ul li:hover .check {
+  border: 5px solid #FFFFFF;
+}
+
+ul li{
+  color: #AAAAAA;
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100px;
+	border-bottom: 1px solid #333;
+}
+
+
 </style>
