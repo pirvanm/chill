@@ -128,4 +128,67 @@ class PlaylistController extends Controller
         $videos = $playlist->videos;
         return VideoResource::collection($videos);
     }
+
+    public function getPilot()
+    {
+       
+        //d1
+        $currentId = 1;
+        //morning
+        $currentId = 1;
+        //chillhop
+       // Lunch
+       $currentId = 1;
+        //nigth 
+        //energy playlist 1
+        //midnight
+        //lofi sad
+
+        //d2
+        //opera
+        //morning
+             // Lunch
+        //nigth 
+        //midnight
+          //lofi trap
+
+        //d3
+        //morning
+        //ambiental
+ 
+             // Lunch
+        //nigth 
+          //energy playlist 2
+        //midnight
+
+        //d4
+        //morning
+               //trap
+          // Lunch
+        //nigth 
+        //midnight
+
+        //d5
+        //morning
+          // Lunch
+        //nigth 
+        //regioanal
+        //midnight
+
+        //d6
+        //morning
+          // Lunch
+        //nigth 
+          //energy playlist 3
+        //midnight
+        //d7
+
+        //morning
+        //nigth 
+        //midnight
+        $currentId = 1;
+        $playlist = Playlist::where('id', $currentId)->first();
+        $videos = $playlist->videos;
+        return VideoResource::collection($videos);
+    }
 }

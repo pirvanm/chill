@@ -118,6 +118,7 @@ Route::post('/subcategory', 'SubCategoryController@postSubCategory');
 
 Route::get('/playlists', 'PlaylistController@getPublicPlaylist');
 Route::get('/playlists/{slug}', 'PlaylistController@getPlaylistbySlug');
+Route::get('/playlists/pilot', 'PlaylistController@getPilot');
 Route::post('/playlists', 'PlaylistController@createPublicPlaylist');
 Route::post('/add-to-playlists', 'PlaylistController@addVideoToPlaylist');
 
