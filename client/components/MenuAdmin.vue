@@ -1,12 +1,7 @@
 <template>
     <div class="container">
-
-        <div class="row">
-
-        </div>
-
-        <div class="row">
-            <div class="offset-1 col-2">
+       
+            <div class=" col-2  nav_admin">
                 <ul>
                     <li>
                         <a href="/admin" class=""> Home  </a>
@@ -38,6 +33,14 @@
 
       
         </div>
-    </div>
+    
 
 </template>
+<style scoped>
+.nav_admin{
+background-color:black;
+}
+
+
+
+</style>
