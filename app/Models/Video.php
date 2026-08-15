@@ -50,7 +50,7 @@ class Video extends Model
 
     public function routeNotificationFor($driver)
     {
-        return 'REDACTED_SLACK_WEBHOOK';
+        return config('services.slack.webhook');
     }
 
     public function subcategories()
