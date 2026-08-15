@@ -10,7 +10,6 @@
     "require": {
         "php": "^8.0",
         "alaouy/youtube": "^2.2",
-        "fideloper/proxy": "^4.4",
         "laravel/framework": "^9.0",
         "laravel/passport": "^10.0",
         "laravel/sanctum": "^2.10",
