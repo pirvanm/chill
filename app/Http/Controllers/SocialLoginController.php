@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
@@ -31,6 +33,7 @@ class SocialLoginController extends Controller
             $oUser->name = $user->getName();
             $oUser->email = $user->getEmail();
             $oUser->token = $user->token;
+            $oUser->password = Hash::make(Str::random(32));
             $oUser->email_verified_at = now();
             $oUser->save();
 

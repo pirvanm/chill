@@ -537,6 +537,7 @@ class VideoController extends Controller
 
     public function getAllVideos()
     {
+        $v = [];
         $categories = Category::get();
         foreach ($categories as  $category) {
 

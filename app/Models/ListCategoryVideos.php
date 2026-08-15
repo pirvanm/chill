@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListCategoryVideos extends Model
 {
-    protected $table = 'listVideosCategories';
+    protected $table = 'listvideoscategories';
     public $timestamps = false;
 }
