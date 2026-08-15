@@ -35,17 +35,16 @@ class VideoCatalogService
     {
         return Category::get()->map(function (Category $category) {
             return Video::where('category_id', $category->id)->first();
-        });
+        })->filter()->values();
     }
 
     /** @return array<string, int> */
     public function statsByCategory(): array
     {
-        $videos = Video::all();
-        $stats = ['count0' => $videos->count()];
+        $stats = ['count0' => Video::count()];
 
         for ($categoryId = 1; $categoryId <= 14; $categoryId++) {
-            $stats["count{$categoryId}"] = $videos->where('category_id', $categoryId)->count();
+            $stats["count{$categoryId}"] = Video::where('category_id', $categoryId)->count();
         }
 
         return $stats;
