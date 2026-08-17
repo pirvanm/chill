@@ -4,49 +4,48 @@ namespace App\Services;
 
 use App\Models\Playlist;
 use App\Models\Video;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 
 class PlaylistService
 {
-    /** Keys map 1:1 to the group names the frontend already reads from /api/playlists. */
-    private const KEYWORD_GROUPS = [
-        'top' => 'top',
-        'quick' => 'quick',
-        'long' => 'long',
-        'meditat' => 'meditat',
-        'downtempo' => 'downtempo',
-        'ambiental' => 'ambiental',
-        'rock' => 'rock',
-        'chill' => 'chill',
-        'gaming' => 'gaming',
-        'classic' => 'classic',
-        'techno' => 'techno',
-        'trap' => 'trap',
-        'lo_fi' => 'lo-fi',
-        'hiphop' => 'hip-hop',
-        'arabic' => 'arabic',
-        'african' => 'african',
-        'china' => 'china',
-        'chinese' => 'chinese',
-        'france' => 'france',
-        'indian' => 'indian',
-        'italy' => 'italy',
-        'spania' => 'Spania',
-        'spanish' => 'spanish',
-        'japan' => 'japan',
-    ];
-
-    public function groupedPublicPlaylists(): array
+    public function filter(array $filters): LengthAwarePaginator
     {
-        $groups = ['all' => Playlist::latest()->get()];
+        $query = Playlist::query()
+            ->withAggregates()
+            ->where('mode', 'public')
+            ->with('category');
 
-        foreach (self::KEYWORD_GROUPS as $key => $keyword) {
-            $groups[$key] = Playlist::latest()->where('name', 'LIKE', "%{$keyword}%")->get();
+        if (!empty($filters['category_id'])) {
+            $query->where('playlists.category_id', $filters['category_id']);
         }
 
-        $groups['playlists'] = Playlist::latest()->where('mode', 'public')->get();
+        if (!empty($filters['country'])) {
+            $query->where('playlists.country', $filters['country']);
+        }
 
-        return $groups;
+        if (!empty($filters['duration'])) {
+            $query->having(
+                'total_duration_seconds',
+                $filters['duration'] === 'quick' ? '<' : '>=',
+                Playlist::LONG_DURATION_THRESHOLD_SECONDS
+            );
+        }
+
+        switch ($filters['sort'] ?? 'popularity') {
+            case 'newest':
+                $query->orderByDesc('playlists.created_at');
+                break;
+            case 'name':
+                $query->orderBy('playlists.name');
+                break;
+            case 'popularity':
+            default:
+                $query->orderByDesc('total_views');
+                break;
+        }
+
+        return $query->paginate($filters['per_page'] ?? 20);
     }
 
     public function createPublic(string $name): Playlist
@@ -54,7 +53,7 @@ class PlaylistService
         $playlist = new Playlist;
         $playlist->name = $name;
         $playlist->slug = Str::slug($name, '-') . '-' . Str::random(5);
-        $playlist->mode = 'Public';
+        $playlist->mode = 'public';
         $playlist->save();
 
         return $playlist;

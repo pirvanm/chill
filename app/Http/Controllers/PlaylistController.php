@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddVideoToPlaylistRequest;
 use App\Http\Requests\CreatePlaylistRequest;
+use App\Http\Requests\FilterPlaylistsRequest;
+use App\Http\Resources\PublicPlaylistResource;
 use App\Http\Resources\VideoResource;
 use App\Services\PlaylistService;
 
@@ -16,9 +18,9 @@ class PlaylistController extends Controller
         $this->playlists = $playlists;
     }
 
-    public function getPublicPlaylist()
+    public function getPublicPlaylist(FilterPlaylistsRequest $request)
     {
-        return response()->json($this->playlists->groupedPublicPlaylists());
+        return PublicPlaylistResource::collection($this->playlists->filter($request->validated()));
     }
 
     public function createPublicPlaylist(CreatePlaylistRequest $request)
