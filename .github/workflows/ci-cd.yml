@@ -69,9 +69,12 @@ jobs:
       - name: Run feature test suite
         run: vendor/bin/phpunit --testsuite=Feature --exclude-group broken
 
+  # Manual-trigger only: shared cPanel/FTP hosting has no real remote command execution,
+  # so this is a semi-manual step by nature (needs the secrets below configured first).
+  # Tests on every push/PR are the actual safety net - this just uploads on demand.
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: chillapi2
 
