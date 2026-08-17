@@ -91,11 +91,11 @@ jobs:
       - name: Install production dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-dev --optimize-autoloader
 
-      - name: Write production .env
+      - name: Write chillapi2 .env
         run: |
           cat > .env << EOF
           APP_NAME=ChillWhispers
-          APP_ENV=production
+          APP_ENV=staging
           APP_KEY=${{ secrets.CHILLAPI2_APP_KEY }}
           APP_DEBUG=false
           APP_URL=https://chillapi2.levelcoding.com
@@ -103,11 +103,11 @@ jobs:
           LOG_CHANNEL=stack
 
           DB_CONNECTION=mysql
-          DB_HOST=${{ secrets.PROD_DB_HOST }}
-          DB_PORT=${{ secrets.PROD_DB_PORT }}
-          DB_DATABASE=${{ secrets.PROD_DB_DATABASE }}
-          DB_USERNAME=${{ secrets.PROD_DB_USERNAME }}
-          DB_PASSWORD=${{ secrets.PROD_DB_PASSWORD }}
+          DB_HOST=${{ secrets.CHILLAPI2_DB_HOST }}
+          DB_PORT=${{ secrets.CHILLAPI2_DB_PORT }}
+          DB_DATABASE=${{ secrets.CHILLAPI2_DB_DATABASE }}
+          DB_USERNAME=${{ secrets.CHILLAPI2_DB_USERNAME }}
+          DB_PASSWORD=${{ secrets.CHILLAPI2_DB_PASSWORD }}
 
           BROADCAST_DRIVER=log
           CACHE_DRIVER=file
