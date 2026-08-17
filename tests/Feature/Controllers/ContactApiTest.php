@@ -45,7 +45,7 @@ class ContactApiTest extends TestCase
         $response->assertStatus(422)->assertJsonValidationErrors([$missingField]);
     }
 
-    public function requiredFields(): array
+    public static function requiredFields(): array
     {
         return [['name'], ['email'], ['subject'], ['message']];
     }
