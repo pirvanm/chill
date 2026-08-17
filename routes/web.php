@@ -19,20 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chanel-videos', 'VideoController@getVideoOfChannels');
-
-
-Route::get('/chanel-search', 'VideoController@searchVideo');
-
 Route::get('/videos', 'VideoController@getVideos');
-Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
-Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
-Route::get('/latest-videos-jazzy', 'VideoController@getLatestVideosJazzy');
-Route::get('/videos-lofi', 'VideoController@getVideosLofi');
-Route::get('/latest-videos-lofi', 'VideoController@getVideosLofi');
-Route::get('/videos-regional', 'VideoController@getVideosRegional');
+Route::get('/videos-jazzy', 'VideoCatalogController@getVideosJazzy');
+Route::get('/videos-ambient', 'VideoCatalogController@getVideosAmbient');
+Route::get('/latest-videos-jazzy', 'VideoCatalogController@getLatestVideosJazzy');
+Route::get('/videos-lofi', 'VideoCatalogController@getVideosLofi');
+Route::get('/latest-videos-lofi', 'VideoCatalogController@getVideosLofi');
+Route::get('/videos-regional', 'VideoRegionalController@getVideosRegional');
 
-Route::get('/test', 'VideoController@videoTest');
 Route::get('/w/{id}', 'VideoController@getVi');
 
 Route::get('/categories', 'VideoController@categories');
@@ -67,7 +61,3 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::post('/ad', 'VideoController@addVideo');
-Route::post('/sendCat/', 'VideoController@getCat');
-Route::get('/getCat/', 'VideoController@getCat');
-
-//Route::post('/add-emails', 'VideoController@emails');

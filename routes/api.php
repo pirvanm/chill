@@ -17,60 +17,60 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('/', 'VideoController@getAllVideos');
+Route::get('/', 'VideoCatalogController@getAllVideos');
 
-Route::get('/stats', 'VideoController@getStats');
-Route::get('/list-home-videos', 'VideoController@getListHomeVideo');
-Route::get('/list-videos-categories', 'VideoController@getListCategoryVideo');
+Route::get('/stats', 'VideoCatalogController@getStats');
+Route::get('/list-home-videos', 'VideoCatalogController@getListHomeVideo');
+Route::get('/list-videos-categories', 'VideoCatalogController@getListCategoryVideo');
 
 
 Route::get('/details', 'VideoController@details');
 
-Route::get('/videos', 'VideoController@getAllVideos');
+Route::get('/videos', 'VideoCatalogController@getAllVideos');
 
-Route::get('/videos-jazzy', 'VideoController@getVideosJazzy');
+Route::get('/videos-jazzy', 'VideoCatalogController@getVideosJazzy');
 //Route::get('/latest-videos', 'VideoController@getLatestVideos');
 
-Route::get('/latest-videos-jazzy', 'VideoController@getLatestVideosJazzy');
+Route::get('/latest-videos-jazzy', 'VideoCatalogController@getLatestVideosJazzy');
 
-Route::get('/videos-ambient', 'VideoController@getVideosAmbient');
-Route::get('/videos-rock', 'VideoController@getLatestVideosRock');
-Route::get('/videos-ambient-meditate', 'VideoController@getVideosAmbientMeditate');
+Route::get('/videos-ambient', 'VideoCatalogController@getVideosAmbient');
+Route::get('/videos-rock', 'VideoCatalogController@getLatestVideosRock');
+Route::get('/videos-ambient-meditate', 'VideoCatalogController@getVideosAmbientMeditate');
 
-Route::get('/latest-videos-ambient', 'VideoController@getLastestVideosAmbient');
-
-
-Route::get('/videos-lofi', 'VideoController@getVideosLofi');
-Route::get('/latest-videos-lofi', 'VideoController@getLatestVideosLofi');
-Route::get('/videos-lofi-house', 'VideoController@getVideosLofiHouse');
-
-Route::get('/videos-regional', 'VideoController@getVideosRegional');
-Route::get('/videos-regional-spanish', 'VideoController@getVideosRegionalSpanish');
-Route::get('/videos-regional-italy', 'VideoController@getVideosRegionalItaly');
-Route::get('/videos-regional-japan', 'VideoController@getVideosRegionalJapan');
-Route::get('/videos-regional-indian', 'VideoController@getVideosRegionalIndian');
-Route::get('/videos-regional-france', 'VideoController@getVideosRegionalFrance');
-Route::get('/videos-regional-chinese', 'VideoController@getVideosRegionalChinese');
-Route::get('/videos-regional-arabic', 'VideoController@getVideosRegionalArabic');
-Route::get('/videos-regional-african', 'VideoController@getVideoRegionalAfrican');
-
-Route::get('/videos-chillstep', 'VideoController@getVideosChillStep');
-
-Route::get('/latest-videos-chillstep', 'VideoController@getLatestChillStep');
+Route::get('/latest-videos-ambient', 'VideoCatalogController@getLastestVideosAmbient');
 
 
-Route::get('/videos-chillout', 'VideoController@getVideosChillOut');
-Route::get('/videos-chillout-gaming', 'VideoController@getVideosChillOutGaming');
+Route::get('/videos-lofi', 'VideoCatalogController@getVideosLofi');
+Route::get('/latest-videos-lofi', 'VideoCatalogController@getLatestVideosLofi');
+Route::get('/videos-lofi-house', 'VideoCatalogController@getVideosLofiHouse');
 
-Route::get('/latest-videos-chillout', 'VideoController@getLatestChillOut');
+Route::get('/videos-regional', 'VideoRegionalController@getVideosRegional');
+Route::get('/videos-regional-spanish', 'VideoRegionalController@getVideosRegionalSpanish');
+Route::get('/videos-regional-italy', 'VideoRegionalController@getVideosRegionalItaly');
+Route::get('/videos-regional-japan', 'VideoRegionalController@getVideosRegionalJapan');
+Route::get('/videos-regional-indian', 'VideoRegionalController@getVideosRegionalIndian');
+Route::get('/videos-regional-france', 'VideoRegionalController@getVideosRegionalFrance');
+Route::get('/videos-regional-chinese', 'VideoRegionalController@getVideosRegionalChinese');
+Route::get('/videos-regional-arabic', 'VideoRegionalController@getVideosRegionalArabic');
+Route::get('/videos-regional-african', 'VideoRegionalController@getVideoRegionalAfrican');
 
-Route::get('videos-down', 'VideoController@getDown');
-Route::get('videos-trap', 'VideoController@getTrap');
-Route::get('videos-techno', 'VideoController@getTechno');
-Route::get('videos-world', 'VideoController@getWorld');
-Route::get('videos-lounge', 'VideoController@getLounge');
-Route::get('videos-classical', 'VideoController@getClassical');
-Route::get('videos-classic', 'VideoController@getClassic');
+Route::get('/videos-chillstep', 'VideoCatalogController@getVideosChillStep');
+
+Route::get('/latest-videos-chillstep', 'VideoCatalogController@getLatestChillStep');
+
+
+Route::get('/videos-chillout', 'VideoCatalogController@getVideosChillOut');
+Route::get('/videos-chillout-gaming', 'VideoCatalogController@getVideosChillOutGaming');
+
+Route::get('/latest-videos-chillout', 'VideoCatalogController@getLatestChillOut');
+
+Route::get('videos-down', 'VideoCatalogController@getDown');
+Route::get('videos-trap', 'VideoCatalogController@getTrap');
+Route::get('videos-techno', 'VideoCatalogController@getTechno');
+Route::get('videos-world', 'VideoCatalogController@getWorld');
+Route::get('videos-lounge', 'VideoCatalogController@getLounge');
+Route::get('videos-classical', 'VideoCatalogController@getClassical');
+Route::get('videos-classic', 'VideoCatalogController@getClassic');
 
 Route::get('/channels', 'ChannelController@getChannels');
 
