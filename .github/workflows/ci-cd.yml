@@ -116,20 +116,59 @@ jobs:
           SESSION_LIFETIME=120
           EOF
 
-      - name: Deploy over FTP
+      # Plain FTP has no bulk transfer - uploading ~16,000 individual vendor/ files one
+      # at a time took over an hour on shared hosting and never finished. Instead: zip
+      # the whole app into one file, upload just that (one transfer), then trigger a
+      # one-off PHP script (deploy/unpack.template.php) over HTTP to unzip it
+      # server-side and delete itself. A few round-trips instead of thousands.
+      - name: Build deploy archive
+        id: build
+        run: |
+          mkdir -p /tmp/payload_root /tmp/payload_public
+          zip -r -q /tmp/payload_root/deploy.zip . \
+            -x ".git/*" -x ".github/*" -x ".history/*" -x ".idea/*" \
+            -x "tests/*" -x ".phpunit.cache/*" -x "node_modules/*" -x "storage/logs/*" \
+            -x "deploy/*"
+
+          TOKEN=$(openssl rand -hex 16)
+          echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
+          echo "script_name=_unpack_${TOKEN}.php" >> "$GITHUB_OUTPUT"
+
+          sed "s/__TOKEN__/${TOKEN}/" deploy/unpack.template.php > "/tmp/payload_public/_unpack_${TOKEN}.php"
+          php -l "/tmp/payload_public/_unpack_${TOKEN}.php"
+
+      - name: Upload archive to project root
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: /tmp/payload_root/
           server-dir: /chillapi2.levelcoding.com/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.history/**
-            **/.idea/**
-            **/tests/**
-            **/.phpunit.cache/**
-            **/node_modules/**
-            **/storage/logs/**
+          state-name: .ftp-deploy-sync-state-root.json
+
+      - name: Upload unpack script to public/
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: /tmp/payload_public/
+          server-dir: /chillapi2.levelcoding.com/public/
+          state-name: .ftp-deploy-sync-state-public.json
+
+      - name: Trigger unpack and verify it ran
+        run: |
+          RESPONSE=$(curl -sf "https://chillapi2.levelcoding.com/${{ steps.build.outputs.script_name }}?token=${{ steps.build.outputs.token }}")
+          echo "Unpack response: $RESPONSE"
+          if [ "$RESPONSE" != "OK" ]; then
+            echo "::error::Unpack script did not report OK"
+            exit 1
+          fi
+          # Confirm the script actually deleted itself (proof it ran, not just that
+          # curl got a 200 - a leftover script would be a real exposure).
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://chillapi2.levelcoding.com/${{ steps.build.outputs.script_name }}")
+          if [ "$STATUS" != "404" ]; then
+            echo "::error::Unpack script is still reachable after running (expected 404, got $STATUS)"
+            exit 1
+          fi
