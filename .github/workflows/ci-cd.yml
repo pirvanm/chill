@@ -127,6 +127,8 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            **/.history/**
+            **/.idea/**
             **/tests/**
             **/.phpunit.cache/**
             **/node_modules/**
